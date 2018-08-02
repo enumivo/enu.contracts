@@ -1,5 +1,5 @@
 {
-   "version": "eosio::abi/1.0",
+   "version": "enumivo::abi/1.0",
    "types": [{
       "new_type_name": "account_name",
       "type": "name"
@@ -16,7 +16,7 @@
       "new_type_name": "weight_type",
       "type": "uint16"
    }],
-   "____comment": "eosio.bios structs: set_account_limits, setpriv, set_global_limits, producer_key, set_producers, require_auth are provided so abi available for deserialization in future.",
+   "____comment": "enu.bios structs: set_account_limits, setpriv, set_global_limits, producer_key, set_producers, require_auth are provided so abi available for deserialization in future.",
    "structs": [{
       "name": "permission_level",
       "base": "",
@@ -242,7 +242,7 @@
          {"name":"max_authority_depth",                 "type":"uint16"}
       ]
     },{
-      "name": "eosio_global_state2",
+      "name": "enumivo_global_state2",
       "fields": [
          {"name":"new_ram_per_block",   "type":"uint16"},
          {"name":"last_ram_increase",   "type":"block_timestamp_type"},
@@ -251,7 +251,7 @@
          {"name":"revision",            "type":"uint8"}
       ]
     },{
-      "name": "eosio_global_state",
+      "name": "enumivo_global_state",
       "base": "blockchain_parameters",
       "fields": [
          {"name":"max_ram_size",                  "type":"uint64"},
@@ -549,13 +549,13 @@
       "key_types" : ["uint64"]
     },{
       "name": "global",
-      "type": "eosio_global_state",
+      "type": "enumivo_global_state",
       "index_type": "i64",
       "key_names" : [],
       "key_types" : []
     },{
       "name": "global2",
-      "type": "eosio_global_state2",
+      "type": "enumivo_global_state2",
       "index_type": "i64",
       "key_names" : [],
       "key_types" : []

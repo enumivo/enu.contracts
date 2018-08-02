@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.5)
-project(eosio_contracts VERSION 1.2.0)
+project(enu_contracts VERSION 1.2.0)
 
-set(EOSIO_DEPENDENCY "1.1")
-set(EOSIO_WASMSDK_DEPENDENCY "1.1")
+set(ENUMIVO_DEPENDENCY "1.1")
+set(ENUMIVO_WASMSDK_DEPENDENCY "1.1")
 
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
    set(TEST_BUILD_TYPE "Debug")
@@ -11,29 +11,29 @@ else()
    set(TEST_BUILD_TYPE ${CMAKE_BUILD_TYPE})
 endif()
 
-if(EOSIO_ROOT STREQUAL "" OR NOT EOSIO_ROOT)
-   set(EOSIO_ROOT "/usr/local/eosio")
+if(ENUMIVO_ROOT STREQUAL "" OR NOT ENUMIVO_ROOT)
+   set(ENUMIVO_ROOT "/usr/local/enumivo")
 endif()
 
-if(EOSIO_WASMSDK_ROOT STREQUAL "" OR NOT EOSIO_WASMSDK_ROOT)
-   set(EOSIO_WASMSDK_ROOT "/usr/local/eosio.wasmsdk")
+if(ENUMIVO_WASMSDK_ROOT STREQUAL "" OR NOT ENUMIVO_WASMSDK_ROOT)
+   set(ENUMIVO_WASMSDK_ROOT "/usr/local/enu.wasmsdk")
 endif()
 
-list(APPEND CMAKE_MODULE_PATH ${EOSIO_WASMSDK_ROOT}/lib/cmake)
-include(EosioWasmToolchain)
+list(APPEND CMAKE_MODULE_PATH ${ENUMIVO_WASMSDK_ROOT}/lib/cmake)
+include(EnuWasmToolchain)
 
 ### Check the version of wasmsdk
-string(FIND "${EOSIO_WASMSDK_VERSION}" "${EOSIO_WASMSDK_DEPENDENCY}" output)
+string(FIND "${ENUMIVO_WASMSDK_VERSION}" "${ENUMIVO_WASMSDK_DEPENDENCY}" output)
 
 if (NOT "${output}" EQUAL 0)
-   message(FATAL_ERROR "Incorrect EOSIO.WasmSDK version, please use version ${EOSIO_WASMSDK_DEPENDENCY}.x")
+   message(FATAL_ERROR "Incorrect enu.WasmSDK version, please use version ${ENUMIVO_WASMSDK_DEPENDENCY}.x")
 endif()
 
 include_directories(AFTER ${BOOST_ROOT}/include)
-add_subdirectory(eosio.msig)
-add_subdirectory(eosio.sudo)
-add_subdirectory(eosio.system)
-add_subdirectory(eosio.token)
+add_subdirectory(enu.msig)
+add_subdirectory(enu.sudo)
+add_subdirectory(enu.system)
+add_subdirectory(enu.token)
 
 if (APPLE)
    set(OPENSSL_ROOT "/usr/local/opt/openssl")

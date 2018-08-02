@@ -1,25 +1,25 @@
 #pragma once
-#include <eosio/testing/tester.hpp>
+#include <enumivo/testing/tester.hpp>
 
-namespace eosio { namespace testing {
+namespace enumivo { namespace testing {
 
 struct contracts {
-   static std::vector<uint8_t> system_wasm() { return read_wasm("${CMAKE_BINARY_DIR}/../eosio.system/eosio.system.wasm"); }
-   static std::string          system_wast() { return read_wast("${CMAKE_BINARY_DIR}/../eosio.system/eosio.system.wast"); }
-   static std::vector<char>    system_abi() { return read_abi("${CMAKE_BINARY_DIR}/../eosio.system/eosio.system.abi"); }
-   static std::vector<uint8_t> token_wasm() { return read_wasm("${CMAKE_BINARY_DIR}/../eosio.token/eosio.token.wasm"); }
-   static std::string          token_wast() { return read_wast("${CMAKE_BINARY_DIR}/../eosio.token/eosio.token.wast"); }
-   static std::vector<char>    token_abi() { return read_abi("${CMAKE_BINARY_DIR}/../eosio.token/eosio.token.abi"); } 
-   static std::vector<uint8_t> msig_wasm() { return read_wasm("${CMAKE_BINARY_DIR}/../eosio.msig/eosio.msig.wasm"); }
-   static std::string          msig_wast() { return read_wast("${CMAKE_BINARY_DIR}/../eosio.msig/eosio.msig.wast"); }
-   static std::vector<char>    msig_abi() { return read_abi("${CMAKE_BINARY_DIR}/../eosio.msig/eosio.msig.abi"); }
-   static std::vector<uint8_t> sudo_wasm() { return read_wasm("${CMAKE_BINARY_DIR}/../eosio.sudo/eosio.sudo.wasm"); }
-   static std::string          sudo_wast() { return read_wast("${CMAKE_BINARY_DIR}/../eosio.sudo/eosio.sudo.wast"); }
-   static std::vector<char>    sudo_abi() { return read_abi("${CMAKE_BINARY_DIR}/../eosio.sudo/eosio.sudo.abi"); }
+   static std::vector<uint8_t> system_wasm() { return read_wasm("${CMAKE_BINARY_DIR}/../enu.system/enu.system.wasm"); }
+   static std::string          system_wast() { return read_wast("${CMAKE_BINARY_DIR}/../enu.system/enu.system.wast"); }
+   static std::vector<char>    system_abi() { return read_abi("${CMAKE_BINARY_DIR}/../enu.system/enu.system.abi"); }
+   static std::vector<uint8_t> token_wasm() { return read_wasm("${CMAKE_BINARY_DIR}/../enu.token/enu.token.wasm"); }
+   static std::string          token_wast() { return read_wast("${CMAKE_BINARY_DIR}/../enu.token/enu.token.wast"); }
+   static std::vector<char>    token_abi() { return read_abi("${CMAKE_BINARY_DIR}/../enu.token/enu.token.abi"); } 
+   static std::vector<uint8_t> msig_wasm() { return read_wasm("${CMAKE_BINARY_DIR}/../enu.msig/enu.msig.wasm"); }
+   static std::string          msig_wast() { return read_wast("${CMAKE_BINARY_DIR}/../enu.msig/enu.msig.wast"); }
+   static std::vector<char>    msig_abi() { return read_abi("${CMAKE_BINARY_DIR}/../enu.msig/enu.msig.abi"); }
+   static std::vector<uint8_t> sudo_wasm() { return read_wasm("${CMAKE_BINARY_DIR}/../enu.sudo/enu.sudo.wasm"); }
+   static std::string          sudo_wast() { return read_wast("${CMAKE_BINARY_DIR}/../enu.sudo/enu.sudo.wast"); }
+   static std::vector<char>    sudo_abi() { return read_abi("${CMAKE_BINARY_DIR}/../enu.sudo/enu.sudo.abi"); }
    
    struct util {
       static std::vector<uint8_t> test_api_wasm() { return read_wasm("${CMAKE_SOURCE_DIR}/test_contracts/test_api.wasm"); }
       static std::vector<uint8_t> exchange_wasm() { return read_wasm("${CMAKE_SOURCE_DIR}/test_contracts/exchange.wasm"); }
    };
 };
-}} //ns eosio::testing
+}} //ns enumivo::testing

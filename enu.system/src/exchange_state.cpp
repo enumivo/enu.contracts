@@ -1,6 +1,6 @@
-#include <eosio.system/exchange_state.hpp>
+#include <enu.system/exchange_state.hpp>
 
-namespace eosiosystem {
+namespace enumivosystem {
    asset exchange_state::convert_to_exchange( connector& c, asset in ) {
 
       real_type R(supply.amount);
@@ -19,7 +19,7 @@ namespace eosiosystem {
    }
 
    asset exchange_state::convert_from_exchange( connector& c, asset in ) {
-      eosio_assert( in.symbol== supply.symbol, "unexpected asset symbol input" );
+      enumivo_assert( in.symbol== supply.symbol, "unexpected asset symbol input" );
 
       real_type R(supply.amount - in.amount);
       real_type C(c.balance.amount);
@@ -60,7 +60,7 @@ namespace eosiosystem {
          } else if( sell_symbol == quote_symbol ) {
             from = convert_to_exchange( quote, from );
          } else { 
-            eosio_assert( false, "invalid sell" );
+            enumivo_assert( false, "invalid sell" );
          }
       } else {
          if( to == base_symbol ) {
@@ -68,7 +68,7 @@ namespace eosiosystem {
          } else if( to == quote_symbol ) {
             from = convert_from_exchange( quote, from ); 
          } else {
-            eosio_assert( false, "invalid conversion" );
+            enumivo_assert( false, "invalid conversion" );
          }
       }
 
@@ -80,4 +80,4 @@ namespace eosiosystem {
 
 
 
-} /// namespace eosiosystem
+} /// namespace enumivosystem

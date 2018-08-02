@@ -1,21 +1,21 @@
 /**
  *  @file
- *  @copyright defined in eos/LICENSE.txt
+ *  @copyright defined in enumivo/LICENSE
  */
 #pragma once
 
-#include <eosiolib/action.hpp>
-#include <eosiolib/public_key.hpp>
-#include <eosiolib/types.hpp>
-#include <eosiolib/print.hpp>
-#include <eosiolib/privileged.h>
-#include <eosiolib/optional.hpp>
-#include <eosiolib/producer_schedule.hpp>
-#include <eosiolib/contract.hpp>
+#include <enulib/action.hpp>
+#include <enulib/public_key.hpp>
+#include <enulib/types.hpp>
+#include <enulib/print.hpp>
+#include <enulib/privileged.h>
+#include <enulib/optional.hpp>
+#include <enulib/producer_schedule.hpp>
+#include <enulib/contract.hpp>
 
-namespace eosiosystem {
-   using eosio::permission_level;
-   using eosio::public_key;
+namespace enumivosystem {
+   using enumivo::permission_level;
+   using enumivo::public_key;
 
    typedef std::vector<char> bytes;
 
@@ -24,7 +24,7 @@ namespace eosiosystem {
       weight_type       weight;
 
       // explicit serialization macro is not necessary, used here only to improve compilation time
-      EOSLIB_SERIALIZE( permission_level_weight, (permission)(weight) )
+      ENULIB_SERIALIZE( permission_level_weight, (permission)(weight) )
    };
 
    struct key_weight {
@@ -32,7 +32,7 @@ namespace eosiosystem {
       weight_type  weight;
 
       // explicit serialization macro is not necessary, used here only to improve compilation time
-      EOSLIB_SERIALIZE( key_weight, (key)(weight) )
+      ENULIB_SERIALIZE( key_weight, (key)(weight) )
    };
 
    struct authority {
@@ -42,7 +42,7 @@ namespace eosiosystem {
       std::vector<permission_level_weight>  accounts;
 
       // explicit serialization macro is not necessary, used here only to improve compilation time
-      EOSLIB_SERIALIZE( authority, (threshold)(delay_sec)(keys)(accounts) )
+      ENULIB_SERIALIZE( authority, (threshold)(delay_sec)(keys)(accounts) )
    };
 
    struct block_header {
@@ -53,10 +53,10 @@ namespace eosiosystem {
       checksum256                               transaction_mroot;
       checksum256                               action_mroot;
       uint32_t                                  schedule_version = 0;
-      eosio::optional<eosio::producer_schedule> new_producers;
+      enumivo::optional<enumivo::producer_schedule> new_producers;
 
       // explicit serialization macro is not necessary, used here only to improve compilation time
-      EOSLIB_SERIALIZE(block_header, (timestamp)(producer)(confirmed)(previous)(transaction_mroot)(action_mroot)
+      ENULIB_SERIALIZE(block_header, (timestamp)(producer)(confirmed)(previous)(transaction_mroot)(action_mroot)
                                      (schedule_version)(new_producers))
    };
 
@@ -64,10 +64,10 @@ namespace eosiosystem {
    /*
     * Method parameters commented out to prevent generation of code that parses input data.
     */
-   class native : public eosio::contract {
+   class native : public enumivo::contract {
       public:
 
-         using eosio::contract::contract;
+         using enumivo::contract::contract;
 
          /**
           *  Called after a new account is created. This code enforces resource-limits rules

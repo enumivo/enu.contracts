@@ -1,8 +1,8 @@
 #pragma once
 
-#include <eosiolib/eosio.hpp>
+#include <enulib/enu.hpp>
 
-namespace eosio {
+namespace enumivo {
 
    class sudo : public contract {
       public:
@@ -12,4 +12,4 @@ namespace eosio {
 
    };
 
-} /// namespace eosio
+} /// namespace enumivo

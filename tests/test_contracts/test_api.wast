@@ -52,8 +52,8 @@
  (import "env" "db_lowerbound_i64" (func $db_lowerbound_i64 (param i64 i64 i64 i64) (result i32)))
  (import "env" "db_store_i64" (func $db_store_i64 (param i64 i64 i64 i64 i32 i32) (result i32)))
  (import "env" "db_update_i64" (func $db_update_i64 (param i32 i64 i32 i32)))
- (import "env" "eosio_assert" (func $eosio_assert (param i32 i32)))
- (import "env" "eosio_assert_code" (func $eosio_assert_code (param i32 i64)))
+ (import "env" "enumivo_assert" (func $enumivo_assert (param i32 i32)))
+ (import "env" "enumivo_assert_code" (func $enumivo_assert_code (param i32 i64)))
  (import "env" "get_account_creation_time" (func $get_account_creation_time (param i64) (result i64)))
  (import "env" "get_action" (func $get_action (param i32 i32 i32 i32) (result i32)))
  (import "env" "get_active_producers" (func $get_active_producers (param i32 i32) (result i32)))
@@ -127,7 +127,7 @@
  (data (i32.const 960) "test\n\00")
  (data (i32.const 976) "transaction_size failed\00")
  (data (i32.const 1008) "Unable to add float.\00")
- (data (i32.const 1040) "verify eosio_assert can be called\00")
+ (data (i32.const 1040) "verify enumivo_assert can be called\00")
  (data (i32.const 1088) "privileged_api should not be allowed\00")
  (data (i32.const 1136) "producer_api should not be allowed\00")
  (data (i32.const 1184) "db_api should not be allowed\00")
@@ -176,87 +176,87 @@
  (data (i32.const 2272) "table_name size !=  8\00")
  (data (i32.const 2304) "time size !=  4\00")
  (data (i32.const 2320) "key256 size != 32\00")
- (data (i32.const 2352) "eosio::char_to_symbol(\'1\') !=  1\00")
- (data (i32.const 2400) "eosio::char_to_symbol(\'2\') !=  2\00")
- (data (i32.const 2448) "eosio::char_to_symbol(\'3\') !=  3\00")
- (data (i32.const 2496) "eosio::char_to_symbol(\'4\') !=  4\00")
- (data (i32.const 2544) "eosio::char_to_symbol(\'5\') !=  5\00")
- (data (i32.const 2592) "eosio::char_to_symbol(\'a\') !=  6\00")
- (data (i32.const 2640) "eosio::char_to_symbol(\'b\') !=  7\00")
- (data (i32.const 2688) "eosio::char_to_symbol(\'c\') !=  8\00")
- (data (i32.const 2736) "eosio::char_to_symbol(\'d\') !=  9\00")
- (data (i32.const 2784) "eosio::char_to_symbol(\'e\') != 10\00")
- (data (i32.const 2832) "eosio::char_to_symbol(\'f\') != 11\00")
- (data (i32.const 2880) "eosio::char_to_symbol(\'g\') != 12\00")
- (data (i32.const 2928) "eosio::char_to_symbol(\'h\') != 13\00")
- (data (i32.const 2976) "eosio::char_to_symbol(\'i\') != 14\00")
- (data (i32.const 3024) "eosio::char_to_symbol(\'j\') != 15\00")
- (data (i32.const 3072) "eosio::char_to_symbol(\'k\') != 16\00")
- (data (i32.const 3120) "eosio::char_to_symbol(\'l\') != 17\00")
- (data (i32.const 3168) "eosio::char_to_symbol(\'m\') != 18\00")
- (data (i32.const 3216) "eosio::char_to_symbol(\'n\') != 19\00")
- (data (i32.const 3264) "eosio::char_to_symbol(\'o\') != 20\00")
- (data (i32.const 3312) "eosio::char_to_symbol(\'p\') != 21\00")
- (data (i32.const 3360) "eosio::char_to_symbol(\'q\') != 22\00")
- (data (i32.const 3408) "eosio::char_to_symbol(\'r\') != 23\00")
- (data (i32.const 3456) "eosio::char_to_symbol(\'s\') != 24\00")
- (data (i32.const 3504) "eosio::char_to_symbol(\'t\') != 25\00")
- (data (i32.const 3552) "eosio::char_to_symbol(\'u\') != 26\00")
- (data (i32.const 3600) "eosio::char_to_symbol(\'v\') != 27\00")
- (data (i32.const 3648) "eosio::char_to_symbol(\'w\') != 28\00")
- (data (i32.const 3696) "eosio::char_to_symbol(\'x\') != 29\00")
- (data (i32.const 3744) "eosio::char_to_symbol(\'y\') != 30\00")
- (data (i32.const 3792) "eosio::char_to_symbol(\'z\') != 31\00")
+ (data (i32.const 2352) "enumivo::char_to_symbol(\'1\') !=  1\00")
+ (data (i32.const 2400) "enumivo::char_to_symbol(\'2\') !=  2\00")
+ (data (i32.const 2448) "enumivo::char_to_symbol(\'3\') !=  3\00")
+ (data (i32.const 2496) "enumivo::char_to_symbol(\'4\') !=  4\00")
+ (data (i32.const 2544) "enumivo::char_to_symbol(\'5\') !=  5\00")
+ (data (i32.const 2592) "enumivo::char_to_symbol(\'a\') !=  6\00")
+ (data (i32.const 2640) "enumivo::char_to_symbol(\'b\') !=  7\00")
+ (data (i32.const 2688) "enumivo::char_to_symbol(\'c\') !=  8\00")
+ (data (i32.const 2736) "enumivo::char_to_symbol(\'d\') !=  9\00")
+ (data (i32.const 2784) "enumivo::char_to_symbol(\'e\') != 10\00")
+ (data (i32.const 2832) "enumivo::char_to_symbol(\'f\') != 11\00")
+ (data (i32.const 2880) "enumivo::char_to_symbol(\'g\') != 12\00")
+ (data (i32.const 2928) "enumivo::char_to_symbol(\'h\') != 13\00")
+ (data (i32.const 2976) "enumivo::char_to_symbol(\'i\') != 14\00")
+ (data (i32.const 3024) "enumivo::char_to_symbol(\'j\') != 15\00")
+ (data (i32.const 3072) "enumivo::char_to_symbol(\'k\') != 16\00")
+ (data (i32.const 3120) "enumivo::char_to_symbol(\'l\') != 17\00")
+ (data (i32.const 3168) "enumivo::char_to_symbol(\'m\') != 18\00")
+ (data (i32.const 3216) "enumivo::char_to_symbol(\'n\') != 19\00")
+ (data (i32.const 3264) "enumivo::char_to_symbol(\'o\') != 20\00")
+ (data (i32.const 3312) "enumivo::char_to_symbol(\'p\') != 21\00")
+ (data (i32.const 3360) "enumivo::char_to_symbol(\'q\') != 22\00")
+ (data (i32.const 3408) "enumivo::char_to_symbol(\'r\') != 23\00")
+ (data (i32.const 3456) "enumivo::char_to_symbol(\'s\') != 24\00")
+ (data (i32.const 3504) "enumivo::char_to_symbol(\'t\') != 25\00")
+ (data (i32.const 3552) "enumivo::char_to_symbol(\'u\') != 26\00")
+ (data (i32.const 3600) "enumivo::char_to_symbol(\'v\') != 27\00")
+ (data (i32.const 3648) "enumivo::char_to_symbol(\'w\') != 28\00")
+ (data (i32.const 3696) "enumivo::char_to_symbol(\'x\') != 29\00")
+ (data (i32.const 3744) "enumivo::char_to_symbol(\'y\') != 30\00")
+ (data (i32.const 3792) "enumivo::char_to_symbol(\'z\') != 31\00")
  (data (i32.const 3840) "a\00")
- (data (i32.const 3856) "eosio::string_to_name(a)\00")
+ (data (i32.const 3856) "enumivo::string_to_name(a)\00")
  (data (i32.const 3888) "ba\00")
- (data (i32.const 3904) "eosio::string_to_name(ba)\00")
+ (data (i32.const 3904) "enumivo::string_to_name(ba)\00")
  (data (i32.const 3936) "cba\00")
- (data (i32.const 3952) "eosio::string_to_name(cba)\00")
+ (data (i32.const 3952) "enumivo::string_to_name(cba)\00")
  (data (i32.const 3984) "dcba\00")
- (data (i32.const 4000) "eosio::string_to_name(dcba)\00")
+ (data (i32.const 4000) "enumivo::string_to_name(dcba)\00")
  (data (i32.const 4032) "edcba\00")
- (data (i32.const 4048) "eosio::string_to_name(edcba)\00")
+ (data (i32.const 4048) "enumivo::string_to_name(edcba)\00")
  (data (i32.const 4080) "fedcba\00")
- (data (i32.const 4096) "eosio::string_to_name(fedcba)\00")
+ (data (i32.const 4096) "enumivo::string_to_name(fedcba)\00")
  (data (i32.const 4128) "gfedcba\00")
- (data (i32.const 4144) "eosio::string_to_name(gfedcba)\00")
+ (data (i32.const 4144) "enumivo::string_to_name(gfedcba)\00")
  (data (i32.const 4176) "hgfedcba\00")
- (data (i32.const 4192) "eosio::string_to_name(hgfedcba)\00")
+ (data (i32.const 4192) "enumivo::string_to_name(hgfedcba)\00")
  (data (i32.const 4224) "ihgfedcba\00")
- (data (i32.const 4240) "eosio::string_to_name(ihgfedcba)\00")
+ (data (i32.const 4240) "enumivo::string_to_name(ihgfedcba)\00")
  (data (i32.const 4288) "jihgfedcba\00")
- (data (i32.const 4304) "eosio::string_to_name(jihgfedcba)\00")
+ (data (i32.const 4304) "enumivo::string_to_name(jihgfedcba)\00")
  (data (i32.const 4352) "kjihgfedcba\00")
- (data (i32.const 4368) "eosio::string_to_name(kjihgfedcba)\00")
+ (data (i32.const 4368) "enumivo::string_to_name(kjihgfedcba)\00")
  (data (i32.const 4416) "lkjihgfedcba\00")
- (data (i32.const 4432) "eosio::string_to_name(lkjihgfedcba)\00")
+ (data (i32.const 4432) "enumivo::string_to_name(lkjihgfedcba)\00")
  (data (i32.const 4480) "mlkjihgfedcba\00")
- (data (i32.const 4496) "eosio::string_to_name(mlkjihgfedcba)\00")
+ (data (i32.const 4496) "enumivo::string_to_name(mlkjihgfedcba)\00")
  (data (i32.const 4544) "mlkjihgfedcba1\00")
  (data (i32.const 4560) "mlkjihgfedcba2\00")
- (data (i32.const 4576) "eosio::string_to_name(mlkjihgfedcba2)\00")
+ (data (i32.const 4576) "enumivo::string_to_name(mlkjihgfedcba2)\00")
  (data (i32.const 4624) "mlkjihgfedcba55\00")
  (data (i32.const 4640) "mlkjihgfedcba14\00")
- (data (i32.const 4656) "eosio::string_to_name(mlkjihgfedcba14)\00")
+ (data (i32.const 4656) "enumivo::string_to_name(mlkjihgfedcba14)\00")
  (data (i32.const 4704) "azAA34\00")
  (data (i32.const 4720) "azBB34\00")
- (data (i32.const 4736) "eosio::string_to_name N(azBB34)\00")
+ (data (i32.const 4736) "enumivo::string_to_name N(azBB34)\00")
  (data (i32.const 4768) "AZaz12Bc34\00")
- (data (i32.const 4784) "eosio::string_to_name AZaz12Bc34\00")
+ (data (i32.const 4784) "enumivo::string_to_name AZaz12Bc34\00")
  (data (i32.const 4832) "AAAAAAAAAAAAAAA\00")
  (data (i32.const 4848) "BBBBBBBBBBBBBDDDDDFFFGG\00")
- (data (i32.const 4880) "eosio::string_to_name BBBBBBBBBBBBBDDDDDFFFGG\00")
- (data (i32.const 4928) "eosio::name != N(azAA34)\00")
- (data (i32.const 4960) "eosio::name != N(0)\00")
+ (data (i32.const 4880) "enumivo::string_to_name BBBBBBBBBBBBBDDDDDFFFGG\00")
+ (data (i32.const 4928) "enumivo::name != N(azAA34)\00")
+ (data (i32.const 4960) "enumivo::name != N(0)\00")
  (data (i32.const 4992) "AA11\00")
- (data (i32.const 5008) "eosio::name != N(AA11)\00")
+ (data (i32.const 5008) "enumivo::name != N(AA11)\00")
  (data (i32.const 5040) "11\00")
- (data (i32.const 5056) "eosio::name != N(11)\00")
+ (data (i32.const 5056) "enumivo::name != N(11)\00")
  (data (i32.const 5088) "22\00")
- (data (i32.const 5104) "eosio::name != N(22)\00")
+ (data (i32.const 5104) "enumivo::name != N(22)\00")
  (data (i32.const 5136) "AAAbbcccdd\00")
- (data (i32.const 5152) "eosio::name == eosio::name\00")
+ (data (i32.const 5152) "enumivo::name == enumivo::name\00")
  (data (i32.const 5184) "11bbcccdd\00")
  (data (i32.const 5200) "N(11bbcccdd) == tmp\00")
  (data (i32.const 5232) "fixed_point128 instances comparison with same number of decimals\00")
@@ -286,7 +286,7 @@
  (data (i32.const 6448) "__divti3 result should be 33\00")
  (data (i32.const 6480) "__divti3 result should be 100\00")
  (data (i32.const 6512) "__divti3 result should be -30\00")
- (data (i32.const 6544) "Should have eosio_asserted\00")
+ (data (i32.const 6544) "Should have enumivo_asserted\00")
  (data (i32.const 6576) "__udivti3 result should be 0\00")
  (data (i32.const 6608) "__udivti3 result should be 1\00")
  (data (i32.const 6640) "__lshlti3 result should be 1\00")
@@ -421,7 +421,7 @@
  (data (i32.const 18896) "panda\00")
  (data (i32.const 18912) "map\00")
  (data (i32.const 18928) "tuple\00")
- (data (i32.const 18944) "eosio\00")
+ (data (i32.const 18944) "enumivo\00")
  (data (i32.const 18960) "onerror\00")
  (data (i32.const 18976) "onerror called\n\00")
  (data (i32.const 18992) "Unknown Test\00")
@@ -431,7 +431,7 @@
  (export "_ZeqRK11checksum160S1_" (func $_ZeqRK11checksum160S1_))
  (export "_ZneRK11checksum160S1_" (func $_ZneRK11checksum160S1_))
  (export "now" (func $now))
- (export "_ZN5eosio12require_authERKNS_16permission_levelE" (func $_ZN5eosio12require_authERKNS_16permission_levelE))
+ (export "_ZN5enumivo12require_authERKNS_16permission_levelE" (func $_ZN5enumivo12require_authERKNS_16permission_levelE))
  (export "_ZN11test_action18read_action_normalEv" (func $_ZN11test_action18read_action_normalEv))
  (export "_ZN11test_action17test_dummy_actionEv" (func $_ZN11test_action17test_dummy_actionEv))
  (export "_ZN11test_action16read_action_to_0Ev" (func $_ZN11test_action16read_action_to_0Ev))
@@ -520,7 +520,7 @@
  (export "_ZN16test_transaction18send_action_senderEyyy" (func $_ZN16test_transaction18send_action_senderEyyy))
  (export "_ZN16test_transaction22send_transaction_emptyEyyy" (func $_ZN16test_transaction22send_transaction_emptyEyyy))
  (export "_ZN16test_transaction38send_transaction_trigger_error_handlerEyyy" (func $_ZN16test_transaction38send_transaction_trigger_error_handlerEyyy))
- (export "_ZN16test_transaction26assert_false_error_handlerERKN5eosio11transactionE" (func $_ZN16test_transaction26assert_false_error_handlerERKN5eosio11transactionE))
+ (export "_ZN16test_transaction26assert_false_error_handlerERKN5enumivo11transactionE" (func $_ZN16test_transaction26assert_false_error_handlerERKN5enumivo11transactionE))
  (export "_ZN16test_transaction22send_transaction_largeEyyy" (func $_ZN16test_transaction22send_transaction_largeEyyy))
  (export "_ZN16test_transaction14deferred_printEv" (func $_ZN16test_transaction14deferred_printEv))
  (export "_ZN16test_transaction25send_deferred_transactionEyyy" (func $_ZN16test_transaction25send_deferred_transactionEyyy))
@@ -592,7 +592,7 @@
    )
   )
  )
- (func $_ZN5eosio12require_authERKNS_16permission_levelE (param $0 i32)
+ (func $_ZN5enumivo12require_authERKNS_16permission_levelE (param $0 i32)
   (call $require_auth2
    (i64.load
     (get_local $0)
@@ -615,14 +615,14 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.eq
     (call $action_data_size)
     (i32.const 13)
    )
    (i32.const 32)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.eq
     (call $read_action_data
      (get_local $0)
@@ -632,7 +632,7 @@
    )
    (i32.const 80)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.eq
     (call $read_action_data
      (get_local $0)
@@ -642,7 +642,7 @@
    )
    (i32.const 96)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.eq
     (call $read_action_data
      (get_local $0)
@@ -652,7 +652,7 @@
    )
    (i32.const 128)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.eq
     (call $read_action_data
      (get_local $0)
@@ -662,7 +662,7 @@
    )
    (i32.const 144)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.eq
     (i32.load8_u
      (get_local $0)
@@ -671,7 +671,7 @@
    )
    (i32.const 192)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (i64.load offset=1 align=1
      (get_local $0)
@@ -680,7 +680,7 @@
    )
    (i32.const 240)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.eq
     (i32.load offset=9 align=1
      (get_local $0)
@@ -720,7 +720,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.gt_s
     (tee_local $0
      (call $get_action
@@ -745,7 +745,7 @@
    )
    (i32.const 336)
   )
-  (call $_ZN5eosio10get_actionEmm
+  (call $_ZN5enumivo10get_actionEmm
    (i32.add
     (get_local $10)
     (i32.const 24)
@@ -900,7 +900,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (get_local $1)
     (get_local $8)
@@ -1054,7 +1054,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (get_local $1)
     (get_local $8)
@@ -1180,7 +1180,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.eqz
     (get_local $5)
    )
@@ -1325,14 +1325,14 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (get_local $1)
     (get_local $8)
    )
    (i32.const 512)
   )
-  (call $_ZN5eosio6action7data_asI12dummy_actionEET_v
+  (call $_ZN5enumivo6action7data_asI12dummy_actionEET_v
    (i32.add
     (get_local $10)
     (i32.const 8)
@@ -1360,7 +1360,7 @@
        (i32.const 0)
       )
      )
-     (call $eosio_assert
+     (call $enumivo_assert
       (i32.const 0)
       (i32.const 544)
      )
@@ -1373,7 +1373,7 @@
      )
      (br $label$21)
     )
-    (call $eosio_assert
+    (call $enumivo_assert
      (i32.eq
       (i32.load8_u offset=8
        (get_local $10)
@@ -1382,7 +1382,7 @@
      )
      (i32.const 608)
     )
-    (call $eosio_assert
+    (call $enumivo_assert
      (i64.eq
       (i64.load offset=9 align=1
        (get_local $10)
@@ -1391,7 +1391,7 @@
      )
      (i32.const 656)
     )
-    (call $eosio_assert
+    (call $enumivo_assert
      (i32.eq
       (i32.load offset=17 align=1
        (get_local $10)
@@ -1450,7 +1450,7 @@
    )
   )
  )
- (func $_ZN5eosio10get_actionEmm (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $_ZN5enumivo10get_actionEmm (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -1468,7 +1468,7 @@
    (i32.const 0)
    (get_local $4)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.gt_s
     (tee_local $3
      (call $get_action
@@ -1513,7 +1513,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.eq
     (get_local $3)
     (call $get_action
@@ -1556,7 +1556,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.gt_u
     (get_local $3)
     (i32.const 7)
@@ -1570,7 +1570,7 @@
     (i32.const 8)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.gt_u
     (i32.sub
      (get_local $1)
@@ -1603,8 +1603,8 @@
    )
   )
   (drop
-   (call $_ZN5eosiorsINS_10datastreamIPKcEEEERT_S6_RNSt3__16vectorIcNS7_9allocatorIcEEEE
-    (call $_ZN5eosiorsINS_10datastreamIPKcEENS_16permission_levelEEERT_S7_RNSt3__16vectorIT0_NS8_9allocatorISA_EEEE
+   (call $_ZN5enumivorsINS_10datastreamIPKcEEEERT_S6_RNSt3__16vectorIcNS7_9allocatorIcEEEE
+    (call $_ZN5enumivorsINS_10datastreamIPKcEENS_16permission_levelEEERT_S7_RNSt3__16vectorIT0_NS8_9allocatorISA_EEEE
      (get_local $5)
      (i32.add
       (get_local $0)
@@ -1625,7 +1625,7 @@
    )
   )
  )
- (func $_ZN5eosio6action7data_asI12dummy_actionEET_v (param $0 i32) (param $1 i32)
+ (func $_ZN5enumivo6action7data_asI12dummy_actionEET_v (param $0 i32) (param $1 i32)
   (local $2 i64)
   (local $3 i32)
   (local $4 i32)
@@ -1752,7 +1752,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (get_local $2)
     (get_local $5)
@@ -1898,14 +1898,14 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (get_local $2)
     (get_local $5)
    )
    (i32.const 784)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.ne
     (tee_local $3
      (i32.sub
@@ -1933,7 +1933,7 @@
     (i32.const 1)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.gt_u
     (i32.add
      (get_local $3)
@@ -1956,7 +1956,7 @@
     (i32.const 8)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.gt_u
     (i32.add
      (get_local $3)
@@ -1980,7 +1980,7 @@
    )
   )
  )
- (func $_ZN5eosiorsINS_10datastreamIPKcEENS_16permission_levelEEERT_S7_RNSt3__16vectorIT0_NS8_9allocatorISA_EEEE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN5enumivorsINS_10datastreamIPKcEENS_16permission_levelEEERT_S7_RNSt3__16vectorIT0_NS8_9allocatorISA_EEEE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -2011,7 +2011,7 @@
    )
   )
   (loop $label$0
-   (call $eosio_assert
+   (call $enumivo_assert
     (i32.lt_u
      (get_local $7)
      (i32.load
@@ -2099,7 +2099,7 @@
        )
       )
      )
-     (call $_ZNSt3__16vectorIN5eosio16permission_levelENS_9allocatorIS2_EEE8__appendEj
+     (call $_ZNSt3__16vectorIN5enumivo16permission_levelENS_9allocatorIS2_EEE8__appendEj
       (get_local $1)
       (i32.sub
        (get_local $4)
@@ -2166,7 +2166,7 @@
     )
    )
    (loop $label$5
-    (call $eosio_assert
+    (call $enumivo_assert
      (i32.gt_u
       (i32.sub
        (i32.load
@@ -2203,7 +2203,7 @@
       )
      )
     )
-    (call $eosio_assert
+    (call $enumivo_assert
      (i32.gt_u
       (i32.sub
        (i32.load
@@ -2253,7 +2253,7 @@
   )
   (get_local $0)
  )
- (func $_ZN5eosiorsINS_10datastreamIPKcEEEERT_S6_RNSt3__16vectorIcNS7_9allocatorIcEEEE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN5enumivorsINS_10datastreamIPKcEEEERT_S6_RNSt3__16vectorIcNS7_9allocatorIcEEEE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -2284,7 +2284,7 @@
    )
   )
   (loop $label$0
-   (call $eosio_assert
+   (call $enumivo_assert
     (i32.lt_u
      (get_local $5)
      (i32.load
@@ -2417,7 +2417,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.ge_u
     (i32.sub
      (i32.load
@@ -2700,7 +2700,7 @@
    (return)
   )
  )
- (func $_ZNSt3__16vectorIN5eosio16permission_levelENS_9allocatorIS2_EEE8__appendEj (param $0 i32) (param $1 i32)
+ (func $_ZNSt3__16vectorIN5enumivo16permission_levelENS_9allocatorIS2_EEE8__appendEj (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -2977,7 +2977,7 @@
     )
    )
   )
-  (call $_ZN5eosio10get_actionEmm
+  (call $_ZN5enumivo10get_actionEmm
    (i32.add
     (get_local $9)
     (i32.const 104)
@@ -2985,7 +2985,7 @@
    (i32.const 0)
    (i32.const 0)
   )
-  (call $_ZN5eosio6action7data_asI9cf_actionEET_v
+  (call $_ZN5enumivo6action7data_asI9cf_actionEET_v
    (i32.add
     (get_local $9)
     (i32.const 96)
@@ -3029,7 +3029,7 @@
                     (get_local $2)
                    )
                   )
-                  (call $eosio_assert
+                  (call $enumivo_assert
                    (i32.gt_s
                     (tee_local $0
                      (call $get_context_free_data
@@ -3123,7 +3123,7 @@
                     )
                    )
                   )
-                  (call $eosio_assert
+                  (call $enumivo_assert
                    (i32.eq
                     (call $get_context_free_data
                      (i32.load offset=100
@@ -3143,7 +3143,7 @@
                    )
                    (i32.const 896)
                   )
-                  (call $eosio_assert
+                  (call $enumivo_assert
                    (i32.gt_u
                     (i32.sub
                      (i32.load offset=84
@@ -3174,7 +3174,7 @@
                     )
                    )
                   )
-                  (call $eosio_assert
+                  (call $enumivo_assert
                    (i32.eq
                     (get_local $2)
                     (i32.load offset=96
@@ -3241,14 +3241,14 @@
                     (i32.const 4)
                    )
                   )
-                  (call $eosio_assert
+                  (call $enumivo_assert
                    (i32.ne
                     (call $transaction_size)
                     (i32.const 0)
                    )
                    (i32.const 976)
                   )
-                  (call $eosio_assert
+                  (call $enumivo_assert
                    (i32.const 1)
                    (i32.const 1008)
                   )
@@ -3262,7 +3262,7 @@
                    (i64.const 2)
                    (i64.const 2)
                   )
-                  (call $eosio_assert
+                  (call $enumivo_assert
                    (i32.const 1)
                    (i32.const 1040)
                   )
@@ -3298,7 +3298,7 @@
                    )
                   )
                  )
-                 (call $eosio_assert
+                 (call $enumivo_assert
                   (i32.const 0)
                   (i32.const 1088)
                  )
@@ -3317,7 +3317,7 @@
                   (i32.const 0)
                  )
                 )
-                (call $eosio_assert
+                (call $enumivo_assert
                  (i32.const 0)
                  (i32.const 1136)
                 )
@@ -3742,7 +3742,7 @@
                  (i32.const 4)
                 )
                )
-               (call $eosio_assert
+               (call $enumivo_assert
                 (i32.const 0)
                 (i32.const 1184)
                )
@@ -4170,7 +4170,7 @@
                 (get_local $9)
                )
               )
-              (call $eosio_assert
+              (call $enumivo_assert
                (i32.const 0)
                (i32.const 1184)
               )
@@ -4593,7 +4593,7 @@
                (i64.const 1)
               )
              )
-             (call $eosio_assert
+             (call $enumivo_assert
               (i32.const 0)
               (i32.const 1184)
              )
@@ -4624,7 +4624,7 @@
              (get_local $9)
              (i64.const 0)
             )
-            (call $_ZN5eosio4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
+            (call $_ZN5enumivo4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
              (i32.add
               (get_local $9)
               (i32.const 48)
@@ -4662,7 +4662,7 @@
               (get_local $2)
              )
             )
-            (call $eosio_assert
+            (call $enumivo_assert
              (i32.const 0)
              (i32.const 1216)
             )
@@ -4858,7 +4858,7 @@
            (call $require_auth
             (get_local $5)
            )
-           (call $eosio_assert
+           (call $enumivo_assert
             (i32.const 0)
             (i32.const 1264)
            )
@@ -4874,7 +4874,7 @@
           (drop
            (call $current_time)
           )
-          (call $eosio_assert
+          (call $enumivo_assert
            (i32.const 0)
            (i32.const 1312)
           )
@@ -4890,7 +4890,7 @@
          (drop
           (call $current_time)
          )
-         (call $eosio_assert
+         (call $enumivo_assert
           (i32.const 0)
           (i32.const 1312)
          )
@@ -4906,7 +4906,7 @@
         (drop
          (call $publication_time)
         )
-        (call $eosio_assert
+        (call $enumivo_assert
          (i32.const 0)
          (i32.const 1312)
         )
@@ -4923,7 +4923,7 @@
         (i32.const 1360)
         (i32.const 6)
        )
-       (call $eosio_assert
+       (call $enumivo_assert
         (i32.const 0)
         (i32.const 1376)
        )
@@ -5219,7 +5219,7 @@
        (i32.const 6)
        (i32.const 0)
       )
-      (call $eosio_assert
+      (call $enumivo_assert
        (i32.const 0)
        (i32.const 1376)
       )
@@ -5283,7 +5283,7 @@
   )
   (unreachable)
  )
- (func $_ZN5eosio6action7data_asI9cf_actionEET_v (param $0 i32) (param $1 i32)
+ (func $_ZN5enumivo6action7data_asI9cf_actionEET_v (param $0 i32) (param $1 i32)
   (local $2 i64)
   (local $3 i32)
   (local $4 i32)
@@ -5430,7 +5430,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (get_local $2)
     (get_local $7)
@@ -5576,7 +5576,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (get_local $2)
     (get_local $7)
@@ -5587,7 +5587,7 @@
    (get_local $0)
    (i64.const 100)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.gt_u
     (tee_local $3
      (i32.sub
@@ -5615,7 +5615,7 @@
     (i32.const 4)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.ne
     (i32.and
      (get_local $3)
@@ -5639,7 +5639,7 @@
    )
   )
  )
- (func $_ZN5eosio4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_ (param $0 i32) (param $1 i32)
+ (func $_ZN5enumivo4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_ (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -5832,7 +5832,7 @@
    (get_local $8)
    (get_local $7)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.gt_s
     (i32.sub
      (get_local $7)
@@ -5849,7 +5849,7 @@
     (i32.const 8)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.gt_s
     (i32.sub
      (get_local $7)
@@ -5882,8 +5882,8 @@
    )
   )
   (drop
-   (call $_ZN5eosiolsINS_10datastreamIPcEEEERT_S5_RKNSt3__16vectorIcNS6_9allocatorIcEEEE
-    (call $_ZN5eosiolsINS_10datastreamIPcEENS_16permission_levelEEERT_S6_RKNSt3__16vectorIT0_NS7_9allocatorIS9_EEEE
+   (call $_ZN5enumivolsINS_10datastreamIPcEEEERT_S5_RKNSt3__16vectorIcNS6_9allocatorIcEEEE
+    (call $_ZN5enumivolsINS_10datastreamIPcEENS_16permission_levelEEERT_S6_RKNSt3__16vectorIT0_NS7_9allocatorIS9_EEEE
      (get_local $8)
      (get_local $2)
     )
@@ -5898,7 +5898,7 @@
    )
   )
  )
- (func $_ZN5eosiolsINS_10datastreamIPcEENS_16permission_levelEEERT_S6_RKNSt3__16vectorIT0_NS7_9allocatorIS9_EEEE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN5enumivolsINS_10datastreamIPcEENS_16permission_levelEEERT_S6_RKNSt3__16vectorIT0_NS7_9allocatorIS9_EEEE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i64)
@@ -5971,7 +5971,7 @@
      )
     )
    )
-   (call $eosio_assert
+   (call $enumivo_assert
     (i32.gt_s
      (i32.sub
       (i32.load
@@ -6040,7 +6040,7 @@
     )
    )
    (loop $label$2
-    (call $eosio_assert
+    (call $enumivo_assert
      (i32.gt_s
       (i32.sub
        (i32.load
@@ -6077,7 +6077,7 @@
       )
      )
     )
-    (call $eosio_assert
+    (call $enumivo_assert
      (i32.gt_s
       (i32.sub
        (i32.load
@@ -6134,7 +6134,7 @@
   )
   (get_local $0)
  )
- (func $_ZN5eosiolsINS_10datastreamIPcEEEERT_S5_RKNSt3__16vectorIcNS6_9allocatorIcEEEE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN5enumivolsINS_10datastreamIPcEEEERT_S5_RKNSt3__16vectorIcNS6_9allocatorIcEEEE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -6211,7 +6211,7 @@
      )
     )
    )
-   (call $eosio_assert
+   (call $enumivo_assert
     (i32.gt_s
      (i32.sub
       (i32.load
@@ -6250,7 +6250,7 @@
     (get_local $3)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.ge_s
     (i32.sub
      (i32.load
@@ -7010,7 +7010,7 @@
      (call $require_recipient
       (get_local $9)
      )
-     (call $eosio_assert
+     (call $enumivo_assert
       (i32.const 0)
       (i32.const 1488)
      )
@@ -7163,7 +7163,7 @@
      )
     )
    )
-   (call $eosio_assert
+   (call $enumivo_assert
     (i32.const 0)
     (i32.const 1488)
    )
@@ -7455,19 +7455,19 @@
   )
  )
  (func $_ZN11test_action12assert_falseEv
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 0)
    (i32.const 1568)
   )
  )
  (func $_ZN11test_action11assert_trueEv
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 1600)
   )
  )
  (func $_ZN11test_action14assert_true_cfEv
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 1600)
   )
@@ -7493,7 +7493,7 @@
    (get_local $0)
    (i64.const 0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.eq
     (call $read_action_data
      (i32.add
@@ -7506,7 +7506,7 @@
    )
    (i32.const 1632)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (i64.load offset=8
      (get_local $0)
@@ -7545,7 +7545,7 @@
     (i32.const 8)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (i64.load offset=8
      (get_local $3)
@@ -7579,7 +7579,7 @@
    (get_local $0)
    (i64.const 0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.eq
     (call $read_action_data
      (i32.add
@@ -7592,7 +7592,7 @@
    )
    (i32.const 1632)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (i64.load offset=8
      (get_local $0)
@@ -7626,7 +7626,7 @@
    (get_local $0)
    (i64.const 0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.eq
     (call $read_action_data
      (i32.add
@@ -7639,7 +7639,7 @@
    )
    (i32.const 1632)
   )
-  (call $eosio_assert_code
+  (call $enumivo_assert_code
    (i32.const 0)
    (i64.load offset=8
     (get_local $0)
@@ -9588,173 +9588,173 @@
   (unreachable)
  )
  (func $_ZN10test_types10types_sizeEv
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 2016)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 2048)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 2080)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 2112)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 2144)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 2176)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 2208)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 2240)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 2272)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 2304)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 2320)
   )
  )
  (func $_ZN10test_types14char_to_symbolEv
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 2352)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 2400)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 2448)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 2496)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 2544)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 2592)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 2640)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 2688)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 2736)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 2784)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 2832)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 2880)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 2928)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 2976)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 3024)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 3072)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 3120)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 3168)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 3216)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 3264)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 3312)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 3360)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 3408)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 3456)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 3504)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 3552)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 3600)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 3648)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 3696)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 3744)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 3792)
   )
@@ -10035,7 +10035,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (get_local $2)
     (get_local $3)
@@ -10310,7 +10310,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (get_local $2)
     (get_local $3)
@@ -10585,7 +10585,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (get_local $2)
     (get_local $3)
@@ -10860,7 +10860,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (get_local $2)
     (get_local $3)
@@ -11135,7 +11135,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (get_local $2)
     (get_local $3)
@@ -11410,7 +11410,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (get_local $2)
     (get_local $3)
@@ -11685,7 +11685,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (get_local $2)
     (get_local $3)
@@ -11960,7 +11960,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (get_local $2)
     (get_local $3)
@@ -12235,7 +12235,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (get_local $2)
     (get_local $3)
@@ -12510,7 +12510,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (get_local $2)
     (get_local $3)
@@ -12785,7 +12785,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (get_local $2)
     (get_local $3)
@@ -13020,7 +13020,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (get_local $2)
     (get_local $3)
@@ -13303,7 +13303,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (get_local $2)
     (get_local $3)
@@ -13586,7 +13586,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (get_local $2)
     (get_local $3)
@@ -13869,7 +13869,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (get_local $2)
     (get_local $3)
@@ -14144,7 +14144,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (get_local $2)
     (get_local $3)
@@ -14419,7 +14419,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (get_local $2)
     (get_local $3)
@@ -14702,7 +14702,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (get_local $2)
     (get_local $3)
@@ -14852,14 +14852,14 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (get_local $4)
     (i64.const 4017212585601400832)
    )
    (i32.const 4928)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 4960)
   )
@@ -14997,7 +14997,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (get_local $4)
     (i64.const 580542139465728)
@@ -15138,7 +15138,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (get_local $4)
     (i64.const 594475150812905472)
@@ -15279,7 +15279,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (get_local $4)
     (i64.const 1188950301625810944)
@@ -15554,7 +15554,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (get_local $4)
     (get_local $6)
@@ -15829,7 +15829,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (get_local $6)
     (get_local $4)
@@ -15838,65 +15838,65 @@
   )
  )
  (func $_ZN15test_fixedpoint16create_instancesEv
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 5232)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 5312)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 5376)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 5440)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 5504)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 5568)
   )
  )
  (func $_ZN15test_fixedpoint13test_additionEv
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 5632)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 5696)
   )
  )
  (func $_ZN15test_fixedpoint16test_subtractionEv
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 5760)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 5760)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 5824)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 5824)
   )
  )
  (func $_ZN15test_fixedpoint19test_multiplicationEv
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 5888)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 5952)
   )
@@ -15914,15 +15914,15 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 6016)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 6016)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 6016)
   )
@@ -15954,23 +15954,23 @@
   (call $printui128
    (get_local $0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 6048)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 6016)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 6016)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 6016)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 6048)
   )
@@ -15983,15 +15983,15 @@
   )
  )
  (func $_ZN15test_fixedpoint18test_division_by_0Ev
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 0)
    (i32.const 6016)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 0)
    (i32.const 6016)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 0)
    (i32.const 6160)
   )
@@ -16418,7 +16418,7 @@
    (i64.const 100)
    (i64.const 0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -16444,7 +16444,7 @@
    (i64.const -30)
    (i64.const -1)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -16470,7 +16470,7 @@
    (i64.const -30)
    (i64.const -1)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -16493,7 +16493,7 @@
    (i64.const 100)
    (i64.const 0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -16516,7 +16516,7 @@
    (i64.const 100)
    (i64.const 0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -16539,7 +16539,7 @@
    (i64.const -30)
    (i64.const -1)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -16594,7 +16594,7 @@
    (i64.const 100)
    (i64.const 0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.load
@@ -16614,7 +16614,7 @@
    (i64.const -30)
    (i64.const -1)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -16640,7 +16640,7 @@
    (i64.const -30)
    (i64.const -1)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -16663,7 +16663,7 @@
    (i64.const 100)
    (i64.const 0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -16686,7 +16686,7 @@
    (i64.const 3333)
    (i64.const 0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.load
@@ -16706,7 +16706,7 @@
    (i64.const 100)
    (i64.const 0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -16729,7 +16729,7 @@
    (i64.const 1)
    (i64.const 0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -16752,7 +16752,7 @@
    (i64.const 1)
    (i64.const 0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -16807,7 +16807,7 @@
    (i64.const 0)
    (i64.const 0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 0)
    (i32.const 6544)
   )
@@ -16847,7 +16847,7 @@
    (i64.const 100)
    (i64.const 0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -16873,7 +16873,7 @@
    (i64.const -30)
    (i64.const -1)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.load
@@ -16893,7 +16893,7 @@
    (i64.const -30)
    (i64.const -1)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -16916,7 +16916,7 @@
    (i64.const 100)
    (i64.const 0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -16939,7 +16939,7 @@
    (i64.const 3333)
    (i64.const 0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.load
@@ -16959,7 +16959,7 @@
    (i64.const 100)
    (i64.const 0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -16982,7 +16982,7 @@
    (i64.const 1)
    (i64.const 0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -17005,7 +17005,7 @@
    (i64.const 1)
    (i64.const 0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -17060,7 +17060,7 @@
    (i64.const 0)
    (i64.const 0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 0)
    (i32.const 6544)
   )
@@ -17099,7 +17099,7 @@
    (i64.const 0)
    (i32.const 0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -17121,7 +17121,7 @@
    (i64.const 0)
    (i32.const 1)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -17143,7 +17143,7 @@
    (i64.const 0)
    (i32.const 31)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -17165,7 +17165,7 @@
    (i64.const 0)
    (i32.const 63)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -17187,7 +17187,7 @@
    (i64.const 0)
    (i32.const 64)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.load
@@ -17209,7 +17209,7 @@
    (i64.const 0)
    (i32.const 127)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.load
@@ -17231,7 +17231,7 @@
    (i64.const 0)
    (i32.const 128)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.load
@@ -17279,7 +17279,7 @@
    (i64.const 0)
    (i32.const 0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -17301,7 +17301,7 @@
    (i64.const 0)
    (i32.const 1)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -17323,7 +17323,7 @@
    (i64.const 0)
    (i32.const 31)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -17345,7 +17345,7 @@
    (i64.const 0)
    (i32.const 63)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -17367,7 +17367,7 @@
    (i64.const 0)
    (i32.const 64)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.load
@@ -17389,7 +17389,7 @@
    (i64.const 0)
    (i32.const 127)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.load
@@ -17411,7 +17411,7 @@
    (i64.const 0)
    (i32.const 128)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.load
@@ -17459,7 +17459,7 @@
    (i64.const -9223372036854775808)
    (i32.const 0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.load
@@ -17481,7 +17481,7 @@
    (i64.const -9223372036854775808)
    (i32.const 1)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.load
@@ -17503,7 +17503,7 @@
    (i64.const -9223372036854775808)
    (i32.const 63)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.load
@@ -17525,7 +17525,7 @@
    (i64.const -9223372036854775808)
    (i32.const 64)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -17547,7 +17547,7 @@
    (i64.const -9223372036854775808)
    (i32.const 96)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -17569,7 +17569,7 @@
    (i64.const -9223372036854775808)
    (i32.const 127)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -17620,7 +17620,7 @@
    (i64.const -9223372036854775808)
    (i32.const 0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.load
@@ -17642,7 +17642,7 @@
    (i64.const -9223372036854775808)
    (i32.const 1)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.load
@@ -17664,7 +17664,7 @@
    (i64.const -9223372036854775808)
    (i32.const 2)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.load
@@ -17686,7 +17686,7 @@
    (i64.const -9223372036854775808)
    (i32.const 64)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -17711,7 +17711,7 @@
    (i64.const -9223372036854775808)
    (i32.const 95)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -17736,7 +17736,7 @@
    (i64.const -9223372036854775808)
    (i32.const 127)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (i64.and
      (i64.load
@@ -17786,7 +17786,7 @@
    (i64.const 100)
    (i64.const 0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -17812,7 +17812,7 @@
    (i64.const -100)
    (i64.const -1)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -17835,7 +17835,7 @@
    (i64.const -100)
    (i64.const -1)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -17861,7 +17861,7 @@
    (i64.const 30)
    (i64.const 0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -17884,7 +17884,7 @@
    (i64.const -100)
    (i64.const -1)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.load
@@ -17904,7 +17904,7 @@
    (i64.const 100)
    (i64.const 0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.load
@@ -17924,7 +17924,7 @@
    (i64.const 100)
    (i64.const 0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.load
@@ -17973,7 +17973,7 @@
    (i64.const 0)
    (i64.const 0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 0)
    (i32.const 7776)
   )
@@ -18013,7 +18013,7 @@
    (i64.const 100)
    (i64.const 0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -18039,7 +18039,7 @@
    (i64.const -100)
    (i64.const -1)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -18062,7 +18062,7 @@
    (i64.const -100)
    (i64.const -1)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -18088,7 +18088,7 @@
    (i64.const 30)
    (i64.const 0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.xor
@@ -18111,7 +18111,7 @@
    (i64.const -100)
    (i64.const -1)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.load
@@ -18131,7 +18131,7 @@
    (i64.const 100)
    (i64.const 0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.load
@@ -18151,7 +18151,7 @@
    (i64.const 100)
    (i64.const 0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eqz
     (i64.or
      (i64.load
@@ -18200,7 +18200,7 @@
    (i64.const 0)
    (i64.const 0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 0)
    (i32.const 7776)
   )
@@ -18368,7 +18368,7 @@
    )
    (i32.const 34)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 0)
    (i32.const 7776)
   )
@@ -18455,7 +18455,7 @@
       )
      )
     )
-    (call $eosio_assert
+    (call $enumivo_assert
      (i32.const 0)
      (i32.const 7808)
     )
@@ -18540,7 +18540,7 @@
     (i32.const 1)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (get_local $1)
    (i32.const 7888)
   )
@@ -18589,7 +18589,7 @@
     (i32.const 1)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (get_local $1)
    (i32.const 8000)
   )
@@ -18638,7 +18638,7 @@
     (i32.const 1)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (get_local $1)
    (i32.const 8176)
   )
@@ -18687,7 +18687,7 @@
     (i32.const 1)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (get_local $1)
    (i32.const 8240)
   )
@@ -18759,7 +18759,7 @@
     (i32.const 1)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (get_local $1)
    (i32.const 8288)
   )
@@ -18808,7 +18808,7 @@
     (i32.const 1)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (get_local $1)
    (i32.const 8336)
   )
@@ -18857,7 +18857,7 @@
     (i32.const 1)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (get_local $1)
    (i32.const 8384)
   )
@@ -18906,7 +18906,7 @@
     (i32.const 1)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (get_local $1)
    (i32.const 8432)
   )
@@ -18978,7 +18978,7 @@
     (i32.const 1)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (get_local $1)
    (i32.const 8512)
   )
@@ -19027,7 +19027,7 @@
     (i32.const 1)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (get_local $1)
    (i32.const 8592)
   )
@@ -19076,7 +19076,7 @@
     (i32.const 1)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (get_local $1)
    (i32.const 8672)
   )
@@ -19125,7 +19125,7 @@
     (i32.const 1)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (get_local $1)
    (i32.const 8752)
   )
@@ -19197,7 +19197,7 @@
     (i32.const 1)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (get_local $1)
    (i32.const 8800)
   )
@@ -19246,7 +19246,7 @@
     (i32.const 1)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (get_local $1)
    (i32.const 8848)
   )
@@ -19295,7 +19295,7 @@
     (i32.const 1)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (get_local $1)
    (i32.const 8896)
   )
@@ -19344,7 +19344,7 @@
     (i32.const 1)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (get_local $1)
    (i32.const 8944)
   )
@@ -19442,7 +19442,7 @@
     (i32.const 1)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (get_local $1)
    (i32.const 9008)
   )
@@ -19514,7 +19514,7 @@
     (i32.const 1)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (get_local $1)
    (i32.const 9056)
   )
@@ -19586,7 +19586,7 @@
     (i32.const 1)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (get_local $1)
    (i32.const 9136)
   )
@@ -19658,7 +19658,7 @@
     (i32.const 1)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (get_local $1)
    (i32.const 9184)
   )
@@ -19702,7 +19702,7 @@
    (i32.const 3)
    (get_local $0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 0)
    (i32.const 9200)
   )
@@ -19807,7 +19807,7 @@
    (i32.const 3)
    (get_local $0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 0)
    (i32.const 9200)
   )
@@ -19912,7 +19912,7 @@
    (i32.const 3)
    (get_local $0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 0)
    (i32.const 9200)
   )
@@ -20017,7 +20017,7 @@
    (i32.const 3)
    (get_local $0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 0)
    (i32.const 9200)
   )
@@ -20113,7 +20113,7 @@
     (i32.const 169)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.eq
     (i32.load8_u offset=176
      (get_local $1)
@@ -20135,7 +20135,7 @@
    )
   )
   (loop $label$0
-   (call $eosio_assert
+   (call $enumivo_assert
     (i64.eq
      (i64.load align=1
       (i32.add
@@ -20819,7 +20819,7 @@
    (get_local $0)
   )
   (set_local $1
-   (call $_ZN5eosio6actionC2I17test_dummy_actionILy14605617063041957888ELy9781311595436863162EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
+   (call $_ZN5enumivo6actionC2I17test_dummy_actionILy14605617063041957888ELy9781311595436863162EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
     (i32.add
      (get_local $7)
      (i32.const 40)
@@ -20852,7 +20852,7 @@
     (get_local $0)
    )
   )
-  (call $_ZN5eosio4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
+  (call $_ZN5enumivo4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
    (i32.add
     (get_local $7)
     (i32.const 8)
@@ -20940,7 +20940,7 @@
    )
   )
  )
- (func $_ZN5eosio6actionC2I17test_dummy_actionILy14605617063041957888ELy9781311595436863162EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_ (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $_ZN5enumivo6actionC2I17test_dummy_actionILy14605617063041957888ELy9781311595436863162EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_ (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -21026,7 +21026,7 @@
    (get_local $5)
    (i32.const 13)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.gt_s
     (tee_local $4
      (i32.sub
@@ -21051,7 +21051,7 @@
     (i32.const 1)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.gt_s
     (i32.add
      (get_local $4)
@@ -21074,7 +21074,7 @@
     (i32.const 8)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.gt_s
     (i32.add
      (get_local $4)
@@ -21524,7 +21524,7 @@
    (get_local $0)
   )
   (set_local $1
-   (call $_ZN5eosio6actionC2I18test_action_actionILy14605617063041957888ELy9781311596421349198EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
+   (call $_ZN5enumivo6actionC2I18test_action_actionILy14605617063041957888ELy9781311596421349198EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
     (i32.add
      (get_local $7)
      (i32.const 40)
@@ -21557,7 +21557,7 @@
     (get_local $0)
    )
   )
-  (call $_ZN5eosio4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
+  (call $_ZN5enumivo4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
    (i32.add
     (get_local $7)
     (i32.const 8)
@@ -21663,7 +21663,7 @@
    )
   )
  )
- (func $_ZN5eosio6actionC2I18test_action_actionILy14605617063041957888ELy9781311596421349198EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_ (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $_ZN5enumivo6actionC2I18test_action_actionILy14605617063041957888ELy9781311596421349198EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_ (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -21818,7 +21818,7 @@
       (get_local $1)
      )
     )
-    (call $eosio_assert
+    (call $enumivo_assert
      (i32.gt_s
       (i32.sub
        (get_local $5)
@@ -22376,7 +22376,7 @@
    (get_local $3)
   )
   (set_local $4
-   (call $_ZN5eosio6actionC2I18test_action_actionILy14605617063041957888ELy9781311595436863162EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
+   (call $_ZN5enumivo6actionC2I18test_action_actionILy14605617063041957888ELy9781311595436863162EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
     (i32.add
      (get_local $10)
      (i32.const 40)
@@ -22409,7 +22409,7 @@
     (get_local $3)
    )
   )
-  (call $_ZN5eosio4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
+  (call $_ZN5enumivo4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
    (i32.add
     (get_local $10)
     (i32.const 8)
@@ -22447,7 +22447,7 @@
     (get_local $3)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 0)
    (i32.const 17488)
   )
@@ -22519,7 +22519,7 @@
    )
   )
  )
- (func $_ZN5eosio6actionC2I18test_action_actionILy14605617063041957888ELy9781311595436863162EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_ (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $_ZN5enumivo6actionC2I18test_action_actionILy14605617063041957888ELy9781311595436863162EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_ (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -22674,7 +22674,7 @@
       (get_local $1)
      )
     )
-    (call $eosio_assert
+    (call $enumivo_assert
      (i32.gt_s
       (i32.sub
        (get_local $5)
@@ -23244,7 +23244,7 @@
    (get_local $3)
   )
   (set_local $4
-   (call $_ZN5eosio6actionC2I18test_action_actionILy14605617063041957888ELy17750730571693710178EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
+   (call $_ZN5enumivo6actionC2I18test_action_actionILy14605617063041957888ELy17750730571693710178EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
     (i32.add
      (get_local $10)
      (i32.const 40)
@@ -23277,7 +23277,7 @@
     (get_local $3)
    )
   )
-  (call $_ZN5eosio4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
+  (call $_ZN5enumivo4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
    (i32.add
     (get_local $10)
     (i32.const 8)
@@ -23383,7 +23383,7 @@
    )
   )
  )
- (func $_ZN5eosio6actionC2I18test_action_actionILy14605617063041957888ELy17750730571693710178EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_ (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $_ZN5enumivo6actionC2I18test_action_actionILy14605617063041957888ELy17750730571693710178EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_ (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -23538,7 +23538,7 @@
       (get_local $1)
      )
     )
-    (call $eosio_assert
+    (call $enumivo_assert
      (i32.gt_s
       (i32.sub
        (get_local $5)
@@ -24006,7 +24006,7 @@
    (get_local $0)
   )
   (set_local $1
-   (call $_ZN5eosio6actionC2I18test_action_actionILy14605617063041957888ELy9781311595419386437EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
+   (call $_ZN5enumivo6actionC2I18test_action_actionILy14605617063041957888ELy9781311595419386437EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
     (i32.add
      (get_local $7)
      (i32.const 40)
@@ -24039,7 +24039,7 @@
     (get_local $0)
    )
   )
-  (call $_ZN5eosio4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
+  (call $_ZN5enumivo4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
    (i32.add
     (get_local $7)
     (i32.const 8)
@@ -24145,7 +24145,7 @@
    )
   )
  )
- (func $_ZN5eosio6actionC2I18test_action_actionILy14605617063041957888ELy9781311595419386437EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_ (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $_ZN5enumivo6actionC2I18test_action_actionILy14605617063041957888ELy9781311595419386437EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_ (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -24300,7 +24300,7 @@
       (get_local $1)
      )
     )
-    (call $eosio_assert
+    (call $enumivo_assert
      (i32.gt_s
       (i32.sub
        (get_local $5)
@@ -24425,7 +24425,7 @@
     (i32.const 4)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.eq
     (i32.load offset=12
      (get_local $0)
@@ -24464,7 +24464,7 @@
     (i32.const 4)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.eq
     (i32.load offset=12
      (get_local $0)
@@ -24514,7 +24514,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.eq
     (get_local $0)
     (tee_local $2
@@ -24586,7 +24586,7 @@
     (get_local $0)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.eq
     (i32.load offset=12
      (get_local $1)
@@ -25173,7 +25173,7 @@
    (get_local $12)
    (get_local $5)
   )
-  (call $_ZNSt3__16vectorIN5eosio6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy9781311595436863162EEEEEvDpOT_
+  (call $_ZNSt3__16vectorIN5enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy9781311595436863162EEEEEvDpOT_
    (get_local $4)
    (i32.add
     (get_local $12)
@@ -25210,7 +25210,7 @@
    (get_local $12)
    (i64.const 0)
   )
-  (call $_ZN5eosio4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
+  (call $_ZN5enumivo4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
    (i32.add
     (get_local $12)
     (i32.const 112)
@@ -25255,7 +25255,7 @@
    )
   )
   (drop
-   (call $_ZN5eosio11transactionD2Ev
+   (call $_ZN5enumivo11transactionD2Ev
     (i32.add
      (get_local $12)
      (i32.const 16)
@@ -25288,7 +25288,7 @@
    )
   )
  )
- (func $_ZNSt3__16vectorIN5eosio6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy9781311595436863162EEEEEvDpOT_ (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $_ZNSt3__16vectorIN5enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy9781311595436863162EEEEEvDpOT_ (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -25399,7 +25399,7 @@
   (set_local $4
    (i32.add
     (tee_local $8
-     (call $_ZN5eosio6actionC2I18test_action_actionILy14605617063041957888ELy9781311595436863162EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
+     (call $_ZN5enumivo6actionC2I18test_action_actionILy14605617063041957888ELy9781311595436863162EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
       (tee_local $9
        (i32.add
         (get_local $8)
@@ -25741,7 +25741,7 @@
    )
   )
  )
- (func $_ZN5eosio4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_ (param $0 i32) (param $1 i32)
+ (func $_ZN5enumivo4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_ (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -25772,7 +25772,7 @@
    (i32.const 0)
   )
   (drop
-   (call $_ZN5eosiolsINS_10datastreamIjEEEERT_S4_RKNS_11transactionE
+   (call $_ZN5enumivolsINS_10datastreamIjEEEERT_S4_RKNS_11transactionE
     (get_local $4)
     (get_local $1)
    )
@@ -25824,15 +25824,15 @@
    (get_local $3)
   )
   (drop
-   (call $_ZN5eosiolsINS_10datastreamIPcEEEERT_S5_RKNS_18transaction_headerE
+   (call $_ZN5enumivolsINS_10datastreamIPcEEEERT_S5_RKNS_18transaction_headerE
     (get_local $4)
     (get_local $1)
    )
   )
   (drop
-   (call $_ZN5eosiolsINS_10datastreamIPcEENSt3__15tupleIJtNS4_6vectorIcNS4_9allocatorIcEEEEEEEEERT_SC_RKNS6_IT0_NS7_ISD_EEEE
-    (call $_ZN5eosiolsINS_10datastreamIPcEENS_6actionEEERT_S6_RKNSt3__16vectorIT0_NS7_9allocatorIS9_EEEE
-     (call $_ZN5eosiolsINS_10datastreamIPcEENS_6actionEEERT_S6_RKNSt3__16vectorIT0_NS7_9allocatorIS9_EEEE
+   (call $_ZN5enumivolsINS_10datastreamIPcEENSt3__15tupleIJtNS4_6vectorIcNS4_9allocatorIcEEEEEEEEERT_SC_RKNS6_IT0_NS7_ISD_EEEE
+    (call $_ZN5enumivolsINS_10datastreamIPcEENS_6actionEEERT_S6_RKNSt3__16vectorIT0_NS7_9allocatorIS9_EEEE
+     (call $_ZN5enumivolsINS_10datastreamIPcEENS_6actionEEERT_S6_RKNSt3__16vectorIT0_NS7_9allocatorIS9_EEEE
       (get_local $4)
       (i32.add
        (get_local $1)
@@ -25858,7 +25858,7 @@
    )
   )
  )
- (func $_ZN5eosio11transactionD2Ev (param $0 i32) (result i32)
+ (func $_ZN5enumivo11transactionD2Ev (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -26208,7 +26208,7 @@
   )
   (get_local $0)
  )
- (func $_ZN5eosiolsINS_10datastreamIjEEEERT_S4_RKNS_11transactionE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN5enumivolsINS_10datastreamIjEEEERT_S4_RKNS_11transactionE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -26777,7 +26777,7 @@
   )
   (get_local $0)
  )
- (func $_ZN5eosiolsINS_10datastreamIPcEEEERT_S5_RKNS_18transaction_headerE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN5enumivolsINS_10datastreamIPcEEEERT_S5_RKNS_18transaction_headerE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -26795,7 +26795,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.gt_s
     (i32.sub
      (i32.load offset=8
@@ -26829,7 +26829,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.gt_s
     (i32.sub
      (i32.load offset=8
@@ -26864,7 +26864,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.gt_s
     (i32.sub
      (i32.load offset=8
@@ -26933,7 +26933,7 @@
      )
     )
    )
-   (call $eosio_assert
+   (call $enumivo_assert
     (i32.gt_s
      (i32.sub
       (i32.load
@@ -26980,7 +26980,7 @@
     (get_local $2)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.gt_s
     (i32.sub
      (i32.load
@@ -27059,7 +27059,7 @@
      )
     )
    )
-   (call $eosio_assert
+   (call $enumivo_assert
     (i32.gt_s
      (i32.sub
       (i32.load
@@ -27107,7 +27107,7 @@
   )
   (get_local $0)
  )
- (func $_ZN5eosiolsINS_10datastreamIPcEENS_6actionEEERT_S6_RKNSt3__16vectorIT0_NS7_9allocatorIS9_EEEE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN5enumivolsINS_10datastreamIPcEENS_6actionEEERT_S6_RKNSt3__16vectorIT0_NS7_9allocatorIS9_EEEE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -27187,7 +27187,7 @@
      )
     )
    )
-   (call $eosio_assert
+   (call $enumivo_assert
     (i32.gt_s
      (i32.sub
       (i32.load
@@ -27251,7 +27251,7 @@
     )
    )
    (loop $label$2
-    (call $eosio_assert
+    (call $enumivo_assert
      (i32.gt_s
       (i32.sub
        (i32.load
@@ -27288,7 +27288,7 @@
       )
      )
     )
-    (call $eosio_assert
+    (call $enumivo_assert
      (i32.gt_s
       (i32.sub
        (i32.load
@@ -27322,8 +27322,8 @@
      )
     )
     (drop
-     (call $_ZN5eosiolsINS_10datastreamIPcEEEERT_S5_RKNSt3__16vectorIcNS6_9allocatorIcEEEE
-      (call $_ZN5eosiolsINS_10datastreamIPcEENS_16permission_levelEEERT_S6_RKNSt3__16vectorIT0_NS7_9allocatorIS9_EEEE
+     (call $_ZN5enumivolsINS_10datastreamIPcEEEERT_S5_RKNSt3__16vectorIcNS6_9allocatorIcEEEE
+      (call $_ZN5enumivolsINS_10datastreamIPcEENS_16permission_levelEEERT_S6_RKNSt3__16vectorIT0_NS7_9allocatorIS9_EEEE
        (get_local $0)
        (i32.add
         (get_local $7)
@@ -27364,7 +27364,7 @@
   )
   (get_local $0)
  )
- (func $_ZN5eosiolsINS_10datastreamIPcEENSt3__15tupleIJtNS4_6vectorIcNS4_9allocatorIcEEEEEEEEERT_SC_RKNS6_IT0_NS7_ISD_EEEE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN5enumivolsINS_10datastreamIPcEENSt3__15tupleIJtNS4_6vectorIcNS4_9allocatorIcEEEEEEEEERT_SC_RKNS6_IT0_NS7_ISD_EEEE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -27437,7 +27437,7 @@
      )
     )
    )
-   (call $eosio_assert
+   (call $enumivo_assert
     (i32.gt_s
      (i32.sub
       (i32.load
@@ -27506,7 +27506,7 @@
     )
    )
    (loop $label$2
-    (call $eosio_assert
+    (call $enumivo_assert
      (i32.gt_s
       (i32.sub
        (i32.load
@@ -27542,7 +27542,7 @@
      )
     )
     (drop
-     (call $_ZN5eosiolsINS_10datastreamIPcEEEERT_S5_RKNSt3__16vectorIcNS6_9allocatorIcEEEE
+     (call $_ZN5enumivolsINS_10datastreamIPcEEEERT_S5_RKNSt3__16vectorIcNS6_9allocatorIcEEEE
       (get_local $0)
       (i32.add
        (get_local $4)
@@ -28397,7 +28397,7 @@
    (get_local $11)
    (get_local $3)
   )
-  (call $_ZNSt3__16vectorIN5eosio6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy9781311597322538353EEEEEvDpOT_
+  (call $_ZNSt3__16vectorIN5enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy9781311597322538353EEEEEvDpOT_
    (get_local $4)
    (i32.add
     (get_local $11)
@@ -28434,7 +28434,7 @@
    (get_local $11)
    (i64.const 0)
   )
-  (call $_ZN5eosio4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
+  (call $_ZN5enumivo4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
    (i32.add
     (get_local $11)
     (i32.const 112)
@@ -28479,7 +28479,7 @@
    )
   )
   (drop
-   (call $_ZN5eosio11transactionD2Ev
+   (call $_ZN5enumivo11transactionD2Ev
     (i32.add
      (get_local $11)
      (i32.const 24)
@@ -28512,7 +28512,7 @@
    )
   )
  )
- (func $_ZNSt3__16vectorIN5eosio6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy9781311597322538353EEEEEvDpOT_ (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $_ZNSt3__16vectorIN5enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy9781311597322538353EEEEEvDpOT_ (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -28623,7 +28623,7 @@
   (set_local $4
    (i32.add
     (tee_local $8
-     (call $_ZN5eosio6actionC2I18test_action_actionILy14605617063041957888ELy9781311597322538353EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
+     (call $_ZN5enumivo6actionC2I18test_action_actionILy14605617063041957888ELy9781311597322538353EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
       (tee_local $9
        (i32.add
         (get_local $8)
@@ -28965,7 +28965,7 @@
    )
   )
  )
- (func $_ZN5eosio6actionC2I18test_action_actionILy14605617063041957888ELy9781311597322538353EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_ (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $_ZN5enumivo6actionC2I18test_action_actionILy14605617063041957888ELy9781311597322538353EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_ (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -29120,7 +29120,7 @@
       (get_local $1)
      )
     )
-    (call $eosio_assert
+    (call $enumivo_assert
      (i32.gt_s
       (i32.sub
        (get_local $5)
@@ -29327,7 +29327,7 @@
    (get_local $5)
    (i64.const 0)
   )
-  (call $_ZN5eosio4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
+  (call $_ZN5enumivo4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
    (i32.add
     (get_local $5)
     (i32.const 80)
@@ -29371,12 +29371,12 @@
     (get_local $3)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 0)
    (i32.const 17712)
   )
   (drop
-   (call $_ZN5eosio11transactionD2Ev
+   (call $_ZN5enumivo11transactionD2Ev
     (i32.add
      (get_local $5)
      (i32.const 16)
@@ -29840,7 +29840,7 @@
    (get_local $11)
    (get_local $4)
   )
-  (call $_ZNSt3__16vectorIN5eosio6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy9781311595419386437EEEEEvDpOT_
+  (call $_ZNSt3__16vectorIN5enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy9781311595419386437EEEEEvDpOT_
    (get_local $3)
    (i32.add
     (get_local $11)
@@ -29877,7 +29877,7 @@
    (get_local $11)
    (i64.const 0)
   )
-  (call $_ZN5eosio4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
+  (call $_ZN5enumivo4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
    (i32.add
     (get_local $11)
     (i32.const 96)
@@ -29940,7 +29940,7 @@
    )
   )
   (drop
-   (call $_ZN5eosio11transactionD2Ev
+   (call $_ZN5enumivo11transactionD2Ev
     (i32.add
      (get_local $11)
      (i32.const 32)
@@ -29955,7 +29955,7 @@
    )
   )
  )
- (func $_ZNSt3__16vectorIN5eosio6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy9781311595419386437EEEEEvDpOT_ (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $_ZNSt3__16vectorIN5enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy9781311595419386437EEEEEvDpOT_ (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -30066,7 +30066,7 @@
   (set_local $4
    (i32.add
     (tee_local $8
-     (call $_ZN5eosio6actionC2I18test_action_actionILy14605617063041957888ELy9781311595419386437EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
+     (call $_ZN5enumivo6actionC2I18test_action_actionILy14605617063041957888ELy9781311595419386437EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
       (tee_local $9
        (i32.add
         (get_local $8)
@@ -30408,7 +30408,7 @@
    )
   )
  )
- (func $_ZN16test_transaction26assert_false_error_handlerERKN5eosio11transactionE (param $0 i32)
+ (func $_ZN16test_transaction26assert_false_error_handlerERKN5enumivo11transactionE (param $0 i32)
   (local $1 i64)
   (local $2 i32)
   (local $3 i32)
@@ -30416,7 +30416,7 @@
   (local $5 i64)
   (local $6 i64)
   (local $7 i64)
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.eq
     (i32.sub
      (i32.load
@@ -30574,14 +30574,14 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (get_local $1)
     (get_local $6)
    )
    (i32.const 17824)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (i64.load offset=8
      (i32.load
@@ -30597,7 +30597,7 @@
    )
    (i32.const 17856)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.eq
     (i32.sub
      (i32.load
@@ -30761,7 +30761,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (get_local $1)
     (get_local $6)
@@ -30914,7 +30914,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (get_local $1)
     (get_local $6)
@@ -31521,7 +31521,7 @@
        )
       )
       (drop
-       (call $_ZN5eosio6actionC2I18test_action_actionILy14605617063041957888ELy9781311595436863162EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
+       (call $_ZN5enumivo6actionC2I18test_action_actionILy14605617063041957888ELy9781311595436863162EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
         (get_local $11)
         (i32.add
          (get_local $17)
@@ -31551,7 +31551,7 @@
       )
       (br $label$17)
      )
-     (call $_ZNSt3__16vectorIN5eosio6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy9781311595436863162EEEEEvDpOT_
+     (call $_ZNSt3__16vectorIN5enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy9781311595436863162EEEEEvDpOT_
       (get_local $3)
       (i32.add
        (get_local $17)
@@ -31618,7 +31618,7 @@
    (get_local $17)
    (i64.const 0)
   )
-  (call $_ZN5eosio4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
+  (call $_ZN5enumivo4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
    (get_local $17)
    (i32.add
     (get_local $17)
@@ -31662,12 +31662,12 @@
     (get_local $11)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 0)
    (i32.const 18032)
   )
   (drop
-   (call $_ZN5eosio11transactionD2Ev
+   (call $_ZN5enumivo11transactionD2Ev
     (i32.add
      (get_local $17)
      (i32.const 1072)
@@ -32136,7 +32136,7 @@
    (get_local $11)
    (get_local $4)
   )
-  (call $_ZNSt3__16vectorIN5eosio6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy17750730572681658536EEEEEvDpOT_
+  (call $_ZNSt3__16vectorIN5enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy17750730572681658536EEEEEvDpOT_
    (get_local $3)
    (i32.add
     (get_local $11)
@@ -32180,7 +32180,7 @@
    (get_local $11)
    (i64.const -1)
   )
-  (call $_ZN5eosio4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
+  (call $_ZN5enumivo4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
    (i32.add
     (get_local $11)
     (i32.const 96)
@@ -32243,7 +32243,7 @@
    )
   )
   (drop
-   (call $_ZN5eosio11transactionD2Ev
+   (call $_ZN5enumivo11transactionD2Ev
     (i32.add
      (get_local $11)
      (i32.const 32)
@@ -32258,7 +32258,7 @@
    )
   )
  )
- (func $_ZNSt3__16vectorIN5eosio6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy17750730572681658536EEEEEvDpOT_ (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $_ZNSt3__16vectorIN5enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy17750730572681658536EEEEEvDpOT_ (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -32369,7 +32369,7 @@
   (set_local $4
    (i32.add
     (tee_local $8
-     (call $_ZN5eosio6actionC2I18test_action_actionILy14605617063041957888ELy17750730572681658536EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
+     (call $_ZN5enumivo6actionC2I18test_action_actionILy14605617063041957888ELy17750730572681658536EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
       (tee_local $9
        (i32.add
         (get_local $8)
@@ -32711,7 +32711,7 @@
    )
   )
  )
- (func $_ZN5eosio6actionC2I18test_action_actionILy14605617063041957888ELy17750730572681658536EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_ (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $_ZN5enumivo6actionC2I18test_action_actionILy14605617063041957888ELy17750730572681658536EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_ (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -32866,7 +32866,7 @@
       (get_local $1)
      )
     )
-    (call $eosio_assert
+    (call $enumivo_assert
      (i32.gt_s
       (i32.sub
        (get_local $5)
@@ -33418,7 +33418,7 @@
    (get_local $11)
    (get_local $4)
   )
-  (call $_ZNSt3__16vectorIN5eosio6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy17750730572681658536EEEEEvDpOT_
+  (call $_ZNSt3__16vectorIN5enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy17750730572681658536EEEEEvDpOT_
    (get_local $3)
    (i32.add
     (get_local $11)
@@ -33462,7 +33462,7 @@
    (get_local $11)
    (i64.const -1)
   )
-  (call $_ZN5eosio4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
+  (call $_ZN5enumivo4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
    (i32.add
     (get_local $11)
     (i32.const 96)
@@ -33525,7 +33525,7 @@
    )
   )
   (drop
-   (call $_ZN5eosio11transactionD2Ev
+   (call $_ZN5enumivo11transactionD2Ev
     (i32.add
      (get_local $11)
      (i32.const 32)
@@ -33877,7 +33877,7 @@
    )
    (i32.const 0)
   )
-  (call $_ZNSt3__16vectorIN5eosio6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJRS2_EEEvDpOT_
+  (call $_ZNSt3__16vectorIN5enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJRS2_EEEvDpOT_
    (i32.add
     (get_local $7)
     (i32.const 52)
@@ -33919,7 +33919,7 @@
     (get_local $0)
    )
   )
-  (call $_ZN5eosio4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
+  (call $_ZN5enumivo4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
    (i32.add
     (get_local $7)
     (i32.const 160)
@@ -33964,7 +33964,7 @@
    )
   )
   (drop
-   (call $_ZN5eosio11transactionD2Ev
+   (call $_ZN5enumivo11transactionD2Ev
     (i32.add
      (get_local $7)
      (i32.const 16)
@@ -34467,7 +34467,7 @@
   )
   (get_local $0)
  )
- (func $_ZNSt3__16vectorIN5eosio6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJRS2_EEEvDpOT_ (param $0 i32) (param $1 i32)
+ (func $_ZNSt3__16vectorIN5enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJRS2_EEEvDpOT_ (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -34579,7 +34579,7 @@
   (set_local $3
    (i32.add
     (tee_local $8
-     (call $_ZN5eosio6actionC2ERKS0_
+     (call $_ZN5enumivo6actionC2ERKS0_
       (tee_local $9
        (i32.add
         (get_local $8)
@@ -34920,7 +34920,7 @@
    )
   )
  )
- (func $_ZN5eosio6actionC2ERKS0_ (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN5enumivo6actionC2ERKS0_ (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -35204,7 +35204,7 @@
    (get_local $0)
    (i64.const -1)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.ne
     (call $cancel_deferred
      (get_local $0)
@@ -35242,7 +35242,7 @@
    (get_local $0)
    (i64.const -1)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.eqz
     (call $cancel_deferred
      (get_local $0)
@@ -35298,11 +35298,11 @@
    (get_local $1)
    (i64.const 6256973794934521856)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 18224)
   )
-  (call $_ZN5eosio4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
+  (call $_ZN5enumivo4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
    (i32.add
     (get_local $1)
     (i32.const 48)
@@ -35761,7 +35761,7 @@
    (get_local $0)
   )
   (set_local $1
-   (call $_ZN5eosio6actionC2I18test_action_actionILy5666987383162142720ELy6256973794934521856EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
+   (call $_ZN5enumivo6actionC2I18test_action_actionILy5666987383162142720ELy6256973794934521856EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
     (i32.add
      (get_local $7)
      (i32.const 40)
@@ -35794,7 +35794,7 @@
     (get_local $0)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.eq
     (i32.load
      (i32.add
@@ -35808,7 +35808,7 @@
    )
    (i32.const 18224)
   )
-  (call $_ZN5eosio4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
+  (call $_ZN5enumivo4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
    (i32.add
     (get_local $7)
     (i32.const 8)
@@ -35846,7 +35846,7 @@
     (get_local $0)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 0)
    (i32.const 18288)
   )
@@ -35918,7 +35918,7 @@
    )
   )
  )
- (func $_ZN5eosio6actionC2I18test_action_actionILy5666987383162142720ELy6256973794934521856EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_ (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $_ZN5enumivo6actionC2I18test_action_actionILy5666987383162142720ELy6256973794934521856EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_ (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -36073,7 +36073,7 @@
       (get_local $1)
      )
     )
-    (call $eosio_assert
+    (call $enumivo_assert
      (i32.gt_s
       (i32.sub
        (get_local $5)
@@ -36807,7 +36807,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.eqz
     (call $is_feature_active
      (get_local $4)
@@ -37266,7 +37266,7 @@
     )
    )
   )
-  (call $_ZN5eosio18unpack_action_dataI14check_auth_msgEET_v
+  (call $_ZN5enumivo18unpack_action_dataI14check_auth_msgEET_v
    (i32.add
     (get_local $9)
     (i32.const 16)
@@ -37403,7 +37403,7 @@
    (get_local $4)
   )
   (drop
-   (call $_ZN5eosiolsINS_10datastreamIPcEE10public_keyEERT_S6_RKNSt3__16vectorIT0_NS7_9allocatorIS9_EEEE
+   (call $_ZN5enumivolsINS_10datastreamIPcEE10public_keyEERT_S6_RKNSt3__16vectorIT0_NS7_9allocatorIS9_EEEE
     (i32.add
      (get_local $9)
      (i32.const 48)
@@ -37532,7 +37532,7 @@
    )
   )
  )
- (func $_ZN5eosio18unpack_action_dataI14check_auth_msgEET_v (param $0 i32)
+ (func $_ZN5enumivo18unpack_action_dataI14check_auth_msgEET_v (param $0 i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -37614,7 +37614,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.gt_u
     (get_local $1)
     (i32.const 7)
@@ -37628,7 +37628,7 @@
     (i32.const 8)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.gt_u
     (i32.sub
      (get_local $2)
@@ -37661,7 +37661,7 @@
    )
   )
   (drop
-   (call $_ZN5eosiorsINS_10datastreamIPKcEE10public_keyEERT_S7_RNSt3__16vectorIT0_NS8_9allocatorISA_EEEE
+   (call $_ZN5enumivorsINS_10datastreamIPKcEE10public_keyEERT_S7_RNSt3__16vectorIT0_NS8_9allocatorISA_EEEE
     (get_local $4)
     (i32.add
      (get_local $0)
@@ -37677,7 +37677,7 @@
    )
   )
  )
- (func $_ZN5eosiolsINS_10datastreamIPcEE10public_keyEERT_S6_RKNSt3__16vectorIT0_NS7_9allocatorIS9_EEEE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN5enumivolsINS_10datastreamIPcEE10public_keyEERT_S6_RKNSt3__16vectorIT0_NS7_9allocatorIS9_EEEE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -37757,7 +37757,7 @@
      )
     )
    )
-   (call $eosio_assert
+   (call $enumivo_assert
     (i32.gt_s
      (i32.sub
       (i32.load
@@ -37850,7 +37850,7 @@
       (i32.const 34)
      )
     )
-    (call $eosio_assert
+    (call $enumivo_assert
      (i32.gt_s
       (i32.sub
        (i32.load
@@ -37907,7 +37907,7 @@
   )
   (get_local $0)
  )
- (func $_ZN5eosiorsINS_10datastreamIPKcEE10public_keyEERT_S7_RNSt3__16vectorIT0_NS8_9allocatorISA_EEEE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN5enumivorsINS_10datastreamIPKcEE10public_keyEERT_S7_RNSt3__16vectorIT0_NS8_9allocatorISA_EEEE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -37938,7 +37938,7 @@
    )
   )
   (loop $label$0
-   (call $eosio_assert
+   (call $enumivo_assert
     (i32.lt_u
      (get_local $5)
      (i32.load
@@ -38099,7 +38099,7 @@
     )
    )
    (loop $label$5
-    (call $eosio_assert
+    (call $enumivo_assert
      (i32.gt_u
       (i32.sub
        (i32.load
@@ -38424,13 +38424,13 @@
     )
    )
   )
-  (call $_ZN5eosio18unpack_action_dataI29test_permission_last_used_msgEET_v
+  (call $_ZN5enumivo18unpack_action_dataI29test_permission_last_used_msgEET_v
    (i32.add
     (get_local $3)
     (i32.const 8)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (call $get_permission_last_used
      (i64.load offset=8
@@ -38454,7 +38454,7 @@
    )
   )
  )
- (func $_ZN5eosio18unpack_action_dataI29test_permission_last_used_msgEET_v (param $0 i32)
+ (func $_ZN5enumivo18unpack_action_dataI29test_permission_last_used_msgEET_v (param $0 i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -38504,7 +38504,7 @@
     (get_local $1)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.gt_u
     (get_local $1)
     (i32.const 7)
@@ -38518,7 +38518,7 @@
     (i32.const 8)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.ne
     (tee_local $1
      (i32.and
@@ -38543,7 +38543,7 @@
     (i32.const 8)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.ne
     (get_local $1)
     (i32.const 16)
@@ -38581,13 +38581,13 @@
     )
    )
   )
-  (call $_ZN5eosio18unpack_action_dataI29test_permission_last_used_msgEET_v
+  (call $_ZN5enumivo18unpack_action_dataI29test_permission_last_used_msgEET_v
    (i32.add
     (get_local $3)
     (i32.const 8)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (call $get_account_creation_time
      (i64.load offset=8
@@ -38634,7 +38634,7 @@
    (get_local $8)
    (i32.const 1)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 1424)
   )
@@ -38651,7 +38651,7 @@
     (i32.const 1)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 800)
   )
@@ -38668,7 +38668,7 @@
     (i32.const 1)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.ne
     (i32.load8_u offset=144
      (get_local $8)
@@ -38681,7 +38681,7 @@
    (get_local $8)
    (i32.const 0)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 1424)
   )
@@ -38698,7 +38698,7 @@
     (i32.const 1)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 800)
   )
@@ -38715,7 +38715,7 @@
     (i32.const 1)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.eqz
     (i32.load8_u offset=144
      (get_local $8)
@@ -38727,7 +38727,7 @@
    (get_local $8)
    (i32.const 133)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 1424)
   )
@@ -38744,7 +38744,7 @@
     (i32.const 1)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 800)
   )
@@ -38761,7 +38761,7 @@
     (i32.const 1)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.eq
     (i32.load8_u offset=8
      (get_local $8)
@@ -38776,7 +38776,7 @@
    (get_local $8)
    (i32.const 127)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 1424)
   )
@@ -38793,7 +38793,7 @@
     (i32.const 1)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 800)
   )
@@ -38810,7 +38810,7 @@
     (i32.const 1)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.eq
     (i32.load8_u offset=8
      (get_local $8)
@@ -38825,7 +38825,7 @@
    (get_local $8)
    (i32.const 53191)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 1424)
   )
@@ -38842,7 +38842,7 @@
     (i32.const 2)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 800)
   )
@@ -38859,7 +38859,7 @@
     (i32.const 2)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.eq
     (i32.load16_u offset=8
      (get_local $8)
@@ -38874,7 +38874,7 @@
    (get_local $8)
    (i32.const 12345)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 1424)
   )
@@ -38891,7 +38891,7 @@
     (i32.const 2)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 800)
   )
@@ -38908,7 +38908,7 @@
     (i32.const 2)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.eq
     (i32.load16_u offset=8
      (get_local $8)
@@ -38923,7 +38923,7 @@
    (get_local $8)
    (i32.const -1234567890)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 1424)
   )
@@ -38940,7 +38940,7 @@
     (i32.const 4)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 800)
   )
@@ -38957,7 +38957,7 @@
     (i32.const 4)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.eq
     (i32.load offset=8
      (get_local $8)
@@ -38972,7 +38972,7 @@
    (get_local $8)
    (i32.const -1060399406)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 1424)
   )
@@ -38989,7 +38989,7 @@
     (i32.const 4)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 800)
   )
@@ -39006,7 +39006,7 @@
     (i32.const 4)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.eq
     (i32.load offset=8
      (get_local $8)
@@ -39021,7 +39021,7 @@
    (get_local $8)
    (i64.const -9223372036854775808)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 1424)
   )
@@ -39038,7 +39038,7 @@
     (i32.const 8)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 800)
   )
@@ -39055,7 +39055,7 @@
     (i32.const 8)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (i64.load offset=8
      (get_local $8)
@@ -39070,7 +39070,7 @@
    (get_local $8)
    (i64.const 9223372036854775807)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 1424)
   )
@@ -39087,7 +39087,7 @@
     (i32.const 8)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 800)
   )
@@ -39104,7 +39104,7 @@
     (i32.const 8)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i64.eq
     (i64.load offset=8
      (get_local $8)
@@ -39119,7 +39119,7 @@
    (get_local $8)
    (i32.const 1067316150)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 1424)
   )
@@ -39136,7 +39136,7 @@
     (i32.const 4)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 800)
   )
@@ -39153,7 +39153,7 @@
     (i32.const 4)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (f32.lt
     (call $fabsf
      (f32.sub
@@ -39173,7 +39173,7 @@
    (get_local $8)
    (i64.const 4599676419421066581)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 1424)
   )
@@ -39190,7 +39190,7 @@
     (i32.const 8)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 800)
   )
@@ -39207,7 +39207,7 @@
     (i32.const 8)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (f64.lt
     (call $fabs
      (f64.sub
@@ -39223,7 +39223,7 @@
    )
    (i32.const 18720)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 1424)
   )
@@ -39237,7 +39237,7 @@
     (i32.const 4)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 1424)
   )
@@ -39256,7 +39256,7 @@
     (i32.const 8)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 800)
   )
@@ -39273,7 +39273,7 @@
     (i32.const 4)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 800)
   )
@@ -39318,11 +39318,11 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (get_local $6)
    (i32.const 18752)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 1424)
   )
@@ -39336,7 +39336,7 @@
     (i32.const 4)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 1424)
   )
@@ -39347,7 +39347,7 @@
     (i32.const 4)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 800)
   )
@@ -39364,7 +39364,7 @@
     (i32.const 4)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 800)
   )
@@ -39381,7 +39381,7 @@
     (i32.const 4)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.and
     (i32.eq
      (i32.load offset=144
@@ -39625,7 +39625,7 @@
            (get_local $2)
           )
          )
-         (call $eosio_assert
+         (call $enumivo_assert
           (i32.const 1)
           (i32.const 1424)
          )
@@ -39639,7 +39639,7 @@
            (i32.const 4)
           )
          )
-         (call $eosio_assert
+         (call $enumivo_assert
           (i32.const 1)
           (i32.const 1424)
          )
@@ -39650,7 +39650,7 @@
            (i32.const 4)
           )
          )
-         (call $eosio_assert
+         (call $enumivo_assert
           (i32.const 1)
           (i32.const 1424)
          )
@@ -39669,7 +39669,7 @@
            (i32.const 4)
           )
          )
-         (call $eosio_assert
+         (call $enumivo_assert
           (i32.const 1)
           (i32.const 800)
          )
@@ -39686,7 +39686,7 @@
            (i32.const 4)
           )
          )
-         (call $eosio_assert
+         (call $enumivo_assert
           (i32.const 1)
           (i32.const 800)
          )
@@ -39703,7 +39703,7 @@
            (i32.const 4)
           )
          )
-         (call $eosio_assert
+         (call $enumivo_assert
           (i32.const 1)
           (i32.const 800)
          )
@@ -39749,7 +39749,7 @@
            )
           )
          )
-         (call $eosio_assert
+         (call $enumivo_assert
           (get_local $6)
           (i32.const 18848)
          )
@@ -41051,7 +41051,7 @@
    )
   )
   (drop
-   (call $_ZN5eosiolsINS_10datastreamIPcEEEERT_S5_RKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEE
+   (call $_ZN5enumivolsINS_10datastreamIPcEEEERT_S5_RKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEE
     (i32.add
      (get_local $8)
      (i32.const 16)
@@ -41077,7 +41077,7 @@
    )
   )
   (drop
-   (call $_ZN5eosiorsINS_10datastreamIPcEEEERT_S5_RNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEE
+   (call $_ZN5enumivorsINS_10datastreamIPcEEEERT_S5_RNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEE
     (i32.add
      (get_local $8)
      (i32.const 16)
@@ -41238,7 +41238,7 @@
     (i32.const 0)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (get_local $7)
    (get_local $1)
   )
@@ -41308,7 +41308,7 @@
    )
   )
   (drop
-   (call $_ZN5eosiolsINS_10datastreamIPcEEiEERT_S5_RKNSt3__16vectorIT0_NS6_9allocatorIS8_EEEE
+   (call $_ZN5enumivolsINS_10datastreamIPcEEiEERT_S5_RKNSt3__16vectorIT0_NS6_9allocatorIS8_EEEE
     (i32.add
      (get_local $5)
      (i32.const 16)
@@ -41334,7 +41334,7 @@
    )
   )
   (drop
-   (call $_ZN5eosiorsINS_10datastreamIPcEEiEERT_S5_RNSt3__16vectorIT0_NS6_9allocatorIS8_EEEE
+   (call $_ZN5enumivorsINS_10datastreamIPcEEiEERT_S5_RNSt3__16vectorIT0_NS6_9allocatorIS8_EEEE
     (i32.add
      (get_local $5)
      (i32.const 16)
@@ -41410,7 +41410,7 @@
     (i32.const 1)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (get_local $4)
    (get_local $1)
   )
@@ -41916,7 +41916,7 @@
    )
   )
   (drop
-   (call $_ZN5eosiolsINS_10datastreamIPcEEiNSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEEERT_SC_RKNS4_3mapIT0_T1_NS4_4lessISE_EENS8_INS4_4pairIKSE_SF_EEEEEE
+   (call $_ZN5enumivolsINS_10datastreamIPcEEiNSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEEERT_SC_RKNS4_3mapIT0_T1_NS4_4lessISE_EENS8_INS4_4pairIKSE_SF_EEEEEE
     (i32.add
      (get_local $10)
      (i32.const 16)
@@ -41949,7 +41949,7 @@
    )
   )
   (drop
-   (call $_ZN5eosiorsINS_10datastreamIPcEEiNSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEEERT_SC_RNS4_3mapIT0_T1_NS4_4lessISE_EENS8_INS4_4pairIKSE_SF_EEEEEE
+   (call $_ZN5enumivorsINS_10datastreamIPcEEiNSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEEERT_SC_RNS4_3mapIT0_T1_NS4_4lessISE_EENS8_INS4_4pairIKSE_SF_EEEEEE
     (i32.add
      (get_local $10)
      (i32.const 16)
@@ -42292,7 +42292,7 @@
     (i32.const 1)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (get_local $9)
    (get_local $1)
   )
@@ -42393,7 +42393,7 @@
     (i32.const 48)
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.const 1)
    (i32.const 1424)
   )
@@ -42418,7 +42418,7 @@
    )
   )
   (drop
-   (call $_ZN5eosiolsINS_10datastreamIPcEEEERT_S5_RKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEE
+   (call $_ZN5enumivolsINS_10datastreamIPcEEEERT_S5_RKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEE
     (i32.add
      (get_local $11)
      (i32.const 32)
@@ -42431,7 +42431,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.gt_s
     (i32.sub
      (i32.load offset=40
@@ -42487,7 +42487,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.gt_u
     (i32.sub
      (i32.load offset=40
@@ -42521,7 +42521,7 @@
    )
   )
   (drop
-   (call $_ZN5eosiorsINS_10datastreamIPcEEEERT_S5_RNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEE
+   (call $_ZN5enumivorsINS_10datastreamIPcEEEERT_S5_RNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEE
     (i32.add
      (get_local $11)
      (i32.const 32)
@@ -42537,7 +42537,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.gt_u
     (i32.sub
      (i32.load offset=40
@@ -42751,7 +42751,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (get_local $10)
    (get_local $1)
   )
@@ -42783,7 +42783,7 @@
    )
   )
  )
- (func $_ZN5eosiolsINS_10datastreamIPcEEEERT_S5_RKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN5enumivolsINS_10datastreamIPcEEEERT_S5_RKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -42869,7 +42869,7 @@
      )
     )
    )
-   (call $eosio_assert
+   (call $enumivo_assert
     (i32.gt_s
      (i32.sub
       (i32.load
@@ -42942,7 +42942,7 @@
      (get_local $1)
     )
    )
-   (call $eosio_assert
+   (call $enumivo_assert
     (i32.ge_s
      (i32.sub
       (i32.load
@@ -42997,7 +42997,7 @@
   )
   (get_local $0)
  )
- (func $_ZN5eosiorsINS_10datastreamIPcEEEERT_S5_RNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN5enumivorsINS_10datastreamIPcEEEERT_S5_RNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -43024,7 +43024,7 @@
    (i64.const 0)
   )
   (drop
-   (call $_ZN5eosiorsINS_10datastreamIPcEEEERT_S5_RNSt3__16vectorIcNS6_9allocatorIcEEEE
+   (call $_ZN5enumivorsINS_10datastreamIPcEEEERT_S5_RNSt3__16vectorIcNS6_9allocatorIcEEEE
     (get_local $0)
     (i32.add
      (get_local $7)
@@ -43316,7 +43316,7 @@
   )
   (unreachable)
  )
- (func $_ZN5eosiorsINS_10datastreamIPcEEEERT_S5_RNSt3__16vectorIcNS6_9allocatorIcEEEE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN5enumivorsINS_10datastreamIPcEEEERT_S5_RNSt3__16vectorIcNS6_9allocatorIcEEEE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -43347,7 +43347,7 @@
    )
   )
   (loop $label$0
-   (call $eosio_assert
+   (call $enumivo_assert
     (i32.lt_u
      (get_local $5)
      (i32.load
@@ -43480,7 +43480,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.ge_u
     (i32.sub
      (i32.load
@@ -43525,7 +43525,7 @@
   )
   (get_local $0)
  )
- (func $_ZN5eosiolsINS_10datastreamIPcEEiNSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEEERT_SC_RKNS4_3mapIT0_T1_NS4_4lessISE_EENS8_INS4_4pairIKSE_SF_EEEEEE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN5enumivolsINS_10datastreamIPcEEiNSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEEERT_SC_RKNS4_3mapIT0_T1_NS4_4lessISE_EENS8_INS4_4pairIKSE_SF_EEEEEE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i64)
@@ -43595,7 +43595,7 @@
      )
     )
    )
-   (call $eosio_assert
+   (call $enumivo_assert
     (i32.gt_s
      (i32.sub
       (i32.load
@@ -43657,7 +43657,7 @@
     )
    )
    (loop $label$2
-    (call $eosio_assert
+    (call $enumivo_assert
      (i32.gt_s
       (i32.sub
        (i32.load
@@ -43696,7 +43696,7 @@
      )
     )
     (drop
-     (call $_ZN5eosiolsINS_10datastreamIPcEEEERT_S5_RKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEE
+     (call $_ZN5enumivolsINS_10datastreamIPcEEEERT_S5_RKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEE
       (get_local $0)
       (i32.add
        (get_local $7)
@@ -43797,7 +43797,7 @@
   )
   (get_local $0)
  )
- (func $_ZN5eosiorsINS_10datastreamIPcEEiNSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEEERT_SC_RNS4_3mapIT0_T1_NS4_4lessISE_EENS8_INS4_4pairIKSE_SF_EEEEEE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN5enumivorsINS_10datastreamIPcEEiNSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEEERT_SC_RNS4_3mapIT0_T1_NS4_4lessISE_EENS8_INS4_4pairIKSE_SF_EEEEEE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -43862,7 +43862,7 @@
    )
   )
   (loop $label$0
-   (call $eosio_assert
+   (call $enumivo_assert
     (i32.lt_u
      (get_local $6)
      (i32.load
@@ -43959,7 +43959,7 @@
      (get_local $13)
      (i64.const 0)
     )
-    (call $eosio_assert
+    (call $enumivo_assert
      (i32.gt_u
       (i32.sub
        (i32.load
@@ -44001,7 +44001,7 @@
      )
     )
     (drop
-     (call $_ZN5eosiorsINS_10datastreamIPcEEEERT_S5_RNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEE
+     (call $_ZN5enumivorsINS_10datastreamIPcEEEERT_S5_RNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEE
       (get_local $0)
       (get_local $13)
      )
@@ -44256,7 +44256,7 @@
   )
   (get_local $0)
  )
- (func $_ZN5eosiolsINS_10datastreamIPcEEiEERT_S5_RKNSt3__16vectorIT0_NS6_9allocatorIS8_EEEE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN5enumivolsINS_10datastreamIPcEEiEERT_S5_RKNSt3__16vectorIT0_NS6_9allocatorIS8_EEEE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -44336,7 +44336,7 @@
      )
     )
    )
-   (call $eosio_assert
+   (call $enumivo_assert
     (i32.gt_s
      (i32.sub
       (i32.load
@@ -44400,7 +44400,7 @@
     )
    )
    (loop $label$2
-    (call $eosio_assert
+    (call $enumivo_assert
      (i32.gt_s
       (i32.sub
        (i32.load
@@ -44459,7 +44459,7 @@
   )
   (get_local $0)
  )
- (func $_ZN5eosiorsINS_10datastreamIPcEEiEERT_S5_RNSt3__16vectorIT0_NS6_9allocatorIS8_EEEE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN5enumivorsINS_10datastreamIPcEEiEERT_S5_RNSt3__16vectorIT0_NS6_9allocatorIS8_EEEE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -44490,7 +44490,7 @@
    )
   )
   (loop $label$0
-   (call $eosio_assert
+   (call $enumivo_assert
     (i32.lt_u
      (get_local $5)
      (i32.load
@@ -44651,7 +44651,7 @@
     )
    )
    (loop $label$5
-    (call $eosio_assert
+    (call $enumivo_assert
      (i32.gt_u
       (i32.sub
        (i32.load
@@ -45288,7 +45288,7 @@
         (get_local $2)
        )
       )
-      (call $_ZN5eosio18unpack_action_dataINS_7onerrorEEET_v
+      (call $_ZN5enumivo18unpack_action_dataINS_7onerrorEEET_v
        (i32.add
         (get_local $10)
         (i32.const 32)
@@ -45406,7 +45406,7 @@
        (get_local $3)
       )
       (drop
-       (call $_ZN5eosiorsINS_10datastreamIPKcEEEERT_S6_RNS_18transaction_headerE
+       (call $_ZN5enumivorsINS_10datastreamIPKcEEEERT_S6_RNS_18transaction_headerE
         (i32.add
          (get_local $10)
          (i32.const 16)
@@ -45418,9 +45418,9 @@
        )
       )
       (drop
-       (call $_ZN5eosiorsINS_10datastreamIPKcEENSt3__15tupleIJtNS5_6vectorIcNS5_9allocatorIcEEEEEEEEERT_SD_RNS7_IT0_NS8_ISE_EEEE
-        (call $_ZN5eosiorsINS_10datastreamIPKcEENS_6actionEEERT_S7_RNSt3__16vectorIT0_NS8_9allocatorISA_EEEE
-         (call $_ZN5eosiorsINS_10datastreamIPKcEENS_6actionEEERT_S7_RNSt3__16vectorIT0_NS8_9allocatorISA_EEEE
+       (call $_ZN5enumivorsINS_10datastreamIPKcEENSt3__15tupleIJtNS5_6vectorIcNS5_9allocatorIcEEEEEEEEERT_SD_RNS7_IT0_NS8_ISE_EEEE
+        (call $_ZN5enumivorsINS_10datastreamIPKcEENS_6actionEEERT_S7_RNSt3__16vectorIT0_NS8_9allocatorISA_EEEE
+         (call $_ZN5enumivorsINS_10datastreamIPKcEENS_6actionEEERT_S7_RNSt3__16vectorIT0_NS8_9allocatorISA_EEEE
           (i32.add
            (get_local $10)
            (i32.const 16)
@@ -45464,7 +45464,7 @@
          (i64.const -8665432478290165179)
         )
        )
-       (call $_ZN16test_transaction26assert_false_error_handlerERKN5eosio11transactionE
+       (call $_ZN16test_transaction26assert_false_error_handlerERKN5enumivo11transactionE
         (i32.add
          (get_local $10)
          (i32.const 208)
@@ -45472,7 +45472,7 @@
        )
       )
       (drop
-       (call $_ZN5eosio11transactionD2Ev
+       (call $_ZN5enumivo11transactionD2Ev
         (i32.add
          (get_local $10)
          (i32.const 208)
@@ -45669,7 +45669,7 @@
        )
        (br $label$7)
       )
-      (call $eosio_assert
+      (call $enumivo_assert
        (i32.const 1)
        (i32.const 1600)
       )
@@ -45746,7 +45746,7 @@
                                   (get_local $10)
                                   (i64.const 0)
                                  )
-                                 (call $eosio_assert
+                                 (call $enumivo_assert
                                   (i32.eq
                                    (call $read_action_data
                                     (i32.add
@@ -45759,7 +45759,7 @@
                                   )
                                   (i32.const 1632)
                                  )
-                                 (call $eosio_assert
+                                 (call $enumivo_assert
                                   (i64.eq
                                    (i64.load offset=208
                                     (get_local $10)
@@ -45845,7 +45845,7 @@
                                 (i64.const 0)
                                 (i64.const 0)
                                )
-                               (call $eosio_assert
+                               (call $enumivo_assert
                                 (i32.const 0)
                                 (i32.const 6544)
                                )
@@ -45942,7 +45942,7 @@
                             (get_local $10)
                             (i64.const 0)
                            )
-                           (call $eosio_assert
+                           (call $enumivo_assert
                             (i32.eq
                              (call $read_action_data
                               (i32.add
@@ -45955,7 +45955,7 @@
                             )
                             (i32.const 1632)
                            )
-                           (call $eosio_assert
+                           (call $enumivo_assert
                             (i64.eq
                              (i64.load offset=208
                               (get_local $10)
@@ -46002,7 +46002,7 @@
                            (i64.const 0)
                            (i64.const 0)
                           )
-                          (call $eosio_assert
+                          (call $enumivo_assert
                            (i32.const 0)
                            (i32.const 7776)
                           )
@@ -46091,7 +46091,7 @@
                      (get_local $10)
                      (i64.const 0)
                     )
-                    (call $eosio_assert
+                    (call $enumivo_assert
                      (i32.eq
                       (call $read_action_data
                        (i32.add
@@ -46104,7 +46104,7 @@
                      )
                      (i32.const 1632)
                     )
-                    (call $eosio_assert_code
+                    (call $enumivo_assert_code
                      (i32.const 0)
                      (i64.load offset=208
                       (get_local $10)
@@ -46121,7 +46121,7 @@
                  (call $_ZN10test_types10name_classEv)
                  (br $label$6)
                 )
-                (call $eosio_assert
+                (call $enumivo_assert
                  (i32.const 0)
                  (i32.const 1568)
                 )
@@ -46133,7 +46133,7 @@
               (call $_ZN22test_compiler_builtins12test_lshlti3Ev)
               (br $label$6)
              )
-             (call $eosio_assert
+             (call $enumivo_assert
               (i32.const 1)
               (i32.const 1600)
              )
@@ -46164,7 +46164,7 @@
             (i64.const 0)
             (i64.const 0)
            )
-           (call $eosio_assert
+           (call $enumivo_assert
             (i32.const 0)
             (i32.const 6544)
            )
@@ -46188,7 +46188,7 @@
            (i64.const 0)
            (i64.const 0)
           )
-          (call $eosio_assert
+          (call $enumivo_assert
            (i32.const 0)
            (i32.const 7776)
           )
@@ -46203,7 +46203,7 @@
            (i32.const 8)
           )
          )
-         (call $eosio_assert
+         (call $enumivo_assert
           (i64.eq
            (i64.load offset=208
             (get_local $10)
@@ -46718,7 +46718,7 @@
                                                                                  (i32.const 1)
                                                                                 )
                                                                                )
-                                                                               (call $eosio_assert
+                                                                               (call $enumivo_assert
                                                                                 (get_local $3)
                                                                                 (i32.const 9056)
                                                                                )
@@ -46768,7 +46768,7 @@
                                                                                (get_local $10)
                                                                                (i64.const -1)
                                                                               )
-                                                                              (call $eosio_assert
+                                                                              (call $enumivo_assert
                                                                                (i32.ne
                                                                                 (call $cancel_deferred
                                                                                  (i32.add
@@ -46925,7 +46925,7 @@
                                                                               (get_local $5)
                                                                              )
                                                                             )
-                                                                            (call $eosio_assert
+                                                                            (call $enumivo_assert
                                                                              (i32.eq
                                                                               (i32.load offset=208
                                                                                (get_local $10)
@@ -47097,13 +47097,13 @@
                                                                            (i64.const -7078304396558272662)
                                                                           )
                                                                          )
-                                                                         (call $_ZN5eosio18unpack_action_dataI29test_permission_last_used_msgEET_v
+                                                                         (call $_ZN5enumivo18unpack_action_dataI29test_permission_last_used_msgEET_v
                                                                           (i32.add
                                                                            (get_local $10)
                                                                            (i32.const 208)
                                                                           )
                                                                          )
-                                                                         (call $eosio_assert
+                                                                         (call $enumivo_assert
                                                                           (i64.eq
                                                                            (call $get_permission_last_used
                                                                             (i64.load offset=208
@@ -47295,11 +47295,11 @@
                                                                      (i64.const -8022470633818130162)
                                                                     )
                                                                    )
-                                                                   (call $eosio_assert
+                                                                   (call $enumivo_assert
                                                                     (i32.const 1)
                                                                     (i32.const 5888)
                                                                    )
-                                                                   (call $eosio_assert
+                                                                   (call $enumivo_assert
                                                                     (i32.const 1)
                                                                     (i32.const 5952)
                                                                    )
@@ -47377,7 +47377,7 @@
                                                                    (i32.const 208)
                                                                   )
                                                                  )
-                                                                 (call $eosio_assert
+                                                                 (call $enumivo_assert
                                                                   (i32.const 0)
                                                                   (i32.const 9200)
                                                                  )
@@ -47521,7 +47521,7 @@
                                                                (i32.const 169)
                                                               )
                                                              )
-                                                             (call $eosio_assert
+                                                             (call $enumivo_assert
                                                               (i32.eq
                                                                (i32.load8_u offset=208
                                                                 (get_local $10)
@@ -47546,7 +47546,7 @@
                                                               )
                                                              )
                                                              (loop $label$144
-                                                              (call $eosio_assert
+                                                              (call $enumivo_assert
                                                                (i64.eq
                                                                 (i64.load align=1
                                                                  (i32.add
@@ -47604,7 +47604,7 @@
                                                               (i32.const 4)
                                                              )
                                                             )
-                                                            (call $eosio_assert
+                                                            (call $enumivo_assert
                                                              (i32.eq
                                                               (i32.load offset=208
                                                                (get_local $10)
@@ -47627,27 +47627,27 @@
                                                              (i64.const -8022470632789685404)
                                                             )
                                                            )
-                                                           (call $eosio_assert
+                                                           (call $enumivo_assert
                                                             (i32.const 1)
                                                             (i32.const 5232)
                                                            )
-                                                           (call $eosio_assert
+                                                           (call $enumivo_assert
                                                             (i32.const 1)
                                                             (i32.const 5312)
                                                            )
-                                                           (call $eosio_assert
+                                                           (call $enumivo_assert
                                                             (i32.const 1)
                                                             (i32.const 5376)
                                                            )
-                                                           (call $eosio_assert
+                                                           (call $enumivo_assert
                                                             (i32.const 1)
                                                             (i32.const 5440)
                                                            )
-                                                           (call $eosio_assert
+                                                           (call $enumivo_assert
                                                             (i32.const 1)
                                                             (i32.const 5504)
                                                            )
-                                                           (call $eosio_assert
+                                                           (call $enumivo_assert
                                                             (i32.const 1)
                                                             (i32.const 5568)
                                                            )
@@ -47713,7 +47713,7 @@
                                                           (i32.const 4)
                                                          )
                                                         )
-                                                        (call $eosio_assert
+                                                        (call $enumivo_assert
                                                          (i32.eq
                                                           (i32.load offset=208
                                                            (get_local $10)
@@ -47796,7 +47796,7 @@
                                                            )
                                                           )
                                                          )
-                                                         (call $eosio_assert
+                                                         (call $enumivo_assert
                                                           (i32.const 0)
                                                           (i32.const 7808)
                                                          )
@@ -48019,7 +48019,7 @@
                                                    (i32.const 208)
                                                   )
                                                  )
-                                                 (call $eosio_assert
+                                                 (call $enumivo_assert
                                                   (i32.const 0)
                                                   (i32.const 9200)
                                                  )
@@ -48063,7 +48063,7 @@
                                                )
                                                (i32.const 34)
                                               )
-                                              (call $eosio_assert
+                                              (call $enumivo_assert
                                                (i32.const 0)
                                                (i32.const 7776)
                                               )
@@ -48094,7 +48094,7 @@
                                                (i32.const 208)
                                               )
                                              )
-                                             (call $eosio_assert
+                                             (call $enumivo_assert
                                               (i32.const 0)
                                               (i32.const 9200)
                                              )
@@ -48326,7 +48326,7 @@
                                          )
                                         )
                                        )
-                                       (call $eosio_assert
+                                       (call $enumivo_assert
                                         (i32.eqz
                                          (call $is_feature_active
                                           (get_local $8)
@@ -48387,7 +48387,7 @@
                                         (i32.const 1)
                                        )
                                       )
-                                      (call $eosio_assert
+                                      (call $enumivo_assert
                                        (get_local $3)
                                        (i32.const 9136)
                                       )
@@ -48418,7 +48418,7 @@
                                        (i32.const 208)
                                       )
                                      )
-                                     (call $eosio_assert
+                                     (call $enumivo_assert
                                       (i32.const 0)
                                       (i32.const 9200)
                                      )
@@ -48514,13 +48514,13 @@
                                   )
                                   (br $label$6)
                                  )
-                                 (call $_ZN5eosio18unpack_action_dataI29test_permission_last_used_msgEET_v
+                                 (call $_ZN5enumivo18unpack_action_dataI29test_permission_last_used_msgEET_v
                                   (i32.add
                                    (get_local $10)
                                    (i32.const 208)
                                   )
                                  )
-                                 (call $eosio_assert
+                                 (call $enumivo_assert
                                   (i64.eq
                                    (call $get_account_creation_time
                                     (i64.load offset=208
@@ -48651,11 +48651,11 @@
                        )
                        (br $label$6)
                       )
-                      (call $eosio_assert
+                      (call $enumivo_assert
                        (i32.const 1)
                        (i32.const 5632)
                       )
-                      (call $eosio_assert
+                      (call $enumivo_assert
                        (i32.const 1)
                        (i32.const 5696)
                       )
@@ -48715,7 +48715,7 @@
                       (i32.const 1)
                      )
                     )
-                    (call $eosio_assert
+                    (call $enumivo_assert
                      (get_local $3)
                      (i32.const 9008)
                     )
@@ -48784,15 +48784,15 @@
                )
                (br $label$6)
               )
-              (call $eosio_assert
+              (call $enumivo_assert
                (i32.const 0)
                (i32.const 6016)
               )
-              (call $eosio_assert
+              (call $enumivo_assert
                (i32.const 0)
                (i32.const 6016)
               )
-              (call $eosio_assert
+              (call $enumivo_assert
                (i32.const 0)
                (i32.const 6160)
               )
@@ -48861,7 +48861,7 @@
               (i32.const 1)
              )
             )
-            (call $eosio_assert
+            (call $enumivo_assert
              (get_local $3)
              (i32.const 9184)
             )
@@ -48944,7 +48944,7 @@
           (get_local $10)
           (i64.const -1)
          )
-         (call $eosio_assert
+         (call $enumivo_assert
           (i32.eqz
            (call $cancel_deferred
             (i32.add
@@ -48984,19 +48984,19 @@
        )
        (br $label$6)
       )
-      (call $eosio_assert
+      (call $enumivo_assert
        (i32.const 1)
        (i32.const 5760)
       )
-      (call $eosio_assert
+      (call $enumivo_assert
        (i32.const 1)
        (i32.const 5760)
       )
-      (call $eosio_assert
+      (call $enumivo_assert
        (i32.const 1)
        (i32.const 5824)
       )
-      (call $eosio_assert
+      (call $enumivo_assert
        (i32.const 1)
        (i32.const 5824)
       )
@@ -49024,7 +49024,7 @@
     )
     (br $label$6)
    )
-   (call $eosio_assert
+   (call $enumivo_assert
     (i32.const 0)
     (i32.const 18992)
    )
@@ -49037,7 +49037,7 @@
    )
   )
  )
- (func $_ZN5eosio18unpack_action_dataINS_7onerrorEEET_v (param $0 i32)
+ (func $_ZN5enumivo18unpack_action_dataINS_7onerrorEEET_v (param $0 i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -49116,7 +49116,7 @@
    (get_local $3)
    (get_local $2)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.gt_u
     (get_local $1)
     (i32.const 15)
@@ -49138,7 +49138,7 @@
    )
   )
   (drop
-   (call $_ZN5eosiorsINS_10datastreamIPKcEEEERT_S6_RNSt3__16vectorIcNS7_9allocatorIcEEEE
+   (call $_ZN5enumivorsINS_10datastreamIPKcEEEERT_S6_RNSt3__16vectorIcNS7_9allocatorIcEEEE
     (get_local $3)
     (i32.add
      (get_local $0)
@@ -49154,14 +49154,14 @@
    )
   )
  )
- (func $_ZN5eosiorsINS_10datastreamIPKcEEEERT_S6_RNS_18transaction_headerE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN5enumivorsINS_10datastreamIPKcEEEERT_S6_RNS_18transaction_headerE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i64)
   (local $6 i32)
   (local $7 i32)
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.gt_u
     (i32.sub
      (i32.load offset=8
@@ -49195,7 +49195,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.gt_u
     (i32.sub
      (i32.load offset=8
@@ -49230,7 +49230,7 @@
     )
    )
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.gt_u
     (i32.sub
      (i32.load offset=8
@@ -49272,7 +49272,7 @@
    (i64.const 0)
   )
   (loop $label$0
-   (call $eosio_assert
+   (call $enumivo_assert
     (i32.lt_u
      (get_local $4)
      (i32.load
@@ -49343,7 +49343,7 @@
    (get_local $1)
    (get_local $5)
   )
-  (call $eosio_assert
+  (call $enumivo_assert
    (i32.ne
     (i32.load
      (tee_local $3
@@ -49392,7 +49392,7 @@
    (i64.const 0)
   )
   (loop $label$1
-   (call $eosio_assert
+   (call $enumivo_assert
     (i32.lt_u
      (get_local $6)
      (i32.load
@@ -49457,7 +49457,7 @@
   )
   (get_local $0)
  )
- (func $_ZN5eosiorsINS_10datastreamIPKcEENS_6actionEEERT_S7_RNSt3__16vectorIT0_NS8_9allocatorISA_EEEE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN5enumivorsINS_10datastreamIPKcEENS_6actionEEERT_S7_RNSt3__16vectorIT0_NS8_9allocatorISA_EEEE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -49488,7 +49488,7 @@
    )
   )
   (loop $label$0
-   (call $eosio_assert
+   (call $enumivo_assert
     (i32.lt_u
      (get_local $7)
      (i32.load
@@ -49575,7 +49575,7 @@
       )
      )
     )
-    (call $_ZNSt3__16vectorIN5eosio6actionENS_9allocatorIS2_EEE8__appendEj
+    (call $_ZNSt3__16vectorIN5enumivo6actionENS_9allocatorIS2_EEE8__appendEj
      (get_local $1)
      (i32.sub
       (get_local $4)
@@ -49721,7 +49721,7 @@
     )
    )
    (loop $label$8
-    (call $eosio_assert
+    (call $enumivo_assert
      (i32.gt_u
       (i32.sub
        (i32.load
@@ -49760,7 +49760,7 @@
       )
      )
     )
-    (call $eosio_assert
+    (call $enumivo_assert
      (i32.gt_u
       (i32.sub
        (i32.load
@@ -49794,8 +49794,8 @@
      )
     )
     (drop
-     (call $_ZN5eosiorsINS_10datastreamIPKcEEEERT_S6_RNSt3__16vectorIcNS7_9allocatorIcEEEE
-      (call $_ZN5eosiorsINS_10datastreamIPKcEENS_16permission_levelEEERT_S7_RNSt3__16vectorIT0_NS8_9allocatorISA_EEEE
+     (call $_ZN5enumivorsINS_10datastreamIPKcEEEERT_S6_RNSt3__16vectorIcNS7_9allocatorIcEEEE
+      (call $_ZN5enumivorsINS_10datastreamIPKcEENS_16permission_levelEEERT_S7_RNSt3__16vectorIT0_NS8_9allocatorISA_EEEE
        (get_local $0)
        (i32.add
         (get_local $7)
@@ -49823,7 +49823,7 @@
   )
   (get_local $0)
  )
- (func $_ZN5eosiorsINS_10datastreamIPKcEENSt3__15tupleIJtNS5_6vectorIcNS5_9allocatorIcEEEEEEEEERT_SD_RNS7_IT0_NS8_ISE_EEEE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN5enumivorsINS_10datastreamIPKcEENSt3__15tupleIJtNS5_6vectorIcNS5_9allocatorIcEEEEEEEEERT_SD_RNS7_IT0_NS8_ISE_EEEE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -49854,7 +49854,7 @@
    )
   )
   (loop $label$0
-   (call $eosio_assert
+   (call $enumivo_assert
     (i32.lt_u
      (get_local $5)
      (i32.load
@@ -50063,7 +50063,7 @@
     )
    )
    (loop $label$7
-    (call $eosio_assert
+    (call $enumivo_assert
      (i32.gt_u
       (i32.sub
        (i32.load
@@ -50101,7 +50101,7 @@
      )
     )
     (drop
-     (call $_ZN5eosiorsINS_10datastreamIPKcEEEERT_S6_RNSt3__16vectorIcNS7_9allocatorIcEEEE
+     (call $_ZN5enumivorsINS_10datastreamIPKcEEEERT_S6_RNSt3__16vectorIcNS7_9allocatorIcEEEE
       (get_local $0)
       (i32.add
        (get_local $4)
@@ -50598,7 +50598,7 @@
    )
   )
  )
- (func $_ZNSt3__16vectorIN5eosio6actionENS_9allocatorIS2_EEE8__appendEj (param $0 i32) (param $1 i32)
+ (func $_ZNSt3__16vectorIN5enumivo6actionENS_9allocatorIS2_EEE8__appendEj (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -52105,12 +52105,12 @@
   )
  )
  (func $malloc (param $0 i32) (result i32)
-  (call $_ZN5eosio14memory_manager6mallocEm
+  (call $_ZN5enumivo14memory_manager6mallocEm
    (i32.const 19012)
    (get_local $0)
   )
  )
- (func $_ZN5eosio14memory_manager6mallocEm (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN5enumivo14memory_manager6mallocEm (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -52293,7 +52293,7 @@
        )
        (br_if $label$6
         (tee_local $1
-         (call $_ZN5eosio14memory_manager16next_active_heapEv
+         (call $_ZN5enumivo14memory_manager16next_active_heapEv
           (get_local $0)
          )
         )
@@ -52326,7 +52326,7 @@
       )
      )
      (loop $label$8
-      (call $eosio_assert
+      (call $enumivo_assert
        (i32.eq
         (i32.load
          (i32.add
@@ -52557,7 +52557,7 @@
   )
   (i32.const 0)
  )
- (func $_ZN5eosio14memory_manager16next_active_heapEv (param $0 i32) (result i32)
+ (func $_ZN5enumivo14memory_manager16next_active_heapEv (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)

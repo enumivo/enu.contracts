@@ -1,19 +1,19 @@
 /**
  *  @file
- *  @copyright defined in eos/LICENSE.txt
+ *  @copyright defined in enumivo/LICENSE
  */
 #pragma once
 
-#include <eosiolib/asset.hpp>
-#include <eosiolib/eosio.hpp>
+#include <enulib/asset.hpp>
+#include <enulib/enu.hpp>
 
 #include <string>
 
-namespace eosiosystem {
+namespace enumivosystem {
    class system_contract;
 }
 
-namespace eosio {
+namespace enumivo {
 
    using std::string;
 
@@ -54,8 +54,8 @@ namespace eosio {
             uint64_t primary_key()const { return supply.symbol.name(); }
          };
 
-         typedef eosio::multi_index<N(accounts), account> accounts;
-         typedef eosio::multi_index<N(stat), currency_stats> stats;
+         typedef enumivo::multi_index<N(accounts), account> accounts;
+         typedef enumivo::multi_index<N(stat), currency_stats> stats;
 
          void sub_balance( account_name owner, asset value );
          void add_balance( account_name owner, asset value, account_name ram_payer );
@@ -83,4 +83,4 @@ namespace eosio {
       return ac.balance;
    }
 
-} /// namespace eosio
+} /// namespace enumivo

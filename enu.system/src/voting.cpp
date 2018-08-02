@@ -1,30 +1,30 @@
 /**
  *  @file
- *  @copyright defined in eos/LICENSE.txt
+ *  @copyright defined in enumivo/LICENSE
  */
-#include <eosio.system/eosio.system.hpp>
+#include <enu.system/enu.system.hpp>
 
-#include <eosiolib/eosio.hpp>
-#include <eosiolib/crypto.h>
-#include <eosiolib/print.hpp>
-#include <eosiolib/datastream.hpp>
-#include <eosiolib/serialize.hpp>
-#include <eosiolib/multi_index.hpp>
-#include <eosiolib/privileged.hpp>
-#include <eosiolib/singleton.hpp>
-#include <eosiolib/transaction.hpp>
-#include <eosio.token/eosio.token.hpp>
+#include <enulib/enu.hpp>
+#include <enulib/crypto.h>
+#include <enulib/print.hpp>
+#include <enulib/datastream.hpp>
+#include <enulib/serialize.hpp>
+#include <enulib/multi_index.hpp>
+#include <enulib/privileged.hpp>
+#include <enulib/singleton.hpp>
+#include <enulib/transaction.hpp>
+#include <enu.token/enu.token.hpp>
 
 #include <algorithm>
 #include <cmath>
 
-namespace eosiosystem {
-   using eosio::indexed_by;
-   using eosio::const_mem_fun;
-   using eosio::bytes;
-   using eosio::print;
-   using eosio::singleton;
-   using eosio::transaction;
+namespace enumivosystem {
+   using enumivo::indexed_by;
+   using enumivo::const_mem_fun;
+   using enumivo::bytes;
+   using enumivo::print;
+   using enumivo::singleton;
+   using enumivo::transaction;
 
    /**
     *  This method will create a producer_config and producer_info object for 'producer'
@@ -34,9 +34,9 @@ namespace eosiosystem {
     *  @pre authority of producer to register
     *
     */
-   void system_contract::regproducer( const account_name producer, const eosio::public_key& producer_key, const std::string& url, uint16_t location ) {
-      eosio_assert( url.size() < 512, "url too long" );
-      eosio_assert( producer_key != eosio::public_key(), "public key should not be the default value" );
+   void system_contract::regproducer( const account_name producer, const enumivo::public_key& producer_key, const std::string& url, uint16_t location ) {
+      enumivo_assert( url.size() < 512, "url too long" );
+      enumivo_assert( producer_key != enumivo::public_key(), "public key should not be the default value" );
       require_auth( producer );
 
       auto prod = _producers.find( producer );
@@ -75,11 +75,11 @@ namespace eosiosystem {
 
       auto idx = _producers.get_index<N(prototalvote)>();
 
-      std::vector< std::pair<eosio::producer_key,uint16_t> > top_producers;
+      std::vector< std::pair<enumivo::producer_key,uint16_t> > top_producers;
       top_producers.reserve(21);
 
       for ( auto it = idx.cbegin(); it != idx.cend() && top_producers.size() < 21 && 0 < it->total_votes && it->active(); ++it ) {
-         top_producers.emplace_back( std::pair<eosio::producer_key,uint16_t>({{it->owner, it->producer_key}, it->location}) );
+         top_producers.emplace_back( std::pair<enumivo::producer_key,uint16_t>({{it->owner, it->producer_key}, it->location}) );
       }
 
       if ( top_producers.size() < _gstate.last_producer_schedule_size ) {
@@ -89,7 +89,7 @@ namespace eosiosystem {
       /// sort by producer name
       std::sort( top_producers.begin(), top_producers.end() );
 
-      std::vector<eosio::producer_key> producers;
+      std::vector<enumivo::producer_key> producers;
 
       producers.reserve(top_producers.size());
       for( const auto& item : top_producers )
@@ -113,7 +113,7 @@ namespace eosiosystem {
     *  @pre if proxy is set then proxy account must exist and be registered as a proxy
     *  @pre every listed producer or proxy must have been previously registered
     *  @pre voter must authorize this action
-    *  @pre voter must have previously staked some EOS for voting
+    *  @pre voter must have previously staked some ENU for voting
     *  @pre voter->staked must be up to date
     *
     *  @post every producer previously voted for will have vote reduced by previous vote weight
@@ -131,19 +131,19 @@ namespace eosiosystem {
    void system_contract::update_votes( const account_name voter_name, const account_name proxy, const std::vector<account_name>& producers, bool voting ) {
       //validate input
       if ( proxy ) {
-         eosio_assert( producers.size() == 0, "cannot vote for producers and proxy at same time" );
-         eosio_assert( voter_name != proxy, "cannot proxy to self" );
+         enumivo_assert( producers.size() == 0, "cannot vote for producers and proxy at same time" );
+         enumivo_assert( voter_name != proxy, "cannot proxy to self" );
          require_recipient( proxy );
       } else {
-         eosio_assert( producers.size() <= 30, "attempt to vote for too many producers" );
+         enumivo_assert( producers.size() <= 30, "attempt to vote for too many producers" );
          for( size_t i = 1; i < producers.size(); ++i ) {
-            eosio_assert( producers[i-1] < producers[i], "producer votes must be unique and sorted" );
+            enumivo_assert( producers[i-1] < producers[i], "producer votes must be unique and sorted" );
          }
       }
 
       auto voter = _voters.find(voter_name);
-      eosio_assert( voter != _voters.end(), "user must stake before they can vote" ); /// staking creates voter object
-      eosio_assert( !proxy || !voter->is_proxy, "account registered as a proxy is not allowed to use a proxy" );
+      enumivo_assert( voter != _voters.end(), "user must stake before they can vote" ); /// staking creates voter object
+      enumivo_assert( !proxy || !voter->is_proxy, "account registered as a proxy is not allowed to use a proxy" );
 
       /**
        * The first time someone votes we calculate and set last_vote_weight, since they cannot unstake until
@@ -166,7 +166,7 @@ namespace eosiosystem {
       if ( voter->last_vote_weight > 0 ) {
          if( voter->proxy ) {
             auto old_proxy = _voters.find( voter->proxy );
-            eosio_assert( old_proxy != _voters.end(), "old proxy not found" ); //data corruption
+            enumivo_assert( old_proxy != _voters.end(), "old proxy not found" ); //data corruption
             _voters.modify( old_proxy, 0, [&]( auto& vp ) {
                   vp.proxied_vote_weight -= voter->last_vote_weight;
                });
@@ -182,8 +182,8 @@ namespace eosiosystem {
 
       if( proxy ) {
          auto new_proxy = _voters.find( proxy );
-         eosio_assert( new_proxy != _voters.end(), "invalid proxy specified" ); //if ( !voting ) { data corruption } else { wrong vote }
-         eosio_assert( !voting || new_proxy->is_proxy, "proxy not found" );
+         enumivo_assert( new_proxy != _voters.end(), "invalid proxy specified" ); //if ( !voting ) { data corruption } else { wrong vote }
+         enumivo_assert( !voting || new_proxy->is_proxy, "proxy not found" );
          if ( new_vote_weight >= 0 ) {
             _voters.modify( new_proxy, 0, [&]( auto& vp ) {
                   vp.proxied_vote_weight += new_vote_weight;
@@ -203,17 +203,17 @@ namespace eosiosystem {
       for( const auto& pd : producer_deltas ) {
          auto pitr = _producers.find( pd.first );
          if( pitr != _producers.end() ) {
-            eosio_assert( !voting || pitr->active() || !pd.second.second /* not from new set */, "producer is not currently registered" );
+            enumivo_assert( !voting || pitr->active() || !pd.second.second /* not from new set */, "producer is not currently registered" );
             _producers.modify( pitr, 0, [&]( auto& p ) {
                p.total_votes += pd.second.first;
                if ( p.total_votes < 0 ) { // floating point arithmetics can give small negative numbers
                   p.total_votes = 0;
                }
                _gstate.total_producer_vote_weight += pd.second.first;
-               //eosio_assert( p.total_votes >= 0, "something bad happened" );
+               //enumivo_assert( p.total_votes >= 0, "something bad happened" );
             });
          } else {
-            eosio_assert( !pd.second.second /* not from new set */, "producer is not registered" ); //data corruption
+            enumivo_assert( !pd.second.second /* not from new set */, "producer is not registered" ); //data corruption
          }
       }
 
@@ -238,8 +238,8 @@ namespace eosiosystem {
 
       auto pitr = _voters.find(proxy);
       if ( pitr != _voters.end() ) {
-         eosio_assert( isproxy != pitr->is_proxy, "action has no effect" );
-         eosio_assert( !isproxy || !pitr->proxy, "account that uses a proxy is not allowed to become a proxy" );
+         enumivo_assert( isproxy != pitr->is_proxy, "action has no effect" );
+         enumivo_assert( !isproxy || !pitr->proxy, "account that uses a proxy is not allowed to become a proxy" );
          _voters.modify( pitr, 0, [&]( auto& p ) {
                p.is_proxy = isproxy;
             });
@@ -253,7 +253,7 @@ namespace eosiosystem {
    }
 
    void system_contract::propagate_weight_change( const voter_info& voter ) {
-      eosio_assert( voter.proxy == 0 || !voter.is_proxy, "account registered as a proxy is not allowed to use a proxy" );
+      enumivo_assert( voter.proxy == 0 || !voter.is_proxy, "account registered as a proxy is not allowed to use a proxy" );
       double new_weight = stake2vote( voter.staked );
       if ( voter.is_proxy ) {
          new_weight += voter.proxied_vote_weight;
@@ -285,4 +285,4 @@ namespace eosiosystem {
       );
    }
 
-} /// namespace eosiosystem
+} /// namespace enumivosystem
