@@ -1,4 +1,4 @@
-# enu.contracts
+# enumivo.contracts
 
 ## Version : 1.2.0
 
@@ -6,16 +6,16 @@ The design of the Enumivo blockchain calls for a number of smart contracts that 
 
 This repository contains examples of these privileged contracts that are useful when deploying, managing, and/or using an Enumivo blockchain.  They are provided for reference purposes:
 
-   * [enu.system](https://github.com/enumivo/enu.contracts/tree/master/enu.system)
-   * [enu.msig](https://github.com/enumivo/enu.contracts/tree/master/enu.msig)
-   * [enu.sudo](https://github.com/enumivo/enu.contracts/tree/master/enu.sudo)
+   * [enu.system](https://github.com/enumivo/enumivo.contracts/tree/master/enu.system)
+   * [enu.msig](https://github.com/enumivo/enumivo.contracts/tree/master/enu.msig)
+   * [enu.sudo](https://github.com/enumivo/enumivo.contracts/tree/master/enu.sudo)
 
 The following unprivileged contract(s) are also part of the system.
-   * [enu.token](https://github.com/enumivo/enu.contracts/tree/master/enu.token)
+   * [enu.token](https://github.com/enumivo/enumivo.contracts/tree/master/enu.token)
 
 Dependencies:
 * [enumivo v1.1.2](https://github.com/enumivo/enumivo/tree/v1.1.2)
-* [enu.wasmsdk v1.1.0](https://github.com/enumivo/enu.wasmsdk/tree/v1.1.0)
+* [enumivo.wasmsdk v1.1.0](https://github.com/enumivo/enumivo.wasmsdk/tree/v1.1.0)
 
 To build the contracts and the unit tests:
 * First, ensure that your __enumivo__ is compiled to the core symbol for the Enumivo blockchain that intend to deploy to.

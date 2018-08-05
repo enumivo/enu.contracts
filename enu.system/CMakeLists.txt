@@ -10,4 +10,4 @@ set_target_properties(enu.system.wasm
 
 configure_file("${CMAKE_CURRENT_SOURCE_DIR}/abi/enu.system.abi" "${CMAKE_CURRENT_BINARY_DIR}" COPYONLY)
 
-#install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/ DESTINATION ${WASM_ROOT}/enu.wasmsdk/include)
+#install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/ DESTINATION ${WASM_ROOT}/enumivo.wasmsdk/include)
