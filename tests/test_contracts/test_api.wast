@@ -93,7 +93,7 @@
  (import "env" "transaction_size" (func $transaction_size (result i32)))
  (table 0 anyfunc)
  (memory $0 1)
- (data (i32.const 4) "p\93\00\00")
+ (data (i32.const 4) "\a0\93\00\00")
  (data (i32.const 16) "\00\00\00\00\00\00\00\00")
  (data (i32.const 32) "action_size() == sizeof(dummy_action)\00")
  (data (i32.const 80) "read_action(30)\00")
@@ -221,217 +221,217 @@
  (data (i32.const 4096) "enumivo::string_to_name(fedcba)\00")
  (data (i32.const 4128) "gfedcba\00")
  (data (i32.const 4144) "enumivo::string_to_name(gfedcba)\00")
- (data (i32.const 4176) "hgfedcba\00")
- (data (i32.const 4192) "enumivo::string_to_name(hgfedcba)\00")
- (data (i32.const 4224) "ihgfedcba\00")
- (data (i32.const 4240) "enumivo::string_to_name(ihgfedcba)\00")
- (data (i32.const 4288) "jihgfedcba\00")
- (data (i32.const 4304) "enumivo::string_to_name(jihgfedcba)\00")
- (data (i32.const 4352) "kjihgfedcba\00")
- (data (i32.const 4368) "enumivo::string_to_name(kjihgfedcba)\00")
- (data (i32.const 4416) "lkjihgfedcba\00")
- (data (i32.const 4432) "enumivo::string_to_name(lkjihgfedcba)\00")
- (data (i32.const 4480) "mlkjihgfedcba\00")
- (data (i32.const 4496) "enumivo::string_to_name(mlkjihgfedcba)\00")
- (data (i32.const 4544) "mlkjihgfedcba1\00")
- (data (i32.const 4560) "mlkjihgfedcba2\00")
- (data (i32.const 4576) "enumivo::string_to_name(mlkjihgfedcba2)\00")
- (data (i32.const 4624) "mlkjihgfedcba55\00")
- (data (i32.const 4640) "mlkjihgfedcba14\00")
- (data (i32.const 4656) "enumivo::string_to_name(mlkjihgfedcba14)\00")
- (data (i32.const 4704) "azAA34\00")
- (data (i32.const 4720) "azBB34\00")
- (data (i32.const 4736) "enumivo::string_to_name N(azBB34)\00")
- (data (i32.const 4768) "AZaz12Bc34\00")
- (data (i32.const 4784) "enumivo::string_to_name AZaz12Bc34\00")
- (data (i32.const 4832) "AAAAAAAAAAAAAAA\00")
- (data (i32.const 4848) "BBBBBBBBBBBBBDDDDDFFFGG\00")
- (data (i32.const 4880) "enumivo::string_to_name BBBBBBBBBBBBBDDDDDFFFGG\00")
- (data (i32.const 4928) "enumivo::name != N(azAA34)\00")
- (data (i32.const 4960) "enumivo::name != N(0)\00")
- (data (i32.const 4992) "AA11\00")
- (data (i32.const 5008) "enumivo::name != N(AA11)\00")
- (data (i32.const 5040) "11\00")
- (data (i32.const 5056) "enumivo::name != N(11)\00")
- (data (i32.const 5088) "22\00")
- (data (i32.const 5104) "enumivo::name != N(22)\00")
- (data (i32.const 5136) "AAAbbcccdd\00")
- (data (i32.const 5152) "enumivo::name == enumivo::name\00")
- (data (i32.const 5184) "11bbcccdd\00")
- (data (i32.const 5200) "N(11bbcccdd) == tmp\00")
- (data (i32.const 5232) "fixed_point128 instances comparison with same number of decimals\00")
- (data (i32.const 5312) "fixed_point128 instances with different number of decimals\00")
- (data (i32.const 5376) "fixed_point64 instances comparison with same number of decimals\00")
- (data (i32.const 5440) "fixed_point64 instances with different number of decimals\00")
- (data (i32.const 5504) "fixed_point32 instances comparison with same number of decimals\00")
- (data (i32.const 5568) "fixed_point32 instances with different number of decimals\00")
- (data (i32.const 5632) "fixed_point32 instances addition with zero decmimals\00")
- (data (i32.const 5696) "fixed_point64 instances addition with zero decmimals\00")
- (data (i32.const 5760) "fixed_point64 instances subtraction with zero decmimals\00")
- (data (i32.const 5824) "fixed_point32 instances subtraction with zero decmimals\00")
- (data (i32.const 5888) "fixed_point64 instances multiplication result in fixed_point128\00")
- (data (i32.const 5952) "fixed_point32 instances multiplication result in fixed_point64\00")
- (data (i32.const 6016) "divide by zero\00")
- (data (i32.const 6032) ".\00")
- (data (i32.const 6048) "fixed_point64 instances division result from operator and function and compare in fixed_point128\00")
- (data (i32.const 6160) "should\'ve thrown an error\00")
- (data (i32.const 6192) "__multi3 result should be -3000\00")
- (data (i32.const 6224) "__multi3 result should be 900\00")
- (data (i32.const 6256) "__multi3 result should be 10000\00")
- (data (i32.const 6288) "__multi3 result should be 100\00")
- (data (i32.const 6320) "__multi3 result should be -30\00")
- (data (i32.const 6352) "__divti3 result should be 0\00")
- (data (i32.const 6384) "__divti3 result should be -3\00")
- (data (i32.const 6416) "__divti3 result should be 1\00")
- (data (i32.const 6448) "__divti3 result should be 33\00")
- (data (i32.const 6480) "__divti3 result should be 100\00")
- (data (i32.const 6512) "__divti3 result should be -30\00")
- (data (i32.const 6544) "Should have enumivo_asserted\00")
- (data (i32.const 6576) "__udivti3 result should be 0\00")
- (data (i32.const 6608) "__udivti3 result should be 1\00")
- (data (i32.const 6640) "__lshlti3 result should be 1\00")
- (data (i32.const 6672) "__lshlti3 result should be 2\00")
- (data (i32.const 6704) "__lshlti3 result should be 2^31\00")
- (data (i32.const 6736) "__lshlti3 result should be 2^63\00")
- (data (i32.const 6768) "__lshlti3 result should be 2^64\00")
- (data (i32.const 6800) "__lshlti3 result should be 2^127\00")
- (data (i32.const 6848) "__lshlti3 result should be 2^128\00")
- (data (i32.const 6896) "__ashlti3 result should be 1\00")
- (data (i32.const 6928) "__ashlti3 result should be 2\00")
- (data (i32.const 6960) "__ashlti3 result should be 2^31\00")
- (data (i32.const 6992) "__ashlti3 result should be 2^63\00")
- (data (i32.const 7024) "__ashlti3 result should be 2^64\00")
- (data (i32.const 7056) "__ashlti3 result should be 2^127\00")
- (data (i32.const 7104) "__ashlti3 result should be 2^128\00")
- (data (i32.const 7152) "__lshrti3 result should be 2^127\00")
- (data (i32.const 7200) "__lshrti3 result should be 2^126\00")
- (data (i32.const 7248) "__lshrti3 result should be 2^64\00")
- (data (i32.const 7280) "__lshrti3 result should be 2^63\00")
- (data (i32.const 7312) "__lshrti3 result should be 2^31\00")
- (data (i32.const 7344) "__lshrti3 result should be 2^0\00")
- (data (i32.const 7376) "__ashrti3 result should be -2^127\00")
- (data (i32.const 7424) "__ashrti3 result should be -2^126\00")
- (data (i32.const 7472) "__ashrti3 result should be -2^125\00")
- (data (i32.const 7520) "__ashrti3 result should be -2^63\00")
- (data (i32.const 7568) "__ashrti3 result should be -2^31\00")
- (data (i32.const 7616) "__ashrti3 result should be -2^0\00")
- (data (i32.const 7648) "__modti3 result should be -30\00")
- (data (i32.const 7680) "__modti3 result should be 30\00")
- (data (i32.const 7712) "__modti3 result should be 10\00")
- (data (i32.const 7744) "__modti3 result should be 0\00")
- (data (i32.const 7776) "should have thrown an error\00")
- (data (i32.const 7808) "public key does not match\00")
- (data (i32.const 7840) "abc\00")
- (data (i32.const 7856) "\a9\99>6G\06\81j\ba>%qxP\c2l\9c\d0\d8\9d")
- (data (i32.const 7888) "sha1 test1\00")
- (data (i32.const 7904) "abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq\00")
- (data (i32.const 7968) "\84\98>D\1c;\d2n\ba\aeJ\a1\f9Q)\e5\e5Fp\f1")
- (data (i32.const 8000) "sha1 test3\00")
- (data (i32.const 8016) "abcdefghbcdefghicdefghijdefghijkefghijklfghijklmghijklmnhijklmnoijklmnopjklmnopqklmnopqrlmnopqrsmnopqrstnopqrstu\00")
- (data (i32.const 8144) "\a4\9b$F\a0,d[\f4\19\f9\95\b6p\91%:\04\a2Y")
- (data (i32.const 8176) "sha1 test4\00")
- (data (i32.const 8192) "message digest\00")
- (data (i32.const 8208) "\c1\"R\ce\da\8b\e8\99M_\a0)\nG#\1c\1d\16\aa\e3")
- (data (i32.const 8240) "sha1 test5\00")
- (data (i32.const 8256) "\bax\16\bf\8f\01\cf\eaAA@\de]\ae\"#\b0\03a\a3\96\17z\9c\b4\10\ffa\f2\00\15\ad")
- (data (i32.const 8288) "sha256 test1\00")
- (data (i32.const 8304) "$\8dja\d2\068\b8\e5\c0&\93\0c>`9\a3<\e4Yd\ff!g\f6\ec\ed\d4\19\db\06\c1")
- (data (i32.const 8336) "sha256 test3\00")
- (data (i32.const 8352) "\cf[\16\a7x\af\83\80\03l\e5\9e{\04\927\0b$\9b\11\e8\f0zQ\af\acE\03z\fe\e9\d1")
- (data (i32.const 8384) "sha256 test4\00")
- (data (i32.const 8400) "\f7\84oU\cf#\e1N\eb\ea\b5\b4\e1U\0c\ad[P\9e3H\fb\c4\ef\a3\a1A=9<\b6P")
- (data (i32.const 8432) "sha256 test5\00")
- (data (i32.const 8448) "\dd\af5\a1\93az\ba\ccAsI\ae A1\12\e6\faN\89\a9~\a2\n\9e\ee\e6KU\d3\9a!\92\99*\'O\c1\a86\ba<#\a3\fe\eb\bdEMD#d<\e8\0e*\9a\c9O\a5L\a4\9f")
- (data (i32.const 8512) "sha512 test1\00")
- (data (i32.const 8528) " J\8f\c6\dd\a8/\n\0c\ed{\eb\8e\08\a4\16W\c1n\f4h\b2(\a8\'\9b\e31\a7\03\c35\96\fd\15\c1;\1b\07\f9\aa\1d;\eaWx\9c\a01\ad\85\c7\a7\1d\d7\03T\ecc\128\ca4E")
- (data (i32.const 8592) "sha512 test3\00")
- (data (i32.const 8608) "\8e\95\9bu\da\e3\13\da\8c\f4\f7(\14\fc\14?\8fwy\c6\eb\9f\7f\a1r\99\ae\ad\b6\88\90\18P\1d(\9eI\00\f7\e43\1b\99\de\c4\b5C:\c7\d3)\ee\b6\dd&T^\96\e5[\87K\e9\t")
- (data (i32.const 8672) "sha512 test4\00")
- (data (i32.const 8688) "\10}\bf8\9d\9e\9fq\a3\a9_l\05[\92Q\bcRh\c2\be\16\d6\c14\92\eaE\b0\19\9f3\t\e1dU\ab\1e\96\11\8e\8a\90]U\97\b7 8\dd\b3r\a8\98&\04m\e6f\87\bbB\0e|")
- (data (i32.const 8752) "sha512 test5\00")
- (data (i32.const 8768) "\8e\b2\08\f7\e0]\98z\9b\04J\8e\98\c6\b0\87\f1Z\0b\fc")
- (data (i32.const 8800) "ripemd160 test1\00")
- (data (i32.const 8816) "\12\a0S8J\9c\0c\88\e4\05\a0l\'\dc\f4\9a\dab\eb+")
- (data (i32.const 8848) "ripemd160 test3\00")
- (data (i32.const 8864) "o?\a3\9bkP<8O\91\9aI\a7\aa\\,\08\bd\fbE")
- (data (i32.const 8896) "ripemd160 test4\00")
- (data (i32.const 8912) "]\06\89\efI\d2\fa\e5r\b8\81\b1#\a8_\fa!Y_6")
- (data (i32.const 8944) "ripemd160 test5\00")
- (data (i32.const 8976) "\da9\a3\ee^kK\0d2U\bf\ef\95`\18\90\af\d8\07\t")
- (data (i32.const 9008) "sha1 test2\00")
- (data (i32.const 9024) "\e3\b0\c4B\98\fc\1c\14\9a\fb\f4\c8\99o\b9$\'\aeA\e4d\9b\93L\a4\95\99\1bxR\b8U")
- (data (i32.const 9056) "sha256 test2\00")
- (data (i32.const 9072) "\cf\83\e15~\ef\b8\bd\f1T(P\d6m\80\07\d6 \e4\05\0bW\15\dc\83\f4\a9!\d3l\e9\ceG\d0\d1<]\85\f2\b0\ff\83\18\d2\87~\ec/c\b91\bdGAz\81\a582z\f9\'\da>")
- (data (i32.const 9136) "sha512 test2\00")
- (data (i32.const 9152) "\9c\11\85\a5\c5\e9\fcTa(\08\97~\e8\f5H\b2%\8d1")
- (data (i32.const 9184) "ripemd160 test2\00")
- (data (i32.const 9200) "should have failed\00")
- (data (i32.const 9232) "producers.len != 21\00")
- (data (i32.const 9264) "Active producer\00")
- (data (i32.const 9280) "EwfUD\12\cd\11\ab\12\aeQt")
- (data (i32.const 17488) "send_message_large() should\'ve thrown an error\00")
- (data (i32.const 17536) "tapos_block_prefix does not match\00")
- (data (i32.const 17584) "tapos_block_num does not match\00")
- (data (i32.const 17616) "read_transaction failed\00")
- (data (i32.const 17648) "size: \00")
- (data (i32.const 17664) "transaction size does not match\00")
- (data (i32.const 17696) "EwfUD\12\cd\11\ab\12\aeQt")
- (data (i32.const 17712) "send_transaction_empty() should\'ve thrown an error\00")
- (data (i32.const 17776) "transaction should only have one action\00")
- (data (i32.const 17824) "transaction has wrong code\00")
- (data (i32.const 17856) "transaction has wrong name\00")
- (data (i32.const 17888) "action should only have one authorization\00")
- (data (i32.const 17936) "action\'s authorization has wrong actor\00")
- (data (i32.const 17984) "action\'s authorization has wrong permission\00")
- (data (i32.const 18032) "send_transaction_large() should\'ve thrown an error\00")
- (data (i32.const 18096) "deferred executed\n\00")
- (data (i32.const 18128) "transaction was not found\00")
- (data (i32.const 18160) "transaction was canceled, whild should not be found\00")
- (data (i32.const 18224) "context free actions cannot have authorizations\00")
- (data (i32.const 18272) "dummy\00")
- (data (i32.const 18288) "send_cfa_action_fail() should\'ve thrown an error\00")
- (data (i32.const 18352) "test_transaction\00")
- (data (i32.const 18384) "table\00")
- (data (i32.const 18400) "newfeature\00")
- (data (i32.const 18416) "we should not have new features unless hardfork\00")
- (data (i32.const 18464) "unexpected last used permission time\00")
- (data (i32.const 18512) "unexpected account creation time\00")
- (data (i32.const 18560) "bool\00")
- (data (i32.const 18576) "int8\00")
- (data (i32.const 18592) "uint8\00")
- (data (i32.const 18608) "int16\00")
- (data (i32.const 18624) "uint16\00")
- (data (i32.const 18640) "int32\00")
- (data (i32.const 18656) "uint32\00")
- (data (i32.const 18672) "int64\00")
- (data (i32.const 18688) "uint64\00")
- (data (i32.const 18704) "float\00")
- (data (i32.const 18720) "double\00")
- (data (i32.const 18728) "\01\00\00\00\00\00\00\0082\8f\fc\c1\c0\f3?")
- (data (i32.const 18752) "struct\00")
- (data (i32.const 18760) "\n\00\00\00\14\00\00\00")
- (data (i32.const 18768) "StaticArray\00")
- (data (i32.const 18784) "string\00")
- (data (i32.const 18800) "vector\00")
- (data (i32.const 18816) "empty vector\00")
- (data (i32.const 18832) "\n\00\00\00\14\00\00\00\1e\00\00\00")
- (data (i32.const 18848) "std::array<T,N>\00")
- (data (i32.const 18864) "apple\00")
- (data (i32.const 18880) "cat\00")
- (data (i32.const 18896) "panda\00")
- (data (i32.const 18912) "map\00")
- (data (i32.const 18928) "tuple\00")
- (data (i32.const 18944) "enumivo\00")
- (data (i32.const 18960) "onerror\00")
- (data (i32.const 18976) "onerror called\n\00")
- (data (i32.const 18992) "Unknown Test\00")
- (data (i32.const 27408) "malloc_from_freed was designed to only be called after _heap was completely allocated\00")
+ (data (i32.const 4192) "hgfedcba\00")
+ (data (i32.const 4208) "enumivo::string_to_name(hgfedcba)\00")
+ (data (i32.const 4256) "ihgfedcba\00")
+ (data (i32.const 4272) "enumivo::string_to_name(ihgfedcba)\00")
+ (data (i32.const 4320) "jihgfedcba\00")
+ (data (i32.const 4336) "enumivo::string_to_name(jihgfedcba)\00")
+ (data (i32.const 4384) "kjihgfedcba\00")
+ (data (i32.const 4400) "enumivo::string_to_name(kjihgfedcba)\00")
+ (data (i32.const 4448) "lkjihgfedcba\00")
+ (data (i32.const 4464) "enumivo::string_to_name(lkjihgfedcba)\00")
+ (data (i32.const 4512) "mlkjihgfedcba\00")
+ (data (i32.const 4528) "enumivo::string_to_name(mlkjihgfedcba)\00")
+ (data (i32.const 4576) "mlkjihgfedcba1\00")
+ (data (i32.const 4592) "mlkjihgfedcba2\00")
+ (data (i32.const 4608) "enumivo::string_to_name(mlkjihgfedcba2)\00")
+ (data (i32.const 4656) "mlkjihgfedcba55\00")
+ (data (i32.const 4672) "mlkjihgfedcba14\00")
+ (data (i32.const 4688) "enumivo::string_to_name(mlkjihgfedcba14)\00")
+ (data (i32.const 4736) "azAA34\00")
+ (data (i32.const 4752) "azBB34\00")
+ (data (i32.const 4768) "enumivo::string_to_name N(azBB34)\00")
+ (data (i32.const 4816) "AZaz12Bc34\00")
+ (data (i32.const 4832) "enumivo::string_to_name AZaz12Bc34\00")
+ (data (i32.const 4880) "AAAAAAAAAAAAAAA\00")
+ (data (i32.const 4896) "BBBBBBBBBBBBBDDDDDFFFGG\00")
+ (data (i32.const 4928) "enumivo::string_to_name BBBBBBBBBBBBBDDDDDFFFGG\00")
+ (data (i32.const 4976) "enumivo::name != N(azAA34)\00")
+ (data (i32.const 5008) "enumivo::name != N(0)\00")
+ (data (i32.const 5040) "AA11\00")
+ (data (i32.const 5056) "enumivo::name != N(AA11)\00")
+ (data (i32.const 5088) "11\00")
+ (data (i32.const 5104) "enumivo::name != N(11)\00")
+ (data (i32.const 5136) "22\00")
+ (data (i32.const 5152) "enumivo::name != N(22)\00")
+ (data (i32.const 5184) "AAAbbcccdd\00")
+ (data (i32.const 5200) "enumivo::name == enumivo::name\00")
+ (data (i32.const 5232) "11bbcccdd\00")
+ (data (i32.const 5248) "N(11bbcccdd) == tmp\00")
+ (data (i32.const 5280) "fixed_point128 instances comparison with same number of decimals\00")
+ (data (i32.const 5360) "fixed_point128 instances with different number of decimals\00")
+ (data (i32.const 5424) "fixed_point64 instances comparison with same number of decimals\00")
+ (data (i32.const 5488) "fixed_point64 instances with different number of decimals\00")
+ (data (i32.const 5552) "fixed_point32 instances comparison with same number of decimals\00")
+ (data (i32.const 5616) "fixed_point32 instances with different number of decimals\00")
+ (data (i32.const 5680) "fixed_point32 instances addition with zero decmimals\00")
+ (data (i32.const 5744) "fixed_point64 instances addition with zero decmimals\00")
+ (data (i32.const 5808) "fixed_point64 instances subtraction with zero decmimals\00")
+ (data (i32.const 5872) "fixed_point32 instances subtraction with zero decmimals\00")
+ (data (i32.const 5936) "fixed_point64 instances multiplication result in fixed_point128\00")
+ (data (i32.const 6000) "fixed_point32 instances multiplication result in fixed_point64\00")
+ (data (i32.const 6064) "divide by zero\00")
+ (data (i32.const 6080) ".\00")
+ (data (i32.const 6096) "fixed_point64 instances division result from operator and function and compare in fixed_point128\00")
+ (data (i32.const 6208) "should\'ve thrown an error\00")
+ (data (i32.const 6240) "__multi3 result should be -3000\00")
+ (data (i32.const 6272) "__multi3 result should be 900\00")
+ (data (i32.const 6304) "__multi3 result should be 10000\00")
+ (data (i32.const 6336) "__multi3 result should be 100\00")
+ (data (i32.const 6368) "__multi3 result should be -30\00")
+ (data (i32.const 6400) "__divti3 result should be 0\00")
+ (data (i32.const 6432) "__divti3 result should be -3\00")
+ (data (i32.const 6464) "__divti3 result should be 1\00")
+ (data (i32.const 6496) "__divti3 result should be 33\00")
+ (data (i32.const 6528) "__divti3 result should be 100\00")
+ (data (i32.const 6560) "__divti3 result should be -30\00")
+ (data (i32.const 6592) "Should have enumivo_asserted\00")
+ (data (i32.const 6624) "__udivti3 result should be 0\00")
+ (data (i32.const 6656) "__udivti3 result should be 1\00")
+ (data (i32.const 6688) "__lshlti3 result should be 1\00")
+ (data (i32.const 6720) "__lshlti3 result should be 2\00")
+ (data (i32.const 6752) "__lshlti3 result should be 2^31\00")
+ (data (i32.const 6784) "__lshlti3 result should be 2^63\00")
+ (data (i32.const 6816) "__lshlti3 result should be 2^64\00")
+ (data (i32.const 6848) "__lshlti3 result should be 2^127\00")
+ (data (i32.const 6896) "__lshlti3 result should be 2^128\00")
+ (data (i32.const 6944) "__ashlti3 result should be 1\00")
+ (data (i32.const 6976) "__ashlti3 result should be 2\00")
+ (data (i32.const 7008) "__ashlti3 result should be 2^31\00")
+ (data (i32.const 7040) "__ashlti3 result should be 2^63\00")
+ (data (i32.const 7072) "__ashlti3 result should be 2^64\00")
+ (data (i32.const 7104) "__ashlti3 result should be 2^127\00")
+ (data (i32.const 7152) "__ashlti3 result should be 2^128\00")
+ (data (i32.const 7200) "__lshrti3 result should be 2^127\00")
+ (data (i32.const 7248) "__lshrti3 result should be 2^126\00")
+ (data (i32.const 7296) "__lshrti3 result should be 2^64\00")
+ (data (i32.const 7328) "__lshrti3 result should be 2^63\00")
+ (data (i32.const 7360) "__lshrti3 result should be 2^31\00")
+ (data (i32.const 7392) "__lshrti3 result should be 2^0\00")
+ (data (i32.const 7424) "__ashrti3 result should be -2^127\00")
+ (data (i32.const 7472) "__ashrti3 result should be -2^126\00")
+ (data (i32.const 7520) "__ashrti3 result should be -2^125\00")
+ (data (i32.const 7568) "__ashrti3 result should be -2^63\00")
+ (data (i32.const 7616) "__ashrti3 result should be -2^31\00")
+ (data (i32.const 7664) "__ashrti3 result should be -2^0\00")
+ (data (i32.const 7696) "__modti3 result should be -30\00")
+ (data (i32.const 7728) "__modti3 result should be 30\00")
+ (data (i32.const 7760) "__modti3 result should be 10\00")
+ (data (i32.const 7792) "__modti3 result should be 0\00")
+ (data (i32.const 7824) "should have thrown an error\00")
+ (data (i32.const 7856) "public key does not match\00")
+ (data (i32.const 7888) "abc\00")
+ (data (i32.const 7904) "\a9\99>6G\06\81j\ba>%qxP\c2l\9c\d0\d8\9d")
+ (data (i32.const 7936) "sha1 test1\00")
+ (data (i32.const 7952) "abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq\00")
+ (data (i32.const 8016) "\84\98>D\1c;\d2n\ba\aeJ\a1\f9Q)\e5\e5Fp\f1")
+ (data (i32.const 8048) "sha1 test3\00")
+ (data (i32.const 8064) "abcdefghbcdefghicdefghijdefghijkefghijklfghijklmghijklmnhijklmnoijklmnopjklmnopqklmnopqrlmnopqrsmnopqrstnopqrstu\00")
+ (data (i32.const 8192) "\a4\9b$F\a0,d[\f4\19\f9\95\b6p\91%:\04\a2Y")
+ (data (i32.const 8224) "sha1 test4\00")
+ (data (i32.const 8240) "message digest\00")
+ (data (i32.const 8256) "\c1\"R\ce\da\8b\e8\99M_\a0)\nG#\1c\1d\16\aa\e3")
+ (data (i32.const 8288) "sha1 test5\00")
+ (data (i32.const 8304) "\bax\16\bf\8f\01\cf\eaAA@\de]\ae\"#\b0\03a\a3\96\17z\9c\b4\10\ffa\f2\00\15\ad")
+ (data (i32.const 8336) "sha256 test1\00")
+ (data (i32.const 8352) "$\8dja\d2\068\b8\e5\c0&\93\0c>`9\a3<\e4Yd\ff!g\f6\ec\ed\d4\19\db\06\c1")
+ (data (i32.const 8384) "sha256 test3\00")
+ (data (i32.const 8400) "\cf[\16\a7x\af\83\80\03l\e5\9e{\04\927\0b$\9b\11\e8\f0zQ\af\acE\03z\fe\e9\d1")
+ (data (i32.const 8432) "sha256 test4\00")
+ (data (i32.const 8448) "\f7\84oU\cf#\e1N\eb\ea\b5\b4\e1U\0c\ad[P\9e3H\fb\c4\ef\a3\a1A=9<\b6P")
+ (data (i32.const 8480) "sha256 test5\00")
+ (data (i32.const 8496) "\dd\af5\a1\93az\ba\ccAsI\ae A1\12\e6\faN\89\a9~\a2\n\9e\ee\e6KU\d3\9a!\92\99*\'O\c1\a86\ba<#\a3\fe\eb\bdEMD#d<\e8\0e*\9a\c9O\a5L\a4\9f")
+ (data (i32.const 8560) "sha512 test1\00")
+ (data (i32.const 8576) " J\8f\c6\dd\a8/\n\0c\ed{\eb\8e\08\a4\16W\c1n\f4h\b2(\a8\'\9b\e31\a7\03\c35\96\fd\15\c1;\1b\07\f9\aa\1d;\eaWx\9c\a01\ad\85\c7\a7\1d\d7\03T\ecc\128\ca4E")
+ (data (i32.const 8640) "sha512 test3\00")
+ (data (i32.const 8656) "\8e\95\9bu\da\e3\13\da\8c\f4\f7(\14\fc\14?\8fwy\c6\eb\9f\7f\a1r\99\ae\ad\b6\88\90\18P\1d(\9eI\00\f7\e43\1b\99\de\c4\b5C:\c7\d3)\ee\b6\dd&T^\96\e5[\87K\e9\t")
+ (data (i32.const 8720) "sha512 test4\00")
+ (data (i32.const 8736) "\10}\bf8\9d\9e\9fq\a3\a9_l\05[\92Q\bcRh\c2\be\16\d6\c14\92\eaE\b0\19\9f3\t\e1dU\ab\1e\96\11\8e\8a\90]U\97\b7 8\dd\b3r\a8\98&\04m\e6f\87\bbB\0e|")
+ (data (i32.const 8800) "sha512 test5\00")
+ (data (i32.const 8816) "\8e\b2\08\f7\e0]\98z\9b\04J\8e\98\c6\b0\87\f1Z\0b\fc")
+ (data (i32.const 8848) "ripemd160 test1\00")
+ (data (i32.const 8864) "\12\a0S8J\9c\0c\88\e4\05\a0l\'\dc\f4\9a\dab\eb+")
+ (data (i32.const 8896) "ripemd160 test3\00")
+ (data (i32.const 8912) "o?\a3\9bkP<8O\91\9aI\a7\aa\\,\08\bd\fbE")
+ (data (i32.const 8944) "ripemd160 test4\00")
+ (data (i32.const 8960) "]\06\89\efI\d2\fa\e5r\b8\81\b1#\a8_\fa!Y_6")
+ (data (i32.const 8992) "ripemd160 test5\00")
+ (data (i32.const 9024) "\da9\a3\ee^kK\0d2U\bf\ef\95`\18\90\af\d8\07\t")
+ (data (i32.const 9056) "sha1 test2\00")
+ (data (i32.const 9072) "\e3\b0\c4B\98\fc\1c\14\9a\fb\f4\c8\99o\b9$\'\aeA\e4d\9b\93L\a4\95\99\1bxR\b8U")
+ (data (i32.const 9104) "sha256 test2\00")
+ (data (i32.const 9120) "\cf\83\e15~\ef\b8\bd\f1T(P\d6m\80\07\d6 \e4\05\0bW\15\dc\83\f4\a9!\d3l\e9\ceG\d0\d1<]\85\f2\b0\ff\83\18\d2\87~\ec/c\b91\bdGAz\81\a582z\f9\'\da>")
+ (data (i32.const 9184) "sha512 test2\00")
+ (data (i32.const 9200) "\9c\11\85\a5\c5\e9\fcTa(\08\97~\e8\f5H\b2%\8d1")
+ (data (i32.const 9232) "ripemd160 test2\00")
+ (data (i32.const 9248) "should have failed\00")
+ (data (i32.const 9280) "producers.len != 21\00")
+ (data (i32.const 9312) "Active producer\00")
+ (data (i32.const 9328) "EwfUD\12\cd\11\ab\12\aeQt")
+ (data (i32.const 17536) "send_message_large() should\'ve thrown an error\00")
+ (data (i32.const 17584) "tapos_block_prefix does not match\00")
+ (data (i32.const 17632) "tapos_block_num does not match\00")
+ (data (i32.const 17664) "read_transaction failed\00")
+ (data (i32.const 17696) "size: \00")
+ (data (i32.const 17712) "transaction size does not match\00")
+ (data (i32.const 17744) "EwfUD\12\cd\11\ab\12\aeQt")
+ (data (i32.const 17760) "send_transaction_empty() should\'ve thrown an error\00")
+ (data (i32.const 17824) "transaction should only have one action\00")
+ (data (i32.const 17872) "transaction has wrong code\00")
+ (data (i32.const 17904) "transaction has wrong name\00")
+ (data (i32.const 17936) "action should only have one authorization\00")
+ (data (i32.const 17984) "action\'s authorization has wrong actor\00")
+ (data (i32.const 18032) "action\'s authorization has wrong permission\00")
+ (data (i32.const 18080) "send_transaction_large() should\'ve thrown an error\00")
+ (data (i32.const 18144) "deferred executed\n\00")
+ (data (i32.const 18176) "transaction was not found\00")
+ (data (i32.const 18208) "transaction was canceled, whild should not be found\00")
+ (data (i32.const 18272) "context free actions cannot have authorizations\00")
+ (data (i32.const 18320) "dummy\00")
+ (data (i32.const 18336) "send_cfa_action_fail() should\'ve thrown an error\00")
+ (data (i32.const 18400) "test_transaction\00")
+ (data (i32.const 18432) "table\00")
+ (data (i32.const 18448) "newfeature\00")
+ (data (i32.const 18464) "we should not have new features unless hardfork\00")
+ (data (i32.const 18512) "unexpected last used permission time\00")
+ (data (i32.const 18560) "unexpected account creation time\00")
+ (data (i32.const 18608) "bool\00")
+ (data (i32.const 18624) "int8\00")
+ (data (i32.const 18640) "uint8\00")
+ (data (i32.const 18656) "int16\00")
+ (data (i32.const 18672) "uint16\00")
+ (data (i32.const 18688) "int32\00")
+ (data (i32.const 18704) "uint32\00")
+ (data (i32.const 18720) "int64\00")
+ (data (i32.const 18736) "uint64\00")
+ (data (i32.const 18752) "float\00")
+ (data (i32.const 18768) "double\00")
+ (data (i32.const 18776) "\01\00\00\00\00\00\00\0082\8f\fc\c1\c0\f3?")
+ (data (i32.const 18800) "struct\00")
+ (data (i32.const 18808) "\n\00\00\00\14\00\00\00")
+ (data (i32.const 18816) "StaticArray\00")
+ (data (i32.const 18832) "string\00")
+ (data (i32.const 18848) "vector\00")
+ (data (i32.const 18864) "empty vector\00")
+ (data (i32.const 18880) "\n\00\00\00\14\00\00\00\1e\00\00\00")
+ (data (i32.const 18896) "std::array<T,N>\00")
+ (data (i32.const 18912) "apple\00")
+ (data (i32.const 18928) "cat\00")
+ (data (i32.const 18944) "panda\00")
+ (data (i32.const 18960) "map\00")
+ (data (i32.const 18976) "tuple\00")
+ (data (i32.const 18992) "enumivo\00")
+ (data (i32.const 19008) "onerror\00")
+ (data (i32.const 19024) "onerror called\n\00")
+ (data (i32.const 19040) "Unknown Test\00")
+ (data (i32.const 27456) "malloc_from_freed was designed to only be called after _heap was completely allocated\00")
  (export "memory" (memory $0))
  (export "_ZeqRK11checksum256S1_" (func $_ZeqRK11checksum256S1_))
  (export "_ZeqRK11checksum160S1_" (func $_ZeqRK11checksum160S1_))
  (export "_ZneRK11checksum160S1_" (func $_ZneRK11checksum160S1_))
  (export "now" (func $now))
- (export "_ZN5enumivo12require_authERKNS_16permission_levelE" (func $_ZN5enumivo12require_authERKNS_16permission_levelE))
+ (export "_ZN7enumivo12require_authERKNS_16permission_levelE" (func $_ZN7enumivo12require_authERKNS_16permission_levelE))
  (export "_ZN11test_action18read_action_normalEv" (func $_ZN11test_action18read_action_normalEv))
  (export "_ZN11test_action17test_dummy_actionEv" (func $_ZN11test_action17test_dummy_actionEv))
  (export "_ZN11test_action16read_action_to_0Ev" (func $_ZN11test_action16read_action_to_0Ev))
@@ -520,7 +520,7 @@
  (export "_ZN16test_transaction18send_action_senderEyyy" (func $_ZN16test_transaction18send_action_senderEyyy))
  (export "_ZN16test_transaction22send_transaction_emptyEyyy" (func $_ZN16test_transaction22send_transaction_emptyEyyy))
  (export "_ZN16test_transaction38send_transaction_trigger_error_handlerEyyy" (func $_ZN16test_transaction38send_transaction_trigger_error_handlerEyyy))
- (export "_ZN16test_transaction26assert_false_error_handlerERKN5enumivo11transactionE" (func $_ZN16test_transaction26assert_false_error_handlerERKN5enumivo11transactionE))
+ (export "_ZN16test_transaction26assert_false_error_handlerERKN7enumivo11transactionE" (func $_ZN16test_transaction26assert_false_error_handlerERKN7enumivo11transactionE))
  (export "_ZN16test_transaction22send_transaction_largeEyyy" (func $_ZN16test_transaction22send_transaction_largeEyyy))
  (export "_ZN16test_transaction14deferred_printEv" (func $_ZN16test_transaction14deferred_printEv))
  (export "_ZN16test_transaction25send_deferred_transactionEyyy" (func $_ZN16test_transaction25send_deferred_transactionEyyy))
@@ -592,7 +592,7 @@
    )
   )
  )
- (func $_ZN5enumivo12require_authERKNS_16permission_levelE (param $0 i32)
+ (func $_ZN7enumivo12require_authERKNS_16permission_levelE (param $0 i32)
   (call $require_auth2
    (i64.load
     (get_local $0)
@@ -745,7 +745,7 @@
    )
    (i32.const 336)
   )
-  (call $_ZN5enumivo10get_actionEmm
+  (call $_ZN7enumivo10get_actionEmm
    (i32.add
     (get_local $10)
     (i32.const 24)
@@ -1332,7 +1332,7 @@
    )
    (i32.const 512)
   )
-  (call $_ZN5enumivo6action7data_asI12dummy_actionEET_v
+  (call $_ZN7enumivo6action7data_asI12dummy_actionEET_v
    (i32.add
     (get_local $10)
     (i32.const 8)
@@ -1450,7 +1450,7 @@
    )
   )
  )
- (func $_ZN5enumivo10get_actionEmm (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $_ZN7enumivo10get_actionEmm (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -1603,8 +1603,8 @@
    )
   )
   (drop
-   (call $_ZN5enumivorsINS_10datastreamIPKcEEEERT_S6_RNSt3__16vectorIcNS7_9allocatorIcEEEE
-    (call $_ZN5enumivorsINS_10datastreamIPKcEENS_16permission_levelEEERT_S7_RNSt3__16vectorIT0_NS8_9allocatorISA_EEEE
+   (call $_ZN7enumivorsINS_10datastreamIPKcEEEERT_S6_RNSt3__16vectorIcNS7_9allocatorIcEEEE
+    (call $_ZN7enumivorsINS_10datastreamIPKcEENS_16permission_levelEEERT_S7_RNSt3__16vectorIT0_NS8_9allocatorISA_EEEE
      (get_local $5)
      (i32.add
       (get_local $0)
@@ -1625,7 +1625,7 @@
    )
   )
  )
- (func $_ZN5enumivo6action7data_asI12dummy_actionEET_v (param $0 i32) (param $1 i32)
+ (func $_ZN7enumivo6action7data_asI12dummy_actionEET_v (param $0 i32) (param $1 i32)
   (local $2 i64)
   (local $3 i32)
   (local $4 i32)
@@ -1980,7 +1980,7 @@
    )
   )
  )
- (func $_ZN5enumivorsINS_10datastreamIPKcEENS_16permission_levelEEERT_S7_RNSt3__16vectorIT0_NS8_9allocatorISA_EEEE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN7enumivorsINS_10datastreamIPKcEENS_16permission_levelEEERT_S7_RNSt3__16vectorIT0_NS8_9allocatorISA_EEEE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -2099,7 +2099,7 @@
        )
       )
      )
-     (call $_ZNSt3__16vectorIN5enumivo16permission_levelENS_9allocatorIS2_EEE8__appendEj
+     (call $_ZNSt3__16vectorIN7enumivo16permission_levelENS_9allocatorIS2_EEE8__appendEj
       (get_local $1)
       (i32.sub
        (get_local $4)
@@ -2253,7 +2253,7 @@
   )
   (get_local $0)
  )
- (func $_ZN5enumivorsINS_10datastreamIPKcEEEERT_S6_RNSt3__16vectorIcNS7_9allocatorIcEEEE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN7enumivorsINS_10datastreamIPKcEEEERT_S6_RNSt3__16vectorIcNS7_9allocatorIcEEEE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -2700,7 +2700,7 @@
    (return)
   )
  )
- (func $_ZNSt3__16vectorIN5enumivo16permission_levelENS_9allocatorIS2_EEE8__appendEj (param $0 i32) (param $1 i32)
+ (func $_ZNSt3__16vectorIN7enumivo16permission_levelENS_9allocatorIS2_EEE8__appendEj (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -2977,7 +2977,7 @@
     )
    )
   )
-  (call $_ZN5enumivo10get_actionEmm
+  (call $_ZN7enumivo10get_actionEmm
    (i32.add
     (get_local $9)
     (i32.const 104)
@@ -2985,7 +2985,7 @@
    (i32.const 0)
    (i32.const 0)
   )
-  (call $_ZN5enumivo6action7data_asI9cf_actionEET_v
+  (call $_ZN7enumivo6action7data_asI9cf_actionEET_v
    (i32.add
     (get_local $9)
     (i32.const 96)
@@ -4624,7 +4624,7 @@
              (get_local $9)
              (i64.const 0)
             )
-            (call $_ZN5enumivo4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
+            (call $_ZN7enumivo4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
              (i32.add
               (get_local $9)
               (i32.const 48)
@@ -5283,7 +5283,7 @@
   )
   (unreachable)
  )
- (func $_ZN5enumivo6action7data_asI9cf_actionEET_v (param $0 i32) (param $1 i32)
+ (func $_ZN7enumivo6action7data_asI9cf_actionEET_v (param $0 i32) (param $1 i32)
   (local $2 i64)
   (local $3 i32)
   (local $4 i32)
@@ -5639,7 +5639,7 @@
    )
   )
  )
- (func $_ZN5enumivo4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_ (param $0 i32) (param $1 i32)
+ (func $_ZN7enumivo4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_ (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -5882,8 +5882,8 @@
    )
   )
   (drop
-   (call $_ZN5enumivolsINS_10datastreamIPcEEEERT_S5_RKNSt3__16vectorIcNS6_9allocatorIcEEEE
-    (call $_ZN5enumivolsINS_10datastreamIPcEENS_16permission_levelEEERT_S6_RKNSt3__16vectorIT0_NS7_9allocatorIS9_EEEE
+   (call $_ZN7enumivolsINS_10datastreamIPcEEEERT_S5_RKNSt3__16vectorIcNS6_9allocatorIcEEEE
+    (call $_ZN7enumivolsINS_10datastreamIPcEENS_16permission_levelEEERT_S6_RKNSt3__16vectorIT0_NS7_9allocatorIS9_EEEE
      (get_local $8)
      (get_local $2)
     )
@@ -5898,7 +5898,7 @@
    )
   )
  )
- (func $_ZN5enumivolsINS_10datastreamIPcEENS_16permission_levelEEERT_S6_RKNSt3__16vectorIT0_NS7_9allocatorIS9_EEEE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN7enumivolsINS_10datastreamIPcEENS_16permission_levelEEERT_S6_RKNSt3__16vectorIT0_NS7_9allocatorIS9_EEEE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i64)
@@ -6134,7 +6134,7 @@
   )
   (get_local $0)
  )
- (func $_ZN5enumivolsINS_10datastreamIPcEEEERT_S5_RKNSt3__16vectorIcNS6_9allocatorIcEEEE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN7enumivolsINS_10datastreamIPcEEEERT_S5_RKNSt3__16vectorIcNS6_9allocatorIcEEEE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -11699,7 +11699,7 @@
    (i64.const 59)
   )
   (set_local $4
-   (i32.const 4176)
+   (i32.const 4192)
   )
   (set_local $2
    (i64.const 0)
@@ -11833,7 +11833,7 @@
    (i64.const 59)
   )
   (set_local $4
-   (i32.const 4176)
+   (i32.const 4192)
   )
   (set_local $3
    (i64.const 0)
@@ -11965,7 +11965,7 @@
     (get_local $2)
     (get_local $3)
    )
-   (i32.const 4192)
+   (i32.const 4208)
   )
   (set_local $1
    (i64.const 0)
@@ -11974,7 +11974,7 @@
    (i64.const 59)
   )
   (set_local $4
-   (i32.const 4224)
+   (i32.const 4256)
   )
   (set_local $2
    (i64.const 0)
@@ -12108,7 +12108,7 @@
    (i64.const 59)
   )
   (set_local $4
-   (i32.const 4224)
+   (i32.const 4256)
   )
   (set_local $3
    (i64.const 0)
@@ -12240,7 +12240,7 @@
     (get_local $2)
     (get_local $3)
    )
-   (i32.const 4240)
+   (i32.const 4272)
   )
   (set_local $1
    (i64.const 0)
@@ -12249,7 +12249,7 @@
    (i64.const 59)
   )
   (set_local $4
-   (i32.const 4288)
+   (i32.const 4320)
   )
   (set_local $2
    (i64.const 0)
@@ -12383,7 +12383,7 @@
    (i64.const 59)
   )
   (set_local $4
-   (i32.const 4288)
+   (i32.const 4320)
   )
   (set_local $3
    (i64.const 0)
@@ -12515,7 +12515,7 @@
     (get_local $2)
     (get_local $3)
    )
-   (i32.const 4304)
+   (i32.const 4336)
   )
   (set_local $1
    (i64.const 0)
@@ -12524,7 +12524,7 @@
    (i64.const 59)
   )
   (set_local $4
-   (i32.const 4352)
+   (i32.const 4384)
   )
   (set_local $2
    (i64.const 0)
@@ -12658,7 +12658,7 @@
    (i64.const 59)
   )
   (set_local $4
-   (i32.const 4352)
+   (i32.const 4384)
   )
   (set_local $3
    (i64.const 0)
@@ -12790,7 +12790,7 @@
     (get_local $2)
     (get_local $3)
    )
-   (i32.const 4368)
+   (i32.const 4400)
   )
   (set_local $1
    (i64.const 0)
@@ -12799,7 +12799,7 @@
    (i64.const 59)
   )
   (set_local $4
-   (i32.const 4416)
+   (i32.const 4448)
   )
   (set_local $2
    (i64.const 0)
@@ -12913,7 +12913,7 @@
    (i64.const 59)
   )
   (set_local $4
-   (i32.const 4416)
+   (i32.const 4448)
   )
   (set_local $3
    (i64.const 0)
@@ -13025,7 +13025,7 @@
     (get_local $2)
     (get_local $3)
    )
-   (i32.const 4432)
+   (i32.const 4464)
   )
   (set_local $1
    (i64.const 0)
@@ -13034,7 +13034,7 @@
    (i64.const 59)
   )
   (set_local $4
-   (i32.const 4480)
+   (i32.const 4512)
   )
   (set_local $2
    (i64.const 0)
@@ -13172,7 +13172,7 @@
    (i64.const 59)
   )
   (set_local $4
-   (i32.const 4480)
+   (i32.const 4512)
   )
   (set_local $3
    (i64.const 0)
@@ -13308,7 +13308,7 @@
     (get_local $2)
     (get_local $3)
    )
-   (i32.const 4496)
+   (i32.const 4528)
   )
   (set_local $1
    (i64.const 0)
@@ -13317,7 +13317,7 @@
    (i64.const 59)
   )
   (set_local $4
-   (i32.const 4544)
+   (i32.const 4576)
   )
   (set_local $2
    (i64.const 0)
@@ -13455,7 +13455,7 @@
    (i64.const 59)
   )
   (set_local $4
-   (i32.const 4560)
+   (i32.const 4592)
   )
   (set_local $3
    (i64.const 0)
@@ -13591,7 +13591,7 @@
     (get_local $2)
     (get_local $3)
    )
-   (i32.const 4576)
+   (i32.const 4608)
   )
   (set_local $1
    (i64.const 0)
@@ -13600,7 +13600,7 @@
    (i64.const 59)
   )
   (set_local $4
-   (i32.const 4624)
+   (i32.const 4656)
   )
   (set_local $2
    (i64.const 0)
@@ -13738,7 +13738,7 @@
    (i64.const 59)
   )
   (set_local $4
-   (i32.const 4640)
+   (i32.const 4672)
   )
   (set_local $3
    (i64.const 0)
@@ -13874,7 +13874,7 @@
     (get_local $2)
     (get_local $3)
    )
-   (i32.const 4656)
+   (i32.const 4688)
   )
   (set_local $1
    (i64.const 0)
@@ -13883,7 +13883,7 @@
    (i64.const 59)
   )
   (set_local $4
-   (i32.const 4704)
+   (i32.const 4736)
   )
   (set_local $2
    (i64.const 0)
@@ -14017,7 +14017,7 @@
    (i64.const 59)
   )
   (set_local $4
-   (i32.const 4720)
+   (i32.const 4752)
   )
   (set_local $3
    (i64.const 0)
@@ -14149,7 +14149,7 @@
     (get_local $2)
     (get_local $3)
    )
-   (i32.const 4736)
+   (i32.const 4768)
   )
   (set_local $1
    (i64.const 0)
@@ -14158,7 +14158,7 @@
    (i64.const 59)
   )
   (set_local $4
-   (i32.const 4768)
+   (i32.const 4816)
   )
   (set_local $2
    (i64.const 0)
@@ -14292,7 +14292,7 @@
    (i64.const 59)
   )
   (set_local $4
-   (i32.const 4768)
+   (i32.const 4816)
   )
   (set_local $3
    (i64.const 0)
@@ -14424,7 +14424,7 @@
     (get_local $2)
     (get_local $3)
    )
-   (i32.const 4784)
+   (i32.const 4832)
   )
   (set_local $1
    (i64.const 0)
@@ -14433,7 +14433,7 @@
    (i64.const 59)
   )
   (set_local $4
-   (i32.const 4832)
+   (i32.const 4880)
   )
   (set_local $2
    (i64.const 0)
@@ -14571,7 +14571,7 @@
    (i64.const 59)
   )
   (set_local $4
-   (i32.const 4848)
+   (i32.const 4896)
   )
   (set_local $3
    (i64.const 0)
@@ -14707,7 +14707,7 @@
     (get_local $2)
     (get_local $3)
    )
-   (i32.const 4880)
+   (i32.const 4928)
   )
  )
  (func $_ZN10test_types10name_classEv
@@ -14725,7 +14725,7 @@
    (i64.const 59)
   )
   (set_local $1
-   (i32.const 4704)
+   (i32.const 4736)
   )
   (set_local $4
    (i64.const 0)
@@ -14857,11 +14857,11 @@
     (get_local $4)
     (i64.const 4017212585601400832)
    )
-   (i32.const 4928)
+   (i32.const 4976)
   )
   (call $enumivo_assert
    (i32.const 1)
-   (i32.const 4960)
+   (i32.const 5008)
   )
   (set_local $3
    (i64.const 0)
@@ -14870,7 +14870,7 @@
    (i64.const 59)
   )
   (set_local $1
-   (i32.const 4992)
+   (i32.const 5040)
   )
   (set_local $4
    (i64.const 0)
@@ -15002,7 +15002,7 @@
     (get_local $4)
     (i64.const 580542139465728)
    )
-   (i32.const 5008)
+   (i32.const 5056)
   )
   (set_local $3
    (i64.const 0)
@@ -15011,7 +15011,7 @@
    (i64.const 59)
   )
   (set_local $1
-   (i32.const 5040)
+   (i32.const 5088)
   )
   (set_local $4
    (i64.const 0)
@@ -15143,7 +15143,7 @@
     (get_local $4)
     (i64.const 594475150812905472)
    )
-   (i32.const 5056)
+   (i32.const 5104)
   )
   (set_local $3
    (i64.const 0)
@@ -15152,7 +15152,7 @@
    (i64.const 59)
   )
   (set_local $1
-   (i32.const 5088)
+   (i32.const 5136)
   )
   (set_local $4
    (i64.const 0)
@@ -15284,7 +15284,7 @@
     (get_local $4)
     (i64.const 1188950301625810944)
    )
-   (i32.const 5104)
+   (i32.const 5152)
   )
   (set_local $3
    (i64.const 0)
@@ -15293,7 +15293,7 @@
    (i64.const 59)
   )
   (set_local $1
-   (i32.const 5136)
+   (i32.const 5184)
   )
   (set_local $4
    (i64.const 0)
@@ -15427,7 +15427,7 @@
    (i64.const 59)
   )
   (set_local $1
-   (i32.const 5136)
+   (i32.const 5184)
   )
   (set_local $6
    (i64.const 0)
@@ -15559,7 +15559,7 @@
     (get_local $4)
     (get_local $6)
    )
-   (i32.const 5152)
+   (i32.const 5200)
   )
   (set_local $3
    (i64.const 0)
@@ -15568,7 +15568,7 @@
    (i64.const 59)
   )
   (set_local $1
-   (i32.const 5184)
+   (i32.const 5232)
   )
   (set_local $4
    (i64.const 0)
@@ -15702,7 +15702,7 @@
    (i64.const 59)
   )
   (set_local $1
-   (i32.const 5184)
+   (i32.const 5232)
   )
   (set_local $6
    (i64.const 0)
@@ -15834,71 +15834,71 @@
     (get_local $6)
     (get_local $4)
    )
-   (i32.const 5200)
+   (i32.const 5248)
   )
  )
  (func $_ZN15test_fixedpoint16create_instancesEv
   (call $enumivo_assert
    (i32.const 1)
-   (i32.const 5232)
+   (i32.const 5280)
   )
   (call $enumivo_assert
    (i32.const 1)
-   (i32.const 5312)
+   (i32.const 5360)
   )
   (call $enumivo_assert
    (i32.const 1)
-   (i32.const 5376)
+   (i32.const 5424)
   )
   (call $enumivo_assert
    (i32.const 1)
-   (i32.const 5440)
+   (i32.const 5488)
   )
   (call $enumivo_assert
    (i32.const 1)
-   (i32.const 5504)
+   (i32.const 5552)
   )
   (call $enumivo_assert
    (i32.const 1)
-   (i32.const 5568)
+   (i32.const 5616)
   )
  )
  (func $_ZN15test_fixedpoint13test_additionEv
   (call $enumivo_assert
    (i32.const 1)
-   (i32.const 5632)
+   (i32.const 5680)
   )
   (call $enumivo_assert
    (i32.const 1)
-   (i32.const 5696)
+   (i32.const 5744)
   )
  )
  (func $_ZN15test_fixedpoint16test_subtractionEv
   (call $enumivo_assert
    (i32.const 1)
-   (i32.const 5760)
+   (i32.const 5808)
   )
   (call $enumivo_assert
    (i32.const 1)
-   (i32.const 5760)
+   (i32.const 5808)
   )
   (call $enumivo_assert
    (i32.const 1)
-   (i32.const 5824)
+   (i32.const 5872)
   )
   (call $enumivo_assert
    (i32.const 1)
-   (i32.const 5824)
+   (i32.const 5872)
   )
  )
  (func $_ZN15test_fixedpoint19test_multiplicationEv
   (call $enumivo_assert
    (i32.const 1)
-   (i32.const 5888)
+   (i32.const 5936)
   )
   (call $enumivo_assert
    (i32.const 1)
-   (i32.const 5952)
+   (i32.const 6000)
   )
  )
  (func $_ZN15test_fixedpoint13test_divisionEv
@@ -15916,15 +15916,15 @@
   )
   (call $enumivo_assert
    (i32.const 1)
-   (i32.const 6016)
+   (i32.const 6064)
   )
   (call $enumivo_assert
    (i32.const 1)
-   (i32.const 6016)
+   (i32.const 6064)
   )
   (call $enumivo_assert
    (i32.const 1)
-   (i32.const 6016)
+   (i32.const 6064)
   )
   (i64.store offset=24
    (get_local $0)
@@ -15949,30 +15949,30 @@
    )
   )
   (call $prints
-   (i32.const 6032)
+   (i32.const 6080)
   )
   (call $printui128
    (get_local $0)
   )
   (call $enumivo_assert
    (i32.const 1)
-   (i32.const 6048)
+   (i32.const 6096)
   )
   (call $enumivo_assert
    (i32.const 1)
-   (i32.const 6016)
+   (i32.const 6064)
   )
   (call $enumivo_assert
    (i32.const 1)
-   (i32.const 6016)
+   (i32.const 6064)
   )
   (call $enumivo_assert
    (i32.const 1)
-   (i32.const 6016)
+   (i32.const 6064)
   )
   (call $enumivo_assert
    (i32.const 1)
-   (i32.const 6048)
+   (i32.const 6096)
   )
   (i32.store offset=4
    (i32.const 0)
@@ -15985,15 +15985,15 @@
  (func $_ZN15test_fixedpoint18test_division_by_0Ev
   (call $enumivo_assert
    (i32.const 0)
-   (i32.const 6016)
+   (i32.const 6064)
   )
   (call $enumivo_assert
    (i32.const 0)
-   (i32.const 6016)
+   (i32.const 6064)
   )
   (call $enumivo_assert
    (i32.const 0)
-   (i32.const 6160)
+   (i32.const 6208)
   )
  )
  (func $_Zli5_ULLLPKc (param $0 i32) (param $1 i32)
@@ -16435,7 +16435,7 @@
      )
     )
    )
-   (i32.const 6192)
+   (i32.const 6240)
   )
   (call $__multi3
    (get_local $0)
@@ -16461,7 +16461,7 @@
      )
     )
    )
-   (i32.const 6192)
+   (i32.const 6240)
   )
   (call $__multi3
    (get_local $0)
@@ -16484,7 +16484,7 @@
      )
     )
    )
-   (i32.const 6224)
+   (i32.const 6272)
   )
   (call $__multi3
    (get_local $0)
@@ -16507,7 +16507,7 @@
      )
     )
    )
-   (i32.const 6256)
+   (i32.const 6304)
   )
   (call $__multi3
    (get_local $0)
@@ -16530,7 +16530,7 @@
      )
     )
    )
-   (i32.const 6288)
+   (i32.const 6336)
   )
   (call $__multi3
    (get_local $0)
@@ -16556,7 +16556,7 @@
      )
     )
    )
-   (i32.const 6320)
+   (i32.const 6368)
   )
   (i32.store offset=4
    (i32.const 0)
@@ -16605,7 +16605,7 @@
      )
     )
    )
-   (i32.const 6352)
+   (i32.const 6400)
   )
   (call $__divti3
    (get_local $0)
@@ -16631,7 +16631,7 @@
      )
     )
    )
-   (i32.const 6384)
+   (i32.const 6432)
   )
   (call $__divti3
    (get_local $0)
@@ -16654,7 +16654,7 @@
      )
     )
    )
-   (i32.const 6416)
+   (i32.const 6464)
   )
   (call $__divti3
    (get_local $0)
@@ -16677,7 +16677,7 @@
      )
     )
    )
-   (i32.const 6416)
+   (i32.const 6464)
   )
   (call $__divti3
    (get_local $0)
@@ -16697,7 +16697,7 @@
      )
     )
    )
-   (i32.const 6352)
+   (i32.const 6400)
   )
   (call $__divti3
    (get_local $0)
@@ -16720,7 +16720,7 @@
      )
     )
    )
-   (i32.const 6448)
+   (i32.const 6496)
   )
   (call $__divti3
    (get_local $0)
@@ -16743,7 +16743,7 @@
      )
     )
    )
-   (i32.const 6480)
+   (i32.const 6528)
   )
   (call $__divti3
    (get_local $0)
@@ -16769,7 +16769,7 @@
      )
     )
    )
-   (i32.const 6512)
+   (i32.const 6560)
   )
   (i32.store offset=4
    (i32.const 0)
@@ -16809,7 +16809,7 @@
   )
   (call $enumivo_assert
    (i32.const 0)
-   (i32.const 6544)
+   (i32.const 6592)
   )
   (i32.store offset=4
    (i32.const 0)
@@ -16864,7 +16864,7 @@
      )
     )
    )
-   (i32.const 6576)
+   (i32.const 6624)
   )
   (call $__udivti3
    (get_local $0)
@@ -16884,7 +16884,7 @@
      )
     )
    )
-   (i32.const 6576)
+   (i32.const 6624)
   )
   (call $__udivti3
    (get_local $0)
@@ -16907,7 +16907,7 @@
      )
     )
    )
-   (i32.const 6608)
+   (i32.const 6656)
   )
   (call $__udivti3
    (get_local $0)
@@ -16930,7 +16930,7 @@
      )
     )
    )
-   (i32.const 6416)
+   (i32.const 6464)
   )
   (call $__udivti3
    (get_local $0)
@@ -16950,7 +16950,7 @@
      )
     )
    )
-   (i32.const 6352)
+   (i32.const 6400)
   )
   (call $__udivti3
    (get_local $0)
@@ -16973,7 +16973,7 @@
      )
     )
    )
-   (i32.const 6448)
+   (i32.const 6496)
   )
   (call $__udivti3
    (get_local $0)
@@ -16996,7 +16996,7 @@
      )
     )
    )
-   (i32.const 6480)
+   (i32.const 6528)
   )
   (call $__udivti3
    (get_local $0)
@@ -17022,7 +17022,7 @@
      )
     )
    )
-   (i32.const 6512)
+   (i32.const 6560)
   )
   (i32.store offset=4
    (i32.const 0)
@@ -17062,7 +17062,7 @@
   )
   (call $enumivo_assert
    (i32.const 0)
-   (i32.const 6544)
+   (i32.const 6592)
   )
   (i32.store offset=4
    (i32.const 0)
@@ -17113,7 +17113,7 @@
      )
     )
    )
-   (i32.const 6640)
+   (i32.const 6688)
   )
   (call $__lshlti3
    (get_local $0)
@@ -17135,7 +17135,7 @@
      )
     )
    )
-   (i32.const 6672)
+   (i32.const 6720)
   )
   (call $__lshlti3
    (get_local $0)
@@ -17157,7 +17157,7 @@
      )
     )
    )
-   (i32.const 6704)
+   (i32.const 6752)
   )
   (call $__lshlti3
    (get_local $0)
@@ -17179,7 +17179,7 @@
      )
     )
    )
-   (i32.const 6736)
+   (i32.const 6784)
   )
   (call $__lshlti3
    (get_local $0)
@@ -17201,7 +17201,7 @@
      )
     )
    )
-   (i32.const 6768)
+   (i32.const 6816)
   )
   (call $__lshlti3
    (get_local $0)
@@ -17223,7 +17223,7 @@
      )
     )
    )
-   (i32.const 6800)
+   (i32.const 6848)
   )
   (call $__lshlti3
    (get_local $0)
@@ -17242,7 +17242,7 @@
      )
     )
    )
-   (i32.const 6848)
+   (i32.const 6896)
   )
   (i32.store offset=4
    (i32.const 0)
@@ -17293,7 +17293,7 @@
      )
     )
    )
-   (i32.const 6896)
+   (i32.const 6944)
   )
   (call $__ashlti3
    (get_local $0)
@@ -17315,7 +17315,7 @@
      )
     )
    )
-   (i32.const 6928)
+   (i32.const 6976)
   )
   (call $__ashlti3
    (get_local $0)
@@ -17337,7 +17337,7 @@
      )
     )
    )
-   (i32.const 6960)
+   (i32.const 7008)
   )
   (call $__ashlti3
    (get_local $0)
@@ -17359,7 +17359,7 @@
      )
     )
    )
-   (i32.const 6992)
+   (i32.const 7040)
   )
   (call $__ashlti3
    (get_local $0)
@@ -17381,7 +17381,7 @@
      )
     )
    )
-   (i32.const 7024)
+   (i32.const 7072)
   )
   (call $__ashlti3
    (get_local $0)
@@ -17403,7 +17403,7 @@
      )
     )
    )
-   (i32.const 7056)
+   (i32.const 7104)
   )
   (call $__ashlti3
    (get_local $0)
@@ -17422,7 +17422,7 @@
      )
     )
    )
-   (i32.const 7104)
+   (i32.const 7152)
   )
   (i32.store offset=4
    (i32.const 0)
@@ -17473,7 +17473,7 @@
      )
     )
    )
-   (i32.const 7152)
+   (i32.const 7200)
   )
   (call $__lshrti3
    (get_local $0)
@@ -17495,7 +17495,7 @@
      )
     )
    )
-   (i32.const 7200)
+   (i32.const 7248)
   )
   (call $__lshrti3
    (get_local $0)
@@ -17517,7 +17517,7 @@
      )
     )
    )
-   (i32.const 7248)
+   (i32.const 7296)
   )
   (call $__lshrti3
    (get_local $0)
@@ -17539,7 +17539,7 @@
      )
     )
    )
-   (i32.const 7280)
+   (i32.const 7328)
   )
   (call $__lshrti3
    (get_local $0)
@@ -17561,7 +17561,7 @@
      )
     )
    )
-   (i32.const 7312)
+   (i32.const 7360)
   )
   (call $__lshrti3
    (get_local $0)
@@ -17583,7 +17583,7 @@
      )
     )
    )
-   (i32.const 7344)
+   (i32.const 7392)
   )
   (i32.store offset=4
    (i32.const 0)
@@ -17634,7 +17634,7 @@
      )
     )
    )
-   (i32.const 7376)
+   (i32.const 7424)
   )
   (call $__ashrti3
    (get_local $0)
@@ -17656,7 +17656,7 @@
      )
     )
    )
-   (i32.const 7424)
+   (i32.const 7472)
   )
   (call $__ashrti3
    (get_local $0)
@@ -17678,7 +17678,7 @@
      )
     )
    )
-   (i32.const 7472)
+   (i32.const 7520)
   )
   (call $__ashrti3
    (get_local $0)
@@ -17703,7 +17703,7 @@
      )
     )
    )
-   (i32.const 7520)
+   (i32.const 7568)
   )
   (call $__ashrti3
    (get_local $0)
@@ -17728,7 +17728,7 @@
      )
     )
    )
-   (i32.const 7568)
+   (i32.const 7616)
   )
   (call $__ashrti3
    (get_local $0)
@@ -17748,7 +17748,7 @@
     )
     (i64.const -1)
    )
-   (i32.const 7616)
+   (i32.const 7664)
   )
   (i32.store offset=4
    (i32.const 0)
@@ -17803,7 +17803,7 @@
      )
     )
    )
-   (i32.const 7648)
+   (i32.const 7696)
   )
   (call $__modti3
    (get_local $0)
@@ -17826,7 +17826,7 @@
      )
     )
    )
-   (i32.const 7680)
+   (i32.const 7728)
   )
   (call $__modti3
    (get_local $0)
@@ -17852,7 +17852,7 @@
      )
     )
    )
-   (i32.const 7648)
+   (i32.const 7696)
   )
   (call $__modti3
    (get_local $0)
@@ -17875,7 +17875,7 @@
      )
     )
    )
-   (i32.const 7712)
+   (i32.const 7760)
   )
   (call $__modti3
    (get_local $0)
@@ -17895,7 +17895,7 @@
      )
     )
    )
-   (i32.const 7744)
+   (i32.const 7792)
   )
   (call $__modti3
    (get_local $0)
@@ -17915,7 +17915,7 @@
      )
     )
    )
-   (i32.const 7744)
+   (i32.const 7792)
   )
   (call $__modti3
    (get_local $0)
@@ -17935,7 +17935,7 @@
      )
     )
    )
-   (i32.const 7744)
+   (i32.const 7792)
   )
   (i32.store offset=4
    (i32.const 0)
@@ -17975,7 +17975,7 @@
   )
   (call $enumivo_assert
    (i32.const 0)
-   (i32.const 7776)
+   (i32.const 7824)
   )
   (i32.store offset=4
    (i32.const 0)
@@ -18030,7 +18030,7 @@
      )
     )
    )
-   (i32.const 7648)
+   (i32.const 7696)
   )
   (call $__umodti3
    (get_local $0)
@@ -18053,7 +18053,7 @@
      )
     )
    )
-   (i32.const 7680)
+   (i32.const 7728)
   )
   (call $__umodti3
    (get_local $0)
@@ -18079,7 +18079,7 @@
      )
     )
    )
-   (i32.const 7648)
+   (i32.const 7696)
   )
   (call $__umodti3
    (get_local $0)
@@ -18102,7 +18102,7 @@
      )
     )
    )
-   (i32.const 7712)
+   (i32.const 7760)
   )
   (call $__umodti3
    (get_local $0)
@@ -18122,7 +18122,7 @@
      )
     )
    )
-   (i32.const 7744)
+   (i32.const 7792)
   )
   (call $__umodti3
    (get_local $0)
@@ -18142,7 +18142,7 @@
      )
     )
    )
-   (i32.const 7744)
+   (i32.const 7792)
   )
   (call $__umodti3
    (get_local $0)
@@ -18162,7 +18162,7 @@
      )
     )
    )
-   (i32.const 7744)
+   (i32.const 7792)
   )
   (i32.store offset=4
    (i32.const 0)
@@ -18202,7 +18202,7 @@
   )
   (call $enumivo_assert
    (i32.const 0)
-   (i32.const 7776)
+   (i32.const 7824)
   )
   (i32.store offset=4
    (i32.const 0)
@@ -18370,7 +18370,7 @@
   )
   (call $enumivo_assert
    (i32.const 0)
-   (i32.const 7776)
+   (i32.const 7824)
   )
   (i32.store offset=4
    (i32.const 0)
@@ -18457,7 +18457,7 @@
     )
     (call $enumivo_assert
      (i32.const 0)
-     (i32.const 7808)
+     (i32.const 7856)
     )
    )
    (br_if $label$0
@@ -18496,7 +18496,7 @@
    )
   )
   (call $sha1
-   (i32.const 7840)
+   (i32.const 7888)
    (i32.const 3)
    (get_local $2)
   )
@@ -18513,7 +18513,7 @@
       (i32.load8_u
        (i32.add
         (get_local $0)
-        (i32.const 7856)
+        (i32.const 7904)
        )
       )
       (i32.load8_u
@@ -18542,10 +18542,10 @@
   )
   (call $enumivo_assert
    (get_local $1)
-   (i32.const 7888)
+   (i32.const 7936)
   )
   (call $sha1
-   (i32.const 7904)
+   (i32.const 7952)
    (i32.const 56)
    (get_local $2)
   )
@@ -18562,7 +18562,7 @@
       (i32.load8_u
        (i32.add
         (get_local $0)
-        (i32.const 7968)
+        (i32.const 8016)
        )
       )
       (i32.load8_u
@@ -18591,10 +18591,10 @@
   )
   (call $enumivo_assert
    (get_local $1)
-   (i32.const 8000)
+   (i32.const 8048)
   )
   (call $sha1
-   (i32.const 8016)
+   (i32.const 8064)
    (i32.const 112)
    (get_local $2)
   )
@@ -18611,7 +18611,7 @@
       (i32.load8_u
        (i32.add
         (get_local $0)
-        (i32.const 8144)
+        (i32.const 8192)
        )
       )
       (i32.load8_u
@@ -18640,10 +18640,10 @@
   )
   (call $enumivo_assert
    (get_local $1)
-   (i32.const 8176)
+   (i32.const 8224)
   )
   (call $sha1
-   (i32.const 8192)
+   (i32.const 8240)
    (i32.const 14)
    (get_local $2)
   )
@@ -18660,7 +18660,7 @@
       (i32.load8_u
        (i32.add
         (get_local $0)
-        (i32.const 8208)
+        (i32.const 8256)
        )
       )
       (i32.load8_u
@@ -18689,7 +18689,7 @@
   )
   (call $enumivo_assert
    (get_local $1)
-   (i32.const 8240)
+   (i32.const 8288)
   )
   (i32.store offset=4
    (i32.const 0)
@@ -18715,7 +18715,7 @@
    )
   )
   (call $sha256
-   (i32.const 7840)
+   (i32.const 7888)
    (i32.const 3)
    (get_local $2)
   )
@@ -18732,7 +18732,7 @@
       (i32.load8_u
        (i32.add
         (get_local $0)
-        (i32.const 8256)
+        (i32.const 8304)
        )
       )
       (i32.load8_u
@@ -18761,10 +18761,10 @@
   )
   (call $enumivo_assert
    (get_local $1)
-   (i32.const 8288)
+   (i32.const 8336)
   )
   (call $sha256
-   (i32.const 7904)
+   (i32.const 7952)
    (i32.const 56)
    (get_local $2)
   )
@@ -18781,7 +18781,7 @@
       (i32.load8_u
        (i32.add
         (get_local $0)
-        (i32.const 8304)
+        (i32.const 8352)
        )
       )
       (i32.load8_u
@@ -18810,10 +18810,10 @@
   )
   (call $enumivo_assert
    (get_local $1)
-   (i32.const 8336)
+   (i32.const 8384)
   )
   (call $sha256
-   (i32.const 8016)
+   (i32.const 8064)
    (i32.const 112)
    (get_local $2)
   )
@@ -18830,7 +18830,7 @@
       (i32.load8_u
        (i32.add
         (get_local $0)
-        (i32.const 8352)
+        (i32.const 8400)
        )
       )
       (i32.load8_u
@@ -18859,10 +18859,10 @@
   )
   (call $enumivo_assert
    (get_local $1)
-   (i32.const 8384)
+   (i32.const 8432)
   )
   (call $sha256
-   (i32.const 8192)
+   (i32.const 8240)
    (i32.const 14)
    (get_local $2)
   )
@@ -18879,7 +18879,7 @@
       (i32.load8_u
        (i32.add
         (get_local $0)
-        (i32.const 8400)
+        (i32.const 8448)
        )
       )
       (i32.load8_u
@@ -18908,7 +18908,7 @@
   )
   (call $enumivo_assert
    (get_local $1)
-   (i32.const 8432)
+   (i32.const 8480)
   )
   (i32.store offset=4
    (i32.const 0)
@@ -18934,7 +18934,7 @@
    )
   )
   (call $sha512
-   (i32.const 7840)
+   (i32.const 7888)
    (i32.const 3)
    (get_local $2)
   )
@@ -18951,7 +18951,7 @@
       (i32.load8_u
        (i32.add
         (get_local $0)
-        (i32.const 8448)
+        (i32.const 8496)
        )
       )
       (i32.load8_u
@@ -18980,10 +18980,10 @@
   )
   (call $enumivo_assert
    (get_local $1)
-   (i32.const 8512)
+   (i32.const 8560)
   )
   (call $sha512
-   (i32.const 7904)
+   (i32.const 7952)
    (i32.const 56)
    (get_local $2)
   )
@@ -19000,7 +19000,7 @@
       (i32.load8_u
        (i32.add
         (get_local $0)
-        (i32.const 8528)
+        (i32.const 8576)
        )
       )
       (i32.load8_u
@@ -19029,10 +19029,10 @@
   )
   (call $enumivo_assert
    (get_local $1)
-   (i32.const 8592)
+   (i32.const 8640)
   )
   (call $sha512
-   (i32.const 8016)
+   (i32.const 8064)
    (i32.const 112)
    (get_local $2)
   )
@@ -19049,7 +19049,7 @@
       (i32.load8_u
        (i32.add
         (get_local $0)
-        (i32.const 8608)
+        (i32.const 8656)
        )
       )
       (i32.load8_u
@@ -19078,10 +19078,10 @@
   )
   (call $enumivo_assert
    (get_local $1)
-   (i32.const 8672)
+   (i32.const 8720)
   )
   (call $sha512
-   (i32.const 8192)
+   (i32.const 8240)
    (i32.const 14)
    (get_local $2)
   )
@@ -19098,7 +19098,7 @@
       (i32.load8_u
        (i32.add
         (get_local $0)
-        (i32.const 8688)
+        (i32.const 8736)
        )
       )
       (i32.load8_u
@@ -19127,7 +19127,7 @@
   )
   (call $enumivo_assert
    (get_local $1)
-   (i32.const 8752)
+   (i32.const 8800)
   )
   (i32.store offset=4
    (i32.const 0)
@@ -19153,7 +19153,7 @@
    )
   )
   (call $ripemd160
-   (i32.const 7840)
+   (i32.const 7888)
    (i32.const 3)
    (get_local $2)
   )
@@ -19170,7 +19170,7 @@
       (i32.load8_u
        (i32.add
         (get_local $0)
-        (i32.const 8768)
+        (i32.const 8816)
        )
       )
       (i32.load8_u
@@ -19199,10 +19199,10 @@
   )
   (call $enumivo_assert
    (get_local $1)
-   (i32.const 8800)
+   (i32.const 8848)
   )
   (call $ripemd160
-   (i32.const 7904)
+   (i32.const 7952)
    (i32.const 56)
    (get_local $2)
   )
@@ -19219,7 +19219,7 @@
       (i32.load8_u
        (i32.add
         (get_local $0)
-        (i32.const 8816)
+        (i32.const 8864)
        )
       )
       (i32.load8_u
@@ -19248,10 +19248,10 @@
   )
   (call $enumivo_assert
    (get_local $1)
-   (i32.const 8848)
+   (i32.const 8896)
   )
   (call $ripemd160
-   (i32.const 8016)
+   (i32.const 8064)
    (i32.const 112)
    (get_local $2)
   )
@@ -19268,7 +19268,7 @@
       (i32.load8_u
        (i32.add
         (get_local $0)
-        (i32.const 8864)
+        (i32.const 8912)
        )
       )
       (i32.load8_u
@@ -19297,10 +19297,10 @@
   )
   (call $enumivo_assert
    (get_local $1)
-   (i32.const 8896)
+   (i32.const 8944)
   )
   (call $ripemd160
-   (i32.const 8192)
+   (i32.const 8240)
    (i32.const 14)
    (get_local $2)
   )
@@ -19317,7 +19317,7 @@
       (i32.load8_u
        (i32.add
         (get_local $0)
-        (i32.const 8912)
+        (i32.const 8960)
        )
       )
       (i32.load8_u
@@ -19346,7 +19346,7 @@
   )
   (call $enumivo_assert
    (get_local $1)
-   (i32.const 8944)
+   (i32.const 8992)
   )
   (i32.store offset=4
    (i32.const 0)
@@ -19401,79 +19401,7 @@
    (i32.const 0)
   )
   (call $sha1
-   (i32.const 8960)
-   (i32.const 0)
-   (get_local $2)
-  )
-  (set_local $0
-   (i32.const 0)
-  )
-  (block $label$0
-   (loop $label$1
-    (br_if $label$0
-     (i32.ne
-      (i32.load8_u
-       (i32.add
-        (get_local $0)
-        (i32.const 8976)
-       )
-      )
-      (i32.load8_u
-       (i32.add
-        (get_local $2)
-        (get_local $0)
-       )
-      )
-     )
-    )
-    (br_if $label$1
-     (i32.le_u
-      (tee_local $0
-       (i32.add
-        (get_local $0)
-        (i32.const 1)
-       )
-      )
-      (i32.const 31)
-     )
-    )
-   )
-   (set_local $1
-    (i32.const 1)
-   )
-  )
-  (call $enumivo_assert
-   (get_local $1)
    (i32.const 9008)
-  )
-  (i32.store offset=4
-   (i32.const 0)
-   (i32.add
-    (get_local $2)
-    (i32.const 32)
-   )
-  )
- )
- (func $_ZN11test_crypto14sha256_no_dataEv
-  (local $0 i32)
-  (local $1 i32)
-  (local $2 i32)
-  (i32.store offset=4
-   (i32.const 0)
-   (tee_local $2
-    (i32.sub
-     (i32.load offset=4
-      (i32.const 0)
-     )
-     (i32.const 32)
-    )
-   )
-  )
-  (set_local $1
-   (i32.const 0)
-  )
-  (call $sha256
-   (i32.const 8960)
    (i32.const 0)
    (get_local $2)
   )
@@ -19526,7 +19454,7 @@
    )
   )
  )
- (func $_ZN11test_crypto14sha512_no_dataEv
+ (func $_ZN11test_crypto14sha256_no_dataEv
   (local $0 i32)
   (local $1 i32)
   (local $2 i32)
@@ -19537,15 +19465,15 @@
      (i32.load offset=4
       (i32.const 0)
      )
-     (i32.const 64)
+     (i32.const 32)
     )
    )
   )
   (set_local $1
    (i32.const 0)
   )
-  (call $sha512
-   (i32.const 8960)
+  (call $sha256
+   (i32.const 9008)
    (i32.const 0)
    (get_local $2)
   )
@@ -19578,6 +19506,78 @@
         (i32.const 1)
        )
       )
+      (i32.const 31)
+     )
+    )
+   )
+   (set_local $1
+    (i32.const 1)
+   )
+  )
+  (call $enumivo_assert
+   (get_local $1)
+   (i32.const 9104)
+  )
+  (i32.store offset=4
+   (i32.const 0)
+   (i32.add
+    (get_local $2)
+    (i32.const 32)
+   )
+  )
+ )
+ (func $_ZN11test_crypto14sha512_no_dataEv
+  (local $0 i32)
+  (local $1 i32)
+  (local $2 i32)
+  (i32.store offset=4
+   (i32.const 0)
+   (tee_local $2
+    (i32.sub
+     (i32.load offset=4
+      (i32.const 0)
+     )
+     (i32.const 64)
+    )
+   )
+  )
+  (set_local $1
+   (i32.const 0)
+  )
+  (call $sha512
+   (i32.const 9008)
+   (i32.const 0)
+   (get_local $2)
+  )
+  (set_local $0
+   (i32.const 0)
+  )
+  (block $label$0
+   (loop $label$1
+    (br_if $label$0
+     (i32.ne
+      (i32.load8_u
+       (i32.add
+        (get_local $0)
+        (i32.const 9120)
+       )
+      )
+      (i32.load8_u
+       (i32.add
+        (get_local $2)
+        (get_local $0)
+       )
+      )
+     )
+    )
+    (br_if $label$1
+     (i32.le_u
+      (tee_local $0
+       (i32.add
+        (get_local $0)
+        (i32.const 1)
+       )
+      )
       (i32.const 63)
      )
     )
@@ -19588,7 +19588,7 @@
   )
   (call $enumivo_assert
    (get_local $1)
-   (i32.const 9136)
+   (i32.const 9184)
   )
   (i32.store offset=4
    (i32.const 0)
@@ -19617,7 +19617,7 @@
    (i32.const 0)
   )
   (call $ripemd160
-   (i32.const 8960)
+   (i32.const 9008)
    (i32.const 0)
    (get_local $2)
   )
@@ -19631,7 +19631,7 @@
       (i32.load8_u
        (i32.add
         (get_local $0)
-        (i32.const 9152)
+        (i32.const 9200)
        )
       )
       (i32.load8_u
@@ -19660,7 +19660,7 @@
   )
   (call $enumivo_assert
    (get_local $1)
-   (i32.const 9184)
+   (i32.const 9232)
   )
   (i32.store offset=4
    (i32.const 0)
@@ -19684,7 +19684,7 @@
    )
   )
   (call $sha256
-   (i32.const 7840)
+   (i32.const 7888)
    (i32.const 3)
    (get_local $0)
   )
@@ -19698,13 +19698,13 @@
    )
   )
   (call $assert_sha256
-   (i32.const 7840)
+   (i32.const 7888)
    (i32.const 3)
    (get_local $0)
   )
   (call $enumivo_assert
    (i32.const 0)
-   (i32.const 9200)
+   (i32.const 9248)
   )
   (i32.store offset=4
    (i32.const 0)
@@ -19728,42 +19728,42 @@
    )
   )
   (call $sha256
-   (i32.const 7840)
+   (i32.const 7888)
    (i32.const 3)
    (get_local $0)
   )
   (call $assert_sha256
-   (i32.const 7840)
+   (i32.const 7888)
    (i32.const 3)
    (get_local $0)
   )
   (call $sha256
-   (i32.const 7904)
+   (i32.const 7952)
    (i32.const 56)
    (get_local $0)
   )
   (call $assert_sha256
-   (i32.const 7904)
+   (i32.const 7952)
    (i32.const 56)
    (get_local $0)
   )
   (call $sha256
-   (i32.const 8016)
+   (i32.const 8064)
    (i32.const 112)
    (get_local $0)
   )
   (call $assert_sha256
-   (i32.const 8016)
+   (i32.const 8064)
    (i32.const 112)
    (get_local $0)
   )
   (call $sha256
-   (i32.const 8192)
+   (i32.const 8240)
    (i32.const 14)
    (get_local $0)
   )
   (call $assert_sha256
-   (i32.const 8192)
+   (i32.const 8240)
    (i32.const 14)
    (get_local $0)
   )
@@ -19789,7 +19789,7 @@
    )
   )
   (call $sha1
-   (i32.const 7840)
+   (i32.const 7888)
    (i32.const 3)
    (get_local $0)
   )
@@ -19803,13 +19803,13 @@
    )
   )
   (call $assert_sha1
-   (i32.const 7840)
+   (i32.const 7888)
    (i32.const 3)
    (get_local $0)
   )
   (call $enumivo_assert
    (i32.const 0)
-   (i32.const 9200)
+   (i32.const 9248)
   )
   (i32.store offset=4
    (i32.const 0)
@@ -19833,42 +19833,42 @@
    )
   )
   (call $sha1
-   (i32.const 7840)
+   (i32.const 7888)
    (i32.const 3)
    (get_local $0)
   )
   (call $assert_sha1
-   (i32.const 7840)
+   (i32.const 7888)
    (i32.const 3)
    (get_local $0)
   )
   (call $sha1
-   (i32.const 7904)
+   (i32.const 7952)
    (i32.const 56)
    (get_local $0)
   )
   (call $assert_sha1
-   (i32.const 7904)
+   (i32.const 7952)
    (i32.const 56)
    (get_local $0)
   )
   (call $sha1
-   (i32.const 8016)
+   (i32.const 8064)
    (i32.const 112)
    (get_local $0)
   )
   (call $assert_sha1
-   (i32.const 8016)
+   (i32.const 8064)
    (i32.const 112)
    (get_local $0)
   )
   (call $sha1
-   (i32.const 8192)
+   (i32.const 8240)
    (i32.const 14)
    (get_local $0)
   )
   (call $assert_sha1
-   (i32.const 8192)
+   (i32.const 8240)
    (i32.const 14)
    (get_local $0)
   )
@@ -19894,7 +19894,7 @@
    )
   )
   (call $sha512
-   (i32.const 7840)
+   (i32.const 7888)
    (i32.const 3)
    (get_local $0)
   )
@@ -19908,13 +19908,13 @@
    )
   )
   (call $assert_sha512
-   (i32.const 7840)
+   (i32.const 7888)
    (i32.const 3)
    (get_local $0)
   )
   (call $enumivo_assert
    (i32.const 0)
-   (i32.const 9200)
+   (i32.const 9248)
   )
   (i32.store offset=4
    (i32.const 0)
@@ -19938,42 +19938,42 @@
    )
   )
   (call $sha512
-   (i32.const 7840)
+   (i32.const 7888)
    (i32.const 3)
    (get_local $0)
   )
   (call $assert_sha512
-   (i32.const 7840)
+   (i32.const 7888)
    (i32.const 3)
    (get_local $0)
   )
   (call $sha512
-   (i32.const 7904)
+   (i32.const 7952)
    (i32.const 56)
    (get_local $0)
   )
   (call $assert_sha512
-   (i32.const 7904)
+   (i32.const 7952)
    (i32.const 56)
    (get_local $0)
   )
   (call $sha512
-   (i32.const 8016)
+   (i32.const 8064)
    (i32.const 112)
    (get_local $0)
   )
   (call $assert_sha512
-   (i32.const 8016)
+   (i32.const 8064)
    (i32.const 112)
    (get_local $0)
   )
   (call $sha512
-   (i32.const 8192)
+   (i32.const 8240)
    (i32.const 14)
    (get_local $0)
   )
   (call $assert_sha512
-   (i32.const 8192)
+   (i32.const 8240)
    (i32.const 14)
    (get_local $0)
   )
@@ -19999,7 +19999,7 @@
    )
   )
   (call $ripemd160
-   (i32.const 7840)
+   (i32.const 7888)
    (i32.const 3)
    (get_local $0)
   )
@@ -20013,13 +20013,13 @@
    )
   )
   (call $assert_ripemd160
-   (i32.const 7840)
+   (i32.const 7888)
    (i32.const 3)
    (get_local $0)
   )
   (call $enumivo_assert
    (i32.const 0)
-   (i32.const 9200)
+   (i32.const 9248)
   )
   (i32.store offset=4
    (i32.const 0)
@@ -20043,42 +20043,42 @@
    )
   )
   (call $ripemd160
-   (i32.const 7840)
+   (i32.const 7888)
    (i32.const 3)
    (get_local $0)
   )
   (call $assert_ripemd160
-   (i32.const 7840)
+   (i32.const 7888)
    (i32.const 3)
    (get_local $0)
   )
   (call $ripemd160
-   (i32.const 7904)
+   (i32.const 7952)
    (i32.const 56)
    (get_local $0)
   )
   (call $assert_ripemd160
-   (i32.const 7904)
+   (i32.const 7952)
    (i32.const 56)
    (get_local $0)
   )
   (call $ripemd160
-   (i32.const 8016)
+   (i32.const 8064)
    (i32.const 112)
    (get_local $0)
   )
   (call $assert_ripemd160
-   (i32.const 8016)
+   (i32.const 8064)
    (i32.const 112)
    (get_local $0)
   )
   (call $ripemd160
-   (i32.const 8192)
+   (i32.const 8240)
    (i32.const 14)
    (get_local $0)
   )
   (call $assert_ripemd160
-   (i32.const 8192)
+   (i32.const 8240)
    (i32.const 14)
    (get_local $0)
   )
@@ -20120,7 +20120,7 @@
     )
     (i32.const 21)
    )
-   (i32.const 9232)
+   (i32.const 9280)
   )
   (set_local $0
    (i32.const 1)
@@ -20153,7 +20153,7 @@
       )
      )
     )
-    (i32.const 9264)
+    (i32.const 9312)
    )
    (br_if $label$0
     (i32.ne
@@ -20463,7 +20463,7 @@
     (get_local $7)
     (i32.const 92)
    )
-   (i32.load8_u offset=9292
+   (i32.load8_u offset=9340
     (i32.const 0)
    )
   )
@@ -20472,13 +20472,13 @@
     (get_local $7)
     (i32.const 88)
    )
-   (i32.load offset=9288 align=1
+   (i32.load offset=9336 align=1
     (i32.const 0)
    )
   )
   (i64.store offset=80
    (get_local $7)
-   (i64.load offset=9280 align=1
+   (i64.load offset=9328 align=1
     (i32.const 0)
    )
   )
@@ -20819,7 +20819,7 @@
    (get_local $0)
   )
   (set_local $1
-   (call $_ZN5enumivo6actionC2I17test_dummy_actionILy14605617063041957888ELy9781311595436863162EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
+   (call $_ZN7enumivo6actionC2I17test_dummy_actionILy14605617063041957888ELy9781311595436863162EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
     (i32.add
      (get_local $7)
      (i32.const 40)
@@ -20852,7 +20852,7 @@
     (get_local $0)
    )
   )
-  (call $_ZN5enumivo4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
+  (call $_ZN7enumivo4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
    (i32.add
     (get_local $7)
     (i32.const 8)
@@ -20940,7 +20940,7 @@
    )
   )
  )
- (func $_ZN5enumivo6actionC2I17test_dummy_actionILy14605617063041957888ELy9781311595436863162EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_ (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $_ZN7enumivo6actionC2I17test_dummy_actionILy14605617063041957888ELy9781311595436863162EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_ (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -21524,7 +21524,7 @@
    (get_local $0)
   )
   (set_local $1
-   (call $_ZN5enumivo6actionC2I18test_action_actionILy14605617063041957888ELy9781311596421349198EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
+   (call $_ZN7enumivo6actionC2I18test_action_actionILy14605617063041957888ELy9781311596421349198EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
     (i32.add
      (get_local $7)
      (i32.const 40)
@@ -21557,7 +21557,7 @@
     (get_local $0)
    )
   )
-  (call $_ZN5enumivo4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
+  (call $_ZN7enumivo4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
    (i32.add
     (get_local $7)
     (i32.const 8)
@@ -21663,7 +21663,7 @@
    )
   )
  )
- (func $_ZN5enumivo6actionC2I18test_action_actionILy14605617063041957888ELy9781311596421349198EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_ (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $_ZN7enumivo6actionC2I18test_action_actionILy14605617063041957888ELy9781311596421349198EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_ (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -21972,7 +21972,7 @@
     (set_local $0
      (i32.add
       (get_local $4)
-      (i32.const 9296)
+      (i32.const 9344)
      )
     )
     (block $label$2
@@ -22376,7 +22376,7 @@
    (get_local $3)
   )
   (set_local $4
-   (call $_ZN5enumivo6actionC2I18test_action_actionILy14605617063041957888ELy9781311595436863162EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
+   (call $_ZN7enumivo6actionC2I18test_action_actionILy14605617063041957888ELy9781311595436863162EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
     (i32.add
      (get_local $10)
      (i32.const 40)
@@ -22409,7 +22409,7 @@
     (get_local $3)
    )
   )
-  (call $_ZN5enumivo4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
+  (call $_ZN7enumivo4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
    (i32.add
     (get_local $10)
     (i32.const 8)
@@ -22449,7 +22449,7 @@
   )
   (call $enumivo_assert
    (i32.const 0)
-   (i32.const 17488)
+   (i32.const 17536)
   )
   (block $label$18
    (br_if $label$18
@@ -22519,7 +22519,7 @@
    )
   )
  )
- (func $_ZN5enumivo6actionC2I18test_action_actionILy14605617063041957888ELy9781311595436863162EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_ (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $_ZN7enumivo6actionC2I18test_action_actionILy14605617063041957888ELy9781311595436863162EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_ (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -23244,7 +23244,7 @@
    (get_local $3)
   )
   (set_local $4
-   (call $_ZN5enumivo6actionC2I18test_action_actionILy14605617063041957888ELy17750730571693710178EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
+   (call $_ZN7enumivo6actionC2I18test_action_actionILy14605617063041957888ELy17750730571693710178EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
     (i32.add
      (get_local $10)
      (i32.const 40)
@@ -23277,7 +23277,7 @@
     (get_local $3)
    )
   )
-  (call $_ZN5enumivo4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
+  (call $_ZN7enumivo4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
    (i32.add
     (get_local $10)
     (i32.const 8)
@@ -23383,7 +23383,7 @@
    )
   )
  )
- (func $_ZN5enumivo6actionC2I18test_action_actionILy14605617063041957888ELy17750730571693710178EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_ (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $_ZN7enumivo6actionC2I18test_action_actionILy14605617063041957888ELy17750730571693710178EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_ (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -24006,7 +24006,7 @@
    (get_local $0)
   )
   (set_local $1
-   (call $_ZN5enumivo6actionC2I18test_action_actionILy14605617063041957888ELy9781311595419386437EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
+   (call $_ZN7enumivo6actionC2I18test_action_actionILy14605617063041957888ELy9781311595419386437EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
     (i32.add
      (get_local $7)
      (i32.const 40)
@@ -24039,7 +24039,7 @@
     (get_local $0)
    )
   )
-  (call $_ZN5enumivo4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
+  (call $_ZN7enumivo4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
    (i32.add
     (get_local $7)
     (i32.const 8)
@@ -24145,7 +24145,7 @@
    )
   )
  )
- (func $_ZN5enumivo6actionC2I18test_action_actionILy14605617063041957888ELy9781311595419386437EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_ (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $_ZN7enumivo6actionC2I18test_action_actionILy14605617063041957888ELy9781311595419386437EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_ (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -24432,7 +24432,7 @@
     )
     (call $tapos_block_prefix)
    )
-   (i32.const 17536)
+   (i32.const 17584)
   )
   (i32.store offset=4
    (i32.const 0)
@@ -24471,7 +24471,7 @@
     )
     (call $tapos_block_num)
    )
-   (i32.const 17584)
+   (i32.const 17632)
   )
   (i32.store offset=4
    (i32.const 0)
@@ -24524,7 +24524,7 @@
      )
     )
    )
-   (i32.const 17616)
+   (i32.const 17664)
   )
   (call $sha256
    (get_local $1)
@@ -24579,7 +24579,7 @@
    (call $transaction_size)
   )
   (call $prints
-   (i32.const 17648)
+   (i32.const 17696)
   )
   (call $printui
    (i64.extend_u/i32
@@ -24593,7 +24593,7 @@
     )
     (call $transaction_size)
    )
-   (i32.const 17664)
+   (i32.const 17712)
   )
   (i32.store offset=4
    (i32.const 0)
@@ -24636,7 +24636,7 @@
     )
     (i32.const 12)
    )
-   (i32.load8_u offset=17708
+   (i32.load8_u offset=17756
     (i32.const 0)
    )
   )
@@ -24648,13 +24648,13 @@
     )
     (i32.const 8)
    )
-   (i32.load offset=17704 align=1
+   (i32.load offset=17752 align=1
     (i32.const 0)
    )
   )
   (i64.store offset=96 align=4
    (get_local $12)
-   (i64.load offset=17696 align=1
+   (i64.load offset=17744 align=1
     (i32.const 0)
    )
   )
@@ -25173,7 +25173,7 @@
    (get_local $12)
    (get_local $5)
   )
-  (call $_ZNSt3__16vectorIN5enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy9781311595436863162EEEEEvDpOT_
+  (call $_ZNSt3__16vectorIN7enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy9781311595436863162EEEEEvDpOT_
    (get_local $4)
    (i32.add
     (get_local $12)
@@ -25210,7 +25210,7 @@
    (get_local $12)
    (i64.const 0)
   )
-  (call $_ZN5enumivo4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
+  (call $_ZN7enumivo4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
    (i32.add
     (get_local $12)
     (i32.const 112)
@@ -25255,7 +25255,7 @@
    )
   )
   (drop
-   (call $_ZN5enumivo11transactionD2Ev
+   (call $_ZN7enumivo11transactionD2Ev
     (i32.add
      (get_local $12)
      (i32.const 16)
@@ -25288,7 +25288,7 @@
    )
   )
  )
- (func $_ZNSt3__16vectorIN5enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy9781311595436863162EEEEEvDpOT_ (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $_ZNSt3__16vectorIN7enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy9781311595436863162EEEEEvDpOT_ (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -25399,7 +25399,7 @@
   (set_local $4
    (i32.add
     (tee_local $8
-     (call $_ZN5enumivo6actionC2I18test_action_actionILy14605617063041957888ELy9781311595436863162EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
+     (call $_ZN7enumivo6actionC2I18test_action_actionILy14605617063041957888ELy9781311595436863162EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
       (tee_local $9
        (i32.add
         (get_local $8)
@@ -25741,7 +25741,7 @@
    )
   )
  )
- (func $_ZN5enumivo4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_ (param $0 i32) (param $1 i32)
+ (func $_ZN7enumivo4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_ (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -25772,7 +25772,7 @@
    (i32.const 0)
   )
   (drop
-   (call $_ZN5enumivolsINS_10datastreamIjEEEERT_S4_RKNS_11transactionE
+   (call $_ZN7enumivolsINS_10datastreamIjEEEERT_S4_RKNS_11transactionE
     (get_local $4)
     (get_local $1)
    )
@@ -25824,15 +25824,15 @@
    (get_local $3)
   )
   (drop
-   (call $_ZN5enumivolsINS_10datastreamIPcEEEERT_S5_RKNS_18transaction_headerE
+   (call $_ZN7enumivolsINS_10datastreamIPcEEEERT_S5_RKNS_18transaction_headerE
     (get_local $4)
     (get_local $1)
    )
   )
   (drop
-   (call $_ZN5enumivolsINS_10datastreamIPcEENSt3__15tupleIJtNS4_6vectorIcNS4_9allocatorIcEEEEEEEEERT_SC_RKNS6_IT0_NS7_ISD_EEEE
-    (call $_ZN5enumivolsINS_10datastreamIPcEENS_6actionEEERT_S6_RKNSt3__16vectorIT0_NS7_9allocatorIS9_EEEE
-     (call $_ZN5enumivolsINS_10datastreamIPcEENS_6actionEEERT_S6_RKNSt3__16vectorIT0_NS7_9allocatorIS9_EEEE
+   (call $_ZN7enumivolsINS_10datastreamIPcEENSt3__15tupleIJtNS4_6vectorIcNS4_9allocatorIcEEEEEEEEERT_SC_RKNS6_IT0_NS7_ISD_EEEE
+    (call $_ZN7enumivolsINS_10datastreamIPcEENS_6actionEEERT_S6_RKNSt3__16vectorIT0_NS7_9allocatorIS9_EEEE
+     (call $_ZN7enumivolsINS_10datastreamIPcEENS_6actionEEERT_S6_RKNSt3__16vectorIT0_NS7_9allocatorIS9_EEEE
       (get_local $4)
       (i32.add
        (get_local $1)
@@ -25858,7 +25858,7 @@
    )
   )
  )
- (func $_ZN5enumivo11transactionD2Ev (param $0 i32) (result i32)
+ (func $_ZN7enumivo11transactionD2Ev (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -26208,7 +26208,7 @@
   )
   (get_local $0)
  )
- (func $_ZN5enumivolsINS_10datastreamIjEEEERT_S4_RKNS_11transactionE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN7enumivolsINS_10datastreamIjEEEERT_S4_RKNS_11transactionE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -26777,7 +26777,7 @@
   )
   (get_local $0)
  )
- (func $_ZN5enumivolsINS_10datastreamIPcEEEERT_S5_RKNS_18transaction_headerE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN7enumivolsINS_10datastreamIPcEEEERT_S5_RKNS_18transaction_headerE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -27107,7 +27107,7 @@
   )
   (get_local $0)
  )
- (func $_ZN5enumivolsINS_10datastreamIPcEENS_6actionEEERT_S6_RKNSt3__16vectorIT0_NS7_9allocatorIS9_EEEE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN7enumivolsINS_10datastreamIPcEENS_6actionEEERT_S6_RKNSt3__16vectorIT0_NS7_9allocatorIS9_EEEE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -27322,8 +27322,8 @@
      )
     )
     (drop
-     (call $_ZN5enumivolsINS_10datastreamIPcEEEERT_S5_RKNSt3__16vectorIcNS6_9allocatorIcEEEE
-      (call $_ZN5enumivolsINS_10datastreamIPcEENS_16permission_levelEEERT_S6_RKNSt3__16vectorIT0_NS7_9allocatorIS9_EEEE
+     (call $_ZN7enumivolsINS_10datastreamIPcEEEERT_S5_RKNSt3__16vectorIcNS6_9allocatorIcEEEE
+      (call $_ZN7enumivolsINS_10datastreamIPcEENS_16permission_levelEEERT_S6_RKNSt3__16vectorIT0_NS7_9allocatorIS9_EEEE
        (get_local $0)
        (i32.add
         (get_local $7)
@@ -27364,7 +27364,7 @@
   )
   (get_local $0)
  )
- (func $_ZN5enumivolsINS_10datastreamIPcEENSt3__15tupleIJtNS4_6vectorIcNS4_9allocatorIcEEEEEEEEERT_SC_RKNS6_IT0_NS7_ISD_EEEE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN7enumivolsINS_10datastreamIPcEENSt3__15tupleIJtNS4_6vectorIcNS4_9allocatorIcEEEEEEEEERT_SC_RKNS6_IT0_NS7_ISD_EEEE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -27542,7 +27542,7 @@
      )
     )
     (drop
-     (call $_ZN5enumivolsINS_10datastreamIPcEEEERT_S5_RKNSt3__16vectorIcNS6_9allocatorIcEEEE
+     (call $_ZN7enumivolsINS_10datastreamIPcEEEERT_S5_RKNSt3__16vectorIcNS6_9allocatorIcEEEE
       (get_local $0)
       (i32.add
        (get_local $4)
@@ -28397,7 +28397,7 @@
    (get_local $11)
    (get_local $3)
   )
-  (call $_ZNSt3__16vectorIN5enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy9781311597322538353EEEEEvDpOT_
+  (call $_ZNSt3__16vectorIN7enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy9781311597322538353EEEEEvDpOT_
    (get_local $4)
    (i32.add
     (get_local $11)
@@ -28434,7 +28434,7 @@
    (get_local $11)
    (i64.const 0)
   )
-  (call $_ZN5enumivo4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
+  (call $_ZN7enumivo4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
    (i32.add
     (get_local $11)
     (i32.const 112)
@@ -28479,7 +28479,7 @@
    )
   )
   (drop
-   (call $_ZN5enumivo11transactionD2Ev
+   (call $_ZN7enumivo11transactionD2Ev
     (i32.add
      (get_local $11)
      (i32.const 24)
@@ -28512,7 +28512,7 @@
    )
   )
  )
- (func $_ZNSt3__16vectorIN5enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy9781311597322538353EEEEEvDpOT_ (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $_ZNSt3__16vectorIN7enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy9781311597322538353EEEEEvDpOT_ (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -28623,7 +28623,7 @@
   (set_local $4
    (i32.add
     (tee_local $8
-     (call $_ZN5enumivo6actionC2I18test_action_actionILy14605617063041957888ELy9781311597322538353EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
+     (call $_ZN7enumivo6actionC2I18test_action_actionILy14605617063041957888ELy9781311597322538353EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
       (tee_local $9
        (i32.add
         (get_local $8)
@@ -28965,7 +28965,7 @@
    )
   )
  )
- (func $_ZN5enumivo6actionC2I18test_action_actionILy14605617063041957888ELy9781311597322538353EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_ (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $_ZN7enumivo6actionC2I18test_action_actionILy14605617063041957888ELy9781311597322538353EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_ (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -29327,7 +29327,7 @@
    (get_local $5)
    (i64.const 0)
   )
-  (call $_ZN5enumivo4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
+  (call $_ZN7enumivo4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
    (i32.add
     (get_local $5)
     (i32.const 80)
@@ -29373,10 +29373,10 @@
   )
   (call $enumivo_assert
    (i32.const 0)
-   (i32.const 17712)
+   (i32.const 17760)
   )
   (drop
-   (call $_ZN5enumivo11transactionD2Ev
+   (call $_ZN7enumivo11transactionD2Ev
     (i32.add
      (get_local $5)
      (i32.const 16)
@@ -29840,7 +29840,7 @@
    (get_local $11)
    (get_local $4)
   )
-  (call $_ZNSt3__16vectorIN5enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy9781311595419386437EEEEEvDpOT_
+  (call $_ZNSt3__16vectorIN7enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy9781311595419386437EEEEEvDpOT_
    (get_local $3)
    (i32.add
     (get_local $11)
@@ -29877,7 +29877,7 @@
    (get_local $11)
    (i64.const 0)
   )
-  (call $_ZN5enumivo4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
+  (call $_ZN7enumivo4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
    (i32.add
     (get_local $11)
     (i32.const 96)
@@ -29940,7 +29940,7 @@
    )
   )
   (drop
-   (call $_ZN5enumivo11transactionD2Ev
+   (call $_ZN7enumivo11transactionD2Ev
     (i32.add
      (get_local $11)
      (i32.const 32)
@@ -29955,7 +29955,7 @@
    )
   )
  )
- (func $_ZNSt3__16vectorIN5enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy9781311595419386437EEEEEvDpOT_ (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $_ZNSt3__16vectorIN7enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy9781311595419386437EEEEEvDpOT_ (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -30066,7 +30066,7 @@
   (set_local $4
    (i32.add
     (tee_local $8
-     (call $_ZN5enumivo6actionC2I18test_action_actionILy14605617063041957888ELy9781311595419386437EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
+     (call $_ZN7enumivo6actionC2I18test_action_actionILy14605617063041957888ELy9781311595419386437EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
       (tee_local $9
        (i32.add
         (get_local $8)
@@ -30408,7 +30408,7 @@
    )
   )
  )
- (func $_ZN16test_transaction26assert_false_error_handlerERKN5enumivo11transactionE (param $0 i32)
+ (func $_ZN16test_transaction26assert_false_error_handlerERKN7enumivo11transactionE (param $0 i32)
   (local $1 i64)
   (local $2 i32)
   (local $3 i32)
@@ -30431,7 +30431,7 @@
     )
     (i32.const 40)
    )
-   (i32.const 17776)
+   (i32.const 17824)
   )
   (set_local $1
    (i64.load
@@ -30579,7 +30579,7 @@
     (get_local $1)
     (get_local $6)
    )
-   (i32.const 17824)
+   (i32.const 17872)
   )
   (call $enumivo_assert
    (i64.eq
@@ -30595,7 +30595,7 @@
     )
     (i64.const -8665432478290165179)
    )
-   (i32.const 17856)
+   (i32.const 17904)
   )
   (call $enumivo_assert
    (i32.eq
@@ -30616,7 +30616,7 @@
     )
     (i32.const 16)
    )
-   (i32.const 17888)
+   (i32.const 17936)
   )
   (set_local $1
    (i64.load
@@ -30766,7 +30766,7 @@
     (get_local $1)
     (get_local $6)
    )
-   (i32.const 17936)
+   (i32.const 17984)
   )
   (set_local $1
    (i64.load offset=8
@@ -30919,7 +30919,7 @@
     (get_local $1)
     (get_local $6)
    )
-   (i32.const 17984)
+   (i32.const 18032)
   )
  )
  (func $_ZN16test_transaction22send_transaction_largeEyyy (param $0 i64) (param $1 i64) (param $2 i64)
@@ -31521,7 +31521,7 @@
        )
       )
       (drop
-       (call $_ZN5enumivo6actionC2I18test_action_actionILy14605617063041957888ELy9781311595436863162EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
+       (call $_ZN7enumivo6actionC2I18test_action_actionILy14605617063041957888ELy9781311595436863162EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
         (get_local $11)
         (i32.add
          (get_local $17)
@@ -31551,7 +31551,7 @@
       )
       (br $label$17)
      )
-     (call $_ZNSt3__16vectorIN5enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy9781311595436863162EEEEEvDpOT_
+     (call $_ZNSt3__16vectorIN7enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy9781311595436863162EEEEEvDpOT_
       (get_local $3)
       (i32.add
        (get_local $17)
@@ -31618,7 +31618,7 @@
    (get_local $17)
    (i64.const 0)
   )
-  (call $_ZN5enumivo4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
+  (call $_ZN7enumivo4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
    (get_local $17)
    (i32.add
     (get_local $17)
@@ -31664,10 +31664,10 @@
   )
   (call $enumivo_assert
    (i32.const 0)
-   (i32.const 18032)
+   (i32.const 18080)
   )
   (drop
-   (call $_ZN5enumivo11transactionD2Ev
+   (call $_ZN7enumivo11transactionD2Ev
     (i32.add
      (get_local $17)
      (i32.const 1072)
@@ -31684,7 +31684,7 @@
  )
  (func $_ZN16test_transaction14deferred_printEv
   (call $prints
-   (i32.const 18096)
+   (i32.const 18144)
   )
  )
  (func $_ZN16test_transaction25send_deferred_transactionEyyy (param $0 i64) (param $1 i64) (param $2 i64)
@@ -32136,7 +32136,7 @@
    (get_local $11)
    (get_local $4)
   )
-  (call $_ZNSt3__16vectorIN5enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy17750730572681658536EEEEEvDpOT_
+  (call $_ZNSt3__16vectorIN7enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy17750730572681658536EEEEEvDpOT_
    (get_local $3)
    (i32.add
     (get_local $11)
@@ -32180,7 +32180,7 @@
    (get_local $11)
    (i64.const -1)
   )
-  (call $_ZN5enumivo4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
+  (call $_ZN7enumivo4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
    (i32.add
     (get_local $11)
     (i32.const 96)
@@ -32243,7 +32243,7 @@
    )
   )
   (drop
-   (call $_ZN5enumivo11transactionD2Ev
+   (call $_ZN7enumivo11transactionD2Ev
     (i32.add
      (get_local $11)
      (i32.const 32)
@@ -32258,7 +32258,7 @@
    )
   )
  )
- (func $_ZNSt3__16vectorIN5enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy17750730572681658536EEEEEvDpOT_ (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $_ZNSt3__16vectorIN7enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy17750730572681658536EEEEEvDpOT_ (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -32369,7 +32369,7 @@
   (set_local $4
    (i32.add
     (tee_local $8
-     (call $_ZN5enumivo6actionC2I18test_action_actionILy14605617063041957888ELy17750730572681658536EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
+     (call $_ZN7enumivo6actionC2I18test_action_actionILy14605617063041957888ELy17750730572681658536EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
       (tee_local $9
        (i32.add
         (get_local $8)
@@ -32711,7 +32711,7 @@
    )
   )
  )
- (func $_ZN5enumivo6actionC2I18test_action_actionILy14605617063041957888ELy17750730572681658536EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_ (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $_ZN7enumivo6actionC2I18test_action_actionILy14605617063041957888ELy17750730572681658536EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_ (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -33418,7 +33418,7 @@
    (get_local $11)
    (get_local $4)
   )
-  (call $_ZNSt3__16vectorIN5enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy17750730572681658536EEEEEvDpOT_
+  (call $_ZNSt3__16vectorIN7enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJNS0_INS1_16permission_levelENS3_IS7_EEEER18test_action_actionILy14605617063041957888ELy17750730572681658536EEEEEvDpOT_
    (get_local $3)
    (i32.add
     (get_local $11)
@@ -33462,7 +33462,7 @@
    (get_local $11)
    (i64.const -1)
   )
-  (call $_ZN5enumivo4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
+  (call $_ZN7enumivo4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
    (i32.add
     (get_local $11)
     (i32.const 96)
@@ -33525,7 +33525,7 @@
    )
   )
   (drop
-   (call $_ZN5enumivo11transactionD2Ev
+   (call $_ZN7enumivo11transactionD2Ev
     (i32.add
      (get_local $11)
      (i32.const 32)
@@ -33877,7 +33877,7 @@
    )
    (i32.const 0)
   )
-  (call $_ZNSt3__16vectorIN5enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJRS2_EEEvDpOT_
+  (call $_ZNSt3__16vectorIN7enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJRS2_EEEvDpOT_
    (i32.add
     (get_local $7)
     (i32.const 52)
@@ -33919,7 +33919,7 @@
     (get_local $0)
    )
   )
-  (call $_ZN5enumivo4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
+  (call $_ZN7enumivo4packINS_11transactionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
    (i32.add
     (get_local $7)
     (i32.const 160)
@@ -33964,7 +33964,7 @@
    )
   )
   (drop
-   (call $_ZN5enumivo11transactionD2Ev
+   (call $_ZN7enumivo11transactionD2Ev
     (i32.add
      (get_local $7)
      (i32.const 16)
@@ -34467,7 +34467,7 @@
   )
   (get_local $0)
  )
- (func $_ZNSt3__16vectorIN5enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJRS2_EEEvDpOT_ (param $0 i32) (param $1 i32)
+ (func $_ZNSt3__16vectorIN7enumivo6actionENS_9allocatorIS2_EEE24__emplace_back_slow_pathIJRS2_EEEvDpOT_ (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -34579,7 +34579,7 @@
   (set_local $3
    (i32.add
     (tee_local $8
-     (call $_ZN5enumivo6actionC2ERKS0_
+     (call $_ZN7enumivo6actionC2ERKS0_
       (tee_local $9
        (i32.add
         (get_local $8)
@@ -34920,7 +34920,7 @@
    )
   )
  )
- (func $_ZN5enumivo6actionC2ERKS0_ (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN7enumivo6actionC2ERKS0_ (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -35211,7 +35211,7 @@
     )
     (i32.const 0)
    )
-   (i32.const 18128)
+   (i32.const 18176)
   )
   (i32.store offset=4
    (i32.const 0)
@@ -35248,7 +35248,7 @@
      (get_local $0)
     )
    )
-   (i32.const 18160)
+   (i32.const 18208)
   )
   (i32.store offset=4
    (i32.const 0)
@@ -35300,9 +35300,9 @@
   )
   (call $enumivo_assert
    (i32.const 1)
-   (i32.const 18224)
+   (i32.const 18272)
   )
-  (call $_ZN5enumivo4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
+  (call $_ZN7enumivo4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
    (i32.add
     (get_local $1)
     (i32.const 48)
@@ -35431,7 +35431,7 @@
    (i64.const 59)
   )
   (set_local $1
-   (i32.const 18272)
+   (i32.const 18320)
   )
   (set_local $4
    (i64.const 0)
@@ -35761,7 +35761,7 @@
    (get_local $0)
   )
   (set_local $1
-   (call $_ZN5enumivo6actionC2I18test_action_actionILy5666987383162142720ELy6256973794934521856EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
+   (call $_ZN7enumivo6actionC2I18test_action_actionILy5666987383162142720ELy6256973794934521856EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_
     (i32.add
      (get_local $7)
      (i32.const 40)
@@ -35806,9 +35806,9 @@
      (get_local $1)
     )
    )
-   (i32.const 18224)
+   (i32.const 18272)
   )
-  (call $_ZN5enumivo4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
+  (call $_ZN7enumivo4packINS_6actionEEENSt3__16vectorIcNS2_9allocatorIcEEEERKT_
    (i32.add
     (get_local $7)
     (i32.const 8)
@@ -35848,7 +35848,7 @@
   )
   (call $enumivo_assert
    (i32.const 0)
-   (i32.const 18288)
+   (i32.const 18336)
   )
   (block $label$14
    (br_if $label$14
@@ -35918,7 +35918,7 @@
    )
   )
  )
- (func $_ZN5enumivo6actionC2I18test_action_actionILy5666987383162142720ELy6256973794934521856EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_ (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $_ZN7enumivo6actionC2I18test_action_actionILy5666987383162142720ELy6256973794934521856EEEEONSt3__16vectorINS_16permission_levelENS4_9allocatorIS6_EEEERKT_ (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -36208,7 +36208,7 @@
    (i64.const 59)
   )
   (set_local $1
-   (i32.const 18352)
+   (i32.const 18400)
   )
   (set_local $3
    (i64.const 0)
@@ -36346,7 +36346,7 @@
    (i64.const 59)
   )
   (set_local $1
-   (i32.const 18384)
+   (i32.const 18432)
   )
   (set_local $5
    (i64.const 0)
@@ -36480,7 +36480,7 @@
    (i64.const 59)
   )
   (set_local $1
-   (i32.const 18352)
+   (i32.const 18400)
   )
   (set_local $7
    (i64.const 0)
@@ -36680,7 +36680,7 @@
    (i64.const 59)
   )
   (set_local $1
-   (i32.const 18400)
+   (i32.const 18448)
   )
   (set_local $4
    (i64.const 0)
@@ -36813,7 +36813,7 @@
      (get_local $4)
     )
    )
-   (i32.const 18416)
+   (i32.const 18464)
   )
  )
  (func $_ZN16test_transaction18active_new_featureEv
@@ -36830,7 +36830,7 @@
    (i64.const 59)
   )
   (set_local $1
-   (i32.const 18400)
+   (i32.const 18448)
   )
   (set_local $4
    (i64.const 0)
@@ -37266,7 +37266,7 @@
     )
    )
   )
-  (call $_ZN5enumivo18unpack_action_dataI14check_auth_msgEET_v
+  (call $_ZN7enumivo18unpack_action_dataI14check_auth_msgEET_v
    (i32.add
     (get_local $9)
     (i32.const 16)
@@ -37403,7 +37403,7 @@
    (get_local $4)
   )
   (drop
-   (call $_ZN5enumivolsINS_10datastreamIPcEE10public_keyEERT_S6_RKNSt3__16vectorIT0_NS7_9allocatorIS9_EEEE
+   (call $_ZN7enumivolsINS_10datastreamIPcEE10public_keyEERT_S6_RKNSt3__16vectorIT0_NS7_9allocatorIS9_EEEE
     (i32.add
      (get_local $9)
      (i32.const 48)
@@ -37532,7 +37532,7 @@
    )
   )
  )
- (func $_ZN5enumivo18unpack_action_dataI14check_auth_msgEET_v (param $0 i32)
+ (func $_ZN7enumivo18unpack_action_dataI14check_auth_msgEET_v (param $0 i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -37661,7 +37661,7 @@
    )
   )
   (drop
-   (call $_ZN5enumivorsINS_10datastreamIPKcEE10public_keyEERT_S7_RNSt3__16vectorIT0_NS8_9allocatorISA_EEEE
+   (call $_ZN7enumivorsINS_10datastreamIPKcEE10public_keyEERT_S7_RNSt3__16vectorIT0_NS8_9allocatorISA_EEEE
     (get_local $4)
     (i32.add
      (get_local $0)
@@ -37677,7 +37677,7 @@
    )
   )
  )
- (func $_ZN5enumivolsINS_10datastreamIPcEE10public_keyEERT_S6_RKNSt3__16vectorIT0_NS7_9allocatorIS9_EEEE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN7enumivolsINS_10datastreamIPcEE10public_keyEERT_S6_RKNSt3__16vectorIT0_NS7_9allocatorIS9_EEEE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -37907,7 +37907,7 @@
   )
   (get_local $0)
  )
- (func $_ZN5enumivorsINS_10datastreamIPKcEE10public_keyEERT_S7_RNSt3__16vectorIT0_NS8_9allocatorISA_EEEE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN7enumivorsINS_10datastreamIPKcEE10public_keyEERT_S7_RNSt3__16vectorIT0_NS8_9allocatorISA_EEEE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -38424,7 +38424,7 @@
     )
    )
   )
-  (call $_ZN5enumivo18unpack_action_dataI29test_permission_last_used_msgEET_v
+  (call $_ZN7enumivo18unpack_action_dataI29test_permission_last_used_msgEET_v
    (i32.add
     (get_local $3)
     (i32.const 8)
@@ -38444,7 +38444,7 @@
      (get_local $3)
     )
    )
-   (i32.const 18464)
+   (i32.const 18512)
   )
   (i32.store offset=4
    (i32.const 0)
@@ -38454,7 +38454,7 @@
    )
   )
  )
- (func $_ZN5enumivo18unpack_action_dataI29test_permission_last_used_msgEET_v (param $0 i32)
+ (func $_ZN7enumivo18unpack_action_dataI29test_permission_last_used_msgEET_v (param $0 i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -38581,7 +38581,7 @@
     )
    )
   )
-  (call $_ZN5enumivo18unpack_action_dataI29test_permission_last_used_msgEET_v
+  (call $_ZN7enumivo18unpack_action_dataI29test_permission_last_used_msgEET_v
    (i32.add
     (get_local $3)
     (i32.const 8)
@@ -38598,7 +38598,7 @@
      (get_local $3)
     )
    )
-   (i32.const 18512)
+   (i32.const 18560)
   )
   (i32.store offset=4
    (i32.const 0)
@@ -38675,7 +38675,7 @@
     )
     (i32.const 0)
    )
-   (i32.const 18560)
+   (i32.const 18608)
   )
   (i32.store8 offset=144
    (get_local $8)
@@ -38721,7 +38721,7 @@
      (get_local $8)
     )
    )
-   (i32.const 18560)
+   (i32.const 18608)
   )
   (i32.store8 offset=8
    (get_local $8)
@@ -38770,7 +38770,7 @@
      (get_local $8)
     )
    )
-   (i32.const 18576)
+   (i32.const 18624)
   )
   (i32.store8 offset=8
    (get_local $8)
@@ -38819,7 +38819,7 @@
      (get_local $8)
     )
    )
-   (i32.const 18592)
+   (i32.const 18640)
   )
   (i32.store16 offset=8
    (get_local $8)
@@ -38868,7 +38868,7 @@
      (get_local $8)
     )
    )
-   (i32.const 18608)
+   (i32.const 18656)
   )
   (i32.store16 offset=8
    (get_local $8)
@@ -38917,7 +38917,7 @@
      (get_local $8)
     )
    )
-   (i32.const 18624)
+   (i32.const 18672)
   )
   (i32.store offset=8
    (get_local $8)
@@ -38966,7 +38966,7 @@
      (get_local $8)
     )
    )
-   (i32.const 18640)
+   (i32.const 18688)
   )
   (i32.store offset=8
    (get_local $8)
@@ -39015,7 +39015,7 @@
      (get_local $8)
     )
    )
-   (i32.const 18656)
+   (i32.const 18704)
   )
   (i64.store offset=8
    (get_local $8)
@@ -39064,7 +39064,7 @@
      (get_local $8)
     )
    )
-   (i32.const 18672)
+   (i32.const 18720)
   )
   (i64.store offset=8
    (get_local $8)
@@ -39113,7 +39113,7 @@
      (get_local $8)
     )
    )
-   (i32.const 18688)
+   (i32.const 18736)
   )
   (i32.store offset=8
    (get_local $8)
@@ -39167,7 +39167,7 @@
     )
     (f32.const 1.000000013351432e-10)
    )
-   (i32.const 18704)
+   (i32.const 18752)
   )
   (i64.store offset=8
    (get_local $8)
@@ -39221,7 +39221,7 @@
     )
     (f64.const 1e-20)
    )
-   (i32.const 18720)
+   (i32.const 18768)
   )
   (call $enumivo_assert
    (i32.const 1)
@@ -39233,7 +39233,7 @@
      (get_local $8)
      (i32.const 16)
     )
-    (i32.const 18728)
+    (i32.const 18776)
     (i32.const 4)
    )
   )
@@ -39252,7 +39252,7 @@
       (i32.const 4)
      )
     )
-    (i32.const 18736)
+    (i32.const 18784)
     (i32.const 8)
    )
   )
@@ -39320,7 +39320,7 @@
   )
   (call $enumivo_assert
    (get_local $6)
-   (i32.const 18752)
+   (i32.const 18800)
   )
   (call $enumivo_assert
    (i32.const 1)
@@ -39332,7 +39332,7 @@
      (get_local $8)
      (i32.const 16)
     )
-    (i32.const 18760)
+    (i32.const 18808)
     (i32.const 4)
    )
   )
@@ -39343,7 +39343,7 @@
   (drop
    (call $memcpy
     (get_local $7)
-    (i32.const 18764)
+    (i32.const 18812)
     (i32.const 4)
    )
   )
@@ -39396,7 +39396,7 @@
      (i32.const 20)
     )
    )
-   (i32.const 18768)
+   (i32.const 18816)
   )
   (i32.store
    (i32.add
@@ -39508,7 +39508,7 @@
            (get_local $8)
            (i32.const 16)
           )
-          (i32.const 18784)
+          (i32.const 18832)
          )
          (block $label$11
           (br_if $label$11
@@ -39569,7 +39569,7 @@
            (get_local $8)
            (i32.const 16)
           )
-          (i32.const 18800)
+          (i32.const 18848)
          )
          (block $label$12
           (br_if $label$12
@@ -39605,7 +39605,7 @@
            (get_local $8)
            (i32.const 16)
           )
-          (i32.const 18816)
+          (i32.const 18864)
          )
          (block $label$13
           (br_if $label$13
@@ -39635,7 +39635,7 @@
             (get_local $8)
             (i32.const 16)
            )
-           (i32.const 18832)
+           (i32.const 18880)
            (i32.const 4)
           )
          )
@@ -39646,7 +39646,7 @@
          (drop
           (call $memcpy
            (get_local $7)
-           (i32.const 18836)
+           (i32.const 18884)
            (i32.const 4)
           )
          )
@@ -39665,7 +39665,7 @@
              (i32.const 8)
             )
            )
-           (i32.const 18840)
+           (i32.const 18888)
            (i32.const 4)
           )
          )
@@ -39751,7 +39751,7 @@
          )
          (call $enumivo_assert
           (get_local $6)
-          (i32.const 18848)
+          (i32.const 18896)
          )
          (i64.store align=4
           (i32.add
@@ -39780,7 +39780,7 @@
           (i32.ge_u
            (tee_local $7
             (call $strlen
-             (i32.const 18864)
+             (i32.const 18912)
             )
            )
            (i32.const -16)
@@ -39850,7 +39850,7 @@
           (drop
            (call $memcpy
             (get_local $6)
-            (i32.const 18864)
+            (i32.const 18912)
             (get_local $7)
            )
           )
@@ -39883,7 +39883,7 @@
           (i32.ge_u
            (tee_local $7
             (call $strlen
-             (i32.const 18880)
+             (i32.const 18928)
             )
            )
            (i32.const -16)
@@ -39960,7 +39960,7 @@
           (drop
            (call $memcpy
             (get_local $6)
-            (i32.const 18880)
+            (i32.const 18928)
             (get_local $7)
            )
           )
@@ -39993,7 +39993,7 @@
           (i32.ge_u
            (tee_local $7
             (call $strlen
-             (i32.const 18896)
+             (i32.const 18944)
             )
            )
            (i32.const -16)
@@ -40070,7 +40070,7 @@
           (drop
            (call $memcpy
             (get_local $6)
-            (i32.const 18896)
+            (i32.const 18944)
             (get_local $7)
            )
           )
@@ -40574,7 +40574,7 @@
                                                    (get_local $8)
                                                    (i32.const 144)
                                                   )
-                                                  (i32.const 18912)
+                                                  (i32.const 18960)
                                                  )
                                                  (call $_ZNSt3__16__treeINS_12__value_typeIiNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEENS_19__map_value_compareIiS8_NS_4lessIiEELb1EEENS5_IS8_EEE7destroyEPNS_11__tree_nodeIS8_PvEE
                                                   (i32.add
@@ -40699,7 +40699,7 @@
                                             (i32.gt_u
                                              (tee_local $7
                                               (call $strlen
-                                               (i32.const 7840)
+                                               (i32.const 7888)
                                               )
                                              )
                                              (i32.const -17)
@@ -40780,7 +40780,7 @@
                                        (drop
                                         (call $memcpy
                                          (get_local $6)
-                                         (i32.const 7840)
+                                         (i32.const 7888)
                                          (get_local $7)
                                         )
                                        )
@@ -40805,7 +40805,7 @@
                                         (get_local $8)
                                         (i32.const 16)
                                        )
-                                       (i32.const 18928)
+                                       (i32.const 18976)
                                       )
                                       (br_if $label$25
                                        (i32.eqz
@@ -41051,7 +41051,7 @@
    )
   )
   (drop
-   (call $_ZN5enumivolsINS_10datastreamIPcEEEERT_S5_RKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEE
+   (call $_ZN7enumivolsINS_10datastreamIPcEEEERT_S5_RKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEE
     (i32.add
      (get_local $8)
      (i32.const 16)
@@ -41077,7 +41077,7 @@
    )
   )
   (drop
-   (call $_ZN5enumivorsINS_10datastreamIPcEEEERT_S5_RNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEE
+   (call $_ZN7enumivorsINS_10datastreamIPcEEEERT_S5_RNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEE
     (i32.add
      (get_local $8)
      (i32.const 16)
@@ -41308,7 +41308,7 @@
    )
   )
   (drop
-   (call $_ZN5enumivolsINS_10datastreamIPcEEiEERT_S5_RKNSt3__16vectorIT0_NS6_9allocatorIS8_EEEE
+   (call $_ZN7enumivolsINS_10datastreamIPcEEiEERT_S5_RKNSt3__16vectorIT0_NS6_9allocatorIS8_EEEE
     (i32.add
      (get_local $5)
      (i32.const 16)
@@ -41334,7 +41334,7 @@
    )
   )
   (drop
-   (call $_ZN5enumivorsINS_10datastreamIPcEEiEERT_S5_RNSt3__16vectorIT0_NS6_9allocatorIS8_EEEE
+   (call $_ZN7enumivorsINS_10datastreamIPcEEiEERT_S5_RNSt3__16vectorIT0_NS6_9allocatorIS8_EEEE
     (i32.add
      (get_local $5)
      (i32.const 16)
@@ -41916,7 +41916,7 @@
    )
   )
   (drop
-   (call $_ZN5enumivolsINS_10datastreamIPcEEiNSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEEERT_SC_RKNS4_3mapIT0_T1_NS4_4lessISE_EENS8_INS4_4pairIKSE_SF_EEEEEE
+   (call $_ZN7enumivolsINS_10datastreamIPcEEiNSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEEERT_SC_RKNS4_3mapIT0_T1_NS4_4lessISE_EENS8_INS4_4pairIKSE_SF_EEEEEE
     (i32.add
      (get_local $10)
      (i32.const 16)
@@ -41949,7 +41949,7 @@
    )
   )
   (drop
-   (call $_ZN5enumivorsINS_10datastreamIPcEEiNSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEEERT_SC_RNS4_3mapIT0_T1_NS4_4lessISE_EENS8_INS4_4pairIKSE_SF_EEEEEE
+   (call $_ZN7enumivorsINS_10datastreamIPcEEiNSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEEERT_SC_RNS4_3mapIT0_T1_NS4_4lessISE_EENS8_INS4_4pairIKSE_SF_EEEEEE
     (i32.add
      (get_local $10)
      (i32.const 16)
@@ -42418,7 +42418,7 @@
    )
   )
   (drop
-   (call $_ZN5enumivolsINS_10datastreamIPcEEEERT_S5_RKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEE
+   (call $_ZN7enumivolsINS_10datastreamIPcEEEERT_S5_RKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEE
     (i32.add
      (get_local $11)
      (i32.const 32)
@@ -42521,7 +42521,7 @@
    )
   )
   (drop
-   (call $_ZN5enumivorsINS_10datastreamIPcEEEERT_S5_RNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEE
+   (call $_ZN7enumivorsINS_10datastreamIPcEEEERT_S5_RNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEE
     (i32.add
      (get_local $11)
      (i32.const 32)
@@ -42783,7 +42783,7 @@
    )
   )
  )
- (func $_ZN5enumivolsINS_10datastreamIPcEEEERT_S5_RKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN7enumivolsINS_10datastreamIPcEEEERT_S5_RKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -42997,7 +42997,7 @@
   )
   (get_local $0)
  )
- (func $_ZN5enumivorsINS_10datastreamIPcEEEERT_S5_RNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN7enumivorsINS_10datastreamIPcEEEERT_S5_RNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -43024,7 +43024,7 @@
    (i64.const 0)
   )
   (drop
-   (call $_ZN5enumivorsINS_10datastreamIPcEEEERT_S5_RNSt3__16vectorIcNS6_9allocatorIcEEEE
+   (call $_ZN7enumivorsINS_10datastreamIPcEEEERT_S5_RNSt3__16vectorIcNS6_9allocatorIcEEEE
     (get_local $0)
     (i32.add
      (get_local $7)
@@ -43316,7 +43316,7 @@
   )
   (unreachable)
  )
- (func $_ZN5enumivorsINS_10datastreamIPcEEEERT_S5_RNSt3__16vectorIcNS6_9allocatorIcEEEE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN7enumivorsINS_10datastreamIPcEEEERT_S5_RNSt3__16vectorIcNS6_9allocatorIcEEEE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -43525,7 +43525,7 @@
   )
   (get_local $0)
  )
- (func $_ZN5enumivolsINS_10datastreamIPcEEiNSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEEERT_SC_RKNS4_3mapIT0_T1_NS4_4lessISE_EENS8_INS4_4pairIKSE_SF_EEEEEE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN7enumivolsINS_10datastreamIPcEEiNSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEEERT_SC_RKNS4_3mapIT0_T1_NS4_4lessISE_EENS8_INS4_4pairIKSE_SF_EEEEEE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i64)
@@ -43696,7 +43696,7 @@
      )
     )
     (drop
-     (call $_ZN5enumivolsINS_10datastreamIPcEEEERT_S5_RKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEE
+     (call $_ZN7enumivolsINS_10datastreamIPcEEEERT_S5_RKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEE
       (get_local $0)
       (i32.add
        (get_local $7)
@@ -43797,7 +43797,7 @@
   )
   (get_local $0)
  )
- (func $_ZN5enumivorsINS_10datastreamIPcEEiNSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEEERT_SC_RNS4_3mapIT0_T1_NS4_4lessISE_EENS8_INS4_4pairIKSE_SF_EEEEEE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN7enumivorsINS_10datastreamIPcEEiNSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEEERT_SC_RNS4_3mapIT0_T1_NS4_4lessISE_EENS8_INS4_4pairIKSE_SF_EEEEEE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -44001,7 +44001,7 @@
      )
     )
     (drop
-     (call $_ZN5enumivorsINS_10datastreamIPcEEEERT_S5_RNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEE
+     (call $_ZN7enumivorsINS_10datastreamIPcEEEERT_S5_RNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEE
       (get_local $0)
       (get_local $13)
      )
@@ -44256,7 +44256,7 @@
   )
   (get_local $0)
  )
- (func $_ZN5enumivolsINS_10datastreamIPcEEiEERT_S5_RKNSt3__16vectorIT0_NS6_9allocatorIS8_EEEE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN7enumivolsINS_10datastreamIPcEEiEERT_S5_RKNSt3__16vectorIT0_NS6_9allocatorIS8_EEEE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -44459,7 +44459,7 @@
   )
   (get_local $0)
  )
- (func $_ZN5enumivorsINS_10datastreamIPcEEiEERT_S5_RNSt3__16vectorIT0_NS6_9allocatorIS8_EEEE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN7enumivorsINS_10datastreamIPcEEiEERT_S5_RNSt3__16vectorIT0_NS6_9allocatorIS8_EEEE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -45011,7 +45011,7 @@
    (i64.const 59)
   )
   (set_local $5
-   (i32.const 18944)
+   (i32.const 18992)
   )
   (set_local $8
    (i64.const 0)
@@ -45025,7 +45025,7 @@
         (br_if $label$5
          (i64.gt_u
           (get_local $7)
-          (i64.const 4)
+          (i64.const 6)
          )
         )
         (br_if $label$4
@@ -45155,7 +45155,7 @@
        (i64.const 59)
       )
       (set_local $5
-       (i32.const 18960)
+       (i32.const 19008)
       )
       (set_local $8
        (i64.const 0)
@@ -45288,14 +45288,14 @@
         (get_local $2)
        )
       )
-      (call $_ZN5enumivo18unpack_action_dataINS_7onerrorEEET_v
+      (call $_ZN7enumivo18unpack_action_dataINS_7onerrorEEET_v
        (i32.add
         (get_local $10)
         (i32.const 32)
        )
       )
       (call $prints
-       (i32.const 18976)
+       (i32.const 19024)
       )
       (set_local $3
        (i32.load
@@ -45406,7 +45406,7 @@
        (get_local $3)
       )
       (drop
-       (call $_ZN5enumivorsINS_10datastreamIPKcEEEERT_S6_RNS_18transaction_headerE
+       (call $_ZN7enumivorsINS_10datastreamIPKcEEEERT_S6_RNS_18transaction_headerE
         (i32.add
          (get_local $10)
          (i32.const 16)
@@ -45418,9 +45418,9 @@
        )
       )
       (drop
-       (call $_ZN5enumivorsINS_10datastreamIPKcEENSt3__15tupleIJtNS5_6vectorIcNS5_9allocatorIcEEEEEEEEERT_SD_RNS7_IT0_NS8_ISE_EEEE
-        (call $_ZN5enumivorsINS_10datastreamIPKcEENS_6actionEEERT_S7_RNSt3__16vectorIT0_NS8_9allocatorISA_EEEE
-         (call $_ZN5enumivorsINS_10datastreamIPKcEENS_6actionEEERT_S7_RNSt3__16vectorIT0_NS8_9allocatorISA_EEEE
+       (call $_ZN7enumivorsINS_10datastreamIPKcEENSt3__15tupleIJtNS5_6vectorIcNS5_9allocatorIcEEEEEEEEERT_SD_RNS7_IT0_NS8_ISE_EEEE
+        (call $_ZN7enumivorsINS_10datastreamIPKcEENS_6actionEEERT_S7_RNSt3__16vectorIT0_NS8_9allocatorISA_EEEE
+         (call $_ZN7enumivorsINS_10datastreamIPKcEENS_6actionEEERT_S7_RNSt3__16vectorIT0_NS8_9allocatorISA_EEEE
           (i32.add
            (get_local $10)
            (i32.const 16)
@@ -45464,7 +45464,7 @@
          (i64.const -8665432478290165179)
         )
        )
-       (call $_ZN16test_transaction26assert_false_error_handlerERKN5enumivo11transactionE
+       (call $_ZN16test_transaction26assert_false_error_handlerERKN7enumivo11transactionE
         (i32.add
          (get_local $10)
          (i32.const 208)
@@ -45472,7 +45472,7 @@
        )
       )
       (drop
-       (call $_ZN5enumivo11transactionD2Ev
+       (call $_ZN7enumivo11transactionD2Ev
         (i32.add
          (get_local $10)
          (i32.const 208)
@@ -45847,7 +45847,7 @@
                                )
                                (call $enumivo_assert
                                 (i32.const 0)
-                                (i32.const 6544)
+                                (i32.const 6592)
                                )
                                (br $label$6)
                               )
@@ -46004,7 +46004,7 @@
                           )
                           (call $enumivo_assert
                            (i32.const 0)
-                           (i32.const 7776)
+                           (i32.const 7824)
                           )
                           (br $label$6)
                          )
@@ -46166,7 +46166,7 @@
            )
            (call $enumivo_assert
             (i32.const 0)
-            (i32.const 6544)
+            (i32.const 6592)
            )
            (br $label$6)
           )
@@ -46190,7 +46190,7 @@
           )
           (call $enumivo_assert
            (i32.const 0)
-           (i32.const 7776)
+           (i32.const 7824)
           )
           (br $label$6)
          )
@@ -46493,7 +46493,7 @@
                                                                                  (i64.const 59)
                                                                                 )
                                                                                 (set_local $5
-                                                                                 (i32.const 18400)
+                                                                                 (i32.const 18448)
                                                                                 )
                                                                                 (set_local $8
                                                                                  (i64.const 0)
@@ -46671,7 +46671,7 @@
                                                                                 (i32.const 0)
                                                                                )
                                                                                (call $sha256
-                                                                                (i32.const 8960)
+                                                                                (i32.const 9008)
                                                                                 (i32.const 0)
                                                                                 (i32.add
                                                                                  (get_local $10)
@@ -46688,7 +46688,7 @@
                                                                                    (i32.load8_u
                                                                                     (i32.add
                                                                                      (get_local $5)
-                                                                                     (i32.const 9024)
+                                                                                     (i32.const 9072)
                                                                                     )
                                                                                    )
                                                                                    (i32.load8_u
@@ -46720,7 +46720,7 @@
                                                                                )
                                                                                (call $enumivo_assert
                                                                                 (get_local $3)
-                                                                                (i32.const 9056)
+                                                                                (i32.const 9104)
                                                                                )
                                                                                (br $label$6)
                                                                               )
@@ -46778,7 +46778,7 @@
                                                                                 )
                                                                                 (i32.const 0)
                                                                                )
-                                                                               (i32.const 18128)
+                                                                               (i32.const 18176)
                                                                               )
                                                                               (br $label$6)
                                                                              )
@@ -46918,7 +46918,7 @@
                                                                              (call $transaction_size)
                                                                             )
                                                                             (call $prints
-                                                                             (i32.const 17648)
+                                                                             (i32.const 17696)
                                                                             )
                                                                             (call $printui
                                                                              (i64.extend_u/i32
@@ -46932,7 +46932,7 @@
                                                                               )
                                                                               (call $transaction_size)
                                                                              )
-                                                                             (i32.const 17664)
+                                                                             (i32.const 17712)
                                                                             )
                                                                             (br $label$6)
                                                                            )
@@ -46967,7 +46967,7 @@
                                                                             )
                                                                            )
                                                                            (call $sha512
-                                                                            (i32.const 7840)
+                                                                            (i32.const 7888)
                                                                             (i32.const 3)
                                                                             (i32.add
                                                                              (get_local $10)
@@ -46975,7 +46975,7 @@
                                                                             )
                                                                            )
                                                                            (call $assert_sha512
-                                                                            (i32.const 7840)
+                                                                            (i32.const 7888)
                                                                             (i32.const 3)
                                                                             (i32.add
                                                                              (get_local $10)
@@ -46983,7 +46983,7 @@
                                                                             )
                                                                            )
                                                                            (call $sha512
-                                                                            (i32.const 7904)
+                                                                            (i32.const 7952)
                                                                             (i32.const 56)
                                                                             (i32.add
                                                                              (get_local $10)
@@ -46991,7 +46991,7 @@
                                                                             )
                                                                            )
                                                                            (call $assert_sha512
-                                                                            (i32.const 7904)
+                                                                            (i32.const 7952)
                                                                             (i32.const 56)
                                                                             (i32.add
                                                                              (get_local $10)
@@ -46999,7 +46999,7 @@
                                                                             )
                                                                            )
                                                                            (call $sha512
-                                                                            (i32.const 8016)
+                                                                            (i32.const 8064)
                                                                             (i32.const 112)
                                                                             (i32.add
                                                                              (get_local $10)
@@ -47007,7 +47007,7 @@
                                                                             )
                                                                            )
                                                                            (call $assert_sha512
-                                                                            (i32.const 8016)
+                                                                            (i32.const 8064)
                                                                             (i32.const 112)
                                                                             (i32.add
                                                                              (get_local $10)
@@ -47015,7 +47015,7 @@
                                                                             )
                                                                            )
                                                                            (call $sha512
-                                                                            (i32.const 8192)
+                                                                            (i32.const 8240)
                                                                             (i32.const 14)
                                                                             (i32.add
                                                                              (get_local $10)
@@ -47023,7 +47023,7 @@
                                                                             )
                                                                            )
                                                                            (call $assert_sha512
-                                                                            (i32.const 8192)
+                                                                            (i32.const 8240)
                                                                             (i32.const 14)
                                                                             (i32.add
                                                                              (get_local $10)
@@ -47097,7 +47097,7 @@
                                                                            (i64.const -7078304396558272662)
                                                                           )
                                                                          )
-                                                                         (call $_ZN5enumivo18unpack_action_dataI29test_permission_last_used_msgEET_v
+                                                                         (call $_ZN7enumivo18unpack_action_dataI29test_permission_last_used_msgEET_v
                                                                           (i32.add
                                                                            (get_local $10)
                                                                            (i32.const 208)
@@ -47117,7 +47117,7 @@
                                                                             (get_local $10)
                                                                            )
                                                                           )
-                                                                          (i32.const 18464)
+                                                                          (i32.const 18512)
                                                                          )
                                                                          (br $label$6)
                                                                         )
@@ -47297,11 +47297,11 @@
                                                                    )
                                                                    (call $enumivo_assert
                                                                     (i32.const 1)
-                                                                    (i32.const 5888)
+                                                                    (i32.const 5936)
                                                                    )
                                                                    (call $enumivo_assert
                                                                     (i32.const 1)
-                                                                    (i32.const 5952)
+                                                                    (i32.const 6000)
                                                                    )
                                                                    (br $label$6)
                                                                   )
@@ -47353,7 +47353,7 @@
                                                                   )
                                                                  )
                                                                  (call $ripemd160
-                                                                  (i32.const 7840)
+                                                                  (i32.const 7888)
                                                                   (i32.const 3)
                                                                   (i32.add
                                                                    (get_local $10)
@@ -47370,7 +47370,7 @@
                                                                   )
                                                                  )
                                                                  (call $assert_ripemd160
-                                                                  (i32.const 7840)
+                                                                  (i32.const 7888)
                                                                   (i32.const 3)
                                                                   (i32.add
                                                                    (get_local $10)
@@ -47379,7 +47379,7 @@
                                                                  )
                                                                  (call $enumivo_assert
                                                                   (i32.const 0)
-                                                                  (i32.const 9200)
+                                                                  (i32.const 9248)
                                                                  )
                                                                  (br $label$6)
                                                                 )
@@ -47411,7 +47411,7 @@
                                                                 )
                                                                )
                                                                (call $sha256
-                                                                (i32.const 7840)
+                                                                (i32.const 7888)
                                                                 (i32.const 3)
                                                                 (i32.add
                                                                  (get_local $10)
@@ -47419,7 +47419,7 @@
                                                                 )
                                                                )
                                                                (call $assert_sha256
-                                                                (i32.const 7840)
+                                                                (i32.const 7888)
                                                                 (i32.const 3)
                                                                 (i32.add
                                                                  (get_local $10)
@@ -47427,7 +47427,7 @@
                                                                 )
                                                                )
                                                                (call $sha256
-                                                                (i32.const 7904)
+                                                                (i32.const 7952)
                                                                 (i32.const 56)
                                                                 (i32.add
                                                                  (get_local $10)
@@ -47435,7 +47435,7 @@
                                                                 )
                                                                )
                                                                (call $assert_sha256
-                                                                (i32.const 7904)
+                                                                (i32.const 7952)
                                                                 (i32.const 56)
                                                                 (i32.add
                                                                  (get_local $10)
@@ -47443,7 +47443,7 @@
                                                                 )
                                                                )
                                                                (call $sha256
-                                                                (i32.const 8016)
+                                                                (i32.const 8064)
                                                                 (i32.const 112)
                                                                 (i32.add
                                                                  (get_local $10)
@@ -47451,7 +47451,7 @@
                                                                 )
                                                                )
                                                                (call $assert_sha256
-                                                                (i32.const 8016)
+                                                                (i32.const 8064)
                                                                 (i32.const 112)
                                                                 (i32.add
                                                                  (get_local $10)
@@ -47459,7 +47459,7 @@
                                                                 )
                                                                )
                                                                (call $sha256
-                                                                (i32.const 8192)
+                                                                (i32.const 8240)
                                                                 (i32.const 14)
                                                                 (i32.add
                                                                  (get_local $10)
@@ -47467,7 +47467,7 @@
                                                                 )
                                                                )
                                                                (call $assert_sha256
-                                                                (i32.const 8192)
+                                                                (i32.const 8240)
                                                                 (i32.const 14)
                                                                 (i32.add
                                                                  (get_local $10)
@@ -47528,7 +47528,7 @@
                                                                )
                                                                (i32.const 21)
                                                               )
-                                                              (i32.const 9232)
+                                                              (i32.const 9280)
                                                              )
                                                              (set_local $5
                                                               (i32.const 1)
@@ -47567,7 +47567,7 @@
                                                                  )
                                                                 )
                                                                )
-                                                               (i32.const 9264)
+                                                               (i32.const 9312)
                                                               )
                                                               (br_if $label$144
                                                                (i32.ne
@@ -47611,7 +47611,7 @@
                                                               )
                                                               (call $tapos_block_prefix)
                                                              )
-                                                             (i32.const 17536)
+                                                             (i32.const 17584)
                                                             )
                                                             (br $label$6)
                                                            )
@@ -47629,27 +47629,27 @@
                                                            )
                                                            (call $enumivo_assert
                                                             (i32.const 1)
-                                                            (i32.const 5232)
+                                                            (i32.const 5280)
                                                            )
                                                            (call $enumivo_assert
                                                             (i32.const 1)
-                                                            (i32.const 5312)
+                                                            (i32.const 5360)
                                                            )
                                                            (call $enumivo_assert
                                                             (i32.const 1)
-                                                            (i32.const 5376)
+                                                            (i32.const 5424)
                                                            )
                                                            (call $enumivo_assert
                                                             (i32.const 1)
-                                                            (i32.const 5440)
+                                                            (i32.const 5488)
                                                            )
                                                            (call $enumivo_assert
                                                             (i32.const 1)
-                                                            (i32.const 5504)
+                                                            (i32.const 5552)
                                                            )
                                                            (call $enumivo_assert
                                                             (i32.const 1)
-                                                            (i32.const 5568)
+                                                            (i32.const 5616)
                                                            )
                                                            (br $label$6)
                                                           )
@@ -47720,7 +47720,7 @@
                                                           )
                                                           (call $tapos_block_num)
                                                          )
-                                                         (i32.const 17584)
+                                                         (i32.const 17632)
                                                         )
                                                         (br $label$6)
                                                        )
@@ -47798,7 +47798,7 @@
                                                          )
                                                          (call $enumivo_assert
                                                           (i32.const 0)
-                                                          (i32.const 7808)
+                                                          (i32.const 7856)
                                                          )
                                                         )
                                                         (br_if $label$145
@@ -47995,7 +47995,7 @@
                                                   )
                                                  )
                                                  (call $sha1
-                                                  (i32.const 7840)
+                                                  (i32.const 7888)
                                                   (i32.const 3)
                                                   (i32.add
                                                    (get_local $10)
@@ -48012,7 +48012,7 @@
                                                   )
                                                  )
                                                  (call $assert_sha1
-                                                  (i32.const 7840)
+                                                  (i32.const 7888)
                                                   (i32.const 3)
                                                   (i32.add
                                                    (get_local $10)
@@ -48021,7 +48021,7 @@
                                                  )
                                                  (call $enumivo_assert
                                                   (i32.const 0)
-                                                  (i32.const 9200)
+                                                  (i32.const 9248)
                                                  )
                                                  (br $label$6)
                                                 )
@@ -48065,12 +48065,12 @@
                                               )
                                               (call $enumivo_assert
                                                (i32.const 0)
-                                               (i32.const 7776)
+                                               (i32.const 7824)
                                               )
                                               (br $label$6)
                                              )
                                              (call $sha256
-                                              (i32.const 7840)
+                                              (i32.const 7888)
                                               (i32.const 3)
                                               (i32.add
                                                (get_local $10)
@@ -48087,7 +48087,7 @@
                                               )
                                              )
                                              (call $assert_sha256
-                                              (i32.const 7840)
+                                              (i32.const 7888)
                                               (i32.const 3)
                                               (i32.add
                                                (get_local $10)
@@ -48096,7 +48096,7 @@
                                              )
                                              (call $enumivo_assert
                                               (i32.const 0)
-                                              (i32.const 9200)
+                                              (i32.const 9248)
                                              )
                                              (br $label$6)
                                             )
@@ -48188,7 +48188,7 @@
                                          (br $label$6)
                                         )
                                         (call $prints
-                                         (i32.const 18096)
+                                         (i32.const 18144)
                                         )
                                         (br $label$6)
                                        )
@@ -48199,7 +48199,7 @@
                                         (i64.const 59)
                                        )
                                        (set_local $5
-                                        (i32.const 18400)
+                                        (i32.const 18448)
                                        )
                                        (set_local $8
                                         (i64.const 0)
@@ -48332,7 +48332,7 @@
                                           (get_local $8)
                                          )
                                         )
-                                        (i32.const 18416)
+                                        (i32.const 18464)
                                        )
                                        (br $label$6)
                                       )
@@ -48340,7 +48340,7 @@
                                        (i32.const 0)
                                       )
                                       (call $sha512
-                                       (i32.const 8960)
+                                       (i32.const 9008)
                                        (i32.const 0)
                                        (i32.add
                                         (get_local $10)
@@ -48357,7 +48357,7 @@
                                           (i32.load8_u
                                            (i32.add
                                             (get_local $5)
-                                            (i32.const 9072)
+                                            (i32.const 9120)
                                            )
                                           )
                                           (i32.load8_u
@@ -48389,12 +48389,12 @@
                                       )
                                       (call $enumivo_assert
                                        (get_local $3)
-                                       (i32.const 9136)
+                                       (i32.const 9184)
                                       )
                                       (br $label$6)
                                      )
                                      (call $sha512
-                                      (i32.const 7840)
+                                      (i32.const 7888)
                                       (i32.const 3)
                                       (i32.add
                                        (get_local $10)
@@ -48411,7 +48411,7 @@
                                       )
                                      )
                                      (call $assert_sha512
-                                      (i32.const 7840)
+                                      (i32.const 7888)
                                       (i32.const 3)
                                       (i32.add
                                        (get_local $10)
@@ -48420,7 +48420,7 @@
                                      )
                                      (call $enumivo_assert
                                       (i32.const 0)
-                                      (i32.const 9200)
+                                      (i32.const 9248)
                                      )
                                      (br $label$6)
                                     )
@@ -48449,7 +48449,7 @@
                                    (br $label$6)
                                   )
                                   (call $sha1
-                                   (i32.const 7840)
+                                   (i32.const 7888)
                                    (i32.const 3)
                                    (i32.add
                                     (get_local $10)
@@ -48457,7 +48457,7 @@
                                    )
                                   )
                                   (call $assert_sha1
-                                   (i32.const 7840)
+                                   (i32.const 7888)
                                    (i32.const 3)
                                    (i32.add
                                     (get_local $10)
@@ -48465,7 +48465,7 @@
                                    )
                                   )
                                   (call $sha1
-                                   (i32.const 7904)
+                                   (i32.const 7952)
                                    (i32.const 56)
                                    (i32.add
                                     (get_local $10)
@@ -48473,7 +48473,7 @@
                                    )
                                   )
                                   (call $assert_sha1
-                                   (i32.const 7904)
+                                   (i32.const 7952)
                                    (i32.const 56)
                                    (i32.add
                                     (get_local $10)
@@ -48481,7 +48481,7 @@
                                    )
                                   )
                                   (call $sha1
-                                   (i32.const 8016)
+                                   (i32.const 8064)
                                    (i32.const 112)
                                    (i32.add
                                     (get_local $10)
@@ -48489,7 +48489,7 @@
                                    )
                                   )
                                   (call $assert_sha1
-                                   (i32.const 8016)
+                                   (i32.const 8064)
                                    (i32.const 112)
                                    (i32.add
                                     (get_local $10)
@@ -48497,7 +48497,7 @@
                                    )
                                   )
                                   (call $sha1
-                                   (i32.const 8192)
+                                   (i32.const 8240)
                                    (i32.const 14)
                                    (i32.add
                                     (get_local $10)
@@ -48505,7 +48505,7 @@
                                    )
                                   )
                                   (call $assert_sha1
-                                   (i32.const 8192)
+                                   (i32.const 8240)
                                    (i32.const 14)
                                    (i32.add
                                     (get_local $10)
@@ -48514,7 +48514,7 @@
                                   )
                                   (br $label$6)
                                  )
-                                 (call $_ZN5enumivo18unpack_action_dataI29test_permission_last_used_msgEET_v
+                                 (call $_ZN7enumivo18unpack_action_dataI29test_permission_last_used_msgEET_v
                                   (i32.add
                                    (get_local $10)
                                    (i32.const 208)
@@ -48531,7 +48531,7 @@
                                     (get_local $10)
                                    )
                                   )
-                                  (i32.const 18512)
+                                  (i32.const 18560)
                                  )
                                  (br $label$6)
                                 )
@@ -48653,11 +48653,11 @@
                       )
                       (call $enumivo_assert
                        (i32.const 1)
-                       (i32.const 5632)
+                       (i32.const 5680)
                       )
                       (call $enumivo_assert
                        (i32.const 1)
-                       (i32.const 5696)
+                       (i32.const 5744)
                       )
                       (br $label$6)
                      )
@@ -48668,7 +48668,7 @@
                      (i32.const 0)
                     )
                     (call $sha1
-                     (i32.const 8960)
+                     (i32.const 9008)
                      (i32.const 0)
                      (i32.add
                       (get_local $10)
@@ -48685,7 +48685,7 @@
                         (i32.load8_u
                          (i32.add
                           (get_local $5)
-                          (i32.const 8976)
+                          (i32.const 9024)
                          )
                         )
                         (i32.load8_u
@@ -48717,7 +48717,7 @@
                     )
                     (call $enumivo_assert
                      (get_local $3)
-                     (i32.const 9008)
+                     (i32.const 9056)
                     )
                     (br $label$6)
                    )
@@ -48786,15 +48786,15 @@
               )
               (call $enumivo_assert
                (i32.const 0)
-               (i32.const 6016)
+               (i32.const 6064)
               )
               (call $enumivo_assert
                (i32.const 0)
-               (i32.const 6016)
+               (i32.const 6064)
               )
               (call $enumivo_assert
                (i32.const 0)
-               (i32.const 6160)
+               (i32.const 6208)
               )
               (br $label$6)
              )
@@ -48814,7 +48814,7 @@
              (i32.const 0)
             )
             (call $ripemd160
-             (i32.const 8960)
+             (i32.const 9008)
              (i32.const 0)
              (i32.add
               (get_local $10)
@@ -48831,7 +48831,7 @@
                 (i32.load8_u
                  (i32.add
                   (get_local $5)
-                  (i32.const 9152)
+                  (i32.const 9200)
                  )
                 )
                 (i32.load8_u
@@ -48863,7 +48863,7 @@
             )
             (call $enumivo_assert
              (get_local $3)
-             (i32.const 9184)
+             (i32.const 9232)
             )
             (br $label$6)
            )
@@ -48871,7 +48871,7 @@
            (br $label$6)
           )
           (call $ripemd160
-           (i32.const 7840)
+           (i32.const 7888)
            (i32.const 3)
            (i32.add
             (get_local $10)
@@ -48879,7 +48879,7 @@
            )
           )
           (call $assert_ripemd160
-           (i32.const 7840)
+           (i32.const 7888)
            (i32.const 3)
            (i32.add
             (get_local $10)
@@ -48887,7 +48887,7 @@
            )
           )
           (call $ripemd160
-           (i32.const 7904)
+           (i32.const 7952)
            (i32.const 56)
            (i32.add
             (get_local $10)
@@ -48895,7 +48895,7 @@
            )
           )
           (call $assert_ripemd160
-           (i32.const 7904)
+           (i32.const 7952)
            (i32.const 56)
            (i32.add
             (get_local $10)
@@ -48903,7 +48903,7 @@
            )
           )
           (call $ripemd160
-           (i32.const 8016)
+           (i32.const 8064)
            (i32.const 112)
            (i32.add
             (get_local $10)
@@ -48911,7 +48911,7 @@
            )
           )
           (call $assert_ripemd160
-           (i32.const 8016)
+           (i32.const 8064)
            (i32.const 112)
            (i32.add
             (get_local $10)
@@ -48919,7 +48919,7 @@
            )
           )
           (call $ripemd160
-           (i32.const 8192)
+           (i32.const 8240)
            (i32.const 14)
            (i32.add
             (get_local $10)
@@ -48927,7 +48927,7 @@
            )
           )
           (call $assert_ripemd160
-           (i32.const 8192)
+           (i32.const 8240)
            (i32.const 14)
            (i32.add
             (get_local $10)
@@ -48953,7 +48953,7 @@
             )
            )
           )
-          (i32.const 18160)
+          (i32.const 18208)
          )
          (br $label$6)
         )
@@ -48986,19 +48986,19 @@
       )
       (call $enumivo_assert
        (i32.const 1)
-       (i32.const 5760)
+       (i32.const 5808)
       )
       (call $enumivo_assert
        (i32.const 1)
-       (i32.const 5760)
+       (i32.const 5808)
       )
       (call $enumivo_assert
        (i32.const 1)
-       (i32.const 5824)
+       (i32.const 5872)
       )
       (call $enumivo_assert
        (i32.const 1)
-       (i32.const 5824)
+       (i32.const 5872)
       )
       (br $label$6)
      )
@@ -49026,7 +49026,7 @@
    )
    (call $enumivo_assert
     (i32.const 0)
-    (i32.const 18992)
+    (i32.const 19040)
    )
   )
   (i32.store offset=4
@@ -49037,7 +49037,7 @@
    )
   )
  )
- (func $_ZN5enumivo18unpack_action_dataINS_7onerrorEEET_v (param $0 i32)
+ (func $_ZN7enumivo18unpack_action_dataINS_7onerrorEEET_v (param $0 i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -49138,7 +49138,7 @@
    )
   )
   (drop
-   (call $_ZN5enumivorsINS_10datastreamIPKcEEEERT_S6_RNSt3__16vectorIcNS7_9allocatorIcEEEE
+   (call $_ZN7enumivorsINS_10datastreamIPKcEEEERT_S6_RNSt3__16vectorIcNS7_9allocatorIcEEEE
     (get_local $3)
     (i32.add
      (get_local $0)
@@ -49154,7 +49154,7 @@
    )
   )
  )
- (func $_ZN5enumivorsINS_10datastreamIPKcEEEERT_S6_RNS_18transaction_headerE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN7enumivorsINS_10datastreamIPKcEEEERT_S6_RNS_18transaction_headerE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -49457,7 +49457,7 @@
   )
   (get_local $0)
  )
- (func $_ZN5enumivorsINS_10datastreamIPKcEENS_6actionEEERT_S7_RNSt3__16vectorIT0_NS8_9allocatorISA_EEEE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN7enumivorsINS_10datastreamIPKcEENS_6actionEEERT_S7_RNSt3__16vectorIT0_NS8_9allocatorISA_EEEE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -49575,7 +49575,7 @@
       )
      )
     )
-    (call $_ZNSt3__16vectorIN5enumivo6actionENS_9allocatorIS2_EEE8__appendEj
+    (call $_ZNSt3__16vectorIN7enumivo6actionENS_9allocatorIS2_EEE8__appendEj
      (get_local $1)
      (i32.sub
       (get_local $4)
@@ -49794,8 +49794,8 @@
      )
     )
     (drop
-     (call $_ZN5enumivorsINS_10datastreamIPKcEEEERT_S6_RNSt3__16vectorIcNS7_9allocatorIcEEEE
-      (call $_ZN5enumivorsINS_10datastreamIPKcEENS_16permission_levelEEERT_S7_RNSt3__16vectorIT0_NS8_9allocatorISA_EEEE
+     (call $_ZN7enumivorsINS_10datastreamIPKcEEEERT_S6_RNSt3__16vectorIcNS7_9allocatorIcEEEE
+      (call $_ZN7enumivorsINS_10datastreamIPKcEENS_16permission_levelEEERT_S7_RNSt3__16vectorIT0_NS8_9allocatorISA_EEEE
        (get_local $0)
        (i32.add
         (get_local $7)
@@ -49823,7 +49823,7 @@
   )
   (get_local $0)
  )
- (func $_ZN5enumivorsINS_10datastreamIPKcEENSt3__15tupleIJtNS5_6vectorIcNS5_9allocatorIcEEEEEEEEERT_SD_RNS7_IT0_NS8_ISE_EEEE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN7enumivorsINS_10datastreamIPKcEENSt3__15tupleIJtNS5_6vectorIcNS5_9allocatorIcEEEEEEEEERT_SD_RNS7_IT0_NS8_ISE_EEEE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -50101,7 +50101,7 @@
      )
     )
     (drop
-     (call $_ZN5enumivorsINS_10datastreamIPKcEEEERT_S6_RNSt3__16vectorIcNS7_9allocatorIcEEEE
+     (call $_ZN7enumivorsINS_10datastreamIPKcEEEERT_S6_RNSt3__16vectorIcNS7_9allocatorIcEEEE
       (get_local $0)
       (i32.add
        (get_local $4)
@@ -50598,7 +50598,7 @@
    )
   )
  )
- (func $_ZNSt3__16vectorIN5enumivo6actionENS_9allocatorIS2_EEE8__appendEj (param $0 i32) (param $1 i32)
+ (func $_ZNSt3__16vectorIN7enumivo6actionENS_9allocatorIS2_EEE8__appendEj (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -51184,7 +51184,7 @@
     (br_if $label$0
      (i32.eqz
       (tee_local $2
-       (i32.load offset=19008
+       (i32.load offset=19056
         (i32.const 0)
        )
       )
@@ -52105,12 +52105,12 @@
   )
  )
  (func $malloc (param $0 i32) (result i32)
-  (call $_ZN5enumivo14memory_manager6mallocEm
-   (i32.const 19012)
+  (call $_ZN7enumivo14memory_manager6mallocEm
+   (i32.const 19060)
    (get_local $0)
   )
  )
- (func $_ZN5enumivo14memory_manager6mallocEm (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZN7enumivo14memory_manager6mallocEm (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -52293,7 +52293,7 @@
        )
        (br_if $label$6
         (tee_local $1
-         (call $_ZN5enumivo14memory_manager16next_active_heapEv
+         (call $_ZN7enumivo14memory_manager16next_active_heapEv
           (get_local $0)
          )
         )
@@ -52351,7 +52351,7 @@
          )
         )
        )
-       (i32.const 27408)
+       (i32.const 27456)
       )
       (set_local $13
        (i32.add
@@ -52557,7 +52557,7 @@
   )
   (i32.const 0)
  )
- (func $_ZN5enumivo14memory_manager16next_active_heapEv (param $0 i32) (result i32)
+ (func $_ZN7enumivo14memory_manager16next_active_heapEv (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -52575,13 +52575,13 @@
    (block $label$1
     (br_if $label$1
      (i32.eqz
-      (i32.load8_u offset=27494
+      (i32.load8_u offset=27542
        (i32.const 0)
       )
      )
     )
     (set_local $7
-     (i32.load offset=27496
+     (i32.load offset=27544
       (i32.const 0)
      )
     )
@@ -52590,11 +52590,11 @@
    (set_local $7
     (current_memory)
    )
-   (i32.store8 offset=27494
+   (i32.store8 offset=27542
     (i32.const 0)
     (i32.const 1)
    )
-   (i32.store offset=27496
+   (i32.store offset=27544
     (i32.const 0)
     (tee_local $7
      (i32.shl
@@ -52645,7 +52645,7 @@
        )
       )
       (set_local $3
-       (i32.load offset=27496
+       (i32.load offset=27544
         (i32.const 0)
        )
       )
@@ -52653,7 +52653,7 @@
      (set_local $8
       (i32.const 0)
      )
-     (i32.store offset=27496
+     (i32.store offset=27544
       (i32.const 0)
       (get_local $3)
      )
@@ -52707,18 +52707,18 @@
      )
      (block $label$6
       (br_if $label$6
-       (i32.load8_u offset=27494
+       (i32.load8_u offset=27542
         (i32.const 0)
        )
       )
       (set_local $3
        (current_memory)
       )
-      (i32.store8 offset=27494
+      (i32.store8 offset=27542
        (i32.const 0)
        (i32.const 1)
       )
-      (i32.store offset=27496
+      (i32.store offset=27544
        (i32.const 0)
        (tee_local $3
         (i32.shl
@@ -52786,12 +52786,12 @@
        )
       )
       (set_local $6
-       (i32.load offset=27496
+       (i32.load offset=27544
         (i32.const 0)
        )
       )
      )
-     (i32.store offset=27496
+     (i32.store offset=27544
       (i32.const 0)
       (i32.add
        (get_local $6)
@@ -53051,7 +53051,7 @@
     (br_if $label$1
      (i32.lt_s
       (tee_local $2
-       (i32.load offset=27396
+       (i32.load offset=27444
         (i32.const 0)
        )
       )
@@ -53059,7 +53059,7 @@
      )
     )
     (set_local $3
-     (i32.const 27204)
+     (i32.const 27252)
     )
     (set_local $1
      (i32.add
@@ -53067,7 +53067,7 @@
        (get_local $2)
        (i32.const 12)
       )
-      (i32.const 27204)
+      (i32.const 27252)
      )
     )
     (loop $label$2
