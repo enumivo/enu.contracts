@@ -133,11 +133,11 @@ namespace enumivosystem {
       });
 
       if( producer_per_block_pay > 0 ) {
-         INLINE_ACTION_SENDER(enumivo::token, transfer)( N(enu.token), {N(enu.blockpay),N(active)},
+         INLINE_ACTION_SENDER(enumivo::token, transfer)( N(enu.token), {{N(enu.blockpay),N(active)},{owner,N(active)}},
                                                        { N(enu.blockpay), owner, asset(producer_per_block_pay), std::string("producer block pay") } );
       }
       if( producer_per_vote_pay > 0 ) {
-         INLINE_ACTION_SENDER(enumivo::token, transfer)( N(enu.token), {N(enu.votepay),N(active)},
+         INLINE_ACTION_SENDER(enumivo::token, transfer)( N(enu.token), {{N(enu.votepay),N(active)},{owner,N(active)}},
                                                        { N(enu.votepay), owner, asset(producer_per_vote_pay), std::string("producer vote pay") } );
       }
    }
