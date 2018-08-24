@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
-project(enumivo_contracts VERSION 1.2.0)
+project(enumivo_contracts VERSION 1.2.1)
 
-set(ENUMIVO_DEPENDENCY "1.1")
+set(ENUMIVO_DEPENDENCY "1.2")
 set(ENUMIVO_WASMSDK_DEPENDENCY "1.1")
 
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
