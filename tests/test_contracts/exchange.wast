@@ -2265,7 +2265,7 @@
     (get_local $12)
     (get_local $1)
    )
-   (call $_ZN5boost9container3dtl9flat_treeINS1_4pairIyN7enumivo11multi_indexILy6290548272952901632ENS4_9exaccountEJEEEEENS1_9select1stIyEENSt3__14lessIyEENS0_13new_allocatorIS8_EEE13insert_uniqueEOS8_
+   (call $_ZN5boost9container3dtl9flat_treeINS1_4pairIyN7enumivo11multi_indexILy6290548272952901632ENS4_9exaccountEJEEEEENS1_9select1stIyEENSt3__14lessIyEENS0_13new_allocatorIS8_EEE13insert_uniqueENU8_
     (i32.add
      (get_local $12)
      (i32.const 40)
@@ -2749,7 +2749,7 @@
    )
   )
  )
- (func $_ZN5boost9container3dtl9flat_treeINS1_4pairIyN7enumivo11multi_indexILy6290548272952901632ENS4_9exaccountEJEEEEENS1_9select1stIyEENSt3__14lessIyEENS0_13new_allocatorIS8_EEE13insert_uniqueEOS8_ (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $_ZN5boost9container3dtl9flat_treeINS1_4pairIyN7enumivo11multi_indexILy6290548272952901632ENS4_9exaccountEJEEEEENS1_9select1stIyEENSt3__14lessIyEENS0_13new_allocatorIS8_EEE13insert_uniqueENU8_ (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i64)
@@ -3621,7 +3621,7 @@
     (get_local $13)
     (i64.const 0)
    )
-   (call $_ZN5boost9container3dtl9flat_treeINS1_4pairIN7enumivo15extended_symbolExEENS1_9select1stIS5_EENSt3__14lessIS5_EENS0_13new_allocatorIS6_EEE13insert_uniqueENS0_12vec_iteratorIPS6_Lb1EEEOS6_
+   (call $_ZN5boost9container3dtl9flat_treeINS1_4pairIN7enumivo15extended_symbolExEENS1_9select1stIS5_EENSt3__14lessIS5_EENS0_13new_allocatorIS6_EEE13insert_uniqueENS0_12vec_iteratorIPS6_Lb1EEENU6_
     (i32.add
      (get_local $13)
      (i32.const 24)
@@ -4422,7 +4422,7 @@
     (get_local $12)
     (i64.const 0)
    )
-   (call $_ZN5boost9container3dtl9flat_treeINS1_4pairIN7enumivo15extended_symbolExEENS1_9select1stIS5_EENSt3__14lessIS5_EENS0_13new_allocatorIS6_EEE13insert_uniqueENS0_12vec_iteratorIPS6_Lb1EEEOS6_
+   (call $_ZN5boost9container3dtl9flat_treeINS1_4pairIN7enumivo15extended_symbolExEENS1_9select1stIS5_EENSt3__14lessIS5_EENS0_13new_allocatorIS6_EEE13insert_uniqueENS0_12vec_iteratorIPS6_Lb1EEENU6_
     (i32.add
      (get_local $12)
      (i32.const 24)
@@ -4653,7 +4653,7 @@
    )
   )
  )
- (func $_ZN5boost9container3dtl9flat_treeINS1_4pairIN7enumivo15extended_symbolExEENS1_9select1stIS5_EENSt3__14lessIS5_EENS0_13new_allocatorIS6_EEE13insert_uniqueENS0_12vec_iteratorIPS6_Lb1EEEOS6_ (param $0 i32) (param $1 i32) (param $2 i32) (param $3 i32)
+ (func $_ZN5boost9container3dtl9flat_treeINS1_4pairIN7enumivo15extended_symbolExEENS1_9select1stIS5_EENSt3__14lessIS5_EENS0_13new_allocatorIS6_EEE13insert_uniqueENS0_12vec_iteratorIPS6_Lb1EEENU6_ (param $0 i32) (param $1 i32) (param $2 i32) (param $3 i32)
   (local $4 i32)
   (local $5 i32)
   (local $6 i32)
@@ -6299,7 +6299,7 @@
       (get_local $9)
      )
     )
-    (call $_ZN5boost9container3dtl9flat_treeINS1_4pairIN7enumivo15extended_symbolExEENS1_9select1stIS5_EENSt3__14lessIS5_EENS0_13new_allocatorIS6_EEE13insert_uniqueEOS6_
+    (call $_ZN5boost9container3dtl9flat_treeINS1_4pairIN7enumivo15extended_symbolExEENS1_9select1stIS5_EENSt3__14lessIS5_EENS0_13new_allocatorIS6_EEE13insert_uniqueENU6_
      (i32.add
       (get_local $9)
       (i32.const 32)
@@ -6338,7 +6338,7 @@
   )
   (get_local $0)
  )
- (func $_ZN5boost9container3dtl9flat_treeINS1_4pairIN7enumivo15extended_symbolExEENS1_9select1stIS5_EENSt3__14lessIS5_EENS0_13new_allocatorIS6_EEE13insert_uniqueEOS6_ (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $_ZN5boost9container3dtl9flat_treeINS1_4pairIN7enumivo15extended_symbolExEENS1_9select1stIS5_EENSt3__14lessIS5_EENS0_13new_allocatorIS6_EEE13insert_uniqueENU6_ (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
