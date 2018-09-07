@@ -141,7 +141,21 @@ void token::add_balance( account_name owner, asset value, account_name ram_payer
    }
 }
 
-void token::close( account_name owner, symbol_type symbol ) {
+void token::open( account_name owner, symbol_type symbol, account_name ram_payer )
+{
+   require_auth( ram_payer );
+   accounts acnts( _self, owner );
+   auto it = acnts.find( symbol.name() );
+   if( it == acnts.end() ) {
+      acnts.emplace( ram_payer, [&]( auto& a ){
+        a.balance = asset{0, symbol};
+      });
+   }
+}
+
+void token::close( account_name owner, symbol_type symbol )
+{
+   require_auth( owner );
    accounts acnts( _self, owner );
    auto it = acnts.find( symbol.name() );
    enumivo_assert( it != acnts.end(), "Balance row already deleted or never existed. Action won't have any effect." );
@@ -151,4 +165,4 @@ void token::close( account_name owner, symbol_type symbol ) {
 
 } /// namespace enumivo
 
-ENUMIVO_ABI( enumivo::token, (create)(issue)(transfer)(close)(retire) )
+ENUMIVO_ABI( enumivo::token, (create)(issue)(transfer)(open)(close)(retire) )

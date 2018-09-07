@@ -25,13 +25,6 @@
         {"name":"permission", "type":"permission_name"}
       ]
     },{
-      "name": "abi_hash",
-      "base": "",
-      "fields": [
-         {"name":"owner", "type":"account_name"},
-         {"name":"hash",  "type":"checksum256"}
-      ]
-    },{
       "name": "key_weight",
       "base": "",
       "fields": [
@@ -45,13 +38,6 @@
         {"name":"bidder",  "type":"account_name"},
         {"name":"newname", "type":"account_name"},
         {"name":"bid", "type":"asset"}
-      ]
-    },{
-      "name": "bidrefund",
-      "base": "",
-      "fields": [
-        {"name":"bidder",  "type":"account_name"},
-        {"name":"newname", "type":"account_name"}
       ]
     },{
       "name": "permission_level_weight",
@@ -254,21 +240,7 @@
          {"name":"max_inline_action_size",              "type":"uint32"},
          {"name":"max_inline_action_depth",             "type":"uint16"},
          {"name":"max_authority_depth",                 "type":"uint16"}
-      ]
-    },{
-      "name": "enumivo_global_state2",
-      "fields": [
-         {"name":"new_ram_per_block",            "type":"uint16"},
-         {"name":"last_ram_increase",            "type":"block_timestamp_type"},
-         {"name":"last_block_num",               "type":"block_timestamp_type"},
-         {"name":"total_producer_votepay_share", "type":"float64"},
-         {"name":"revision",                     "type":"uint8"}
-      ]
-    },{
-      "name": "enumivo_global_state3",
-      "fields": [
-         {"name":"last_vpay_state_update",       "type":"time_point"},
-         {"name":"total_vpay_share_change_rate", "type":"float64"}
+
       ]
     },{
       "name": "enumivo_global_state",
@@ -278,12 +250,12 @@
          {"name":"total_ram_bytes_reserved",      "type":"uint64"},
          {"name":"total_ram_stake",               "type":"int64"},
          {"name":"last_producer_schedule_update", "type":"block_timestamp_type"},
-         {"name":"last_pervote_bucket_fill",      "type":"time_point"},
+         {"name":"last_pervote_bucket_fill",      "type":"uint64"},
          {"name":"pervote_bucket",                "type":"int64"},
          {"name":"perblock_bucket",               "type":"int64"},
          {"name":"total_unpaid_blocks",           "type":"uint32"},
          {"name":"total_activated_stake",         "type":"int64"},
-         {"name":"thresh_activated_stake_time",   "type":"time_point"},
+         {"name":"thresh_activated_stake_time",   "type":"uint64"},
          {"name":"last_producer_schedule_size",   "type":"uint16"},
          {"name":"total_producer_vote_weight",    "type":"float64"},
          {"name":"last_name_close",               "type":"block_timestamp_type"}
@@ -298,16 +270,8 @@
          {"name":"is_active",       "type":"bool"},
          {"name":"url",             "type":"string"},
          {"name":"unpaid_blocks",   "type":"uint32"},
-         {"name":"last_claim_time", "type":"time_point"},
+         {"name":"last_claim_time", "type":"uint64"},
          {"name":"location",        "type":"uint16"}
-      ]
-    },{
-      "name": "producer_info2",
-      "base": "",
-      "fields": [
-         {"name":"owner",                     "type":"account_name"},
-         {"name":"votepay_share",             "type":"float64"},
-         {"name":"last_votepay_share_update", "type":"time_point"}
       ]
     },{
       "name": "regproducer",
@@ -329,12 +293,6 @@
       "base": "",
       "fields": [
         {"name":"max_ram_size",     "type":"uint64"}
-      ]
-    },{
-      "name": "setramrate",
-      "base": "",
-      "fields": [
-        {"name":"bytes_per_block",   "type":"uint16"}
       ]
     },{
       "name": "regproxy",
@@ -381,12 +339,6 @@
       "base": "",
       "fields": [
         {"name":"producer", "type":"account_name"}
-      ]
-    },{
-      "name": "updtrevision",
-      "base": "",
-      "fields": [
-        {"name":"revision", "type":"uint8"}
       ]
     },{
       "name": "set_account_limits",
@@ -444,22 +396,15 @@
         {"name":"quote", "type":"connector"}
       ]
     }, {
-       "name": "name_bid",
+       "name": "namebid_info",
        "base": "",
        "fields": [
           {"name":"newname", "type":"account_name"},
           {"name":"high_bidder", "type":"account_name"},
           {"name":"high_bid", "type":"int64"},
-          {"name":"last_bid_time", "type":"time_point"}
+          {"name":"last_bid_time", "type":"uint64"}
        ]
-    }, {
-     "name": "bid_refund",
-     "base": "",
-     "fields": [
-       {"name":"bidder", "type":"account_name"},
-       {"name":"amount", "type":"asset"}
-     ]
-   }
+    }
    ],
    "actions": [{
      "name": "newaccount",
@@ -530,16 +475,8 @@
       "type": "setram",
       "ricardian_contract": ""
    },{
-      "name": "setramrate",
-      "type": "setramrate",
-      "ricardian_contract": "Sets the number of new bytes of ram to create per block and resyncs bancor base connector balance"
-   },{
       "name": "bidname",
       "type": "bidname",
-      "ricardian_contract": ""
-   },{
-      "name": "bidrefund",
-      "type": "bidrefund",
       "ricardian_contract": ""
    },{
       "name": "unregprod",
@@ -564,10 +501,6 @@
    },{
       "name": "rmvproducer",
       "type": "rmvproducer",
-      "ricardian_contract": ""
-   },{
-      "name": "updtrevision",
-      "type": "updtrevision",
       "ricardian_contract": ""
    },{
       "name": "setalimits",
@@ -597,26 +530,8 @@
       "key_names" : ["owner"],
       "key_types" : ["uint64"]
     },{
-      "name": "producers2",
-      "type": "producer_info2",
-      "index_type": "i64",
-      "key_names" : ["owner"],
-      "key_types" : ["uint64"]
-    },{
       "name": "global",
       "type": "enumivo_global_state",
-      "index_type": "i64",
-      "key_names" : [],
-      "key_types" : []
-    },{
-      "name": "global2",
-      "type": "enumivo_global_state2",
-      "index_type": "i64",
-      "key_names" : [],
-      "key_types" : []
-    },{
-      "name": "global3",
-      "type": "enumivo_global_state3",
       "index_type": "i64",
       "key_names" : [],
       "key_types" : []
@@ -652,23 +567,11 @@
       "key_types" : ["uint64"]
     },{
        "name": "namebids",
-       "type": "name_bid",
+       "type": "namebid_info",
        "index_type": "i64",
        "key_names" : ["newname"],
        "key_types" : ["account_name"]
-    },{
-     "name": "bidrefunds",
-     "type": "bid_refund",
-     "index_type": "i64",
-     "key_names" : ["bidder"],
-     "key_types" : ["account_name"]
-   },{
-      "name": "abihash",
-      "type": "abi_hash",
-      "index_type": "i64",
-      "key_names": ["owner"],
-      "key_types": ["account_name"]
-   }
+    }
    ],
    "ricardian_clauses": [],
    "abi_extensions": []
