@@ -14,8 +14,8 @@ The following unprivileged contract(s) are also part of the system.
    * [enu.token](https://github.com/enumivo/enumivo.contracts/tree/master/enu.token)
 
 Dependencies:
-* [enumivo v1.2.x](https://github.com/enumivo/enumivo/releases/tag/1.2.5)
-* [enumivo.cdt v1.2.x](https://github.com/enumivo/enumivo.cdt/releases/tag/1.2.0.1)
+* [enumivo 1.3.x](https://github.com/enumivo/enumivo/releases/tag/1.3.0)
+* [enumivo.cdt 1.2.x](https://github.com/enumivo/enumivo.cdt/releases/tag/1.2.1)
 
 To build the contracts and the unit tests:
 * First, ensure that your __enumivo__ is compiled to the core symbol for the Enumivo blockchain that intend to deploy to.
