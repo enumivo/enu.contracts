@@ -10,38 +10,21 @@
 
 namespace enumivosystem {
 
-   system_contract::system_contract( account_name s )
-   :native(s),
-    _voters(_self,_self),
-    _producers(_self,_self),
-    _producers2(_self,_self),
-    _global(_self,_self),
-    _global2(_self,_self),
-    _global3(_self,_self),
-    _rammarket(_self,_self)
+   system_contract::system_contract( name s, name code, datastream<const char*> ds )
+   :native(s,code,ds),
+    _voters(_self, _self.value),
+    _producers(_self, _self.value),
+    _producers2(_self, _self.value),
+    _global(_self, _self.value),
+    _global2(_self, _self.value),
+    _global3(_self, _self.value),
+    _rammarket(_self, _self.value)
    {
+
       //print( "construct system\n" );
       _gstate  = _global.exists() ? _global.get() : get_default_parameters();
       _gstate2 = _global2.exists() ? _global2.get() : enumivo_global_state2{};
       _gstate3 = _global3.exists() ? _global3.get() : enumivo_global_state3{};
-
-      auto itr = _rammarket.find(S(4,RAMCORE));
-
-      if( itr == _rammarket.end() ) {
-         auto system_token_supply   = enumivo::token(N(enu.token)).get_supply(enumivo::symbol_type(system_token_symbol).name()).amount;
-         if( system_token_supply > 0 ) {
-            itr = _rammarket.emplace( _self, [&]( auto& m ) {
-               m.supply.amount = 100000000000000ll;
-               m.supply.symbol = S(4,RAMCORE);
-               m.base.balance.amount = int64_t(_gstate.free_ram());
-               m.base.balance.symbol = S(0,RAM);
-               m.quote.balance.amount = system_token_supply / 1000;
-               m.quote.balance.symbol = CORE_SYMBOL;
-            });
-         }
-      } else {
-         //print( "ram market already created" );
-      }
    }
 
    enumivo_global_state system_contract::get_default_parameters() {
@@ -60,6 +43,11 @@ namespace enumivosystem {
       return cbt;
    }
 
+   symbol system_contract::core_symbol()const {
+      const static auto sym = get_core_symbol( _rammarket );
+      return sym;
+   }
+
    system_contract::~system_contract() {
       _global.set( _gstate, _self );
       _global2.set( _gstate2, _self );
@@ -74,12 +62,12 @@ namespace enumivosystem {
       enumivo_assert( max_ram_size > _gstate.total_ram_bytes_reserved, "attempt to set max below reserved" );
 
       auto delta = int64_t(max_ram_size) - int64_t(_gstate.max_ram_size);
-      auto itr = _rammarket.find(S(4,RAMCORE));
+      auto itr = _rammarket.find(ramcore_symbol.raw());
 
       /**
        *  Increase the amount of ram for sale based upon the change in max ram size.
        */
-      _rammarket.modify( itr, 0, [&]( auto& m ) {
+      _rammarket.modify( itr, same_payer, [&]( auto& m ) {
          m.base.balance.amount += delta;
       });
 
@@ -91,14 +79,14 @@ namespace enumivosystem {
 
       if( cbt <= _gstate2.last_ram_increase ) return;
 
-      auto itr = _rammarket.find(S(4,RAMCORE));
+      auto itr = _rammarket.find(ramcore_symbol.raw());
       auto new_ram = (cbt.slot - _gstate2.last_ram_increase.slot)*_gstate2.new_ram_per_block;
       _gstate.max_ram_size += new_ram;
 
       /**
        *  Increase the amount of ram for sale based upon the change in max ram size.
        */
-      _rammarket.modify( itr, 0, [&]( auto& m ) {
+      _rammarket.modify( itr, same_payer, [&]( auto& m ) {
          m.base.balance.amount += new_ram;
       });
       _gstate2.last_ram_increase = cbt;
@@ -119,30 +107,30 @@ namespace enumivosystem {
    }
 
    void system_contract::setparams( const enumivo::blockchain_parameters& params ) {
-      require_auth( N(enumivo) );
+      require_auth( _self );
       (enumivo::blockchain_parameters&)(_gstate) = params;
       enumivo_assert( 3 <= _gstate.max_authority_depth, "max_authority_depth should be at least 3" );
       set_blockchain_parameters( params );
    }
 
-   void system_contract::setpriv( account_name account, uint8_t ispriv ) {
+   void system_contract::setpriv( name account, uint8_t ispriv ) {
       require_auth( _self );
-      set_privileged( account, ispriv );
+      set_privileged( account.value, ispriv );
    }
 
-   void system_contract::setalimits( account_name account, int64_t ram, int64_t net, int64_t cpu ) {
-      require_auth( N(enumivo) );
-      user_resources_table userres( _self, account );
-      auto ritr = userres.find( account );
+   void system_contract::setalimits( name account, int64_t ram, int64_t net, int64_t cpu ) {
+      require_auth( _self );
+      user_resources_table userres( _self, account.value );
+      auto ritr = userres.find( account.value );
       enumivo_assert( ritr == userres.end(), "only supports unlimited accounts" );
-      set_resource_limits(account, ram, net, cpu);
+      set_resource_limits( account.value, ram, net, cpu );
    }
 
-   void system_contract::rmvproducer( account_name producer ) {
+   void system_contract::rmvproducer( name producer ) {
       require_auth( _self );
-      auto prod = _producers.find( producer );
+      auto prod = _producers.find( producer.value );
       enumivo_assert( prod != _producers.end(), "producer not found" );
-      _producers.modify( prod, 0, [&](auto& p) {
+      _producers.modify( prod, same_payer, [&](auto& p) {
             p.deactivate();
          });
    }
@@ -156,23 +144,25 @@ namespace enumivosystem {
       _gstate2.revision = revision;
    }
 
-   void system_contract::bidname( account_name bidder, account_name newname, asset bid ) {
+   void system_contract::bidname( name bidder, name newname, asset bid ) {
       require_auth( bidder );
-      enumivo_assert( enumivo::name_suffix(newname) == newname, "you can only bid on top-level suffix" );
+      enumivo_assert( newname.suffix() == newname, "you can only bid on top-level suffix" );
 
-      enumivo_assert( newname != 0, "the empty name is not a valid account name to bid on" );
-      enumivo_assert( (newname & 0xFull) == 0, "13 character names are not valid account names to bid on" );
-      enumivo_assert( (newname & 0x1F0ull) == 0, "accounts with 12 character names and no dots can be created without bidding required" );
+      enumivo_assert( (bool)newname, "the empty name is not a valid account name to bid on" );
+      enumivo_assert( (newname.value & 0xFull) == 0, "13 character names are not valid account names to bid on" );
+      enumivo_assert( (newname.value & 0x1F0ull) == 0, "accounts with 12 character names and no dots can be created without bidding required" );
       enumivo_assert( !is_account( newname ), "account already exists" );
-      enumivo_assert( bid.symbol == asset().symbol, "asset must be system token" );
+      enumivo_assert( bid.symbol == core_symbol(), "asset must be system token" );
       enumivo_assert( bid.amount > 0, "insufficient bid" );
 
-      INLINE_ACTION_SENDER(enumivo::token, transfer)( N(enu.token), {bidder,N(active)},
-                                                    { bidder, N(enu.names), bid, std::string("bid name ")+(name{newname}).to_string()  } );
+      INLINE_ACTION_SENDER(enumivo::token, transfer)(
+         token_account, { {bidder, active_permission} },
+         { bidder, names_account, bid, std::string("bid name ")+ newname.to_string() }
+      );
 
-      name_bid_table bids(_self,_self);
+      name_bid_table bids(_self, _self.value);
       print( name{bidder}, " bid ", bid, " on ", name{newname}, "\n" );
-      auto current = bids.find( newname );
+      auto current = bids.find( newname.value );
       if( current == bids.end() ) {
          bids.emplace( bidder, [&]( auto& b ) {
             b.newname = newname;
@@ -185,25 +175,27 @@ namespace enumivosystem {
          enumivo_assert( bid.amount - current->high_bid > (current->high_bid / 10), "must increase bid by 10%" );
          enumivo_assert( current->high_bidder != bidder, "account is already highest bidder" );
 
-         bid_refund_table refunds_table(_self, newname);
+         bid_refund_table refunds_table(_self, newname.value);
 
-         auto it = refunds_table.find( current->high_bidder );
+         auto it = refunds_table.find( current->high_bidder.value );
          if ( it != refunds_table.end() ) {
-            refunds_table.modify( it, 0, [&](auto& r) {
-                  r.amount += asset( current->high_bid, system_token_symbol );
+            refunds_table.modify( it, same_payer, [&](auto& r) {
+                  r.amount += asset( current->high_bid, core_symbol() );
                });
          } else {
             refunds_table.emplace( bidder, [&](auto& r) {
                   r.bidder = current->high_bidder;
-                  r.amount = asset( current->high_bid, system_token_symbol );
+                  r.amount = asset( current->high_bid, core_symbol() );
                });
          }
 
-         action a( {N(enumivo),N(active)}, N(enumivo), N(bidrefund), std::make_tuple( current->high_bidder, newname ) );
          transaction t;
-         t.actions.push_back( std::move(a) );
+         t.actions.emplace_back( permission_level{_self, active_permission},
+                                 _self, "bidrefund"_n,
+                                 std::make_tuple( current->high_bidder, newname )
+         );
          t.delay_sec = 0;
-         uint128_t deferred_id = (uint128_t(newname) << 64) | current->high_bidder;
+         uint128_t deferred_id = (uint128_t(newname.value) << 64) | current->high_bidder.value;
          cancel_deferred( deferred_id );
          t.send( deferred_id, bidder );
 
@@ -215,13 +207,14 @@ namespace enumivosystem {
       }
    }
 
-   void system_contract::bidrefund( account_name bidder, account_name newname ) {
-      bid_refund_table refunds_table(_self, newname);
-      auto it = refunds_table.find( bidder );
+   void system_contract::bidrefund( name bidder, name newname ) {
+      bid_refund_table refunds_table(_self, newname.value);
+      auto it = refunds_table.find( bidder.value );
       enumivo_assert( it != refunds_table.end(), "refund not found" );
-      INLINE_ACTION_SENDER(enumivo::token, transfer)( N(enu.token), {{N(enu.names),N(active)},{bidder,N(active)}},
-                                                    { N(enu.names), bidder, asset(it->amount),
-                                                       std::string("refund bid on name ")+(name{newname}).to_string()  } );
+      INLINE_ACTION_SENDER(enumivo::token, transfer)(
+         token_account, { {names_account, active_permission}, {bidder, active_permission} },
+         { names_account, bidder, asset(it->amount), std::string("refund bid on name ")+(name{newname}).to_string() }
+      );
       refunds_table.erase( it );
    }
 
@@ -234,19 +227,13 @@ namespace enumivosystem {
     *  who can create accounts with the creator's name as a suffix.
     *
     */
-   void native::newaccount( account_name     creator,
-                            account_name     newact
-                            /*  no need to parse authorites
-                            const authority& owner,
-                            const authority& active*/ ) {
+   void native::newaccount( name              creator,
+                            name              newact,
+                            ignore<authority> owner,
+                            ignore<authority> active ) {
 
       if( creator != _self ) {
-
-         //enumivo_assert( newact != N(enumivo.prods), "will cause collision" ); //with enumivo.prods
-         //line above not needed since no collision will take place according to @iamveritas
-         //but better safe than sorry
-
-         auto tmp = newact >> 4;
+         uint64_t tmp = newact.value >> 4;
          bool has_dot = false;
 
          for( uint32_t i = 0; i < 12; ++i ) {
@@ -254,10 +241,10 @@ namespace enumivosystem {
            tmp >>= 5;
          }
          if( has_dot ) { // or is less than 12 characters
-            auto suffix = enumivo::name_suffix(newact);
+            auto suffix = newact.suffix();
             if( suffix == newact ) {
-               name_bid_table bids(_self,_self);
-               auto current = bids.find( newact );
+               name_bid_table bids(_self, _self.value);
+               auto current = bids.find( newact.value );
                enumivo_assert( current != bids.end(), "no active bid for name" );
                enumivo_assert( current->high_bidder == creator, "only highest bidder can claim" );
                enumivo_assert( current->high_bid < 0, "auction for name is not closed yet" );
@@ -268,38 +255,60 @@ namespace enumivosystem {
          }
       }
 
-      user_resources_table  userres( _self, newact);
+      user_resources_table  userres( _self, newact.value);
 
       userres.emplace( newact, [&]( auto& res ) {
         res.owner = newact;
+        res.net_weight = asset( 0, system_contract::get_core_symbol() );
+        res.cpu_weight = asset( 0, system_contract::get_core_symbol() );
       });
 
-      set_resource_limits( newact, 0, 0, 0 );
+      set_resource_limits( newact.value, 0, 0, 0 );
    }
 
-   void native::setabi( account_name acnt, const bytes& abi ) {
-      enumivo::multi_index< N(abihash), abi_hash>  table(_self,_self);
-      auto itr = table.find( acnt );
+   void native::setabi( name acnt, const std::vector<char>& abi ) {
+      enumivo::multi_index< "abihash"_n, abi_hash >  table(_self, _self.value);
+      auto itr = table.find( acnt.value );
       if( itr == table.end() ) {
          table.emplace( acnt, [&]( auto& row ) {
             row.owner= acnt;
             sha256( const_cast<char*>(abi.data()), abi.size(), &row.hash );
          });
       } else {
-         table.modify( itr, 0, [&]( auto& row ) {
+         table.modify( itr, same_payer, [&]( auto& row ) {
             sha256( const_cast<char*>(abi.data()), abi.size(), &row.hash );
          });
       }
    }
 
+   void system_contract::init( unsigned_int version, symbol core ) {
+      require_auth( _self );
+      enumivo_assert( version.value == 0, "unsupported version for init action" );
+
+      auto itr = _rammarket.find(ramcore_symbol.raw());
+      enumivo_assert( itr == _rammarket.end(), "system contract has already been initialized" );
+
+      auto system_token_supply   = enumivo::token::get_supply(token_account, core.code() );
+      enumivo_assert( system_token_supply.symbol == core, "specified core symbol does not exist (precision mismatch)" );
+
+      enumivo_assert( system_token_supply.amount > 0, "system token supply must be greater than 0" );
+      _rammarket.emplace( _self, [&]( auto& m ) {
+         m.supply.amount = 100000000000000ll;
+         m.supply.symbol = ramcore_symbol;
+         m.base.balance.amount = int64_t(_gstate.free_ram());
+         m.base.balance.symbol = ram_symbol;
+         m.quote.balance.amount = system_token_supply.amount / 1000;
+         m.quote.balance.symbol = core;
+      });
+   }
 } /// enu.system
 
 
-ENUMIVO_ABI( enumivosystem::system_contract,
+ENUMIVO_DISPATCH( enumivosystem::system_contract,
      // native.hpp (newaccount definition is actually in enu.system.cpp)
      (newaccount)(updateauth)(deleteauth)(linkauth)(unlinkauth)(canceldelay)(onerror)(setabi)
      // enu.system.cpp
-     (setram)(setramrate)(setparams)(setpriv)(setalimits)(rmvproducer)(updtrevision)(bidname)(bidrefund)
+     (init)(setram)(setramrate)(setparams)(setpriv)(setalimits)(rmvproducer)(updtrevision)(bidname)(bidrefund)
      // delegate_bandwidth.cpp
      (buyrambytes)(buyram)(sellram)(delegatebw)(undelegatebw)(refund)
      // voting.cpp

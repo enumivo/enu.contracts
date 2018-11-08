@@ -7,6 +7,7 @@
 
 #include <fc/variant_object.hpp>
 #include "contracts.hpp"
+#include "test_symbol.hpp"
 
 using namespace enumivo::testing;
 using namespace enumivo;
@@ -18,7 +19,6 @@ using mvo = fc::mutable_variant_object;
 
 class enu_msig_tester : public tester {
 public:
-
    enu_msig_tester() {
       create_accounts( { N(enu.msig), N(enu.stake), N(enu.ram), N(enu.ramfee), N(alice), N(bob), N(carol) } );
       produce_block();
@@ -40,7 +40,7 @@ public:
    }
 
    transaction_trace_ptr create_account_with_resources( account_name a, account_name creator, asset ramfunds, bool multisig,
-                                                        asset net = core_from_string("10.0000"), asset cpu = core_from_string("10.0000") ) {
+                                                        asset net = core_sym::from_string("10.0000"), asset cpu = core_sym::from_string("10.0000") ) {
       signed_transaction trx;
       set_transaction_headers(trx);
 
@@ -113,14 +113,14 @@ public:
 
       // the balance is implied to be 0 if either the table or row does not exist
       if (tbl) {
-         const auto *obj = db.find<key_value_object, by_scope_primary>(boost::make_tuple(tbl->id, symbol(CORE_SYMBOL).to_symbol_code()));
+         const auto *obj = db.find<key_value_object, by_scope_primary>(boost::make_tuple(tbl->id, symbol(CORE_SYM).to_symbol_code()));
          if (obj) {
             // balance is the first field in the serialization
             fc::datastream<const char *> ds(obj->value.data(), obj->value.size());
             fc::raw::unpack(ds, result);
          }
       }
-      return asset( result, symbol(CORE_SYMBOL) );
+      return asset( result, symbol(CORE_SYM) );
    }
 
    transaction_trace_ptr push_action( const account_name& signer, const action_name& name, const variant_object& data, bool auth = true ) {
@@ -404,21 +404,24 @@ BOOST_FIXTURE_TEST_CASE( update_system_contract_all_approve, enu_msig_tester ) t
    set_code( N(enu.token), contracts::token_wasm() );
    set_abi( N(enu.token), contracts::token_abi().data() );
 
-   create_currency( N(enu.token), config::system_account_name, core_from_string("10000000000.0000") );
-   issue(config::system_account_name, core_from_string("1000000000.0000"));
-   BOOST_REQUIRE_EQUAL( core_from_string("1000000000.0000"),
+   create_currency( N(enu.token), config::system_account_name, core_sym::from_string("10000000000.0000") );
+   issue(config::system_account_name, core_sym::from_string("1000000000.0000"));
+   BOOST_REQUIRE_EQUAL( core_sym::from_string("1000000000.0000"),
                         get_balance("enumivo") + get_balance("enu.ramfee") + get_balance("enu.stake") + get_balance("enu.ram") );
 
    set_code( config::system_account_name, contracts::system_wasm() );
    set_abi( config::system_account_name, contracts::system_abi().data() );
-
+   base_tester::push_action( config::system_account_name, N(init),
+                             config::system_account_name,  mutable_variant_object()
+                              ("version", 0)
+                              ("core", CORE_SYM_STR)
+   );
    produce_blocks();
+   create_account_with_resources( N(alice1111111), N(enumivo), core_sym::from_string("1.0000"), false );
+   create_account_with_resources( N(bob111111111), N(enumivo), core_sym::from_string("0.4500"), false );
+   create_account_with_resources( N(carol1111111), N(enumivo), core_sym::from_string("1.0000"), false );
 
-   create_account_with_resources( N(alice1111111), N(enumivo), core_from_string("1.0000"), false );
-   create_account_with_resources( N(bob111111111), N(enumivo), core_from_string("0.4500"), false );
-   create_account_with_resources( N(carol1111111), N(enumivo), core_from_string("1.0000"), false );
-
-   BOOST_REQUIRE_EQUAL( core_from_string("1000000000.0000"),
+   BOOST_REQUIRE_EQUAL( core_sym::from_string("1000000000.0000"),
                         get_balance("enumivo") + get_balance("enu.ramfee") + get_balance("enu.stake") + get_balance("enu.ram") );
 
    vector<permission_level> perm = { { N(alice), config::active_name }, { N(bob), config::active_name },
@@ -494,7 +497,7 @@ BOOST_FIXTURE_TEST_CASE( update_system_contract_all_approve, enu_msig_tester ) t
 
    // can't create account because system contract was replace by the test_api contract
 
-   BOOST_REQUIRE_EXCEPTION( create_account_with_resources( N(alice1111112), N(enumivo), core_from_string("1.0000"), false ),
+   BOOST_REQUIRE_EXCEPTION( create_account_with_resources( N(alice1111112), N(enumivo), core_sym::from_string("1.0000"), false ),
                             enumivo_assert_message_exception, enumivo_assert_message_is("Unknown Test")
 
    );
@@ -516,20 +519,24 @@ BOOST_FIXTURE_TEST_CASE( update_system_contract_major_approve, enu_msig_tester )
    set_code( N(enu.token), contracts::token_wasm() );
    set_abi( N(enu.token), contracts::token_abi().data() );
 
-   create_currency( N(enu.token), config::system_account_name, core_from_string("10000000000.0000") );
-   issue(config::system_account_name, core_from_string("1000000000.0000"));
-   BOOST_REQUIRE_EQUAL( core_from_string("1000000000.0000"), get_balance( "enumivo" ) );
+   create_currency( N(enu.token), config::system_account_name, core_sym::from_string("10000000000.0000") );
+   issue(config::system_account_name, core_sym::from_string("1000000000.0000"));
+   BOOST_REQUIRE_EQUAL( core_sym::from_string("1000000000.0000"), get_balance( "enumivo" ) );
 
    set_code( config::system_account_name, contracts::system_wasm() );
    set_abi( config::system_account_name, contracts::system_abi().data() );
-
+   base_tester::push_action( config::system_account_name, N(init),
+                             config::system_account_name,  mutable_variant_object()
+                                 ("version", 0)
+                                 ("core", CORE_SYM_STR)
+   );
    produce_blocks();
 
-   create_account_with_resources( N(alice1111111), N(enumivo), core_from_string("1.0000"), false );
-   create_account_with_resources( N(bob111111111), N(enumivo), core_from_string("0.4500"), false );
-   create_account_with_resources( N(carol1111111), N(enumivo), core_from_string("1.0000"), false );
+   create_account_with_resources( N(alice1111111), N(enumivo), core_sym::from_string("1.0000"), false );
+   create_account_with_resources( N(bob111111111), N(enumivo), core_sym::from_string("0.4500"), false );
+   create_account_with_resources( N(carol1111111), N(enumivo), core_sym::from_string("1.0000"), false );
 
-   BOOST_REQUIRE_EQUAL( core_from_string("1000000000.0000"),
+   BOOST_REQUIRE_EQUAL( core_sym::from_string("1000000000.0000"),
                         get_balance("enumivo") + get_balance("enu.ramfee") + get_balance("enu.stake") + get_balance("enu.ram") );
 
    vector<permission_level> perm = { { N(alice), config::active_name }, { N(bob), config::active_name },
@@ -617,7 +624,7 @@ BOOST_FIXTURE_TEST_CASE( update_system_contract_major_approve, enu_msig_tester )
 
    // can't create account because system contract was replace by the test_api contract
 
-   BOOST_REQUIRE_EXCEPTION( create_account_with_resources( N(alice1111112), N(enumivo), core_from_string("1.0000"), false ),
+   BOOST_REQUIRE_EXCEPTION( create_account_with_resources( N(alice1111112), N(enumivo), core_sym::from_string("1.0000"), false ),
                             enumivo_assert_message_exception, enumivo_assert_message_is("Unknown Test")
 
    );
@@ -850,6 +857,92 @@ BOOST_FIXTURE_TEST_CASE( approve_by_two_old, enu_msig_tester ) try {
    BOOST_REQUIRE_EQUAL( 1, trace->action_traces.size() );
    BOOST_REQUIRE_EQUAL( transaction_receipt::executed, trace->receipt->status );
 
+} FC_LOG_AND_RETHROW()
+
+BOOST_FIXTURE_TEST_CASE( approve_with_hash, enu_msig_tester ) try {
+   auto trx = reqauth("alice", {permission_level{N(alice), config::active_name}}, abi_serializer_max_time );
+   auto trx_hash = fc::sha256::hash( trx );
+   auto not_trx_hash = fc::sha256::hash( trx_hash );
+
+   push_action( N(alice), N(propose), mvo()
+                  ("proposer",      "alice")
+                  ("proposal_name", "first")
+                  ("trx",           trx)
+                  ("requested", vector<permission_level>{{ N(alice), config::active_name }})
+   );
+
+   //fail to approve with incorrect hash
+   BOOST_REQUIRE_EXCEPTION( push_action( N(alice), N(approve), mvo()
+                                          ("proposer",      "alice")
+                                          ("proposal_name", "first")
+                                          ("level",         permission_level{ N(alice), config::active_name })
+                                          ("proposal_hash", not_trx_hash)
+                            ),
+                            enumivo::chain::crypto_api_exception,
+                            fc_exception_message_is("hash mismatch")
+   );
+
+   //approve and execute
+   push_action( N(alice), N(approve), mvo()
+                  ("proposer",      "alice")
+                  ("proposal_name", "first")
+                  ("level",         permission_level{ N(alice), config::active_name })
+                  ("proposal_hash", trx_hash)
+   );
+
+   transaction_trace_ptr trace;
+   control->applied_transaction.connect([&]( const transaction_trace_ptr& t) { if (t->scheduled) { trace = t; } } );
+   push_action( N(alice), N(exec), mvo()
+                  ("proposer",      "alice")
+                  ("proposal_name", "first")
+                  ("executer",      "alice")
+   );
+
+   BOOST_REQUIRE( bool(trace) );
+   BOOST_REQUIRE_EQUAL( 1, trace->action_traces.size() );
+   BOOST_REQUIRE_EQUAL( transaction_receipt::executed, trace->receipt->status );
+} FC_LOG_AND_RETHROW()
+
+BOOST_FIXTURE_TEST_CASE( switch_proposal_and_fail_approve_with_hash, enu_msig_tester ) try {
+   auto trx1 = reqauth("alice", {permission_level{N(alice), config::active_name}}, abi_serializer_max_time );
+   auto trx1_hash = fc::sha256::hash( trx1 );
+
+   push_action( N(alice), N(propose), mvo()
+                  ("proposer",      "alice")
+                  ("proposal_name", "first")
+                  ("trx",           trx1)
+                  ("requested", vector<permission_level>{{ N(alice), config::active_name }})
+   );
+
+   auto trx2 = reqauth("alice",
+                       { permission_level{N(alice), config::active_name},
+                         permission_level{N(alice), config::owner_name}  },
+                       abi_serializer_max_time );
+
+   push_action( N(alice), N(cancel), mvo()
+                  ("proposer",      "alice")
+                  ("proposal_name", "first")
+                  ("canceler",       "alice")
+   );
+
+   push_action( N(alice), N(propose), mvo()
+                  ("proposer",      "alice")
+                  ("proposal_name", "first")
+                  ("trx",           trx2)
+                  ("requested", vector<permission_level>{ { N(alice), config::active_name },
+                                                          { N(alice), config::owner_name } })
+   );
+
+   //fail to approve with hash meant for old proposal
+   BOOST_REQUIRE_EXCEPTION( push_action( N(alice), N(approve), mvo()
+                                          ("proposer",      "alice")
+                                          ("proposal_name", "first")
+                                          ("level",         permission_level{ N(alice), config::active_name })
+                                          ("proposal_hash", trx1_hash)
+                            ),
+                            enumivo::chain::crypto_api_exception,
+                            fc_exception_message_is("hash mismatch")
+   );
 } FC_LOG_AND_RETHROW()
 
 BOOST_AUTO_TEST_SUITE_END()

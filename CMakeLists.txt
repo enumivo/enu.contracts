@@ -1,8 +1,26 @@
 cmake_minimum_required(VERSION 3.5)
-project(enumivo_contracts VERSION 1.3.1)
+project(enumivo_contracts VERSION 1.5.0)
 
-set(ENUMIVO_DEPENDENCY "1.3")
-set(ENUMIVO_CDT_DEPENDENCY "1.2")
+set(ENUMIVO_CDT_VERSION_MIN "1.4")
+set(ENUMIVO_CDT_VERSION_SOFT_MAX "1.4")
+#set(ENUMIVO_CDT_VERSION_HARD_MAX "")
+
+find_package(enumivo.cdt)
+
+### Check the version of enumivo.cdt
+set(VERSION_MATCH_ERROR_MSG "")
+ENUMIVO_CHECK_VERSION(VERSION_OUTPUT "${ENUMIVO_CDT_VERSION}"
+                                   "${ENUMIVO_CDT_VERSION_MIN}"
+                                   "${ENUMIVO_CDT_VERSION_SOFT_MAX}"
+                                   "${ENUMIVO_CDT_VERSION_HARD_MAX}"
+                                   VERSION_MATCH_ERROR_MSG)
+if(VERSION_OUTPUT STREQUAL "MATCH")
+   message(STATUS "Using enumivo.cdt version ${ENUMIVO_CDT_VERSION}")
+elseif(VERSION_OUTPUT STREQUAL "WARN")
+   message(WARNING "Using enumivo.cdt version ${ENUMIVO_CDT_VERSION} even though it exceeds the maximum supported version of ${ENUMIVO_CDT_VERSION_SOFT_MAX}; continuing with configuration, however build may fail.\nIt is recommended to use enumivo.cdt version ${ENUMIVO_CDT_VERSION_SOFT_MAX}.x")
+else() # INVALID OR MISMATCH
+   message(FATAL_ERROR "Found enumivo.cdt version ${ENUMIVO_CDT_VERSION} but it does not satisfy version requirements: ${VERSION_MATCH_ERROR_MSG}\nPlease use enumivo.cdt version ${ENUMIVO_CDT_VERSION_SOFT_MAX}.x")
+endif(VERSION_OUTPUT STREQUAL "MATCH")
 
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
    set(TEST_BUILD_TYPE "Debug")
@@ -11,28 +29,10 @@ else()
    set(TEST_BUILD_TYPE ${CMAKE_BUILD_TYPE})
 endif()
 
-if(ENUMIVO_ROOT STREQUAL "" OR NOT ENUMIVO_ROOT)
-   set(ENUMIVO_ROOT "/usr/local/enumivo")
-endif()
 
-if(ENUMIVO_CDT_ROOT STREQUAL "" OR NOT ENUMIVO__ROOT)
-   set(ENUMIVO_CDT_ROOT "/usr/local/enumivo.cdt")
-endif()
-
-list(APPEND CMAKE_MODULE_PATH ${ENUMIVO_CDT_ROOT}/lib/cmake)
-include(EnumivoWasmToolchain)
-
-### Check the version of enumivo.cdt
-string(FIND "${ENUMIVO_CDT_VERSION}" "${ENUMIVO_CDT_DEPENDENCY}" output)
-
-if (NOT "${output}" EQUAL 0)
-   message(FATAL_ERROR "Incorrect Enumivo.CDT version, please use version ${ENUMIVO_CDT_DEPENDENCY}.x")
-endif()
-
-include_directories(AFTER ${BOOST_ROOT}/include)
 add_subdirectory(enu.bios)
 add_subdirectory(enu.msig)
-add_subdirectory(enu.sudo)
+add_subdirectory(enu.wrap)
 add_subdirectory(enu.system)
 add_subdirectory(enu.token)
 
