@@ -3313,7 +3313,7 @@ BOOST_FIXTURE_TEST_CASE( ram_inflation, enu_system_tester ) try {
 
 } FC_LOG_AND_RETHROW()
 
-BOOST_FIXTURE_TEST_CASE( enumivoram_ramusage, enu_system_tester ) try {
+BOOST_FIXTURE_TEST_CASE( enuram_ramusage, enu_system_tester ) try {
    BOOST_REQUIRE_EQUAL( core_sym::from_string("0.0000"), get_balance( "alice1111111" ) );
    transfer( "enumivo", "alice1111111", core_sym::from_string("1000.0000"), "enumivo" );
    BOOST_REQUIRE_EQUAL( success(), stake( "enumivo", "alice1111111", core_sym::from_string("200.0000"), core_sym::from_string("100.0000") ) );
@@ -3332,14 +3332,14 @@ BOOST_FIXTURE_TEST_CASE( enumivoram_ramusage, enu_system_tester ) try {
    BOOST_REQUIRE_EQUAL( true, get_row_by_account( N(enu.token), N(alice1111111), N(accounts), symbol{CORE_SYM}.to_symbol_code() ).empty() );
 
    auto rlm = control->get_resource_limits_manager();
-   auto enumivoram_ram_usage = rlm.get_account_ram_usage(N(enu.ram));
+   auto enuram_ram_usage = rlm.get_account_ram_usage(N(enu.ram));
    auto alice_ram_usage = rlm.get_account_ram_usage(N(alice1111111));
 
    BOOST_REQUIRE_EQUAL( success(), sellram( "alice1111111", 2048 ) );
 
    //make sure that ram was billed to alice, not to enu.ram
    BOOST_REQUIRE_EQUAL( true, alice_ram_usage < rlm.get_account_ram_usage(N(alice1111111)) );
-   BOOST_REQUIRE_EQUAL( enumivoram_ram_usage, rlm.get_account_ram_usage(N(enu.ram)) );
+   BOOST_REQUIRE_EQUAL( enuram_ram_usage, rlm.get_account_ram_usage(N(enu.ram)) );
 
 } FC_LOG_AND_RETHROW()
 

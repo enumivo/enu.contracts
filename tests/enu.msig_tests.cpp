@@ -319,6 +319,7 @@ BOOST_FIXTURE_TEST_CASE( propose_with_wrong_requested_auth, enu_msig_tester ) tr
 
 } FC_LOG_AND_RETHROW()
 
+
 BOOST_FIXTURE_TEST_CASE( big_transaction, enu_msig_tester ) try {
    vector<permission_level> perm = { { N(alice), config::active_name }, { N(bob), config::active_name } };
    auto wasm = contracts::util::exchange_wasm();
@@ -380,6 +381,7 @@ BOOST_FIXTURE_TEST_CASE( big_transaction, enu_msig_tester ) try {
    BOOST_REQUIRE_EQUAL( 1, trace->action_traces.size() );
    BOOST_REQUIRE_EQUAL( transaction_receipt::executed, trace->receipt->status );
 } FC_LOG_AND_RETHROW()
+
 
 
 BOOST_FIXTURE_TEST_CASE( update_system_contract_all_approve, enu_msig_tester ) try {

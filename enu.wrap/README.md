@@ -384,15 +384,15 @@ memory:
      quota:     49.74 KiB    used:     3.33 KiB  
 
 net bandwidth:
-     staked:          1.0000 SYS           (total stake delegated from account to self)
-     delegated:       0.0000 SYS           (total staked delegated to account from others)
+     staked:          1.0000 ENU           (total stake delegated from account to self)
+     delegated:       0.0000 ENU           (total staked delegated to account from others)
      used:                 0 bytes
      available:        2.304 MiB  
      limit:            2.304 MiB  
 
 cpu bandwidth:
-     staked:          1.0000 SYS           (total stake delegated from account to self)
-     delegated:       0.0000 SYS           (total staked delegated to account from others)
+     staked:          1.0000 ENU           (total stake delegated from account to self)
+     delegated:       0.0000 ENU           (total staked delegated to account from others)
      used:                 0 us   
      available:        460.8 ms   
      limit:            460.8 ms   
@@ -626,15 +626,15 @@ memory:
      quota:     49.74 KiB    used:     3.365 KiB  
 
 net bandwidth:
-     staked:          1.0000 SYS           (total stake delegated from account to self)
-     delegated:       0.0000 SYS           (total staked delegated to account from others)
+     staked:          1.0000 ENU           (total stake delegated from account to self)
+     delegated:       0.0000 ENU           (total staked delegated to account from others)
      used:                 0 bytes
      available:        2.304 MiB  
      limit:            2.304 MiB  
 
 cpu bandwidth:
-     staked:          1.0000 SYS           (total stake delegated from account to self)
-     delegated:       0.0000 SYS           (total staked delegated to account from others)
+     staked:          1.0000 ENU           (total stake delegated from account to self)
+     delegated:       0.0000 ENU           (total staked delegated to account from others)
      used:                 0 us   
      available:        460.8 ms   
      limit:            460.8 ms   
@@ -868,15 +868,15 @@ memory:
      quota:     49.74 KiB    used:     3.348 KiB  
 
 net bandwidth:
-     staked:          1.0000 SYS           (total stake delegated from account to self)
-     delegated:       0.0000 SYS           (total staked delegated to account from others)
+     staked:          1.0000 ENU           (total stake delegated from account to self)
+     delegated:       0.0000 ENU           (total staked delegated to account from others)
      used:                 0 bytes
      available:        2.304 MiB  
      limit:            2.304 MiB  
 
 cpu bandwidth:
-     staked:          1.0000 SYS           (total stake delegated from account to self)
-     delegated:       0.0000 SYS           (total staked delegated to account from others)
+     staked:          1.0000 ENU           (total stake delegated from account to self)
+     delegated:       0.0000 ENU           (total staked delegated to account from others)
      used:               413 us   
      available:        460.4 ms   
      limit:            460.8 ms   
