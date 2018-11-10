@@ -95,7 +95,7 @@ void token::transfer( name    from,
 
     /////////////////////////////////////////////////////////////////////////////
     //don't allow enumivo.prods to recieve tokens
-    //enumivo_assert( to != "enumivo.prods"_n, "enumivo.prods prohibited to receive");
+    enumivo_assert( to != "enumivo.prods"_n, "enumivo.prods prohibited to receive");
 
     auto sym = quantity.symbol.code();
     stats statstable( _self, sym.raw() );
