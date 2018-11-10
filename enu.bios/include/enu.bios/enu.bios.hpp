@@ -5,35 +5,29 @@
 
 namespace enumivo {
 
-   struct abi_hash {
-      account_name owner;
-      checksum256  hash;
-      auto primary_key()const { return owner; }
-
-      ENULIB_SERIALIZE( abi_hash, (owner)(hash) )
-   };
-
-   typedef enumivo::multi_index< N(abihash), abi_hash> abi_hash_table; 
-
-   class bios : public contract {
+   class [[enumivo::contract("enu.bios")]] bios : public contract {
       public:
-         bios( action_name self ):contract(self){}
+         using contract::contract;
 
-         void setpriv( account_name account, uint8_t ispriv ) {
+         [[enumivo::action]]
+         void setpriv( name account, uint8_t is_priv ) {
             require_auth( _self );
-            set_privileged( account, ispriv );
+            set_privileged( account.value, is_priv );
          }
 
-         void setalimits( account_name account, int64_t ram_bytes, int64_t net_weight, int64_t cpu_weight ) {
+         [[enumivo::action]]
+         void setalimits( name account, int64_t ram_bytes, int64_t net_weight, int64_t cpu_weight ) {
             require_auth( _self );
-            set_resource_limits( account, ram_bytes, net_weight, cpu_weight );
+            set_resource_limits( account.value, ram_bytes, net_weight, cpu_weight );
          }
 
+         [[enumivo::action]]
          void setglimits( uint64_t ram, uint64_t net, uint64_t cpu ) {
             (void)ram; (void)net; (void)cpu;
             require_auth( _self );
          }
 
+         [[enumivo::action]]
          void setprods( std::vector<enumivo::producer_key> schedule ) {
             (void)schedule; // schedule argument just forces the deserialization of the action data into vector<producer_key> (necessary check)
             require_auth( _self );
@@ -45,26 +39,42 @@ namespace enumivo {
             set_proposed_producers(buffer, size);
          }
 
-         void reqauth( action_name from ) {
+         [[enumivo::action]]
+         void setparams( const enumivo::blockchain_parameters& params ) {
+            require_auth( _self );
+            set_blockchain_parameters( params );
+         }
+
+         [[enumivo::action]]
+         void reqauth( name from ) {
             require_auth( from );
          }
 
-         void setabi( account_name acnt, const bytes& abi ) {
-            abi_hash_table table(_self, _self);
-            auto itr = table.find( acnt );
+         [[enumivo::action]]
+         void setabi( name account, const std::vector<char>& abi ) {
+            abi_hash_table table(_self, _self.value);
+            auto itr = table.find( account.value );
             if( itr == table.end() ) {
-               table.emplace( acnt, [&]( auto& row ) {
-                  row.owner = acnt;
-                  sha256( const_cast<char*>(abi.data()), abi.size(), &row.hash ); 
+               table.emplace( account, [&]( auto& row ) {
+                  row.owner = account;
+                  sha256( const_cast<char*>(abi.data()), abi.size(), &row.hash );
                });
             } else {
-               table.modify( itr, 0, [&]( auto& row ) {
-                  sha256( const_cast<char*>(abi.data()), abi.size(), &row.hash ); 
+               table.modify( itr, same_payer, [&]( auto& row ) {
+                  sha256( const_cast<char*>(abi.data()), abi.size(), &row.hash );
                });
             }
          }
 
-      private:
+         struct [[enumivo::table]] abi_hash {
+            name              owner;
+            capi_checksum256  hash;
+            uint64_t primary_key()const { return owner.value; }
+
+            ENULIB_SERIALIZE( abi_hash, (owner)(hash) )
+         };
+
+         typedef enumivo::multi_index< "abihash"_n, abi_hash > abi_hash_table;
    };
 
 } /// namespace enumivo
