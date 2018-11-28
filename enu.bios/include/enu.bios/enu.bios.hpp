@@ -1,13 +1,103 @@
 #pragma once
+#include <enulib/action.hpp>
 #include <enulib/crypto.h>
 #include <enulib/enu.hpp>
 #include <enulib/privileged.hpp>
+#include <enulib/producer_schedule.hpp>
 
 namespace enumivo {
+   using enumivo::permission_level;
+   using enumivo::public_key;
+   using enumivo::ignore;
+
+   struct permission_level_weight {
+      permission_level  permission;
+      uint16_t          weight;
+
+      // explicit serialization macro is not necessary, used here only to improve compilation time
+      ENULIB_SERIALIZE( permission_level_weight, (permission)(weight) )
+   };
+
+   struct key_weight {
+      enumivo::public_key  key;
+      uint16_t           weight;
+
+      // explicit serialization macro is not necessary, used here only to improve compilation time
+      ENULIB_SERIALIZE( key_weight, (key)(weight) )
+   };
+
+   struct wait_weight {
+      uint32_t           wait_sec;
+      uint16_t           weight;
+
+      // explicit serialization macro is not necessary, used here only to improve compilation time
+      ENULIB_SERIALIZE( wait_weight, (wait_sec)(weight) )
+   };
+
+   struct authority {
+      uint32_t                              threshold = 0;
+      std::vector<key_weight>               keys;
+      std::vector<permission_level_weight>  accounts;
+      std::vector<wait_weight>              waits;
+
+      // explicit serialization macro is not necessary, used here only to improve compilation time
+      ENULIB_SERIALIZE( authority, (threshold)(keys)(accounts)(waits) )
+   };
+
+   struct block_header {
+      uint32_t                                  timestamp;
+      name                                      producer;
+      uint16_t                                  confirmed = 0;
+      capi_checksum256                          previous;
+      capi_checksum256                          transaction_mroot;
+      capi_checksum256                          action_mroot;
+      uint32_t                                  schedule_version = 0;
+      std::optional<enumivo::producer_schedule>   new_producers;
+
+      // explicit serialization macro is not necessary, used here only to improve compilation time
+      ENULIB_SERIALIZE(block_header, (timestamp)(producer)(confirmed)(previous)(transaction_mroot)(action_mroot)
+                                     (schedule_version)(new_producers))
+   };
 
    class [[enumivo::contract("enu.bios")]] bios : public contract {
       public:
          using contract::contract;
+         [[enumivo::action]]
+         void newaccount( name             creator,
+                          name             name,
+                          ignore<authority> owner,
+                          ignore<authority> active){}
+
+
+         [[enumivo::action]]
+         void updateauth(  ignore<name>  account,
+                           ignore<name>  permission,
+                           ignore<name>  parent,
+                           ignore<authority> auth ) {}
+
+         [[enumivo::action]]
+         void deleteauth( ignore<name>  account,
+                          ignore<name>  permission ) {}
+
+         [[enumivo::action]]
+         void linkauth(  ignore<name>    account,
+                         ignore<name>    code,
+                         ignore<name>    type,
+                         ignore<name>    requirement  ) {}
+
+         [[enumivo::action]]
+         void unlinkauth( ignore<name>  account,
+                          ignore<name>  code,
+                          ignore<name>  type ) {}
+
+         [[enumivo::action]]
+         void canceldelay( ignore<permission_level> canceling_auth, ignore<capi_checksum256> trx_id ) {}
+
+         [[enumivo::action]]
+         void onerror( ignore<uint128_t> sender_id, ignore<std::vector<char>> sent_trx ) {}
+
+         [[enumivo::action]]
+         void setcode( name account, uint8_t vmtype, uint8_t vmversion, const std::vector<char>& code ) {}
 
          [[enumivo::action]]
          void setpriv( name account, uint8_t is_priv ) {
