@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(enumivo_contracts VERSION 1.5.0)
+project(enumivo_contracts VERSION 1.5.1)
 
 set(ENUMIVO_CDT_VERSION_MIN "1.4")
 set(ENUMIVO_CDT_VERSION_SOFT_MAX "1.4")

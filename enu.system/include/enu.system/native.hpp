@@ -98,7 +98,7 @@ namespace enumivosystem {
           */
          [[enumivo::action]]
          void newaccount( name             creator,
-                          name             newact,
+                          name             name,
                           ignore<authority> owner,
                           ignore<authority> active);
 
