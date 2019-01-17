@@ -5,6 +5,7 @@
 #include <enumivo/chain/wast_to_wasm.hpp>
 #include <cstdlib>
 #include <iostream>
+#include <sstream>
 #include <fc/log/logger.hpp>
 #include <enumivo/chain/exceptions.hpp>
 #include <Runtime/Runtime.h>
@@ -3442,6 +3443,145 @@ BOOST_FIXTURE_TEST_CASE( setabi, enu_system_tester ) try {
 
       BOOST_REQUIRE( abi_hash.hash == result );
    }
+} FC_LOG_AND_RETHROW()
+
+BOOST_FIXTURE_TEST_CASE( change_limited_account_back_to_unlimited, enumivo_system_tester ) try {
+   BOOST_REQUIRE( get_total_stake( "enumivo" ).is_null() );
+
+   transfer( N(enumivo), N(alice1111111), core_sym::from_string("1.0000") );
+
+   auto error_msg = stake( N(alice1111111), N(enumivo), core_sym::from_string("0.0000"), core_sym::from_string("1.0000") );
+   auto semicolon_pos = error_msg.find(';');
+
+   BOOST_REQUIRE_EQUAL( error("account enumivo has insufficient ram"),
+                        error_msg.substr(0, semicolon_pos) );
+
+   int64_t ram_bytes_needed = 0;
+   {
+      std::istringstream s( error_msg );
+      s.seekg( semicolon_pos + 7, std::ios_base::beg );
+      s >> ram_bytes_needed;
+      ram_bytes_needed += 256; // enough room to cover total_resources_table
+   }
+
+   push_action( N(enumivo), N(setalimits), mvo()
+                                          ("account", "enumivo")
+                                          ("ram_bytes", ram_bytes_needed)
+                                          ("net_weight", -1)
+                                          ("cpu_weight", -1)
+              );
+
+   stake( N(alice1111111), N(enumivo), core_sym::from_string("0.0000"), core_sym::from_string("1.0000") );
+
+   REQUIRE_MATCHING_OBJECT( get_total_stake( "enumivo" ), mvo()
+      ("owner", "enumivo")
+      ("net_weight", core_sym::from_string("0.0000"))
+      ("cpu_weight", core_sym::from_string("1.0000"))
+      ("ram_bytes",  0)
+   );
+
+   BOOST_REQUIRE_EQUAL( wasm_assert_msg( "only supports unlimited accounts" ),
+                        push_action( N(enumivo), N(setalimits), mvo()
+                                          ("account", "enumivo")
+                                          ("ram_bytes", ram_bytes_needed)
+                                          ("net_weight", -1)
+                                          ("cpu_weight", -1)
+                        )
+   );
+
+   BOOST_REQUIRE_EQUAL( error( "transaction net usage is too high: 128 > 0" ),
+                        push_action( N(enumivo), N(setalimits), mvo()
+                           ("account", "enu.savings")
+                           ("ram_bytes", -1)
+                           ("net_weight", -1)
+                           ("cpu_weight", -1)
+                        )
+   );
+
+   BOOST_REQUIRE_EQUAL( success(),
+                        push_action( N(enumivo), N(setacctnet), mvo()
+                           ("account", "enumivo")
+                           ("net_weight", -1)
+                        )
+   );
+
+   BOOST_REQUIRE_EQUAL( success(),
+                        push_action( N(enumivo), N(setacctcpu), mvo()
+                           ("account", "enumivo")
+                           ("cpu_weight", -1)
+
+                        )
+   );
+
+   BOOST_REQUIRE_EQUAL( success(),
+                        push_action( N(enumivo), N(setalimits), mvo()
+                                          ("account", "enu.saving")
+                                          ("ram_bytes", ram_bytes_needed)
+                                          ("net_weight", -1)
+                                          ("cpu_weight", -1)
+                        )
+   );
+
+} FC_LOG_AND_RETHROW()
+
+BOOST_FIXTURE_TEST_CASE( buy_pin_sell_ram, enumivo_system_tester ) try {
+   BOOST_REQUIRE( get_total_stake( "enumivo" ).is_null() );
+
+   transfer( N(enumivo), N(alice1111111), core_sym::from_string("1020.0000") );
+
+   auto error_msg = stake( N(alice1111111), N(enumivo), core_sym::from_string("10.0000"), core_sym::from_string("10.0000") );
+   auto semicolon_pos = error_msg.find(';');
+
+   BOOST_REQUIRE_EQUAL( error("account enumivo has insufficient ram"),
+                        error_msg.substr(0, semicolon_pos) );
+
+   int64_t ram_bytes_needed = 0;
+   {
+      std::istringstream s( error_msg );
+      s.seekg( semicolon_pos + 7, std::ios_base::beg );
+      s >> ram_bytes_needed;
+      ram_bytes_needed += ram_bytes_needed/10; // enough buffer to make up for buyrambytes estimation errors
+   }
+
+   auto alice_original_balance = get_balance( N(alice1111111) );
+
+   BOOST_REQUIRE_EQUAL( success(), buyrambytes( N(alice1111111), N(enumivo), static_cast<uint32_t>(ram_bytes_needed) ) );
+
+   auto tokens_paid_for_ram = alice_original_balance - get_balance( N(alice1111111) );
+
+   auto total_res = get_total_stake( "enumivo" );
+
+   REQUIRE_MATCHING_OBJECT( total_res, mvo()
+      ("owner", "enumivo")
+      ("net_weight", core_sym::from_string("0.0000"))
+      ("cpu_weight", core_sym::from_string("0.0000"))
+      ("ram_bytes",  total_res["ram_bytes"].as_int64() )
+   );
+
+   BOOST_REQUIRE_EQUAL( wasm_assert_msg( "only supports unlimited accounts" ),
+                        push_action( N(enumivo), N(setalimits), mvo()
+                                          ("account", "enumivo")
+                                          ("ram_bytes", ram_bytes_needed)
+                                          ("net_weight", -1)
+                                          ("cpu_weight", -1)
+                        )
+   );
+
+   BOOST_REQUIRE_EQUAL( success(),
+                        push_action( N(enumivo), N(setacctram), mvo()
+                           ("account", "enumivo")
+                           ("ram_bytes", total_res["ram_bytes"].as_int64() )
+                        )
+   );
+
+   auto enumivo_original_balance = get_balance( N(enumivo) );
+
+   BOOST_REQUIRE_EQUAL( success(), sellram( N(enumivo), total_res["ram_bytes"].as_int64() ) );
+
+   auto tokens_received_by_selling_ram = get_balance( N(enumivo) ) - enumivo_original_balance;
+
+   BOOST_REQUIRE( double(tokens_paid_for_ram.get_amount() - tokens_received_by_selling_ram.get_amount()) / tokens_paid_for_ram.get_amount() < 0.01 );
+
 } FC_LOG_AND_RETHROW()
 
 BOOST_AUTO_TEST_SUITE_END()

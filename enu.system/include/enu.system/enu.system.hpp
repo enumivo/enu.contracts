@@ -12,6 +12,8 @@
 #include <enu.system/exchange_state.hpp>
 
 #include <string>
+#include <type_traits>
+#include <optional>
 
 namespace enumivosystem {
 
@@ -25,6 +27,25 @@ namespace enumivosystem {
    using enumivo::time_point;
    using enumivo::microseconds;
    using enumivo::datastream;
+
+   template<typename E, typename F>
+   static inline auto has_field( F flags, E field )
+   -> std::enable_if_t< std::is_integral_v<F> && std::is_unsigned_v<F> &&
+                        std::is_enum_v<E> && std::is_same_v< F, std::underlying_type_t<E> >, bool>
+   {
+      return ( (flags & static_cast<F>(field)) != 0 );
+   }
+
+   template<typename E, typename F>
+   static inline auto set_field( F flags, E field, bool value = true )
+   -> std::enable_if_t< std::is_integral_v<F> && std::is_unsigned_v<F> &&
+                        std::is_enum_v<E> && std::is_same_v< F, std::underlying_type_t<E> >, F >
+   {
+      if( value )
+         return ( flags | static_cast<F>(field) );
+      else
+         return ( flags & ~static_cast<F>(field) );
+   }
 
    struct [[enumivo::table, enumivo::contract("enu.system")]] name_bid {
      name            newname;
@@ -151,14 +172,20 @@ namespace enumivosystem {
       bool                is_proxy = 0; /// whether the voter is a proxy for others
 
 
-      uint32_t            reserved1 = 0;
+      uint32_t            flags1 = 0;
       uint32_t            reserved2 = 0;
       enumivo::asset      reserved3;
 
       uint64_t primary_key()const { return owner.value; }
 
+      enum class flags1_fields : uint32_t {
+         ram_managed = 1,
+         net_managed = 2,
+         cpu_managed = 4
+      };
+
       // explicit serialization macro is not necessary, used here only to improve compilation time
-      ENULIB_SERIALIZE( voter_info, (owner)(proxy)(producers)(staked)(last_vote_weight)(proxied_vote_weight)(is_proxy)(reserved1)(reserved2)(reserved3) )
+      ENULIB_SERIALIZE( voter_info, (owner)(proxy)(producers)(staked)(last_vote_weight)(proxied_vote_weight)(is_proxy)(flags1)(reserved2)(reserved3) )
    };
 
    typedef enumivo::multi_index< "voters"_n, voter_info >  voters_table;
@@ -219,6 +246,16 @@ namespace enumivosystem {
 
          [[enumivo::action]]
          void setalimits( name account, int64_t ram_bytes, int64_t net_weight, int64_t cpu_weight );
+
+         [[enumivo::action]]
+         void setacctram( name account, std::optional<int64_t> ram_bytes );
+
+         [[enumivo::action]]
+         void setacctnet( name account, std::optional<int64_t> net_weight );
+
+         [[enumivo::action]]
+         void setacctcpu( name account, std::optional<int64_t> cpu_weight );
+
          // functions defined in delegate_bandwidth.cpp
 
          /**

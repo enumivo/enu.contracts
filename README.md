@@ -1,6 +1,6 @@
 # enumivo.contracts
 
-## Version : 1.5.1
+## Version : 1.5.2
 
 The design of the Enumivo blockchain calls for a number of smart contracts that are run at a privileged permission level in order to support functions such as block producer registration and voting, token staking for CPU and network bandwidth, RAM purchasing, multi-sig, etc.  These smart contracts are referred to as the system, token, msig and wrap (formerly known as sudo) contracts.
 
@@ -14,8 +14,8 @@ The following unprivileged contract(s) are also part of the system.
    * [enu.token](https://github.com/enumivo/enumivo.contracts/tree/master/enu.token)
 
 Dependencies:
-* [enumivo 1.4.x](https://github.com/enumivo/enumivo/releases/tag/1.4.3)
-* [enumivo.cdt 1.4.x](https://github.com/enumivo/enumivo.cdt/releases/tag/1.4.0)
+* [enumivo 1.5.x](https://github.com/enumivo/enumivo/releases/tag/1.5.0) to [1.6.x](https://github.com/enumivo/enumivo/releases/tag/1.6.0)
+* [enumivo.cdt 1.4.x](https://github.com/enumivo/enumivo.cdt/releases/tag/1.4.1) to [1.5.x](https://github.com/enumivo/enumivo.cdt/releases/tag/1.5.0)
 
 To build the contracts and the unit tests:
 * First, ensure that your __enumivo__ is compiled to the core symbol for the Enumivo blockchain that intend to deploy to.

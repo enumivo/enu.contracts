@@ -1,7 +1,7 @@
 cmake_minimum_required( VERSION 3.5 )
 
 set(ENUMIVO_VERSION_MIN "1.4")
-set(ENUMIVO_VERSION_SOFT_MAX "1.4")
+set(ENUMIVO_VERSION_SOFT_MAX "1.6")
 #set(ENUMIVO_VERSION_HARD_MAX "")
 
 find_package(enumivo)
