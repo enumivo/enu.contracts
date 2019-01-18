@@ -113,7 +113,7 @@ namespace enumivosystem {
 
       /////////////////////////////////////////////////////////////////////////////////////
       //enumivo.prods is not allowed to get ram
-      enumivo_assert( receiver != "enumivo.prods"_n, "enumivo.prods prohibited to recieve ram" );
+      //enumivo_assert( receiver != "enumivo.prods"_n, "enumivo.prods prohibited to recieve ram" );
 
       auto fee = quant;
       fee.amount = ( fee.amount + 199 ) / 200; /// .5% fee (round up)
