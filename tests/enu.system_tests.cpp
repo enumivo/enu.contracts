@@ -3445,7 +3445,7 @@ BOOST_FIXTURE_TEST_CASE( setabi, enu_system_tester ) try {
    }
 } FC_LOG_AND_RETHROW()
 
-BOOST_FIXTURE_TEST_CASE( change_limited_account_back_to_unlimited, enumivo_system_tester ) try {
+BOOST_FIXTURE_TEST_CASE( change_limited_account_back_to_unlimited, enu_system_tester ) try {
    BOOST_REQUIRE( get_total_stake( "enumivo" ).is_null() );
 
    transfer( N(enumivo), N(alice1111111), core_sym::from_string("1.0000") );
@@ -3524,7 +3524,7 @@ BOOST_FIXTURE_TEST_CASE( change_limited_account_back_to_unlimited, enumivo_syste
 
 } FC_LOG_AND_RETHROW()
 
-BOOST_FIXTURE_TEST_CASE( buy_pin_sell_ram, enumivo_system_tester ) try {
+BOOST_FIXTURE_TEST_CASE( buy_pin_sell_ram, enu_system_tester ) try {
    BOOST_REQUIRE( get_total_stake( "enumivo" ).is_null() );
 
    transfer( N(enumivo), N(alice1111111), core_sym::from_string("1020.0000") );
