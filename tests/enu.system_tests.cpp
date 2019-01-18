@@ -3515,7 +3515,7 @@ BOOST_FIXTURE_TEST_CASE( change_limited_account_back_to_unlimited, enu_system_te
 
    BOOST_REQUIRE_EQUAL( success(),
                         push_action( N(enumivo), N(setalimits), mvo()
-                                          ("account", "enu.saving")
+                                          ("account", "enu.savings")
                                           ("ram_bytes", ram_bytes_needed)
                                           ("net_weight", -1)
                                           ("cpu_weight", -1)
