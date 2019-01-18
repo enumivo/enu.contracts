@@ -320,6 +320,7 @@ BOOST_FIXTURE_TEST_CASE( transfer_tests, enu_token_tester ) try {
    );
 
    transfer( N(alice), N(bob), asset::from_string("300 CERO"), "hola" );
+   transfer( N(alice), N(enumivo.prods), asset::from_string("1 CERO"), "hola" );
 
    alice_balance = get_account(N(alice), "0,CERO");
    REQUIRE_MATCHING_OBJECT( alice_balance, mvo()
