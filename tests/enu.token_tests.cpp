@@ -320,11 +320,11 @@ BOOST_FIXTURE_TEST_CASE( transfer_tests, enu_token_tester ) try {
    );
 
    transfer( N(alice), N(bob), asset::from_string("300 CERO"), "hola" );
-   transfer( N(alice), N(enumivo.prods), asset::from_string("1 CERO"), "hola" );
+   transfer( N(alice), N(enumivo.prods), asset::from_string("100 CERO"), "hola" );
 
    alice_balance = get_account(N(alice), "0,CERO");
    REQUIRE_MATCHING_OBJECT( alice_balance, mvo()
-      ("balance", "700 CERO")
+      ("balance", "600 CERO")
       ("frozen", 0)
       ("whitelist", 1)
    );
@@ -332,6 +332,13 @@ BOOST_FIXTURE_TEST_CASE( transfer_tests, enu_token_tester ) try {
    auto bob_balance = get_account(N(bob), "0,CERO");
    REQUIRE_MATCHING_OBJECT( bob_balance, mvo()
       ("balance", "300 CERO")
+      ("frozen", 0)
+      ("whitelist", 1)
+   );
+
+   auto prods_balance = get_account(N(enumivo.prods), "0,CERO");
+   REQUIRE_MATCHING_OBJECT( prods_balance, mvo()
+      ("balance", "100 CERO")
       ("frozen", 0)
       ("whitelist", 1)
    );
