@@ -6,7 +6,7 @@
 #include "delegate_bandwidth.cpp"
 #include "voting.cpp"
 #include "exchange_state.cpp"
-
+#include "rex.cpp"
 
 namespace enumivosystem {
 
@@ -18,9 +18,12 @@ namespace enumivosystem {
     _global(_self, _self.value),
     _global2(_self, _self.value),
     _global3(_self, _self.value),
-    _rammarket(_self, _self.value)
+    _rammarket(_self, _self.value),
+    _rexpool(_self, _self.value),
+    _rexfunds(_self, _self.value),
+    _rexbalance(_self, _self.value),
+    _rexorders(_self, _self.value)
    {
-
       //print( "construct system\n" );
       _gstate  = _global.exists() ? _global.get() : get_default_parameters();
       _gstate2 = _global2.exists() ? _global2.get() : enumivo_global_state2{};
@@ -36,6 +39,11 @@ namespace enumivosystem {
    time_point system_contract::current_time_point() {
       const static time_point ct{ microseconds{ static_cast<int64_t>( current_time() ) } };
       return ct;
+   }
+
+   time_point_sec system_contract::current_time_point_sec() {
+      const static time_point_sec cts{ current_time_point() };
+      return cts;
    }
 
    block_timestamp system_contract::current_block_time() {
@@ -57,9 +65,9 @@ namespace enumivosystem {
    void system_contract::setram( uint64_t max_ram_size ) {
       require_auth( _self );
 
-      enumivo_assert( _gstate.max_ram_size < max_ram_size, "ram may only be increased" ); /// decreasing ram might result market maker issues
-      enumivo_assert( max_ram_size < 1024ll*1024*1024*1024*1024, "ram size is unrealistic" );
-      enumivo_assert( max_ram_size > _gstate.total_ram_bytes_reserved, "attempt to set max below reserved" );
+      check( _gstate.max_ram_size < max_ram_size, "ram may only be increased" ); /// decreasing ram might result market maker issues
+      check( max_ram_size < 1024ll*1024*1024*1024*1024, "ram size is unrealistic" );
+      check( max_ram_size > _gstate.total_ram_bytes_reserved, "attempt to set max below reserved" );
 
       auto delta = int64_t(max_ram_size) - int64_t(_gstate.max_ram_size);
       auto itr = _rammarket.find(ramcore_symbol.raw());
@@ -109,7 +117,7 @@ namespace enumivosystem {
    void system_contract::setparams( const enumivo::blockchain_parameters& params ) {
       require_auth( _self );
       (enumivo::blockchain_parameters&)(_gstate) = params;
-      enumivo_assert( 3 <= _gstate.max_authority_depth, "max_authority_depth should be at least 3" );
+      check( 3 <= _gstate.max_authority_depth, "max_authority_depth should be at least 3" );
       set_blockchain_parameters( params );
    }
 
@@ -123,14 +131,14 @@ namespace enumivosystem {
 
       user_resources_table userres( _self, account.value );
       auto ritr = userres.find( account.value );
-      enumivo_assert( ritr == userres.end(), "only supports unlimited accounts" );
+      check( ritr == userres.end(), "only supports unlimited accounts" );
 
       auto vitr = _voters.find( account.value );
       if( vitr != _voters.end() ) {
          bool ram_managed = has_field( vitr->flags1, voter_info::flags1_fields::ram_managed );
          bool net_managed = has_field( vitr->flags1, voter_info::flags1_fields::net_managed );
          bool cpu_managed = has_field( vitr->flags1, voter_info::flags1_fields::cpu_managed );
-         enumivo_assert( !(ram_managed || net_managed || cpu_managed), "cannot use setalimits on an account with managed resources" );
+         check( !(ram_managed || net_managed || cpu_managed), "cannot use setalimits on an account with managed resources" );
       }
 
       set_resource_limits( account.value, ram, net, cpu );
@@ -146,8 +154,8 @@ namespace enumivosystem {
 
       if( !ram_bytes ) {
          auto vitr = _voters.find( account.value );
-         enumivo_assert( vitr != _voters.end() && has_field( vitr->flags1, voter_info::flags1_fields::ram_managed ),
-                       "RAM of account is already unmanaged" );
+         check( vitr != _voters.end() && has_field( vitr->flags1, voter_info::flags1_fields::ram_managed ),
+                "RAM of account is already unmanaged" );
 
          user_resources_table userres( _self, account.value );
          auto ritr = userres.find( account.value );
@@ -161,7 +169,7 @@ namespace enumivosystem {
             v.flags1 = set_field( v.flags1, voter_info::flags1_fields::ram_managed, false );
          });
       } else {
-         enumivo_assert( *ram_bytes >= 0, "not allowed to set RAM limit to unlimited" );
+         check( *ram_bytes >= 0, "not allowed to set RAM limit to unlimited" );
 
          auto vitr = _voters.find( account.value );
          if ( vitr != _voters.end() ) {
@@ -191,8 +199,8 @@ namespace enumivosystem {
 
       if( !net_weight ) {
          auto vitr = _voters.find( account.value );
-         enumivo_assert( vitr != _voters.end() && has_field( vitr->flags1, voter_info::flags1_fields::net_managed ),
-                       "Network bandwidth of account is already unmanaged" );
+         check( vitr != _voters.end() && has_field( vitr->flags1, voter_info::flags1_fields::net_managed ),
+                "Network bandwidth of account is already unmanaged" );
 
          user_resources_table userres( _self, account.value );
          auto ritr = userres.find( account.value );
@@ -205,7 +213,7 @@ namespace enumivosystem {
             v.flags1 = set_field( v.flags1, voter_info::flags1_fields::net_managed, false );
          });
       } else {
-         enumivo_assert( *net_weight >= -1, "invalid value for net_weight" );
+         check( *net_weight >= -1, "invalid value for net_weight" );
 
          auto vitr = _voters.find( account.value );
          if ( vitr != _voters.end() ) {
@@ -235,8 +243,8 @@ namespace enumivosystem {
 
       if( !cpu_weight ) {
          auto vitr = _voters.find( account.value );
-         enumivo_assert( vitr != _voters.end() && has_field( vitr->flags1, voter_info::flags1_fields::cpu_managed ),
-                       "CPU bandwidth of account is already unmanaged" );
+         check( vitr != _voters.end() && has_field( vitr->flags1, voter_info::flags1_fields::cpu_managed ),
+                "CPU bandwidth of account is already unmanaged" );
 
          user_resources_table userres( _self, account.value );
          auto ritr = userres.find( account.value );
@@ -249,7 +257,7 @@ namespace enumivosystem {
             v.flags1 = set_field( v.flags1, voter_info::flags1_fields::cpu_managed, false );
          });
       } else {
-         enumivo_assert( *cpu_weight >= -1, "invalid value for cpu_weight" );
+         check( *cpu_weight >= -1, "invalid value for cpu_weight" );
 
          auto vitr = _voters.find( account.value );
          if ( vitr != _voters.end() ) {
@@ -272,7 +280,7 @@ namespace enumivosystem {
    void system_contract::rmvproducer( name producer ) {
       require_auth( _self );
       auto prod = _producers.find( producer.value );
-      enumivo_assert( prod != _producers.end(), "producer not found" );
+      check( prod != _producers.end(), "producer not found" );
       _producers.modify( prod, same_payer, [&](auto& p) {
             p.deactivate();
          });
@@ -280,23 +288,23 @@ namespace enumivosystem {
 
    void system_contract::updtrevision( uint8_t revision ) {
       require_auth( _self );
-      enumivo_assert( _gstate2.revision < 255, "can not increment revision" ); // prevent wrap around
-      enumivo_assert( revision == _gstate2.revision + 1, "can only increment revision by one" );
-      enumivo_assert( revision <= 1, // set upper bound to greatest revision supported in the code
+      check( _gstate2.revision < 255, "can not increment revision" ); // prevent wrap around
+      check( revision == _gstate2.revision + 1, "can only increment revision by one" );
+      check( revision <= 1, // set upper bound to greatest revision supported in the code
                     "specified revision is not yet supported by the code" );
       _gstate2.revision = revision;
    }
 
    void system_contract::bidname( name bidder, name newname, asset bid ) {
       require_auth( bidder );
-      enumivo_assert( newname.suffix() == newname, "you can only bid on top-level suffix" );
+      check( newname.suffix() == newname, "you can only bid on top-level suffix" );
 
-      enumivo_assert( (bool)newname, "the empty name is not a valid account name to bid on" );
-      enumivo_assert( (newname.value & 0xFull) == 0, "13 character names are not valid account names to bid on" );
-      enumivo_assert( (newname.value & 0x1F0ull) == 0, "accounts with 12 character names and no dots can be created without bidding required" );
-      enumivo_assert( !is_account( newname ), "account already exists" );
-      enumivo_assert( bid.symbol == core_symbol(), "asset must be system token" );
-      enumivo_assert( bid.amount > 0, "insufficient bid" );
+      check( (bool)newname, "the empty name is not a valid account name to bid on" );
+      check( (newname.value & 0xFull) == 0, "13 character names are not valid account names to bid on" );
+      check( (newname.value & 0x1F0ull) == 0, "accounts with 12 character names and no dots can be created without bidding required" );
+      check( !is_account( newname ), "account already exists" );
+      check( bid.symbol == core_symbol(), "asset must be system token" );
+      check( bid.amount > 0, "insufficient bid" );
 
       INLINE_ACTION_SENDER(enumivo::token, transfer)(
          token_account, { {bidder, active_permission} },
@@ -314,9 +322,9 @@ namespace enumivosystem {
             b.last_bid_time = current_time_point();
          });
       } else {
-         enumivo_assert( current->high_bid > 0, "this auction has already closed" );
-         enumivo_assert( bid.amount - current->high_bid > (current->high_bid / 10), "must increase bid by 10%" );
-         enumivo_assert( current->high_bidder != bidder, "account is already highest bidder" );
+         check( current->high_bid > 0, "this auction has already closed" );
+         check( bid.amount - current->high_bid > (current->high_bid / 10), "must increase bid by 10%" );
+         check( current->high_bidder != bidder, "account is already highest bidder" );
 
          bid_refund_table refunds_table(_self, newname.value);
 
@@ -353,7 +361,7 @@ namespace enumivosystem {
    void system_contract::bidrefund( name bidder, name newname ) {
       bid_refund_table refunds_table(_self, newname.value);
       auto it = refunds_table.find( bidder.value );
-      enumivo_assert( it != refunds_table.end(), "refund not found" );
+      check( it != refunds_table.end(), "refund not found" );
       INLINE_ACTION_SENDER(enumivo::token, transfer)(
          token_account, { {names_account, active_permission}, {bidder, active_permission} },
          { names_account, bidder, asset(it->amount), std::string("refund bid on name ")+(name{newname}).to_string() }
@@ -388,12 +396,12 @@ namespace enumivosystem {
             if( suffix == newact ) {
                name_bid_table bids(_self, _self.value);
                auto current = bids.find( newact.value );
-               enumivo_assert( current != bids.end(), "no active bid for name" );
-               enumivo_assert( current->high_bidder == creator, "only highest bidder can claim" );
-               enumivo_assert( current->high_bid < 0, "auction for name is not closed yet" );
+               check( current != bids.end(), "no active bid for name" );
+               check( current->high_bidder == creator, "only highest bidder can claim" );
+               check( current->high_bid < 0, "auction for name is not closed yet" );
                bids.erase( current );
             } else {
-               enumivo_assert( creator == suffix, "only suffix may create this account" );
+               check( creator == suffix, "only suffix may create this account" );
             }
          }
       }
@@ -426,15 +434,15 @@ namespace enumivosystem {
 
    void system_contract::init( unsigned_int version, symbol core ) {
       require_auth( _self );
-      enumivo_assert( version.value == 0, "unsupported version for init action" );
+      check( version.value == 0, "unsupported version for init action" );
 
       auto itr = _rammarket.find(ramcore_symbol.raw());
-      enumivo_assert( itr == _rammarket.end(), "system contract has already been initialized" );
+      check( itr == _rammarket.end(), "system contract has already been initialized" );
 
       auto system_token_supply   = enumivo::token::get_supply(token_account, core.code() );
-      enumivo_assert( system_token_supply.symbol == core, "specified core symbol does not exist (precision mismatch)" );
+      check( system_token_supply.symbol == core, "specified core symbol does not exist (precision mismatch)" );
 
-      enumivo_assert( system_token_supply.amount > 0, "system token supply must be greater than 0" );
+      check( system_token_supply.amount > 0, "system token supply must be greater than 0" );
       _rammarket.emplace( _self, [&]( auto& m ) {
          m.supply.amount = 100000000000000ll;
          m.supply.symbol = ramcore_symbol;
@@ -443,7 +451,11 @@ namespace enumivosystem {
          m.quote.balance.amount = system_token_supply.amount / 1000;
          m.quote.balance.symbol = core;
       });
+
+      INLINE_ACTION_SENDER(enumivo::token, open)( token_account, { _self, active_permission },
+                                                { rex_account, core, _self } );
    }
+
 } /// enu.system
 
 
@@ -453,6 +465,9 @@ ENUMIVO_DISPATCH( enumivosystem::system_contract,
      // enu.system.cpp
      (init)(setram)(setramrate)(setparams)(setpriv)(setalimits)(setacctram)(setacctnet)(setacctcpu)
      (rmvproducer)(updtrevision)(bidname)(bidrefund)
+     // rex.cpp
+     (deposit)(withdraw)(buyrex)(unstaketorex)(sellrex)(cnclrexorder)(rentcpu)(rentnet)(fundcpuloan)(fundnetloan)
+     (defcpuloan)(defnetloan)(updaterex)(consolidate)(mvtosavings)(mvfrsavings)(setrex)(rexexec)(closerex)
      // delegate_bandwidth.cpp
      (buyrambytes)(buyram)(sellram)(delegatebw)(undelegatebw)(refund)
      // voting.cpp

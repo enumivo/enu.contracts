@@ -137,22 +137,22 @@ BOOST_FIXTURE_TEST_CASE( stake_unstake, enu_system_tester ) try {
    BOOST_REQUIRE_EQUAL( core_sym::from_string("210.0000"), total["net_weight"].as<asset>());
    BOOST_REQUIRE_EQUAL( core_sym::from_string("110.0000"), total["cpu_weight"].as<asset>());
 
-   const auto init_enu_stake_balance = get_balance( N(enu.stake) );
+   const auto init_enumivo_stake_balance = get_balance( N(enu.stake) );
    BOOST_REQUIRE_EQUAL( success(), stake( "alice1111111", "alice1111111", core_sym::from_string("200.0000"), core_sym::from_string("100.0000") ) );
    BOOST_REQUIRE_EQUAL( core_sym::from_string("700.0000"), get_balance( "alice1111111" ) );
-   BOOST_REQUIRE_EQUAL( init_enu_stake_balance + core_sym::from_string("300.0000"), get_balance( N(enu.stake) ) );
+   BOOST_REQUIRE_EQUAL( init_enumivo_stake_balance + core_sym::from_string("300.0000"), get_balance( N(enu.stake) ) );
    BOOST_REQUIRE_EQUAL( success(), unstake( "alice1111111", "alice1111111", core_sym::from_string("200.0000"), core_sym::from_string("100.0000") ) );
    BOOST_REQUIRE_EQUAL( core_sym::from_string("700.0000"), get_balance( "alice1111111" ) );
 
    produce_block( fc::hours(3*24-1) );
    produce_blocks(1);
    BOOST_REQUIRE_EQUAL( core_sym::from_string("700.0000"), get_balance( "alice1111111" ) );
-   BOOST_REQUIRE_EQUAL( init_enu_stake_balance + core_sym::from_string("300.0000"), get_balance( N(enu.stake) ) );
+   BOOST_REQUIRE_EQUAL( init_enumivo_stake_balance + core_sym::from_string("300.0000"), get_balance( N(enu.stake) ) );
    //after 3 days funds should be released
    produce_block( fc::hours(1) );
    produce_blocks(1);
    BOOST_REQUIRE_EQUAL( core_sym::from_string("1000.0000"), get_balance( "alice1111111" ) );
-   BOOST_REQUIRE_EQUAL( init_enu_stake_balance, get_balance( N(enu.stake) ) );
+   BOOST_REQUIRE_EQUAL( init_enumivo_stake_balance, get_balance( N(enu.stake) ) );
 
    BOOST_REQUIRE_EQUAL( success(), stake( "alice1111111", "bob111111111", core_sym::from_string("200.0000"), core_sym::from_string("100.0000") ) );
    BOOST_REQUIRE_EQUAL( core_sym::from_string("700.0000"), get_balance( "alice1111111" ) );
@@ -823,10 +823,10 @@ BOOST_FIXTURE_TEST_CASE( vote_for_producer, enu_system_tester, * boost::unit_tes
    //should decrease alice1111111's total_votes
    prod = get_producer_info( "alice1111111" );
    BOOST_TEST_REQUIRE( stake2votes(core_sym::from_string("20.2220")) == prod["total_votes"].as_double() );
-   //but enu should still be at stake
+   //but ENU should still be at stake
    BOOST_REQUIRE_EQUAL( core_sym::from_string("1955.5556"), get_balance( "bob111111111" ) );
 
-   //carol1111111 unstakes rest of enu
+   //carol1111111 unstakes rest of ENU
    BOOST_REQUIRE_EQUAL( success(), unstake( "carol1111111", core_sym::from_string("20.0000"), core_sym::from_string("0.2220") ) );
    //should decrease alice1111111's total_votes to zero
    prod = get_producer_info( "alice1111111" );
@@ -2274,7 +2274,7 @@ BOOST_FIXTURE_TEST_CASE(votepay_transition, enu_system_tester, * boost::unit_tes
 BOOST_AUTO_TEST_CASE(votepay_transition2, * boost::unit_test::tolerance(1e-10)) try {
    enu_system_tester t(enu_system_tester::setup_level::minimal);
 
-   std::string old_contract_core_symbol_name = "ENU"; // Set to core symbol used in contracts::util::system_wasm_old()
+   std::string old_contract_core_symbol_name = "SYS"; // Set to core symbol used in contracts::util::system_wasm_old()
    symbol old_contract_core_symbol{::enumivo::chain::string_to_symbol_c( 4, old_contract_core_symbol_name.c_str() )};
 
    auto old_core_from_string = [&]( const std::string& s ) {
@@ -3314,7 +3314,7 @@ BOOST_FIXTURE_TEST_CASE( ram_inflation, enu_system_tester ) try {
 
 } FC_LOG_AND_RETHROW()
 
-BOOST_FIXTURE_TEST_CASE( enuram_ramusage, enu_system_tester ) try {
+BOOST_FIXTURE_TEST_CASE( enumivoram_ramusage, enu_system_tester ) try {
    BOOST_REQUIRE_EQUAL( core_sym::from_string("0.0000"), get_balance( "alice1111111" ) );
    transfer( "enumivo", "alice1111111", core_sym::from_string("1000.0000"), "enumivo" );
    BOOST_REQUIRE_EQUAL( success(), stake( "enumivo", "alice1111111", core_sym::from_string("200.0000"), core_sym::from_string("100.0000") ) );
@@ -3333,14 +3333,14 @@ BOOST_FIXTURE_TEST_CASE( enuram_ramusage, enu_system_tester ) try {
    BOOST_REQUIRE_EQUAL( true, get_row_by_account( N(enu.token), N(alice1111111), N(accounts), symbol{CORE_SYM}.to_symbol_code() ).empty() );
 
    auto rlm = control->get_resource_limits_manager();
-   auto enuram_ram_usage = rlm.get_account_ram_usage(N(enu.ram));
+   auto enumivoram_ram_usage = rlm.get_account_ram_usage(N(enu.ram));
    auto alice_ram_usage = rlm.get_account_ram_usage(N(alice1111111));
 
    BOOST_REQUIRE_EQUAL( success(), sellram( "alice1111111", 2048 ) );
 
    //make sure that ram was billed to alice, not to enu.ram
    BOOST_REQUIRE_EQUAL( true, alice_ram_usage < rlm.get_account_ram_usage(N(alice1111111)) );
-   BOOST_REQUIRE_EQUAL( enuram_ram_usage, rlm.get_account_ram_usage(N(enu.ram)) );
+   BOOST_REQUIRE_EQUAL( enumivoram_ram_usage, rlm.get_account_ram_usage(N(enu.ram)) );
 
 } FC_LOG_AND_RETHROW()
 
@@ -3389,42 +3389,32 @@ BOOST_FIXTURE_TEST_CASE( ram_gift, enu_system_tester ) try {
 
 } FC_LOG_AND_RETHROW()
 
-<<<<<<< HEAD:tests/enu.system_tests.cpp
-BOOST_FIXTURE_TEST_CASE( setabi_bios, TESTER ) try {
-   abi_serializer abi_ser(fc::json::from_string( (const char*)contracts::system_abi().data()).template as<abi_def>(), abi_serializer_max_time);
-   set_code( config::system_account_name, contracts::bios_wasm() );
-   set_abi( config::system_account_name, contracts::bios_abi().data() );
-   create_account(N(enu.token));
-   set_abi( N(enu.token), contracts::token_abi().data() );
-   {
-      auto res = get_row_by_account( config::system_account_name, config::system_account_name, N(abihash), N(enu.token) );
-=======
 
-BOOST_FIXTURE_TEST_CASE( rex_auth, eosio_system_tester ) try {
+BOOST_FIXTURE_TEST_CASE( rex_auth, enu_system_tester ) try {
 
    const std::vector<account_name> accounts = { N(aliceaccount), N(bobbyaccount) };
    const account_name alice = accounts[0], bob = accounts[1];
    const asset init_balance = core_sym::from_string("1000.0000");
-   const asset one_eos      = core_sym::from_string("1.0000");
+   const asset one_enu      = core_sym::from_string("1.0000");
    const asset one_rex      = asset::from_string("1.0000 REX");
    setup_rex_accounts( accounts, init_balance );
 
    const std::string error_msg("missing authority of aliceaccount");
-   BOOST_REQUIRE_EQUAL( error(error_msg), push_action( bob, N(deposit), mvo()("owner", alice)("amount", one_eos) ) );
-   BOOST_REQUIRE_EQUAL( error(error_msg), push_action( bob, N(withdraw), mvo()("owner", alice)("amount", one_eos) ) );
-   BOOST_REQUIRE_EQUAL( error(error_msg), push_action( bob, N(buyrex), mvo()("from", alice)("amount", one_eos) ) );
+   BOOST_REQUIRE_EQUAL( error(error_msg), push_action( bob, N(deposit), mvo()("owner", alice)("amount", one_enu) ) );
+   BOOST_REQUIRE_EQUAL( error(error_msg), push_action( bob, N(withdraw), mvo()("owner", alice)("amount", one_enu) ) );
+   BOOST_REQUIRE_EQUAL( error(error_msg), push_action( bob, N(buyrex), mvo()("from", alice)("amount", one_enu) ) );
    BOOST_REQUIRE_EQUAL( error(error_msg),
-                        push_action( bob, N(unstaketorex), mvo()("owner", alice)("receiver", alice)("from_net", one_eos)("from_cpu", one_eos) ) );
+                        push_action( bob, N(unstaketorex), mvo()("owner", alice)("receiver", alice)("from_net", one_enu)("from_cpu", one_enu) ) );
    BOOST_REQUIRE_EQUAL( error(error_msg), push_action( bob, N(sellrex), mvo()("from", alice)("rex", one_rex) ) );
    BOOST_REQUIRE_EQUAL( error(error_msg), push_action( bob, N(cnclrexorder), mvo()("owner", alice) ) );
    BOOST_REQUIRE_EQUAL( error(error_msg),
-                        push_action( bob, N(rentcpu), mvo()("from", alice)("receiver", alice)("loan_payment", one_eos)("loan_fund", one_eos) ) );
+                        push_action( bob, N(rentcpu), mvo()("from", alice)("receiver", alice)("loan_payment", one_enu)("loan_fund", one_enu) ) );
    BOOST_REQUIRE_EQUAL( error(error_msg),
-                        push_action( bob, N(rentnet), mvo()("from", alice)("receiver", alice)("loan_payment", one_eos)("loan_fund", one_eos) ) );
-   BOOST_REQUIRE_EQUAL( error(error_msg), push_action( bob, N(fundcpuloan), mvo()("from", alice)("loan_num", 1)("payment", one_eos) ) );
-   BOOST_REQUIRE_EQUAL( error(error_msg), push_action( bob, N(fundnetloan), mvo()("from", alice)("loan_num", 1)("payment", one_eos) ) );
-   BOOST_REQUIRE_EQUAL( error(error_msg), push_action( bob, N(defcpuloan), mvo()("from", alice)("loan_num", 1)("amount", one_eos) ) );
-   BOOST_REQUIRE_EQUAL( error(error_msg), push_action( bob, N(defnetloan), mvo()("from", alice)("loan_num", 1)("amount", one_eos) ) );
+                        push_action( bob, N(rentnet), mvo()("from", alice)("receiver", alice)("loan_payment", one_enu)("loan_fund", one_enu) ) );
+   BOOST_REQUIRE_EQUAL( error(error_msg), push_action( bob, N(fundcpuloan), mvo()("from", alice)("loan_num", 1)("payment", one_enu) ) );
+   BOOST_REQUIRE_EQUAL( error(error_msg), push_action( bob, N(fundnetloan), mvo()("from", alice)("loan_num", 1)("payment", one_enu) ) );
+   BOOST_REQUIRE_EQUAL( error(error_msg), push_action( bob, N(defcpuloan), mvo()("from", alice)("loan_num", 1)("amount", one_enu) ) );
+   BOOST_REQUIRE_EQUAL( error(error_msg), push_action( bob, N(defnetloan), mvo()("from", alice)("loan_num", 1)("amount", one_enu) ) );
    BOOST_REQUIRE_EQUAL( error(error_msg), push_action( bob, N(updaterex), mvo()("owner", alice) ) );
    BOOST_REQUIRE_EQUAL( error(error_msg), push_action( bob, N(rexexec), mvo()("user", alice)("max", 1) ) );
    BOOST_REQUIRE_EQUAL( error(error_msg), push_action( bob, N(consolidate), mvo()("owner", alice) ) );
@@ -3432,11 +3422,11 @@ BOOST_FIXTURE_TEST_CASE( rex_auth, eosio_system_tester ) try {
    BOOST_REQUIRE_EQUAL( error(error_msg), push_action( bob, N(mvfrsavings), mvo()("owner", alice)("rex", one_rex) ) );
    BOOST_REQUIRE_EQUAL( error(error_msg), push_action( bob, N(closerex), mvo()("owner", alice) ) );
 
-   BOOST_REQUIRE_EQUAL( error("missing authority of eosio"), push_action( alice, N(setrex), mvo()("balance", one_eos) ) );
+   BOOST_REQUIRE_EQUAL( error("missing authority of enumivo"), push_action( alice, N(setrex), mvo()("balance", one_enu) ) );
 
 } FC_LOG_AND_RETHROW()
 
-BOOST_FIXTURE_TEST_CASE( buy_sell_rex, eosio_system_tester ) try {
+BOOST_FIXTURE_TEST_CASE( buy_sell_rex, enu_system_tester ) try {
 
    const int64_t ratio        = 10000;
    const asset   init_rent    = core_sym::from_string("20000.0000");
@@ -3499,7 +3489,7 @@ BOOST_FIXTURE_TEST_CASE( buy_sell_rex, eosio_system_tester ) try {
 } FC_LOG_AND_RETHROW()
 
 
-BOOST_FIXTURE_TEST_CASE( buy_sell_small_rex, eosio_system_tester ) try {
+BOOST_FIXTURE_TEST_CASE( buy_sell_small_rex, enu_system_tester ) try {
 
    const int64_t ratio        = 10000;
    const asset   init_balance = core_sym::from_string("50000.0000");
@@ -3530,7 +3520,7 @@ BOOST_FIXTURE_TEST_CASE( buy_sell_small_rex, eosio_system_tester ) try {
 } FC_LOG_AND_RETHROW()
 
 
-BOOST_FIXTURE_TEST_CASE( unstake_buy_rex, eosio_system_tester, * boost::unit_test::tolerance(1e-10) ) try {
+BOOST_FIXTURE_TEST_CASE( unstake_buy_rex, enu_system_tester, * boost::unit_test::tolerance(1e-10) ) try {
 
    const int64_t ratio        = 10000;
    const asset   zero_asset   = core_sym::from_string("0.0000");
@@ -3576,7 +3566,7 @@ BOOST_FIXTURE_TEST_CASE( unstake_buy_rex, eosio_system_tester, * boost::unit_tes
                            unstaketorex( alice, alice, net_stake, cpu_stake ) );
       BOOST_REQUIRE_EQUAL( success(),
                            vote( alice, std::vector<account_name>(producer_names.begin(), producer_names.begin() + 21) ) );
-      const asset init_eosio_stake_balance = get_balance( N(eosio.stake) );
+      const asset init_enumivo_stake_balance = get_balance( N(enu.stake) );
       const auto init_voter_info = get_voter_info( alice );
       const auto init_prod_info  = get_producer_info( producer_names[0] );
       BOOST_TEST_REQUIRE( init_prod_info["total_votes"].as_double() ==
@@ -3587,8 +3577,8 @@ BOOST_FIXTURE_TEST_CASE( unstake_buy_rex, eosio_system_tester, * boost::unit_tes
       BOOST_REQUIRE_EQUAL( get_net_limit( alice ),                  init_net_limit );
       BOOST_REQUIRE_EQUAL( ratio * tot_stake.get_amount(),          get_rex_balance( alice ).get_amount() );
       BOOST_REQUIRE_EQUAL( tot_stake,                               get_rex_balance_obj( alice )["vote_stake"].as<asset>() );
-      BOOST_REQUIRE_EQUAL( tot_stake,                               get_balance( N(eosio.rex) ) );
-      BOOST_REQUIRE_EQUAL( tot_stake,                               init_eosio_stake_balance - get_balance( N(eosio.stake) ) );
+      BOOST_REQUIRE_EQUAL( tot_stake,                               get_balance( N(enu.rex) ) );
+      BOOST_REQUIRE_EQUAL( tot_stake,                               init_enumivo_stake_balance - get_balance( N(enu.stake) ) );
       auto current_voter_info = get_voter_info( alice );
       auto current_prod_info  = get_producer_info( producer_names[0] );
       BOOST_REQUIRE_EQUAL( init_voter_info["staked"].as<int64_t>(), current_voter_info["staked"].as<int64_t>() );
@@ -3646,7 +3636,7 @@ BOOST_FIXTURE_TEST_CASE( unstake_buy_rex, eosio_system_tester, * boost::unit_tes
 } FC_LOG_AND_RETHROW()
 
 
-BOOST_FIXTURE_TEST_CASE( buy_rent_rex, eosio_system_tester ) try {
+BOOST_FIXTURE_TEST_CASE( buy_rent_rex, enu_system_tester ) try {
 
    const int64_t ratio        = 10000;
    const asset   init_balance = core_sym::from_string("60000.0000");
@@ -3732,7 +3722,7 @@ BOOST_FIXTURE_TEST_CASE( buy_rent_rex, eosio_system_tester ) try {
 } FC_LOG_AND_RETHROW()
 
 
-BOOST_FIXTURE_TEST_CASE( buy_sell_sell_rex, eosio_system_tester ) try {
+BOOST_FIXTURE_TEST_CASE( buy_sell_sell_rex, enu_system_tester ) try {
 
    const int64_t ratio        = 10000;
    const asset   init_balance = core_sym::from_string("40000.0000");
@@ -3792,7 +3782,7 @@ BOOST_FIXTURE_TEST_CASE( buy_sell_sell_rex, eosio_system_tester ) try {
 } FC_LOG_AND_RETHROW()
 
 
-BOOST_FIXTURE_TEST_CASE( buy_sell_claim_rex, eosio_system_tester ) try {
+BOOST_FIXTURE_TEST_CASE( buy_sell_claim_rex, enu_system_tester ) try {
 
    auto within_one = [](int64_t a, int64_t b) -> bool { return std::abs( a - b ) <= 1; };
 
@@ -3832,7 +3822,7 @@ BOOST_FIXTURE_TEST_CASE( buy_sell_claim_rex, eosio_system_tester ) try {
    const auto    init_rex_pool        = get_rex_pool();
    const int64_t total_lendable       = init_rex_pool["total_lendable"].as<asset>().get_amount();
    const int64_t total_rex            = init_rex_pool["total_rex"].as<asset>().get_amount();
-   const int64_t init_alice_rex_stake = ( eosio::chain::uint128_t(init_alice_rex.get_amount()) * total_lendable ) / total_rex;
+   const int64_t init_alice_rex_stake = ( enumivo::chain::uint128_t(init_alice_rex.get_amount()) * total_lendable ) / total_rex;
 
    produce_block( fc::days(5) );
 
@@ -3935,7 +3925,7 @@ BOOST_FIXTURE_TEST_CASE( buy_sell_claim_rex, eosio_system_tester ) try {
 } FC_LOG_AND_RETHROW()
 
 
-BOOST_FIXTURE_TEST_CASE( rex_loans, eosio_system_tester ) try {
+BOOST_FIXTURE_TEST_CASE( rex_loans, enu_system_tester ) try {
 
    const int64_t ratio        = 10000;
    const asset   init_balance = core_sym::from_string("40000.0000");
@@ -4072,7 +4062,7 @@ BOOST_FIXTURE_TEST_CASE( rex_loans, eosio_system_tester ) try {
 } FC_LOG_AND_RETHROW()
 
 
-BOOST_FIXTURE_TEST_CASE( rex_loan_checks, eosio_system_tester ) try {
+BOOST_FIXTURE_TEST_CASE( rex_loan_checks, enu_system_tester ) try {
 
    const int64_t ratio        = 10000;
    const asset   init_balance = core_sym::from_string("40000.0000");
@@ -4103,7 +4093,7 @@ BOOST_FIXTURE_TEST_CASE( rex_loan_checks, eosio_system_tester ) try {
 } FC_LOG_AND_RETHROW()
 
 
-BOOST_FIXTURE_TEST_CASE( ramfee_namebid_to_rex, eosio_system_tester ) try {
+BOOST_FIXTURE_TEST_CASE( ramfee_namebid_to_rex, enu_system_tester ) try {
 
    const int64_t ratio        = 10000;
    const asset   init_balance = core_sym::from_string("10000.0000");
@@ -4111,21 +4101,21 @@ BOOST_FIXTURE_TEST_CASE( ramfee_namebid_to_rex, eosio_system_tester ) try {
    account_name alice = accounts[0], bob = accounts[1], carol = accounts[2], emily = accounts[3], frank = accounts[4];
    setup_rex_accounts( accounts, init_balance, core_sym::from_string("80.0000"), core_sym::from_string("80.0000"), false );
 
-   asset cur_ramfee_balance = get_balance( N(eosio.ramfee) );
+   asset cur_ramfee_balance = get_balance( N(enu.ramfee) );
    BOOST_REQUIRE_EQUAL( success(),                      buyram( alice, alice, core_sym::from_string("20.0000") ) );
-   BOOST_REQUIRE_EQUAL( get_balance( N(eosio.ramfee) ), core_sym::from_string("0.1000") + cur_ramfee_balance );
+   BOOST_REQUIRE_EQUAL( get_balance( N(enu.ramfee) ), core_sym::from_string("0.1000") + cur_ramfee_balance );
    BOOST_REQUIRE_EQUAL( wasm_assert_msg("must deposit to REX fund first"),
                         buyrex( alice, core_sym::from_string("350.0000") ) );
    BOOST_REQUIRE_EQUAL( success(),                      deposit( alice, core_sym::from_string("350.0000") ) );
    BOOST_REQUIRE_EQUAL( success(),                      buyrex( alice, core_sym::from_string("350.0000") ) );
-   cur_ramfee_balance = get_balance( N(eosio.ramfee) );
-   asset cur_rex_balance = get_balance( N(eosio.rex) );
+   cur_ramfee_balance = get_balance( N(enu.ramfee) );
+   asset cur_rex_balance = get_balance( N(enu.rex) );
    BOOST_REQUIRE_EQUAL( core_sym::from_string("350.0000"), cur_rex_balance );
    BOOST_REQUIRE_EQUAL( success(),                         buyram( bob, carol, core_sym::from_string("70.0000") ) );
-   BOOST_REQUIRE_EQUAL( cur_ramfee_balance,                get_balance( N(eosio.ramfee) ) );
-   BOOST_REQUIRE_EQUAL( get_balance( N(eosio.rex) ),       cur_rex_balance + core_sym::from_string("0.3500") );
+   BOOST_REQUIRE_EQUAL( cur_ramfee_balance,                get_balance( N(enu.ramfee) ) );
+   BOOST_REQUIRE_EQUAL( get_balance( N(enu.rex) ),       cur_rex_balance + core_sym::from_string("0.3500") );
 
-   cur_rex_balance = get_balance( N(eosio.rex) );
+   cur_rex_balance = get_balance( N(enu.rex) );
    auto cur_rex_pool = get_rex_pool();
 
    BOOST_REQUIRE_EQUAL( cur_rex_balance, cur_rex_pool["total_unlent"].as<asset>() );
@@ -4137,11 +4127,11 @@ BOOST_FIXTURE_TEST_CASE( ramfee_namebid_to_rex, eosio_system_tester ) try {
    cross_15_percent_threshold();
    produce_block( fc::days(14) );
 
-   cur_rex_balance = get_balance( N(eosio.rex) );
+   cur_rex_balance = get_balance( N(enu.rex) );
    BOOST_REQUIRE_EQUAL( success(),                        bidname( carol, N(rndmbid), core_sym::from_string("23.7000") ) );
-   BOOST_REQUIRE_EQUAL( core_sym::from_string("23.7000"), get_balance( N(eosio.names) ) );
+   BOOST_REQUIRE_EQUAL( core_sym::from_string("23.7000"), get_balance( N(enu.names) ) );
    BOOST_REQUIRE_EQUAL( success(),                        bidname( alice, N(rndmbid), core_sym::from_string("29.3500") ) );
-   BOOST_REQUIRE_EQUAL( core_sym::from_string("29.3500"), get_balance( N(eosio.names) ));
+   BOOST_REQUIRE_EQUAL( core_sym::from_string("29.3500"), get_balance( N(enu.names) ));
 
    produce_block( fc::hours(24) );
    produce_blocks( 2 );
@@ -4149,17 +4139,17 @@ BOOST_FIXTURE_TEST_CASE( ramfee_namebid_to_rex, eosio_system_tester ) try {
    BOOST_REQUIRE_EQUAL( core_sym::from_string("29.3500"), get_rex_pool()["namebid_proceeds"].as<asset>() );
    BOOST_REQUIRE_EQUAL( success(),                        deposit( frank, core_sym::from_string("5.0000") ) );
    BOOST_REQUIRE_EQUAL( success(),                        buyrex( frank, core_sym::from_string("5.0000") ) );
-   BOOST_REQUIRE_EQUAL( get_balance( N(eosio.rex) ),      cur_rex_balance + core_sym::from_string("34.3500") );
-   BOOST_REQUIRE_EQUAL( 0,                                get_balance( N(eosio.names) ).get_amount() );
+   BOOST_REQUIRE_EQUAL( get_balance( N(enu.rex) ),      cur_rex_balance + core_sym::from_string("34.3500") );
+   BOOST_REQUIRE_EQUAL( 0,                                get_balance( N(enu.names) ).get_amount() );
 
-   cur_rex_balance = get_balance( N(eosio.rex) );
+   cur_rex_balance = get_balance( N(enu.rex) );
    BOOST_REQUIRE_EQUAL( cur_rex_balance,                  get_rex_pool()["total_lendable"].as<asset>() );
    BOOST_REQUIRE_EQUAL( cur_rex_balance,                  get_rex_pool()["total_unlent"].as<asset>() );
 
 } FC_LOG_AND_RETHROW()
 
 
-BOOST_FIXTURE_TEST_CASE( rex_maturity, eosio_system_tester ) try {
+BOOST_FIXTURE_TEST_CASE( rex_maturity, enu_system_tester ) try {
 
    const asset init_balance = core_sym::from_string("1000000.0000");
    const std::vector<account_name> accounts = { N(aliceaccount), N(bobbyaccount) };
@@ -4304,7 +4294,7 @@ BOOST_FIXTURE_TEST_CASE( rex_maturity, eosio_system_tester ) try {
 } FC_LOG_AND_RETHROW()
 
 
-BOOST_FIXTURE_TEST_CASE( rex_savings, eosio_system_tester ) try {
+BOOST_FIXTURE_TEST_CASE( rex_savings, enu_system_tester ) try {
 
    const asset init_balance = core_sym::from_string("100000.0000");
    const std::vector<account_name> accounts = { N(aliceaccount), N(bobbyaccount), N(carolaccount), N(emilyaccount), N(frankaccount) };
@@ -4521,7 +4511,7 @@ BOOST_FIXTURE_TEST_CASE( rex_savings, eosio_system_tester ) try {
 } FC_LOG_AND_RETHROW()
 
 
-BOOST_FIXTURE_TEST_CASE( update_rex, eosio_system_tester, * boost::unit_test::tolerance(1e-10) ) try {
+BOOST_FIXTURE_TEST_CASE( update_rex, enu_system_tester, * boost::unit_test::tolerance(1e-10) ) try {
 
    const asset init_balance = core_sym::from_string("30000.0000");
    const std::vector<account_name> accounts = { N(aliceaccount), N(bobbyaccount), N(carolaccount), N(emilyaccount) };
@@ -4579,7 +4569,7 @@ BOOST_FIXTURE_TEST_CASE( update_rex, eosio_system_tester, * boost::unit_test::to
    const auto    current_rex_pool     = get_rex_pool();
    const int64_t total_lendable       = current_rex_pool["total_lendable"].as<asset>().get_amount();
    const int64_t total_rex            = current_rex_pool["total_rex"].as<asset>().get_amount();
-   const int64_t init_alice_rex_stake = ( eosio::chain::uint128_t(init_rex.get_amount()) * total_lendable ) / total_rex;
+   const int64_t init_alice_rex_stake = ( enumivo::chain::uint128_t(init_rex.get_amount()) * total_lendable ) / total_rex;
    produce_block( fc::days(5) );
    const asset rex_sell_amount( get_rex_balance(alice).get_amount() / 4, symbol( SY(4,REX) ) );
    BOOST_REQUIRE_EQUAL( success(),                                       sellrex( alice, rex_sell_amount ) );
@@ -4599,7 +4589,7 @@ BOOST_FIXTURE_TEST_CASE( update_rex, eosio_system_tester, * boost::unit_test::to
 } FC_LOG_AND_RETHROW()
 
 
-BOOST_FIXTURE_TEST_CASE( update_rex_vote, eosio_system_tester, * boost::unit_test::tolerance(1e-10) ) try {
+BOOST_FIXTURE_TEST_CASE( update_rex_vote, enu_system_tester, * boost::unit_test::tolerance(1e-10) ) try {
 
    cross_15_percent_threshold();
 
@@ -4670,7 +4660,7 @@ BOOST_FIXTURE_TEST_CASE( update_rex_vote, eosio_system_tester, * boost::unit_tes
 } FC_LOG_AND_RETHROW()
 
 
-BOOST_FIXTURE_TEST_CASE( deposit_rex_fund, eosio_system_tester ) try {
+BOOST_FIXTURE_TEST_CASE( deposit_rex_fund, enu_system_tester ) try {
 
    const asset init_balance = core_sym::from_string("1000.0000");
    const asset init_net     = core_sym::from_string("70.0000");
@@ -4702,7 +4692,7 @@ BOOST_FIXTURE_TEST_CASE( deposit_rex_fund, eosio_system_tester ) try {
 } FC_LOG_AND_RETHROW()
 
 
-BOOST_FIXTURE_TEST_CASE( rex_lower_bound, eosio_system_tester ) try {
+BOOST_FIXTURE_TEST_CASE( rex_lower_bound, enu_system_tester ) try {
 
    const asset init_balance = core_sym::from_string("25000.0000");
    const std::vector<account_name> accounts = { N(aliceaccount), N(bobbyaccount) };
@@ -4720,12 +4710,12 @@ BOOST_FIXTURE_TEST_CASE( rex_lower_bound, eosio_system_tester ) try {
    const int64_t tot_unlent   = rex_pool["total_unlent"].as<asset>().get_amount();
    const int64_t tot_lent     = rex_pool["total_lent"].as<asset>().get_amount();
    const int64_t tot_lendable = rex_pool["total_lendable"].as<asset>().get_amount();
-   double rex_per_eos = double(tot_rex) / double(tot_lendable);
-   int64_t sell_amount = rex_per_eos * ( tot_unlent - 0.19 * tot_lent );
+   double rex_per_enu = double(tot_rex) / double(tot_lendable);
+   int64_t sell_amount = rex_per_enu * ( tot_unlent - 0.19 * tot_lent );
    produce_block( fc::days(5) );
    BOOST_REQUIRE_EQUAL( success(), sellrex( alice, asset( sell_amount, rex_sym ) ) );
    BOOST_REQUIRE_EQUAL( success(), cancelrexorder( alice ) );
-   sell_amount = rex_per_eos * ( tot_unlent - 0.2 * tot_lent );
+   sell_amount = rex_per_enu * ( tot_unlent - 0.2 * tot_lent );
    BOOST_REQUIRE_EQUAL( success(), sellrex( alice, asset( sell_amount, rex_sym ) ) );
    BOOST_REQUIRE_EQUAL( wasm_assert_msg("no sellrex order is scheduled"),
                         cancelrexorder( alice ) );
@@ -4733,7 +4723,7 @@ BOOST_FIXTURE_TEST_CASE( rex_lower_bound, eosio_system_tester ) try {
 } FC_LOG_AND_RETHROW()
 
 
-BOOST_FIXTURE_TEST_CASE( close_rex, eosio_system_tester ) try {
+BOOST_FIXTURE_TEST_CASE( close_rex, enu_system_tester ) try {
 
    const asset init_balance = core_sym::from_string("25000.0000");
    const std::vector<account_name> accounts = { N(aliceaccount), N(bobbyaccount), N(carolaccount), N(emilyaccount) };
@@ -4808,7 +4798,7 @@ BOOST_FIXTURE_TEST_CASE( close_rex, eosio_system_tester ) try {
 } FC_LOG_AND_RETHROW()
 
 
-BOOST_FIXTURE_TEST_CASE( set_rex, eosio_system_tester ) try {
+BOOST_FIXTURE_TEST_CASE( set_rex, enu_system_tester ) try {
 
    const asset init_balance = core_sym::from_string("25000.0000");
    const std::vector<account_name> accounts = { N(aliceaccount), N(bobbyaccount) };
@@ -4820,9 +4810,9 @@ BOOST_FIXTURE_TEST_CASE( set_rex, eosio_system_tester ) try {
    const asset set_total_rent   = core_sym::from_string("10000.0000");
    const asset negative_balance = core_sym::from_string("-10000.0000");
    const asset different_symbol = asset::from_string("10000.0000 RND");
-   BOOST_REQUIRE_EQUAL( error("missing authority of eosio"),
+   BOOST_REQUIRE_EQUAL( error("missing authority of enumivo"),
                         push_action( alice, act_name, mvo()("balance", set_total_rent) ) );
-   BOOST_REQUIRE_EQUAL( error("missing authority of eosio"),
+   BOOST_REQUIRE_EQUAL( error("missing authority of enumivo"),
                         push_action( bob, act_name, mvo()("balance", set_total_rent) ) );
    BOOST_REQUIRE_EQUAL( wasm_assert_msg("rex system is not initialized"),
                         push_action( config::system_account_name, act_name, mvo()("balance", set_total_rent) ) );
@@ -4849,7 +4839,7 @@ BOOST_FIXTURE_TEST_CASE( set_rex, eosio_system_tester ) try {
 } FC_LOG_AND_RETHROW()
 
 
-BOOST_FIXTURE_TEST_CASE( b1_vesting, eosio_system_tester ) try {
+BOOST_FIXTURE_TEST_CASE( b1_vesting, enu_system_tester ) try {
 
    cross_15_percent_threshold();
 
@@ -4935,11 +4925,10 @@ BOOST_AUTO_TEST_CASE( setabi_bios ) try {
    abi_serializer abi_ser(fc::json::from_string( (const char*)contracts::bios_abi().data()).template as<abi_def>(), base_tester::abi_serializer_max_time);
    t.set_code( config::system_account_name, contracts::bios_wasm() );
    t.set_abi( config::system_account_name, contracts::bios_abi().data() );
-   t.create_account(N(eosio.token));
-   t.set_abi( N(eosio.token), contracts::token_abi().data() );
+   t.create_account(N(enu.token));
+   t.set_abi( N(enu.token), contracts::token_abi().data() );
    {
-      auto res = t.get_row_by_account( config::system_account_name, config::system_account_name, N(abihash), N(eosio.token) );
->>>>>>> upstream/master:tests/eosio.system_tests.cpp
+      auto res = t.get_row_by_account( config::system_account_name, config::system_account_name, N(abihash), N(enu.token) );
       _abi_hash abi_hash;
       auto abi_hash_var = abi_ser.binary_to_variant( "abi_hash", res, base_tester::abi_serializer_max_time );
       abi_serializer::from_variant( abi_hash_var, abi_hash, t.get_resolver(), base_tester::abi_serializer_max_time);
@@ -4949,15 +4938,9 @@ BOOST_AUTO_TEST_CASE( setabi_bios ) try {
       BOOST_REQUIRE( abi_hash.hash == result );
    }
 
-<<<<<<< HEAD:tests/enu.system_tests.cpp
-   set_abi( N(enu.token), contracts::system_abi().data() );
+   t.set_abi( N(enu.token), contracts::system_abi().data() );
    {
-      auto res = get_row_by_account( config::system_account_name, config::system_account_name, N(abihash), N(enu.token) );
-=======
-   t.set_abi( N(eosio.token), contracts::system_abi().data() );
-   {
-      auto res = t.get_row_by_account( config::system_account_name, config::system_account_name, N(abihash), N(eosio.token) );
->>>>>>> upstream/master:tests/eosio.system_tests.cpp
+      auto res = t.get_row_by_account( config::system_account_name, config::system_account_name, N(abihash), N(enu.token) );
       _abi_hash abi_hash;
       auto abi_hash_var = abi_ser.binary_to_variant( "abi_hash", res, base_tester::abi_serializer_max_time );
       abi_serializer::from_variant( abi_hash_var, abi_hash, t.get_resolver(), base_tester::abi_serializer_max_time);
@@ -4992,145 +4975,6 @@ BOOST_FIXTURE_TEST_CASE( setabi, enu_system_tester ) try {
 
       BOOST_REQUIRE( abi_hash.hash == result );
    }
-
-} FC_LOG_AND_RETHROW()
-
-BOOST_FIXTURE_TEST_CASE( change_limited_account_back_to_unlimited, eosio_system_tester ) try {
-   BOOST_REQUIRE( get_total_stake( "eosio" ).is_null() );
-
-   transfer( N(eosio), N(alice1111111), core_sym::from_string("1.0000") );
-
-   auto error_msg = stake( N(alice1111111), N(eosio), core_sym::from_string("0.0000"), core_sym::from_string("1.0000") );
-   auto semicolon_pos = error_msg.find(';');
-
-   BOOST_REQUIRE_EQUAL( error("account eosio has insufficient ram"),
-                        error_msg.substr(0, semicolon_pos) );
-
-   int64_t ram_bytes_needed = 0;
-   {
-      std::istringstream s( error_msg );
-      s.seekg( semicolon_pos + 7, std::ios_base::beg );
-      s >> ram_bytes_needed;
-      ram_bytes_needed += 256; // enough room to cover total_resources_table
-   }
-
-   push_action( N(eosio), N(setalimits), mvo()
-                                          ("account", "eosio")
-                                          ("ram_bytes", ram_bytes_needed)
-                                          ("net_weight", -1)
-                                          ("cpu_weight", -1)
-              );
-
-   stake( N(alice1111111), N(eosio), core_sym::from_string("0.0000"), core_sym::from_string("1.0000") );
-
-   REQUIRE_MATCHING_OBJECT( get_total_stake( "eosio" ), mvo()
-      ("owner", "eosio")
-      ("net_weight", core_sym::from_string("0.0000"))
-      ("cpu_weight", core_sym::from_string("1.0000"))
-      ("ram_bytes",  0)
-   );
-
-   BOOST_REQUIRE_EQUAL( wasm_assert_msg( "only supports unlimited accounts" ),
-                        push_action( N(eosio), N(setalimits), mvo()
-                                          ("account", "eosio")
-                                          ("ram_bytes", ram_bytes_needed)
-                                          ("net_weight", -1)
-                                          ("cpu_weight", -1)
-                        )
-   );
-
-   BOOST_REQUIRE_EQUAL( error( "transaction net usage is too high: 128 > 0" ),
-                        push_action( N(eosio), N(setalimits), mvo()
-                           ("account", "eosio.saving")
-                           ("ram_bytes", -1)
-                           ("net_weight", -1)
-                           ("cpu_weight", -1)
-                        )
-   );
-
-   BOOST_REQUIRE_EQUAL( success(),
-                        push_action( N(eosio), N(setacctnet), mvo()
-                           ("account", "eosio")
-                           ("net_weight", -1)
-                        )
-   );
-
-   BOOST_REQUIRE_EQUAL( success(),
-                        push_action( N(eosio), N(setacctcpu), mvo()
-                           ("account", "eosio")
-                           ("cpu_weight", -1)
-
-                        )
-   );
-
-   BOOST_REQUIRE_EQUAL( success(),
-                        push_action( N(eosio), N(setalimits), mvo()
-                                          ("account", "eosio.saving")
-                                          ("ram_bytes", ram_bytes_needed)
-                                          ("net_weight", -1)
-                                          ("cpu_weight", -1)
-                        )
-   );
-
-} FC_LOG_AND_RETHROW()
-
-BOOST_FIXTURE_TEST_CASE( buy_pin_sell_ram, eosio_system_tester ) try {
-   BOOST_REQUIRE( get_total_stake( "eosio" ).is_null() );
-
-   transfer( N(eosio), N(alice1111111), core_sym::from_string("1020.0000") );
-
-   auto error_msg = stake( N(alice1111111), N(eosio), core_sym::from_string("10.0000"), core_sym::from_string("10.0000") );
-   auto semicolon_pos = error_msg.find(';');
-
-   BOOST_REQUIRE_EQUAL( error("account eosio has insufficient ram"),
-                        error_msg.substr(0, semicolon_pos) );
-
-   int64_t ram_bytes_needed = 0;
-   {
-      std::istringstream s( error_msg );
-      s.seekg( semicolon_pos + 7, std::ios_base::beg );
-      s >> ram_bytes_needed;
-      ram_bytes_needed += ram_bytes_needed/10; // enough buffer to make up for buyrambytes estimation errors
-   }
-
-   auto alice_original_balance = get_balance( N(alice1111111) );
-
-   BOOST_REQUIRE_EQUAL( success(), buyrambytes( N(alice1111111), N(eosio), static_cast<uint32_t>(ram_bytes_needed) ) );
-
-   auto tokens_paid_for_ram = alice_original_balance - get_balance( N(alice1111111) );
-
-   auto total_res = get_total_stake( "eosio" );
-
-   REQUIRE_MATCHING_OBJECT( total_res, mvo()
-      ("owner", "eosio")
-      ("net_weight", core_sym::from_string("0.0000"))
-      ("cpu_weight", core_sym::from_string("0.0000"))
-      ("ram_bytes",  total_res["ram_bytes"].as_int64() )
-   );
-
-   BOOST_REQUIRE_EQUAL( wasm_assert_msg( "only supports unlimited accounts" ),
-                        push_action( N(eosio), N(setalimits), mvo()
-                                          ("account", "eosio")
-                                          ("ram_bytes", ram_bytes_needed)
-                                          ("net_weight", -1)
-                                          ("cpu_weight", -1)
-                        )
-   );
-
-   BOOST_REQUIRE_EQUAL( success(),
-                        push_action( N(eosio), N(setacctram), mvo()
-                           ("account", "eosio")
-                           ("ram_bytes", total_res["ram_bytes"].as_int64() )
-                        )
-   );
-
-   auto eosio_original_balance = get_balance( N(eosio) );
-
-   BOOST_REQUIRE_EQUAL( success(), sellram( N(eosio), total_res["ram_bytes"].as_int64() ) );
-
-   auto tokens_received_by_selling_ram = get_balance( N(eosio) ) - eosio_original_balance;
-
-   BOOST_REQUIRE( double(tokens_paid_for_ram.get_amount() - tokens_received_by_selling_ram.get_amount()) / tokens_paid_for_ram.get_amount() < 0.01 );
 
 } FC_LOG_AND_RETHROW()
 

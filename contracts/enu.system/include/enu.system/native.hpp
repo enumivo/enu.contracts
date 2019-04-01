@@ -60,7 +60,7 @@ namespace enumivosystem {
       capi_checksum256                          transaction_mroot;
       capi_checksum256                          action_mroot;
       uint32_t                                  schedule_version = 0;
-      std::optional<enumivo::producer_schedule> new_producers;
+      std::optional<enumivo::producer_schedule>   new_producers;
 
       // explicit serialization macro is not necessary, used here only to improve compilation time
       ENULIB_SERIALIZE(block_header, (timestamp)(producer)(confirmed)(previous)(transaction_mroot)(action_mroot)
@@ -135,5 +135,14 @@ namespace enumivosystem {
 
          [[enumivo::action]]
          void setcode( name account, uint8_t vmtype, uint8_t vmversion, const std::vector<char>& code ) {}
+
+         using newaccount_action = enumivo::action_wrapper<"newaccount"_n, &native::newaccount>;
+         using updateauth_action = enumivo::action_wrapper<"updateauth"_n, &native::updateauth>;
+         using deleteauth_action = enumivo::action_wrapper<"deleteauth"_n, &native::deleteauth>;
+         using linkauth_action = enumivo::action_wrapper<"linkauth"_n, &native::linkauth>;
+         using unlinkauth_action = enumivo::action_wrapper<"unlinkauth"_n, &native::unlinkauth>;
+         using canceldelay_action = enumivo::action_wrapper<"canceldelay"_n, &native::canceldelay>;
+         using setcode_action = enumivo::action_wrapper<"setcode"_n, &native::setcode>;
+         using setabi_action = enumivo::action_wrapper<"setabi"_n, &native::setabi>;
    };
 }

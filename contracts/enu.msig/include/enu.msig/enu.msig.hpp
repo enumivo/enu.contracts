@@ -24,6 +24,12 @@ namespace enumivo {
          [[enumivo::action]]
          void invalidate( name account );
 
+         using propose_action = enumivo::action_wrapper<"propose"_n, &multisig::propose>;
+         using approve_action = enumivo::action_wrapper<"approve"_n, &multisig::approve>;
+         using unapprove_action = enumivo::action_wrapper<"unapprove"_n, &multisig::unapprove>;
+         using cancel_action = enumivo::action_wrapper<"cancel"_n, &multisig::cancel>;
+         using exec_action = enumivo::action_wrapper<"exec"_n, &multisig::exec>;
+         using invalidate_action = enumivo::action_wrapper<"invalidate"_n, &multisig::invalidate>;
       private:
          struct [[enumivo::table]] proposal {
             name                            proposal_name;

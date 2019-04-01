@@ -1,13 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
-<<<<<<< HEAD
-project(enumivo_contracts VERSION 1.5.2)
 
-set(ENUMIVO_CDT_VERSION_MIN "1.4")
-set(ENUMIVO_CDT_VERSION_SOFT_MAX "1.5")
-#set(ENUMIVO_CDT_VERSION_HARD_MAX "")
-=======
-
-project(eosio_contracts)
+project(enumivo_contracts)
 
 set(VERSION_MAJOR 1)
 set(VERSION_MINOR 6)
@@ -21,21 +14,16 @@ else()
 endif()
 
 include(ExternalProject)
->>>>>>> upstream/master
 
 find_package(enumivo.cdt)
 
-<<<<<<< HEAD
+message(STATUS "Building enumivo.contracts v${VERSION_FULL}")
+
+set(ENUMIVO_CDT_VERSION_MIN "1.5")
+set(ENUMIVO_CDT_VERSION_SOFT_MAX "1.5")
+#set(ENUMIVO_CDT_VERSION_HARD_MAX "")
+
 ### Check the version of enumivo.cdt
-=======
-message(STATUS "Building eosio.contracts v${VERSION_FULL}")
-
-set(EOSIO_CDT_VERSION_MIN "1.5")
-set(EOSIO_CDT_VERSION_SOFT_MAX "1.5")
-#set(EOSIO_CDT_VERSION_HARD_MAX "")
-
-### Check the version of eosio.cdt
->>>>>>> upstream/master
 set(VERSION_MATCH_ERROR_MSG "")
 ENUMIVO_CHECK_VERSION(VERSION_OUTPUT "${ENUMIVO_CDT_VERSION}"
                                    "${ENUMIVO_CDT_VERSION_MIN}"
@@ -61,7 +49,7 @@ ExternalProject_Add(
    contracts_project
    SOURCE_DIR ${CMAKE_SOURCE_DIR}/contracts
    BINARY_DIR ${CMAKE_BINARY_DIR}/contracts
-   CMAKE_ARGS -DCMAKE_TOOLCHAIN_FILE=${EOSIO_CDT_ROOT}/lib/cmake/eosio.cdt/EosioWasmToolchain.cmake
+   CMAKE_ARGS -DCMAKE_TOOLCHAIN_FILE=${ENUMIVO_CDT_ROOT}/lib/cmake/enumivo.cdt/EnumivoWasmToolchain.cmake
    UPDATE_COMMAND ""
    PATCH_COMMAND ""
    TEST_COMMAND ""
@@ -69,20 +57,12 @@ ExternalProject_Add(
    BUILD_ALWAYS 1
 )
 
-<<<<<<< HEAD
-add_subdirectory(enu.bios)
-add_subdirectory(enu.msig)
-add_subdirectory(enu.wrap)
-add_subdirectory(enu.system)
-add_subdirectory(enu.token)
-=======
 if (APPLE)
    set(OPENSSL_ROOT "/usr/local/opt/openssl")
 elseif (UNIX)
    set(OPENSSL_ROOT "/usr/include/openssl")
 endif()
 set(SECP256K1_ROOT "/usr/local")
->>>>>>> upstream/master
 
 if (APPLE)
    set(OPENSSL_ROOT "/usr/local/opt/openssl")
@@ -97,7 +77,7 @@ string(REPLACE ";" "|" TEST_MODULE_PATH "${CMAKE_MODULE_PATH}")
 ExternalProject_Add(
   contracts_unit_tests
   LIST_SEPARATOR | # Use the alternate list separator
-  CMAKE_ARGS -DCMAKE_BUILD_TYPE=${TEST_BUILD_TYPE} -DCMAKE_FRAMEWORK_PATH=${TEST_FRAMEWORK_PATH} -DCMAKE_MODULE_PATH=${TEST_MODULE_PATH} -DEOSIO_ROOT=${EOSIO_ROOT} -DLLVM_DIR=${LLVM_DIR}
+  CMAKE_ARGS -DCMAKE_BUILD_TYPE=${TEST_BUILD_TYPE} -DCMAKE_FRAMEWORK_PATH=${TEST_FRAMEWORK_PATH} -DCMAKE_MODULE_PATH=${TEST_MODULE_PATH} -DENUMIVO_ROOT=${ENUMIVO_ROOT} -DLLVM_DIR=${LLVM_DIR}
   SOURCE_DIR ${CMAKE_SOURCE_DIR}/tests
   BINARY_DIR ${CMAKE_BINARY_DIR}/tests
   BUILD_ALWAYS 1

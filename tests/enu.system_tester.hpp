@@ -4,14 +4,9 @@
  */
 #pragma once
 
-<<<<<<< HEAD:tests/enu.system_tester.hpp
 #include <enumivo/testing/tester.hpp>
 #include <enumivo/chain/abi_serializer.hpp>
-=======
-#include <eosio/testing/tester.hpp>
-#include <eosio/chain/abi_serializer.hpp>
-#include <eosio/chain/resource_limits.hpp>
->>>>>>> upstream/master:tests/eosio.system_tester.hpp
+#include <enumivo/chain/resource_limits.hpp>
 #include "contracts.hpp"
 #include "test_symbol.hpp"
 
@@ -41,13 +36,8 @@ public:
    void basic_setup() {
       produce_blocks( 2 );
 
-<<<<<<< HEAD:tests/enu.system_tester.hpp
       create_accounts({ N(enu.token), N(enu.ram), N(enu.ramfee), N(enu.stake),
-               N(enu.blockpay), N(enu.votepay), N(enu.savings), N(enu.names) });
-=======
-      create_accounts({ N(eosio.token), N(eosio.ram), N(eosio.ramfee), N(eosio.stake),
-               N(eosio.bpay), N(eosio.vpay), N(eosio.saving), N(eosio.names), N(eosio.rex) });
->>>>>>> upstream/master:tests/eosio.system_tester.hpp
+               N(enu.blockpay), N(enu.votepay), N(enu.savings), N(enu.names), N(enu.rex) });
 
 
       produce_blocks( 100 );
@@ -556,9 +546,9 @@ public:
    fc::variant get_last_loan(bool cpu) {
       vector<char> data;
       const auto& db = control->db();
-      namespace chain = eosio::chain;
+      namespace chain = enumivo::chain;
       auto table = cpu ? N(cpuloan) : N(netloan);
-      const auto* t_id = db.find<eosio::chain::table_id_object, chain::by_code_scope_table>( boost::make_tuple( config::system_account_name, config::system_account_name, table ) );
+      const auto* t_id = db.find<enumivo::chain::table_id_object, chain::by_code_scope_table>( boost::make_tuple( config::system_account_name, config::system_account_name, table ) );
       if ( !t_id ) {
          return fc::variant();
       }
@@ -644,8 +634,8 @@ public:
    fc::variant get_rex_pool() const {
       vector<char> data;
       const auto& db = control->db();
-      namespace chain = eosio::chain;
-      const auto* t_id = db.find<eosio::chain::table_id_object, chain::by_code_scope_table>( boost::make_tuple( config::system_account_name, config::system_account_name, N(rexpool) ) );
+      namespace chain = enumivo::chain;
+      const auto* t_id = db.find<enumivo::chain::table_id_object, chain::by_code_scope_table>( boost::make_tuple( config::system_account_name, config::system_account_name, N(rexpool) ) );
       if ( !t_id ) {
          return fc::variant();
       }

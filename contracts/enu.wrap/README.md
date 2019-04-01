@@ -18,7 +18,7 @@ The enu.wrap contract needs to be installed on a privileged account to function.
 
 First, the account `enu.wrap` needs to be created. Since it has the restricted `enumivo.` prefix, only a privileged account can create this account. So this guide will use the `enumivo` account to create the `enu.wrap` account. On typical live blockchain configurations, the `enumivo` account can only be controlled by a supermajority of the current active block producers. So, this guide will use the `enu.msig` contract to help coordinate the approvals of the proposed transaction that creates the `enu.wrap` account.
 
-The `enu.wrap` account also needs to have sufficient RAM to host the contract and sufficient CPU and network bandwidth to deploy the contract. This means that the creator of the account (`enumivo`) needs to gift sufficient RAM to the new account and delegate (preferably with transfer) sufficient bandwidth to the new account. To pull this off the `enumivo` account needs to have enough of the core system token (the `ENU` token will be used within this guide) in its liquid balance. So prior to continuing with the next steps of this guide, the active block producers of the chain who are coordinating this process need to ensure that a sufficient amount of core system tokens that they are authorized to spend is placed in the liquid balance of the `enumivo` account.
+The `enu.wrap` account also needs to have sufficient RAM to host the contract and sufficient CPU and network bandwidth to deploy the contract. This means that the creator of the account (`enumivo`) needs to gift sufficient RAM to the new account and delegate (preferably with transfer) sufficient bandwidth to the new account. To pull this off the `enumivo` account needs to have enough of the core system token (the `SYS` token will be used within this guide) in its liquid balance. So prior to continuing with the next steps of this guide, the active block producers of the chain who are coordinating this process need to ensure that a sufficient amount of core system tokens that they are authorized to spend is placed in the liquid balance of the `enumivo` account.
 
 This guide will be using enucli to carry out the process.
 
@@ -34,9 +34,9 @@ Three unsigned transactions will be generated using enucli and then the actions 
 
 First, generate a transaction to capture the necessary actions involved in creating a new account:
 ```
-$ enucli system newaccount -s -j -d --transfer --stake-net "1.000 ENU" --stake-cpu "1.000 ENU" --buy-ram-kbytes 50 enumivo enu.wrap ENU8MMUW11TAdTDxqdSwSqJodefSoZbFhcprndomgLi9MeR2o8MT4 > generated_account_creation_trx.json
+$ enucli system newaccount -s -j -d --transfer --stake-net "1.000 SYS" --stake-cpu "1.000 SYS" --buy-ram-kbytes 50 enumivo enu.wrap ENU8MMUW11TAdTDxqdSwSqJodefSoZbFhcprndomgLi9MeR2o8MT4 > generated_account_creation_trx.json
 726964ms thread-0   main.cpp:429                  create_action        ] result: {"binargs":"0000000000ea305500004d1a03ea305500c80000"} arg: {"code":"enumivo","action":"buyrambytes","args":{"payer":"enumivo","receiver":"enu.wrap","bytes":51200}}
-726967ms thread-0   main.cpp:429                  create_action        ] result: {"binargs":"0000000000ea305500004d1a03ea3055102700000000000004535953000000001027000000000000045359530000000001"} arg: {"code":"enumivo","action":"delegatebw","args":{"from":"enumivo","receiver":"enu.wrap","stake_net_quantity":"1.0000 ENU","stake_cpu_quantity":"1.0000 ENU","transfer":true}}
+726967ms thread-0   main.cpp:429                  create_action        ] result: {"binargs":"0000000000ea305500004d1a03ea3055102700000000000004535953000000001027000000000000045359530000000001"} arg: {"code":"enumivo","action":"delegatebw","args":{"from":"enumivo","receiver":"enu.wrap","stake_net_quantity":"1.0000 SYS","stake_cpu_quantity":"1.0000 SYS","transfer":true}}
 $ cat generated_account_creation_trx.json
 {
   "expiration": "2018-06-29T17:11:36",
@@ -384,15 +384,15 @@ memory:
      quota:     49.74 KiB    used:     3.33 KiB  
 
 net bandwidth:
-     staked:          1.0000 ENU           (total stake delegated from account to self)
-     delegated:       0.0000 ENU           (total staked delegated to account from others)
+     staked:          1.0000 SYS           (total stake delegated from account to self)
+     delegated:       0.0000 SYS           (total staked delegated to account from others)
      used:                 0 bytes
      available:        2.304 MiB  
      limit:            2.304 MiB  
 
 cpu bandwidth:
-     staked:          1.0000 ENU           (total stake delegated from account to self)
-     delegated:       0.0000 ENU           (total staked delegated to account from others)
+     staked:          1.0000 SYS           (total stake delegated from account to self)
+     delegated:       0.0000 SYS           (total staked delegated to account from others)
      used:                 0 us   
      available:        460.8 ms   
      limit:            460.8 ms   
@@ -626,15 +626,15 @@ memory:
      quota:     49.74 KiB    used:     3.365 KiB  
 
 net bandwidth:
-     staked:          1.0000 ENU           (total stake delegated from account to self)
-     delegated:       0.0000 ENU           (total staked delegated to account from others)
+     staked:          1.0000 SYS           (total stake delegated from account to self)
+     delegated:       0.0000 SYS           (total staked delegated to account from others)
      used:                 0 bytes
      available:        2.304 MiB  
      limit:            2.304 MiB  
 
 cpu bandwidth:
-     staked:          1.0000 ENU           (total stake delegated from account to self)
-     delegated:       0.0000 ENU           (total staked delegated to account from others)
+     staked:          1.0000 SYS           (total stake delegated from account to self)
+     delegated:       0.0000 SYS           (total staked delegated to account from others)
      used:                 0 us   
      available:        460.8 ms   
      limit:            460.8 ms   
@@ -868,15 +868,15 @@ memory:
      quota:     49.74 KiB    used:     3.348 KiB  
 
 net bandwidth:
-     staked:          1.0000 ENU           (total stake delegated from account to self)
-     delegated:       0.0000 ENU           (total staked delegated to account from others)
+     staked:          1.0000 SYS           (total stake delegated from account to self)
+     delegated:       0.0000 SYS           (total staked delegated to account from others)
      used:                 0 bytes
      available:        2.304 MiB  
      limit:            2.304 MiB  
 
 cpu bandwidth:
-     staked:          1.0000 ENU           (total stake delegated from account to self)
-     delegated:       0.0000 ENU           (total staked delegated to account from others)
+     staked:          1.0000 SYS           (total stake delegated from account to self)
+     delegated:       0.0000 SYS           (total staked delegated to account from others)
      used:               413 us   
      available:        460.4 ms   
      limit:            460.8 ms   

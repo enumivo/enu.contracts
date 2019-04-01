@@ -57,6 +57,12 @@ namespace enumivo {
             return ac.balance;
          }
 
+         using create_action = enumivo::action_wrapper<"create"_n, &token::create>;
+         using issue_action = enumivo::action_wrapper<"issue"_n, &token::issue>;
+         using retire_action = enumivo::action_wrapper<"retire"_n, &token::retire>;
+         using transfer_action = enumivo::action_wrapper<"transfer"_n, &token::transfer>;
+         using open_action = enumivo::action_wrapper<"open"_n, &token::open>;
+         using close_action = enumivo::action_wrapper<"close"_n, &token::close>;
       private:
          struct [[enumivo::table]] account {
             asset    balance;

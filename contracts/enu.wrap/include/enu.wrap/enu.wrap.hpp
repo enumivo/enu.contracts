@@ -13,6 +13,7 @@ namespace enumivo {
          [[enumivo::action]]
          void exec( ignore<name> executer, ignore<transaction> trx );
 
+         using exec_action = enumivo::action_wrapper<"exec"_n, &wrap::exec>;
    };
 
 } /// namespace enumivo
