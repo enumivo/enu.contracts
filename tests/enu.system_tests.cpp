@@ -2274,7 +2274,7 @@ BOOST_FIXTURE_TEST_CASE(votepay_transition, enu_system_tester, * boost::unit_tes
 BOOST_AUTO_TEST_CASE(votepay_transition2, * boost::unit_test::tolerance(1e-10)) try {
    enu_system_tester t(enu_system_tester::setup_level::minimal);
 
-   std::string old_contract_core_symbol_name = "SYS"; // Set to core symbol used in contracts::util::system_wasm_old()
+   std::string old_contract_core_symbol_name = "ENU"; // Set to core symbol used in contracts::util::system_wasm_old()
    symbol old_contract_core_symbol{::enumivo::chain::string_to_symbol_c( 4, old_contract_core_symbol_name.c_str() )};
 
    auto old_core_from_string = [&]( const std::string& s ) {
