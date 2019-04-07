@@ -1,7 +1,7 @@
 #pragma once
 #include <enumivolib/action.hpp>
 #include <enumivolib/crypto.h>
-#include <enumivolib/enu.hpp>
+#include <enumivolib/enumivo.hpp>
 #include <enumivolib/privileged.hpp>
 #include <enumivolib/producer_schedule.hpp>
 

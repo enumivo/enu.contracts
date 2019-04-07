@@ -1,6 +1,6 @@
 #pragma once
 
-#include <enumivolib/enu.hpp>
+#include <enumivolib/enumivo.hpp>
 #include <enumivolib/ignore.hpp>
 #include <enumivolib/transaction.hpp>
 

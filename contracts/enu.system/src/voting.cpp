@@ -4,7 +4,7 @@
  */
 #include <enu.system/enu.system.hpp>
 
-#include <enumivolib/enu.hpp>
+#include <enumivolib/enumivo.hpp>
 #include <enumivolib/crypto.h>
 #include <enumivolib/datastream.hpp>
 #include <enumivolib/serialize.hpp>
