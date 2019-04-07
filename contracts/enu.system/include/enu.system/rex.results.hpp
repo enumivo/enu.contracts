@@ -1,8 +1,8 @@
 #pragma once
 
-#include <enulib/enu.hpp>
-#include <enulib/name.hpp>
-#include <enulib/asset.hpp>
+#include <enumivolib/enu.hpp>
+#include <enumivolib/name.hpp>
+#include <enumivolib/asset.hpp>
 
 using enumivo::name;
 using enumivo::asset;
