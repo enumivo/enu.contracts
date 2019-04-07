@@ -1,7 +1,7 @@
 #include <enu.msig/enu.msig.hpp>
-#include <enulib/action.hpp>
-#include <enulib/permission.hpp>
-#include <enulib/crypto.hpp>
+#include <enumivolib/action.hpp>
+#include <enumivolib/permission.hpp>
+#include <enumivolib/crypto.hpp>
 
 namespace enumivo {
 

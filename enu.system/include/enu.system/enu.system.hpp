@@ -5,10 +5,10 @@
 #pragma once
 
 #include <enu.system/native.hpp>
-#include <enulib/asset.hpp>
-#include <enulib/time.hpp>
-#include <enulib/privileged.hpp>
-#include <enulib/singleton.hpp>
+#include <enumivolib/asset.hpp>
+#include <enumivolib/time.hpp>
+#include <enumivolib/privileged.hpp>
+#include <enumivolib/singleton.hpp>
 #include <enu.system/exchange_state.hpp>
 
 #include <string>
