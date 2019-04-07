@@ -1,6 +1,6 @@
 #include <enu.system/enu.system.hpp>
-#include <enumivolib/dispatcher.hpp>
-#include <enumivolib/crypto.h>
+#include <enulib/dispatcher.hpp>
+#include <enulib/crypto.h>
 
 #include "producer_pay.cpp"
 #include "delegate_bandwidth.cpp"

@@ -4,8 +4,8 @@
  */
 #pragma once
 
-#include <enumivolib/asset.hpp>
-#include <enumivolib/enumivo.hpp>
+#include <enulib/asset.hpp>
+#include <enulib/enu.hpp>
 
 #include <string>
 

@@ -1,9 +1,9 @@
 #pragma once
-#include <enumivolib/action.hpp>
-#include <enumivolib/crypto.h>
-#include <enumivolib/enumivo.hpp>
-#include <enumivolib/privileged.hpp>
-#include <enumivolib/producer_schedule.hpp>
+#include <enulib/action.hpp>
+#include <enulib/crypto.h>
+#include <enulib/enu.hpp>
+#include <enulib/privileged.hpp>
+#include <enulib/producer_schedule.hpp>
 
 namespace enumivo {
    using enumivo::permission_level;

@@ -1,7 +1,7 @@
 #pragma once
-#include <enumivolib/enumivo.hpp>
-#include <enumivolib/ignore.hpp>
-#include <enumivolib/transaction.hpp>
+#include <enulib/enu.hpp>
+#include <enulib/ignore.hpp>
+#include <enulib/transaction.hpp>
 
 namespace enumivo {
 

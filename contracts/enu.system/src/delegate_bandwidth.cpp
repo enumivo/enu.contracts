@@ -4,12 +4,12 @@
  */
 #include <enu.system/enu.system.hpp>
 
-#include <enumivolib/enumivo.hpp>
-#include <enumivolib/datastream.hpp>
-#include <enumivolib/serialize.hpp>
-#include <enumivolib/multi_index.hpp>
-#include <enumivolib/privileged.h>
-#include <enumivolib/transaction.hpp>
+#include <enulib/enu.hpp>
+#include <enulib/datastream.hpp>
+#include <enulib/serialize.hpp>
+#include <enulib/multi_index.hpp>
+#include <enulib/privileged.h>
+#include <enulib/transaction.hpp>
 
 #include <enu.token/enu.token.hpp>
 

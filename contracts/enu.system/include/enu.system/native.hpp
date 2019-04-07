@@ -4,13 +4,13 @@
  */
 #pragma once
 
-#include <enumivolib/action.hpp>
-#include <enumivolib/public_key.hpp>
-#include <enumivolib/print.hpp>
-#include <enumivolib/privileged.h>
-#include <enumivolib/producer_schedule.hpp>
-#include <enumivolib/contract.hpp>
-#include <enumivolib/ignore.hpp>
+#include <enulib/action.hpp>
+#include <enulib/public_key.hpp>
+#include <enulib/print.hpp>
+#include <enulib/privileged.h>
+#include <enulib/producer_schedule.hpp>
+#include <enulib/contract.hpp>
+#include <enulib/ignore.hpp>
 
 namespace enumivosystem {
    using enumivo::name;
